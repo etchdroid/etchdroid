@@ -1,2 +1,2 @@
-• EtchDroid verwendet jetzt libusb unter der Haube.  Dies sollte eine deutlich verbesserte Stabilität bringen.
- • Die Umschaltung des Nachtmodus ist bei Pie oder neuer deaktiviert, da dies für viele Menschen Probleme bereiten würde.  Bitte lassen Sie mich wissen, wenn Sie es zurückhaben möchten.
+• EtchDroid verwendet jetzt libusb unter der Haube. Dies sollte eine deutlich verbesserte Stabilität bringen.
+• Die Umschaltung des Nachtmodus ist bei Pie oder neuer deaktiviert, da dies für viele Menschen Probleme bereiten würde. Bitte lassen Sie mich wissen, wenn Sie es zurückhaben möchten.
