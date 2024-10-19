@@ -55,18 +55,17 @@
     <string name="microsoft_windows_isos_any_version">Microsoft Windows ISOs (jede Version)</string>
     <string name="apple_dmg_disk_images">Apple DMG Festplattenabbilder</string>
     <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, usw.</string>
-    <string name="notification_write_no_notifications_text">Aktiviere Benachrichtigungen für Fortschritt
-\nSchreibe %1$s zu %2$s</string>
-    <string name="notification_verify_no_notifications_text">Benachrichtigungen für Fortschritt aktivieren • Verifiziert %1$s gegen %2$s</string>
-    <string name="notification_write_tap_for_progress_text">Antippen für Fortschritt • Schreibt %1$s zu %2$s</string>
+    <string name="notification_write_no_notifications_text">Fortschrittsbenachrichtigungen aktivieren • Schreiben von %1$s nach %2$s</string>
+    <string name="notification_verify_no_notifications_text">Fortschrittsbenachrichtigungen aktivieren • Überprüfung von %1$s gegen %2$s</string>
+    <string name="notification_write_tap_for_progress_text">Für Fortschritt tippen • Schreiben von %1$s zu %2$s</string>
     <string name="a_regular_windows_iso_won_t_work">Eine normale Windows ISO wird nicht mit EtchDroid funktionieren, außer sie wurde spezifisch für den gebraucht mit EtchDroid, Etcher oder dd generiert.</string>
     <string name="writing_the_image_will_erase">Schreiben des Datenträgerabbilds wird alle Daten vom ausgewählten Datenträger löschen</string>
-    <string name="lay_your_device_flat_no_accel">Legen sie ihr Gerät flach auf einen Tisch bevor sie fortsetzen.</string>
+    <string name="lay_your_device_flat_no_accel">Legen Sie Ihr Gerät flach auf einen Tisch bevor Sie fortfahren.</string>
     <string name="lay_your_device_flat">Legen sie ihr Gerät flach auf einen Tisch und fassen sie es nicht an</string>
     <string name="usb_flash_drives">USB-Sticks</string>
     <string name="memory_cards_using_a_usb_adapter">SD-Karten, mithilfe eines USB Adapters</string>
     <string name="usb_hard_drives_ssds_some_might_work">USB Festplatten / SSDs (manche könnten funktionieren</string>
-    <string name="usb_docks_and_hubs_might_have_power_issues">USB docks und hubs (sie könnten Probleme mit der Stromversorgung haben)</string>
+    <string name="usb_docks_and_hubs_might_have_power_issues">USB-Docks und -Hubs (können Probleme mit der Stromversorgung haben)</string>
     <string name="memory_cards_using_the_internal_slot">SD-Karten, wenn man den internen Steckplatz verwendet</string>
     <string name="any_thunderbolt_only_device">Irgendein Gerät, welches nur mit Thunderbolt funktioniert</string>
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">Live ISOs anderer moderner GNU/Linux und BSD Distributionen</string>
@@ -121,4 +120,10 @@
     <string name="service_timeout_message">Der Schreibprozess scheint stecken geblieben zu sein. Bitte versuchen sie es erneut.</string>
     <string name="community_windows_images">Windows Datenträgerabbilder, welche von der Community für EtchDroid gemacht wurden (Sie sind auf sich allein gestellt: Sie könnten Viren enthalten!)</string>
     <string name="would_you_like_to_be_notified">Möchten Sie benachrichtigt werden, wenn der Vorgang abgeschlossen ist? Nur Fortschrittsaktualisierungen, kein Spam oder Werbung.</string>
+    <string name="to_recover_unplug">Trennen Sie zur Wiederherstellung Ihr USB-Laufwerk, schließen Sie es wieder an und erteilen Sie erneut die Berechtigung, darauf zuzugreifen.</string>
+    <string name="please_report_fatal_issue">Wenn möglich, melde diesen Fehler bitte auf Github und beschreibe die Schritte, die zu diesem Fehler geführt haben.</string>
+    <string name="representation_of_the_required_steps">Darstellung der erforderlichen Schritte: Trennen, erneutes Verbinden, Berechtigung erteilen</string>
+    <string name="worker_null_device_error">Ein Schreibversuch wurde gestartet aber etwas ist schiefgelaufen. Bitte versuche es erneut.</string>
+    <string name="start_over">Neu anfangen</string>
+    <string name="it_s_safe_to_ignore">Es ist sicher zu ignorieren! Trennen Sie einfach Ihr Laufwerk und verwenden Sie es normal. %1$s und erfahren Sie, wie Sie Ihr Laufwerk später formatieren.</string>
 </resources>
