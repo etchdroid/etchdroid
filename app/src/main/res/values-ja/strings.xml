@@ -15,8 +15,8 @@
     <string name="action_required">アクションが必要</string>
     <string name="notification_write_progress_title">イメージを書き込んでいます…</string>
     <string name="about">このアプリについて</string>
-    <string name="permission_denied_for_usb_device">USB デバイス %1$s の許可が拒否されました</string>
-    <string name="whats_supported">何がサポートされていますか?</string>
+    <string name="permission_denied_for_usb_device">USB デバイス %1$s のアクセスが拒否されました</string>
+    <string name="whats_supported">サポートされているデバイス・ファイルを見る</string>
     <string name="style">スタイル</string>
     <string name="notification_write_tap_for_progress_text">タップして進捗 • %1$s を %2$s に書き込む</string>
     <string name="notification_write_progress_content">%1$s から %2$sへ</string>
@@ -28,7 +28,7 @@
     <string name="light">ライト</string>
     <string name="dynamic_colors">ダイナミックカラー</string>
     <string name="a_regular_windows_iso_won_t_work">通常のWindows ISOは、EtchDroid、Etcherまたはddで使用するために特別に用意されていない限り、EtchDroidで動作しません。</string>
-    <string name="is_this_a_windows_iso">これは Windows ISO ですか?</string>
+    <string name="is_this_a_windows_iso">これは Windows ISO ですか。</string>
     <string name="continue_anyway">とにかく実行する</string>
     <string name="confirm_operation">実行内容の確認</string>
     <string name="select_a_usb_drive">USBドライブを選択</string>
@@ -37,7 +37,7 @@
     <string name="image_to_write">書き込むイメージ</string>
     <string name="destination_usb_device">対象のUSBデバイス</string>
     <string name="unknown_device">未知のデバイス</string>
-    <string name="be_careful">注意!</string>
+    <string name="be_careful">ご注意ください。</string>
     <string name="disk_image">ディスクイメージ</string>
     <string name="usb_drive">USBドライブ</string>
     <string name="grant_access">アクセス許可</string>
@@ -70,8 +70,8 @@
     <string name="to">の</string>
     <string name="getting_ready">準備中…</string>
     <string name="error">エラー</string>
-    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">これは予想外で、おそらくバグです。報告してください！</string>
-    <string name="representation_of_the_required_steps">必要な手順の説明: プラグを抜いて、再接続して、許可を与える</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">これは予測されていない問題で、おそらくバグです。報告してください。</string>
+    <string name="representation_of_the_required_steps">必要な手順: ドライブをUSBポートから取り外し、再接続します。その後、アクセス許可を与えてください。</string>
     <string name="usb_device_reconnected_resuming">USB デバイスの再接続、再開</string>
     <string name="the_device_is_not_responding">デバイスが応答していません</string>
     <string name="the_usb_device_content_does_not_match_the_image">USB デバイスの内容がイメージと一致しません</string>
@@ -89,21 +89,21 @@
     <string name="apple_dmg_disk_images">Apple DMG ディスク イメージ</string>
     <string name="raspberry_pi_sd_card_images_unzip_first">Raspberry Pi SD カード イメージ (先に解凍してください!)</string>
     <string name="support_for_dmg_images_was_removed">DMG イメージのサポートは EtchDroid 2.0 で削除されました。以前のバージョンは %1$s からダウンロードできます。</string>
-    <string name="would_you_like_to_be_notified">完了時に通知を受け取りますか?進行状況の更新のみで、スパムや広告はありません。</string>
+    <string name="would_you_like_to_be_notified">完了時に通知を受け取りますか。進行状況の更新のみで、スパムや広告は送信されません。</string>
     <string name="copying">コピー中</string>
     <string name="to_recover_unplug">回復するには、USB ドライブを取り外し、再度接続し、再度アクセスする許可を与えます。</string>
     <string name="skip_verification">検証をスキップ</string>
-    <string name="got_an_unsupported_drive_notification">「サポートされていないドライブ」の通知を受け取りましたか?</string>
+    <string name="got_an_unsupported_drive_notification">「サポートされていないドライブ」の通知を受け取りましたか。</string>
     <string name="image_written_successfully">イメージが正常に書き込まれました!</string>
     <string name="write_a_review">レビューを残す</string>
-    <string name="it_s_safe_to_ignore">無視しても安全です！ドライブのプラグを抜いて、通常どおり使用してください。 %1$s を参照して、後でドライブをフォーマットする方法を確認してください。</string>
+    <string name="it_s_safe_to_ignore">無視しても安全です。ドライブを取り外して、通常どおり使用してください。 %1$s を参照して、後でドライブをフォーマットする方法を確認してください。</string>
     <string name="try_again">再試行</string>
-    <string name="i_did_not_unplug_it">抜きませんでした！</string>
+    <string name="i_did_not_unplug_it">抜きませんでした。</string>
     <string name="star_on_github">GitHub にスターを付ける</string>
-    <string name="learn_what_it_means">それが何を意味するかを学ぶ</string>
+    <string name="learn_what_it_means">詳細を見る</string>
     <string name="there_was_an_error">エラーが発生しました</string>
     <string name="start_over">最初からやり直す</string>
-    <string name="perhaps_your_usb_port_is_dirty">おそらく、USB ポートが汚れているか、アダプターに欠陥があるか、またはデバイスが十分な電力を供給できない可能性があります。別のアダプターまたはデバイスを試すことを検討してください。</string>
+    <string name="perhaps_your_usb_port_is_dirty">おそらく、USB ポートが汚れているか、アダプターに欠陥があるか、またはデバイスが十分な電力を供給できない可能性があります。別のアダプターまたはドライブをお試しください。</string>
     <string name="usb_drives_are_unreliable">USB ドライブは信頼性が低く、Android は自動的に回復するための十分な権限を付与しません。私たちは持っているもので間に合わせなければなりません！</string>
     <string name="an_unknown_error_occurred">不明なエラーが発生しました: %1$s</string>
     <string name="could_not_open_the_source_file">ソース ファイルを開けませんでした</string>
@@ -113,7 +113,7 @@
     <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux、Ubuntu、Debian、Fedora、pop!_OS、Linux Mint、FreeBSD etc.</string>
     <string name="review">レビュー</string>
     <string name="sure">許可する</string>
-    <string name="how_did_this_happen">何が起きた?</string>
+    <string name="how_did_this_happen">何が起きましたか。</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Balena Etcher または dd で動作するその他のイメージ</string>
     <string name="writing_image">イメージを書き込み</string>
     <string name="against">の</string>
@@ -121,5 +121,5 @@
     <string name="no_image_uri_provided">イメージのURIが提供されていません</string>
     <string name="no_destination_device_selected">選択したパスのデバイスがありません</string>
     <string name="service_timeout_message">書き込みプロセスがスタックしたようです。 もう一度お試しください。</string>
-    <string name="community_windows_images">EtchDroidのために作られたコミュニティ製のWindowsイメージ（自分の事は自分でやれ: ウィルスが含まれている可能性があります!）</string>
+    <string name="community_windows_images">EtchDroidのために作られたコミュニティ製のWindowsイメージ（自己責任です。ウィルスが含まれている可能性があります）</string>
 </resources>
