@@ -21,7 +21,7 @@
     <string name="notification_write_tap_for_progress_text">タップして進捗 • %1$s を %2$s に書き込む</string>
     <string name="notification_write_progress_content">%1$s から %2$sへ</string>
     <string name="notification_verify_progress_content">%1$s を検証中 %2$s</string>
-    <string name="write_an_image">イメージを書き込んでいます</string>
+    <string name="write_an_image">イメージを書き込む</string>
     <string name="usb_device_was_unplugged">USB デバイスが取り外されました</string>
     <string name="dark">ダーク</string>
     <string name="device_setting">デバイス設定</string>
@@ -87,7 +87,7 @@
     <string name="usb_flash_drives">USBフラッシュドライブ</string>
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">その他の最新の GNU/Linux および BSD ディストリビューションのライブ ISO</string>
     <string name="apple_dmg_disk_images">Apple DMG ディスク イメージ</string>
-    <string name="raspberry_pi_sd_card_images_unzip_first">Raspberry Pi SD カード イメージ (先に解凍してください!)</string>
+    <string name="raspberry_pi_sd_card_images_unzip_first">Raspberry Pi SD カード イメージ (先に解凍してください)</string>
     <string name="support_for_dmg_images_was_removed">DMG イメージのサポートは EtchDroid 2.0 で削除されました。以前のバージョンは %1$s からダウンロードできます。</string>
     <string name="would_you_like_to_be_notified">完了時に通知を受け取りますか。進行状況の更新のみで、スパムや広告は送信されません。</string>
     <string name="copying">コピー中</string>
@@ -104,7 +104,7 @@
     <string name="there_was_an_error">エラーが発生しました</string>
     <string name="start_over">最初からやり直す</string>
     <string name="perhaps_your_usb_port_is_dirty">おそらく、USB ポートが汚れているか、アダプターに欠陥があるか、またはデバイスが十分な電力を供給できない可能性があります。別のアダプターまたはドライブをお試しください。</string>
-    <string name="usb_drives_are_unreliable">USB ドライブは信頼性が低く、Android は自動的に回復するための十分な権限を付与しません。私たちは持っているもので間に合わせなければなりません！</string>
+    <string name="usb_drives_are_unreliable">USB ドライブは信頼性が低く、Android は自動的に回復するための十分な権限を付与しません。自力で行わなければなりません。</string>
     <string name="an_unknown_error_occurred">不明なエラーが発生しました: %1$s</string>
     <string name="could_not_open_the_source_file">ソース ファイルを開けませんでした</string>
     <string name="writing_the_image_will_erase">イメージを書き込むと、選択したドライブのすべてのデータが消去されます</string>
