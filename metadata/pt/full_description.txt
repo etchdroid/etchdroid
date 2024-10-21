@@ -1,16 +1,25 @@
-O EtchDroid é uma aplicação sob a licença GPLv3+ para ajudar a gravar imagens em unidades USB.
-Use-o para fazer uma unidade USB GNU/Linux inicializável quando o seu portátil estiver morto e estiver no meio do nada.
+EtchDroid é uma aplicação open-source que ajudará-lhe a escrever ISOs para USBs.
+Use para fazer USBs bootaveis com OS quando o OS do seu PC estiver morto.
 
-Características:
-- Suporta imagens de disco em bruto (RAW) e a maioria das distribuições GNU/Linux ISOs
-- Suporta imagens Raspberry Pi (extraia primeiro o ficheiro ZIP; use um adaptador SD para USB, a ranhura interna de SD não é suportada)
-- Suporta a maioria das imagens de disco DMG (beta)
-- Sem root - tudo é feito nos limites da API do Android
-- Livre como em liberdade
+⭐️ Dispositivos Suportados ⭐️
 
-Planeado:
-- Gravar a distro comum GNU/Linux em streaming a partir da Internet sem armazená-la no aparelho
-- Suporte para ISO de instalação do Windows (provavelmente exigirá root)
-- Suporte para flashes de imagem em estilo Unetbootin
+✅ Drives USB
+✅ Apdatadores USB SD
+❌ HDDs / SSDs Externos
+❌ USB Hubs e docks
+❌ Slot SD card interno
+❌ CDs/Floppy disks
+❌ Apenas Dispositivos Thunderbolt
 
-O código-fonte encontra-se no GitHub: https://github.com/Depau/EtchDroid
+
+⭐️ ISOs Suportadas⭐️
+
+✅ ISOsGNU/Linux modernos, incluindo Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS e muito mais.
+✅ Imagens Raspberry PI SD card ( Precisas de descompactar primeiro!)
+❌ Windows ISOs oficiais da Microsoft
+⚠️ Windows ISOs da comunidade, feitas para o EtchDroid (CUIDADO: Elas poderão conter virus!)
+❌ Imagnes Apple DMG
+❌ ISOs GNU/Linux Antigos < 2010 como Damn Small Linux
+
+
+Codigo-fonte está no GitHub: https://github.com/EtchDroid/EtchDroid
