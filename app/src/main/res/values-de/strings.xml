@@ -71,7 +71,7 @@
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">Live-ISOs anderer moderner GNU/Linux- und BSD-Distributionen</string>
     <string name="raspberry_pi_sd_card_images_unzip_first">Raspberry Pi SD-Karten-Abbilder (zuerst entpacken!)</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Jedes andere Abbild, das mit Balena Etcher oder dd funktioniert</string>
-    <string name="older_gnu_linux_distributions_isos_2010">ISOs älterer GNU/Linux-Distributionen (&lt; 2010)</string>
+    <string name="older_gnu_linux_distributions_isos_2010"><![CDATA[ISOs älterer GNU/Linux-Distributionen (< 2010)]]></string>
     <string name="support_for_dmg_images_was_removed">Die Unterstützung für DMG-Abbilder wurde in EtchDroid 2.0 entfernt. Ältere Versionen können von %1$s heruntergeladen werden.</string>
     <string name="developed_by">Entwickelt von %1$s und anderen %2$s.\nQuellcode verfügbar auf %3$s.\nLizenziert unter der GNU GPLv3-Lizenz.</string>
     <string name="contributors">Mitwirkenden</string>
@@ -126,4 +126,10 @@
     <string name="it_s_safe_to_ignore">Es ist sicher zu ignorieren! Trennen Sie einfach Ihr Laufwerk und verwenden Sie es normal. %1$s und erfahren Sie, wie Sie Ihr Laufwerk später formatieren.</string>
     <string name="view_github_issues">Github Fehler ansehen</string>
     <string name="got_an_unsupported_drive_notification">Eine Benachrichtigung „Nicht unterstütztes Laufwerk“ erhalten?</string>
+    <string name="telemetry">Telemetrie</string>
+    <string name="telemetry_opt_out">Ausstiegsklausel</string>
+    <string name="privacy_policy">Datenschutzerklärung</string>
+    <string name="telemetry_keep_enabled">Aktiviert lassen</string>
+    <string name="we_need_your_help">Wir brauchen deine Hilfe!</string>
+    <string name="telemetry_icon">Telemetrie-Symbol</string>
 </resources>
