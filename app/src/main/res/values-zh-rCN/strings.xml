@@ -64,7 +64,7 @@
     <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD等。</string>
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">其他现代GNU/Linux和BSD发行版的即时ISO文件</string>
     <string name="raspberry_pi_sd_card_images_unzip_first">树莓派 SD 卡镜像（请先解压缩！）</string>
-    <string name="older_gnu_linux_distributions_isos_2010">旧版的GNU/Linux发行版ISO镜像（&lt; 2010年）</string>
+    <string name="older_gnu_linux_distributions_isos_2010"><![CDATA[旧的 GNU/Linux 发行版 ISO镜像（< 2010年）]]></string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">任何其他与Balena Etcher或dd兼容的映像</string>
     <string name="support_for_dmg_images_was_removed">EtchDroid 2.0 取消了对 DMG 镜像的支持。旧版本可从 %1$s 下载。</string>
     <string name="website">网站</string>
@@ -128,4 +128,11 @@
     <string name="worker_null_device_error">启动了写入尝试，但某些信息在此过程中丢失了。请重试。</string>
     <string name="please_report_fatal_issue">如果可以，请在 GitHub 上报告此问题，描述导致此错误的步骤。</string>
     <string name="view_github_issues">查看 GitHub Issues</string>
+    <string name="we_need_your_help">我们需要你的帮助！</string>
+    <string name="telemetry_opt_out">退出</string>
+    <string name="telemetry">遥测</string>
+    <string name="telemetry_keep_enabled">保持开启</string>
+    <string name="privacy_policy">隐私政策</string>
+    <string name="telemetry_icon">遥测图标</string>
+    <string name="telemetry_rationale">EtchDroid 重视你的隐私，只使用最低限度的遥测来调查应用问题。.\n\n成为我们开源社区的一部分 — 保持遥测开启，帮助 EtchDroid 变得更好！\n\n虽然我们不收集任何个人识别信息，但我们希望你知道如果启用遥测，那么应用会匿名收集你打开的映像文件名和 USB 设备 ID 帮助诊断特定硬件的问题。除非你的映像文件名或高度机密，不然分享这些数据是安全的。 (%1$s)</string>
 </resources>
