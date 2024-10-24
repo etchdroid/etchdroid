@@ -82,7 +82,7 @@
     <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux و Ubuntu و Debian و Fedora و pop! _OS و Linux Mint و FreeBSD إلخ.</string>
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">توزيعات GNU / Linux و BSD الحديثة الأخرى لـ ISOs الحية</string>
     <string name="raspberry_pi_sd_card_images_unzip_first">صور بطاقة Raspberry Pi SD (قم بفك الضغط أولاً!)</string>
-    <string name="older_gnu_linux_distributions_isos_2010">إصدارات ISO لتوزيعات GNU / Linux الأقدم (&lt;2010)</string>
+    <string name="older_gnu_linux_distributions_isos_2010"><![CDATA[Older GNU/Linux distributions\' ISOs (< 2010)]]></string>
     <string name="developed_by">طور بواسطة %1$s وآخرون %2$s.
 \nكود المصدر متاح على %3$s.
 \nمُرخصة بموجب ترخيص GNU GPLv3.</string>
@@ -125,4 +125,11 @@
     <string name="worker_null_device_error">حاول مرة أخرى.</string>
     <string name="view_github_issues">عرض المشكلات على GitHub</string>
     <string name="please_report_fatal_issue">إذا استطعت، يرجى الإبلاغ عن هذه المشكلة على GitHub مع الخطوات التي أدت إلى هذا الخطأ.</string>
+    <string name="telemetry">القياس عن بعد</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="telemetry_opt_out">الخروج من الخدمة</string>
+    <string name="telemetry_keep_enabled">أبقها مفعلة</string>
+    <string name="we_need_your_help">نحن بحاجة لمساعدتك!</string>
+    <string name="telemetry_rationale">تقدر EtchDroid خصوصيتك وتستخدم فقط الحد الأدنى من القياس عن بُعد للتحقيق في مشكلات التطبيق.\n\nكن جزءًا من تمكين القياس عن بُعد المفتوح المصدر للحفاظ على المجتمع وساعد في تحسين EtchDroid للجميع!\n\nعلى الرغم من أننا لا نجمع أي معلومات تعريف شخصية، إلا أننا نؤمن بالشفافية ونريدك أن تعرف أن أسماء ملفات صور القرص المفتوحة ومعرفات أجهزة USB يتم جمعها بشكل مجهول للمساعدة في تشخيص المشكلات المتعلقة بأجهزة معينة. ما لم تكن أسماء ملفات صور القرص أو معرّفات الأجهزة حساسة للغاية، فمن الآمن مشاركة هذه البيانات. (%1$s)‭‭‭</string>
+    <string name="telemetry_icon">ايقونة القياس عن بعد</string>
 </resources>
