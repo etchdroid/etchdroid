@@ -132,4 +132,5 @@
     <string name="telemetry_keep_enabled">Aktiviert lassen</string>
     <string name="we_need_your_help">Wir brauchen deine Hilfe!</string>
     <string name="telemetry_icon">Telemetrie-Symbol</string>
+    <string name="telemetry_rationale">EtchDroid schätzt deine Privatsphäre und verwendet nur minimale Telemetrie zur Untersuchung von App-Problemen.\n\nSei ein Teil unserer Open-Source-Community — halte die Telemetrie aktiviert und hilf mit, EtchDroid für alle zu verbessern!\n\nObwohl wir keine personenbezogenen Daten sammeln, legen wir Wert auf Transparenz und möchten, dass du weißt, dass die Namen von geöffneten Bilddateien und USB-Geräte-Kennungen anonym gesammelt werden, um Probleme mit bestimmter Hardware zu diagnostizieren. Sofern deine Bilddateinamen oder Geräte-Kennungen nicht hochsensibel sind, ist es sicher, diese Daten weiterzugeben. (%1$s)</string>
 </resources>
