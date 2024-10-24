@@ -77,7 +77,7 @@
     <string name="apple_dmg_disk_images">Imágenes del disco DMG de Apple</string>
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">ISO para visualización de distribuciones modernas GNU/Linux o BSD</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Cualquier otra imagen que funcione con Balena Etcher o dd</string>
-    <string name="older_gnu_linux_distributions_isos_2010">ISOs de distribuciones GNU/Linux más antiguas (anterior al 2010)</string>
+    <string name="older_gnu_linux_distributions_isos_2010"><![CDATA[Older GNU/Linux distributions\' ISOs (< 2010)]]></string>
     <string name="support_for_dmg_images_was_removed">La compatibilidad con imágenes DMG se eliminó en EtchDroid 2.0. Las versiones anteriores se pueden descargar desde %1$s .</string>
     <string name="developed_by">Desarrollado por %1$s y otros %2$s.
 \nCódigo fuente disponible en %3$s.
@@ -125,4 +125,11 @@
     <string name="please_report_fatal_issue">Si puedes, informa de este problema en GitHub junto con los pasos que condujeron a este error.</string>
     <string name="view_github_issues">Ver las incidencias de GitHub</string>
     <string name="worker_null_device_error">Se ha iniciado un intento de escritura pero desafortunadamente alguna información se perdió. Por favor, inténtelo de nuevo.</string>
+    <string name="telemetry_rationale">EtchDroid valora su privacidad y solo utiliza telemetría mínima para investigar problemas de la aplicación.\n\nSer parte de nuestra comunidad de código abierto-mantener la telemetría habilitada y ayudar a mejorar EtchDroid para todos!\n\nAunque no recopilamos ninguna información de identificación personal, creemos en la transparencia y queremos que sepas que los nombres de archivos de imágenes abiertas y las identificaciones de dispositivos USB se recopilan de forma anónima para ayudar a diagnosticar problemas con hardware específico. A menos que los nombres de sus archivos de imagen o identificadores de dispositivo sean altamente sensibles, es seguro compartir estos datos. (%1$s)</string>
+    <string name="telemetry">Telemetría</string>
+    <string name="privacy_policy">Política de privacidad</string>
+    <string name="we_need_your_help">¡Necesitamos tu ayuda!</string>
+    <string name="telemetry_icon">Icono de telemetría</string>
+    <string name="telemetry_opt_out">Desactivar telemetría</string>
+    <string name="telemetry_keep_enabled">Habilitar telemetría</string>
 </resources>
