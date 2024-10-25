@@ -120,4 +120,5 @@
     <string name="title_activity_confirm_operation">אישור פעולה</string>
     <string name="no_image_uri_provided">לא סופקה כתובת תמונה מלאה</string>
     <string name="no_destination_device_selected">לא נבחר התקן יעד</string>
+    <string name="privacy_policy">מדיניות פרטיות</string>
 </resources>
