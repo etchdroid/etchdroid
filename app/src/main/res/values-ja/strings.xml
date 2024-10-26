@@ -16,12 +16,12 @@
     <string name="notification_write_progress_title">イメージを書き込んでいます…</string>
     <string name="about">このアプリについて</string>
     <string name="permission_denied_for_usb_device">USB デバイス %1$s の許可が拒否されました</string>
-    <string name="whats_supported">何がサポートされていますか?</string>
+    <string name="whats_supported">対応イメージの形式は？</string>
     <string name="style">スタイル</string>
     <string name="notification_write_tap_for_progress_text">タップして進捗 • %1$s を %2$s に書き込む</string>
     <string name="notification_write_progress_content">%1$s から %2$sへ</string>
     <string name="notification_verify_progress_content">%1$s を検証中 %2$s</string>
-    <string name="write_an_image">イメージを書き込んでいます</string>
+    <string name="write_an_image">イメージの書き込み</string>
     <string name="usb_device_was_unplugged">USB デバイスが取り外されました</string>
     <string name="dark">ダーク</string>
     <string name="device_setting">デバイス設定</string>
@@ -58,7 +58,7 @@
     <string name="floppy_disk_drives">フロッピー ディスク ドライブ</string>
     <string name="disk_images">ディスクイメージ</string>
     <string name="website">ウェブサイト</string>
-    <string name="older_gnu_linux_distributions_isos_2010">古い GNU/Linux ディストリビューションの ISO (&lt; 2010)</string>
+    <string name="older_gnu_linux_distributions_isos_2010"><![CDATA[古い GNU/Linux ディストリビューションの ISO (< 2010)]]></string>
     <string name="developed_by">%1$s と他の %2$s によって開発されました。
 \n%3$s で利用可能なソース コード。
 \nGNU GPLv3 ライセンスの下でライセンスされています。</string>
@@ -70,7 +70,7 @@
     <string name="to">の</string>
     <string name="getting_ready">準備中…</string>
     <string name="error">エラー</string>
-    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">これは予想外で、おそらくバグです。報告してください！</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">これは想定外で、恐らくはバグです。報告をお願いします！</string>
     <string name="representation_of_the_required_steps">必要な手順の説明: プラグを抜いて、再接続して、許可を与える</string>
     <string name="usb_device_reconnected_resuming">USB デバイスの再接続、再開</string>
     <string name="the_device_is_not_responding">デバイスが応答していません</string>
@@ -91,12 +91,12 @@
     <string name="support_for_dmg_images_was_removed">DMG イメージのサポートは EtchDroid 2.0 で削除されました。以前のバージョンは %1$s からダウンロードできます。</string>
     <string name="would_you_like_to_be_notified">完了時に通知を受け取りますか?進行状況の更新のみで、スパムや広告はありません。</string>
     <string name="copying">コピー中</string>
-    <string name="to_recover_unplug">回復するには、USB ドライブを取り外し、再度接続し、再度アクセスする許可を与えます。</string>
+    <string name="to_recover_unplug">回復するには、USB ドライブを取り外し、再接続して再度アクセス許可を付与します。</string>
     <string name="skip_verification">検証をスキップ</string>
     <string name="got_an_unsupported_drive_notification">「ドライブに関する問題」の通知を受け取りましたか?</string>
     <string name="image_written_successfully">イメージが正常に書き込まれました!</string>
-    <string name="write_a_review">レビューを残す</string>
-    <string name="it_s_safe_to_ignore">無視しても安全です！ドライブのプラグを抜いて、通常どおり使用してください。 %1$s を参照して、後でドライブをフォーマットする方法を確認してください。</string>
+    <string name="write_a_review">レビューする</string>
+    <string name="it_s_safe_to_ignore">この通知は無視しても大丈夫です！ドライブのプラグを抜いて、通常どおり使用してください。 %1$s を参照した後、ドライブをフォーマットする方法を確認してください。</string>
     <string name="try_again">再試行</string>
     <string name="i_did_not_unplug_it">私は接続を解除していません！</string>
     <string name="star_on_github">GitHub にスターを付ける</string>
@@ -121,8 +121,15 @@
     <string name="no_image_uri_provided">イメージのURIが提供されていません</string>
     <string name="no_destination_device_selected">選択したパスのデバイスがありません</string>
     <string name="service_timeout_message">書き込みプロセスがスタックしたようです。 もう一度お試しください。</string>
-    <string name="community_windows_images">EtchDroidのために作られたコミュニティ製のWindowsイメージ（自分の事は自分でやれ: ウィルスが含まれている可能性があります!）</string>
+    <string name="community_windows_images">EtchDroid向けに作成されたコミュニティ製Windowsイメージです。（自己責任: ウィルスが含まれている可能性があります!）</string>
     <string name="view_github_issues">GitHub Issueを見る</string>
     <string name="worker_null_device_error">イメージを書き込もうとしましたが、エラーが発生しました。もう一度お試しください。</string>
     <string name="please_report_fatal_issue">お手数ですが、GitHub Issueを用いてこのエラーの発生する手順についてご報告いただけますでしょうか。</string>
+    <string name="telemetry_rationale">EtchDroidはあなたのプライバシーを尊重し、アプリの問題調査の為の最小限の遠隔情報のみを利用します。\n\nEtchDroidオープンソース・コミュニティの一員として、遠隔情報収集を有効にして、EtchDroidの改善にご協力下さい！\n\n私たちは個人を特定する情報は収集しませんが、透明を信じており、特定のハードウェアの問題を診断する為に、利用されたイメージファイル名とUSBデバイスIDを匿名で収集される点をご認識頂ければと存じます。イメージファイル名やデバイスIDが非常に機密性の高いものでない限りは、当該データの共有は安全です。 (%1$s)</string>
+    <string name="telemetry">遠隔情報の収集</string>
+    <string name="privacy_policy">プライバシーポリシー</string>
+    <string name="we_need_your_help">ご支援をお待ちしております！</string>
+    <string name="telemetry_icon">遠隔測定アイコン</string>
+    <string name="telemetry_opt_out">オプトアウト</string>
+    <string name="telemetry_keep_enabled">有効状態を維持</string>
 </resources>
