@@ -1,24 +1,24 @@
 EtchDroidはUSBドライブへのイメージ書き込みを支援するオープンソースアプリケーションです。
-ノートパソコンが壊れたときに、起動可能なオペレーティングシステムUSBドライブを作成するために使えます。
+ノートパソコンが壊れたときに、OSを起動可能なUSBドライブを作成するために使えます。
 
 ⭐️ 対応デバイス ⭐️
 
 ✅USBフラッシュドライブ
 ✅USB SDカードアダプタ
 ❌USB ハードドライブ / SSD
-❌ USBドックとハブ
+❌USBドックとハブ
 ❌内蔵SDカードスロット
 ❌光学またはフロッピーディスクドライブ
 ❌ Thunderbolt専用デバイス
 
 
-⭐️ サポートするディスクイメージの種類 ⭐️
+⭐️ 対応するディスクイメージの種類 ⭐️
 
-✅ Arch Linux、Ubuntu、Debian、Fedora、pop!_OS、Linux Mint、FreeBSD、BlissOS など、最新の GNU/Linux オペレーティングシステムイメージ。
-✅ Raspberry PI SD カードイメージ (ただし、最初に解凍する必要があります!)
-❌Microsoft Windows 公式 ISO
-⚠EtchDroidのために作られたコミュニティ製Windowsイメージ（注意：ウイルスが含まれている可能性があります！）。
-❌ Apple DMGディスクイメージ
+✅ Arch Linux、Ubuntu、Debian、Fedora、pop!_OS、Linux Mint、FreeBSD、BlissOS など、最新の GNU/Linux OSのイメージ。
+✅ Raspberry PI用SDカードイメージ (ただし、最初に解凍する必要があります!)
+❌公式のMicrosoft Windows ISO
+⚠EtchDroid向けに作成されたコミュニティ製Windowsイメージ（注意：ウイルスが含まれている可能性があります！）。
+❌Apple DMGディスクイメージ
 ❌古いGNU/Linux OSイメージ < 2010：Damn Small LinuxやPuppy Linuxなど
 
 
