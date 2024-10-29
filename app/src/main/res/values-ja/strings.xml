@@ -7,12 +7,12 @@
     <string name="write_failed">書き込みに失敗しました</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">現在のジョブの進行状況を表示するために使用されます</string>
     <string name="notif_channel_job_progress_name">書き込みの進捗状況</string>
-    <string name="notif_channel_job_result_desc" comment="Notification channel description">完了した書き込み結果を表示するために使用されます</string>
+    <string name="notif_channel_job_result_desc" comment="Notification channel description">完了した書き込み結果の表示に使用されます</string>
     <string name="notification_verify_progress_title">イメージを確認しています…</string>
     <string name="notification_write_no_notifications_text">進行状況の通知を有効にする • %1$s から %2$s への書き込み</string>
     <string name="notification_verify_no_notifications_text">進行状況の通知を有効にする • %2$s に対する %1$s の検証</string>
     <string name="notif_channel_job_result_name">書き込み結果</string>
-    <string name="action_required">アクションが必要</string>
+    <string name="action_required">要対応</string>
     <string name="notification_write_progress_title">イメージを書き込んでいます…</string>
     <string name="about">このアプリについて</string>
     <string name="permission_denied_for_usb_device">USB デバイス %1$s の許可が拒否されました</string>
