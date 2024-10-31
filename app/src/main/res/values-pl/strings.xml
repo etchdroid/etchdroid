@@ -15,7 +15,7 @@
     <string name="notification_write_progress_content">%1$s do %2$s</string>
     <string name="device_setting">Ustawienia urządzenia</string>
     <string name="dark">Ciemny</string>
-    <string name="a_regular_windows_iso_won_t_work">Zwykłe ISO systemu Windows nie będzie działać z EtchDroid, chyba że zostało specjalnie przygotowane do użytku z Etcher, dd lub EtchDroid.</string>
+    <string name="a_regular_windows_iso_won_t_work">Zwykłe ISO systemu Windows nie będzie działać z EtchDroid, chyba że zostało specjalnie przygotowane do użytku z EtchDroid, Etcher lub dd.</string>
     <string name="select_a_usb_drive">Wybierz dysk USB</string>
     <string name="connect_a_usb_drive">Podłącz dysk USB</string>
     <string name="looking_for_usb_drives">Poszukuję dysków USB</string>
@@ -98,4 +98,6 @@
     <string name="the_usb_drive_was_unplugged">Dysk USB został odłączony</string>
     <string name="write_another_image">Zapisz kolejny obraz</string>
     <string name="support_the_project">Wesprzyj finansowo</string>
+    <string name="maybe_supported" comment="Description of a device or image type that might be supported">Możliwa obsługa</string>
+    <string name="any_thunderbolt_only_device" comment="Device type">Dowolne urządzenie obsługujące tylko Thunderbolt</string>
 </resources>
