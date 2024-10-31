@@ -130,4 +130,7 @@
     <string name="telemetry_icon">Icono de telemetría</string>
     <string name="telemetry_opt_out">Desactivar telemetría</string>
     <string name="telemetry_keep_enabled">Habilitar telemetría</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid envía telemetría.</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Enviar datos anónimos</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Más información</string>
 </resources>
