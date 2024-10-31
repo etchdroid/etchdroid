@@ -57,7 +57,7 @@
     <string name="floppy_disk_drives">フロッピー ディスク ドライブ</string>
     <string name="disk_images">ディスクイメージ</string>
     <string name="website">ウェブサイト</string>
-    <string name="older_gnu_linux_distributions_isos_2010"><![CDATA[古い GNU/Linux ディストリビューションの ISO (< 2010)]]></string>
+    <string name="older_gnu_linux_distributions_isos_2010">古い GNU/Linux ディストリビューションの ISO (&lt; 2010)</string>
     <string name="developed_by">%1$s と他の %2$s によって開発されました。
 \n%3$s で利用可能なソース コード。
 \nGNU GPLv3 ライセンスの下でライセンスされています。</string>
@@ -130,4 +130,7 @@
     <string name="telemetry_icon">遠隔測定アイコン</string>
     <string name="telemetry_opt_out">オプトアウト</string>
     <string name="telemetry_keep_enabled">有効状態を維持</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">詳細を確認</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">匿名データを送信</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroidは分析用の情報を収集します。</string>
 </resources>
