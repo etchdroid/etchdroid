@@ -132,4 +132,5 @@
     <string name="telemetry_icon">ايقونة القياس عن بعد</string>
     <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">يرسل EtchDroid معلومات القياس عن بُعد.</string>
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">احصل على المزيد من المعلومات</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">إرسال بيانات مجهولة المصدر</string>
 </resources>
