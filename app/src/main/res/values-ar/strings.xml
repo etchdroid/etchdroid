@@ -130,4 +130,6 @@
     <string name="we_need_your_help">نحن بحاجة لمساعدتك!</string>
     <string name="telemetry_rationale">تقدر EtchDroid خصوصيتك وتستخدم فقط الحد الأدنى من القياس عن بُعد للتحقيق في مشكلات التطبيق.\n\nكن جزءًا من تمكين القياس عن بُعد المفتوح المصدر للحفاظ على المجتمع وساعد في تحسين EtchDroid للجميع!\n\nعلى الرغم من أننا لا نجمع أي معلومات تعريف شخصية، إلا أننا نؤمن بالشفافية ونريدك أن تعرف أن أسماء ملفات صور القرص المفتوحة ومعرفات أجهزة USB يتم جمعها بشكل مجهول للمساعدة في تشخيص المشكلات المتعلقة بأجهزة معينة. ما لم تكن أسماء ملفات صور القرص أو معرّفات الأجهزة حساسة للغاية، فمن الآمن مشاركة هذه البيانات. (%1$s)‭‭‭</string>
     <string name="telemetry_icon">ايقونة القياس عن بعد</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">يرسل EtchDroid معلومات القياس عن بُعد.</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">احصل على المزيد من المعلومات</string>
 </resources>
