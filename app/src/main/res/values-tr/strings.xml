@@ -123,4 +123,14 @@
     <string name="worker_null_device_error">Bir yazma girişimi başlatıldı ancak ne yazık ki bazı bilgiler bu sırada kayboldu. Lütfen tekrar deneyin.</string>
     <string name="view_github_issues">GitHub sorunlarını görüntüle</string>
     <string name="please_report_fatal_issue">Lütfen bu sorunu, bu hataya yol açan adımlarla birlikte GitHub\'da bildirin.</string>
+    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">EtchDroid gizliliğinize değer verir ve uygulama sorunlarını araştırmak için yalnızca asgari düzeyde telemetri kullanır.\n\nAçık kaynaklı topluluğumuzun bir parçası olun; telemetriyi etkin tutun ve EtchDroid\'i herkes için iyileştirmeye yardımcı olun!\n\nKişisel olarak tanımlayıcı hiçbir bilgi toplamasak da şeffaflığa inanıyoruz ve açılan görüntü dosyası adlarının ve USB cihaz kimliklerinin belirli donanımlarla ilgili sorunları teşhis etmeye yardımcı olmak için anonim olarak toplandığını bilmenizi istiyoruz. Görüntü dosyası adlarınız veya cihaz kimlikleriniz son derece hassas olmadığı sürece bu verileri paylaşmak güvenlidir. (%1$s)</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid telemetri bilgisi gönderir.</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Anonim veri gönder</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">Yardımınıza ihtiyacımız var!</string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">Telemetri simgesi</string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">Telemetriyi devre dışı bırak</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">Telemetriyi etkinleştir</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Telemetri</string>
+    <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">Gizlilik Politikası</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Daha fazla bilgi edin</string>
 </resources>
