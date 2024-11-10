@@ -62,7 +62,7 @@
     <string name="microsoft_windows_isos_any_version">ISOs do Microsoft Windows (qualquer versão)</string>
     <string name="write_a_review">Escrever uma análise</string>
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">Outras live ISOs de outras distribuições GNU/Linux e BSD modernas</string>
-    <string name="got_an_unsupported_drive_notification">Tem uma notificação \"Unidade não suportada\"?</string>
+    <string name="got_an_unsupported_drive_notification">Recebeu uma notificação \"Problemas com esta unidade\"?</string>
     <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">Isso não era esperado, provavelmente é um bug. Por favor, relate-o!</string>
     <string name="copying">Copiando</string>
     <string name="plug_in_the_same_usb">Conecte o mesmo dispositivo USB que você usou antes!</string>
@@ -120,4 +120,17 @@
     <string name="connect_a_usb_drive">Conecte uma unidade USB</string>
     <string name="service_timeout_message">O processo de escrita parece que congelou. Por favor, tente novamente.</string>
     <string name="community_windows_images">Versões do Windows criadas pela comunidade, feitas para o EtchDroid (tenha cuidado: elas podem conter vírus!)</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Se você poder, por favor, relate este problema no GitHub junto com os passos que fizeram com este erro acontecesse.</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Uma tentativa de escrita foi inicada mas infelizmente algumas informações foram perdidas no caminho. Por favor tente novamente.</string>
+    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">O EtchDroid valoriza sua privacidade e usa somente telemetria mínima para investigar problemas com o app.\n\nSeja parte da nossa comunidade de código-aberto—mantenha a telemetria ativada e ajude melhorar o EtchDroid para todo mundo!\n\nNão coletamos dados pessoalmente identificáveis, acreditamos em transparência e queremos que saiba que o nome de imagens abertas e IDs de dispositivos USB são coletados anonimamente para ajudar a diagnosticar problemas com hardware específico. A menos que os nomes das imagens e os IDs de dispositivo são sensíveis, é seguro compartilhar estes dados. (%1$s)</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Enviar dados anônimos</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Ver problemas no GitHub</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Telemetria</string>
+    <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">Política de Privacidade</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">Precisamos de sua ajuda!</string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">Ícone de telemetria</string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">Desativar</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">Manter ativado</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">O EtchDroid envia dados de telemetria.</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Saber mais</string>
 </resources>
