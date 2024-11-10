@@ -1,1 +1,1 @@
-Escreva imagens ISO e DMG para unidades USB, sem necessidade de raiz
+Escreva imagens ISO e DMG para unidades USB, sem necessidade de root

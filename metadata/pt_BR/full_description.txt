@@ -5,7 +5,7 @@ Características:
 • Suporta imagens em disco bruto e a maioria dos ISOs de distribuições GNU/Linux
 • Suporta imagens Raspberry Pi (extrair o arquivo ZIP primeiro; usar um SD para adaptador USB, o slot SD interno não é suportado)
 • Suporta a maioria das imagens de disco DMG (beta)
-• Sem raiz - tudo é feito dentro dos limites da API Android
+• Sem root - tudo é feito dentro dos limites da API Android
 • Livre como na liberdade
 
 Planejado:
