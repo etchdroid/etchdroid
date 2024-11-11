@@ -1,2 +1,2 @@
 • EtchDroid nyní používá libusb. To by mělo přinést značné zlepšení stability.
-• Noční
+• Přepínač nočního režimu zakázán na zařízení Pie nebo novějším, protože by mnoha lidem způsoboval problémy. Dejte mi prosím vědět, pokud ho chcete vrátit.
