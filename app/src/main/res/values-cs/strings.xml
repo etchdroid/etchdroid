@@ -4,7 +4,7 @@
     <string name="success_notif_content_text">%1$s úspěšně zapsán na %2$s</string>
     <string name="write_finished">Zápis dokončen</string>
     <string name="cancel">Zrušit</string>
-    <string name="unknown_filename">Neznámý název souboru</string>
+    <string name="unknown_filename">Neznámý soubor.název</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Užíváno pro zobrazení aktuální práce</string>
     <string name="notif_channel_job_progress_name">Průběh práce</string>
     <string name="notif_channel_job_result_name">Výsledek práce</string>
@@ -14,4 +14,121 @@
     <string name="notif_channel_job_result_desc">Užíváno pro zobrazení výsledků dokončené práce</string>
     <string name="notification_write_no_notifications_text">Zapněte oznámení pro průběh • Zapisování %1$s do %2$s</string>
     <string name="notification_write_tap_for_progress_text">Klepněte pro průběh • Zapisování %1$s na %2$s</string>
+    <string name="about" comment="Menu option that opens the about page">O projektu</string>
+    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">Položte zařízení na stůl a nedotýkejte se ho</string>
+    <string name="whats_supported" comment="Displayed in the homepage; opens a page that lists all the supported devices and formats">Co je podporováno?</string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme">Dynamické barvy</string>
+    <string name="is_this_a_windows_iso" comment="Dialog title; the dialog alerts the user that Windows images are not supported">Jedná se o ISO systému Windows?</string>
+    <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">Stejně pokračovat</string>
+    <string name="write_image" comment="Confirmation button; when pressed, the operation starts">Zapsat obraz</string>
+    <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos" comment="Image type">Live ISO dalších moderních distribucí GNU/Linuxu a BSD</string>
+    <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc" comment="Image type">Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD a další.</string>
+    <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">do</string>
+    <string name="it_s_safe_to_ignore" comment="Message of the card that teaches the user about any &quot;Issues with this drive&quot; notifications; the parameter will be replaced with the translation of &quot;Learn what it means&quot;">Je bezpečné to ignorovat! Stačí odpojit jednotku a normálně ji používat. %1$s a později se podívejte, jak disk naformátovat.</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">Chcete-li provést obnovení, odpojte jednotku USB, znovu ji připojte a znovu k ní povolte přístup.</string>
+    <string name="the_device_is_not_responding" comment="Error message">Zařízení neodpovídá</string>
+    <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">Obraz (%1$s) je větší než zařízení (%2$s)</string>
+    <string name="missing_permission_to_access_the_usb_device" comment="Error message">Chybí oprávnění k přístupu k zařízení USB</string>
+    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">EtchDroid si cení vašeho soukromí a k řešení problémů s aplikacemi používá pouze minimální telemetrii.\n\nBuďte součástí naší open-source komunity - udržujte telemetrii povolenou a pomozte vylepšit EtchDroid pro všechny!\n\nAčkoli neshromažďujeme žádné osobní údaje, věříme v transparentnost a chceme, abyste věděli, že názvy otevřených obrazových souborů a ID zařízení USB jsou shromažďovány anonymně, aby pomohly diagnostikovat problémy s konkrétním hardwarem. Pokud názvy souborů s obrázky nebo ID zařízení nejsou vysoce citlivé, je bezpečné tyto údaje sdílet. (%1$s)</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">Potvrzení operace</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">Není uveden žádný URI obrázku</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">Není vybráno žádné cílové zařízení</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">Zdá se, že proces zápisu se zasekl. Zkuste to prosím znovu.</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Byl zahájen pokus o zápis, ale bohužel se cestou ztratily některé informace. Zkuste to prosím znovu.</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Pokud můžete, nahlaste prosím tento problém na GitHub spolu s kroky, které vedly k této chybě.</string>
+    <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s do %2$s</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s proti %2$s</string>
+    <string name="unknown_device" comment="Device name placeholder">Neznámé zařízení</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">Udělení oprávnění</string>
+    <string name="confirm_operation" comment="Title of the page where the operation details are listed; the user can confirm or cancel the operation from here">Potvrzení operace</string>
+    <string name="disk_image">Obraz disku</string>
+    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">Obraz pro zapsání</string>
+    <string name="usb_drive">USB zařízení</string>
+    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">Cílové zařízení USB</string>
+    <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">Buďte opatrní!</string>
+    <string name="floppy_disk_drives" comment="Device type">Disketové jednotky</string>
+    <string name="any_thunderbolt_only_device" comment="Device type">Jakékoli zařízení s rozhraním Thunderbolt</string>
+    <string name="disk_images" comment="Title of the section that lists all the supported image types">Diskové obrazy</string>
+    <string name="optical_disk_drives" comment="Device type">Optické diskové jednotky</string>
+    <string name="microsoft_windows_isos_any_version" comment="Image type">Microsoft Windows ISOs (všechny verze)</string>
+    <string name="apple_dmg_disk_images" comment="Image type">Apple DMG diskové obrazy</string>
+    <string name="support_for_dmg_images_was_removed" comment="At the end of the supported devices and images page we state that DMGs are no longer supported; the parameter is replaced with the word &quot;GitHub&quot;">Podpora obrázků DMG byla odstraněna v aplikaci EtchDroid 2.0. Starší verze lze stáhnout z %1$s.</string>
+    <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">Vyvinuto %1$s a dalšími %2$s.\nZdrojový kód je k dispozici na %3$s.\nLicencováno pod licencí GNU GPLv3.</string>
+    <string name="contributors" comment="Part of the following sentence: &quot;Developed by Author Name and other contributors&quot;">přispěvovatelé</string>
+    <string name="website" comment="Displayed in the about page links; keep it very short!">Webové stránky</string>
+    <string name="no_thanks" comment="Button to reject receiving notifications">Ne, děkuji</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">Hvězda na Github</string>
+    <string name="there_was_an_error" comment="Title of the non-recoverable error page">Vyskytla se chyba</string>
+    <string name="error">Chyba</string>
+    <string name="start_over" comment="Button in the error page that, when pressed, restarts the app">Začít znovu</string>
+    <string name="try_again" comment="Button in the error page that, when pressed, retries the write from scratch">Zkusit znovu</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">Obsah zařízení USB neodpovídá obrázku</string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">Ikona telemetrie</string>
+    <string name="learn_what_it_means" comment="Part of the message of the card that teaches the user about any &quot;Issues with this drive&quot; notifications; the full sentence is &quot;Learn what it means and see how to format your drive later&quot;">Přečtěte si, co to znamená</string>
+    <string name="older_gnu_linux_distributions_isos_2010" comment="Image type">ISO starších distribucí GNU/Linuxu (&lt; 2010)</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">USB zařízení bylo odpojeno</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">Zápis obrazu</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">Styl</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">Nastavení zařízení</string>
+    <string name="light" comment="Style menu option that selects the light theme">Světlý</string>
+    <string name="looking_for_usb_drives">Hledání USB zařízení</string>
+    <string name="permission_granted">Oprávnění uděleno</string>
+    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">Přeskočit</string>
+    <string name="supported" comment="Description of a device or image type that is supported">Podporované</string>
+    <string name="maybe_supported" comment="Description of a device or image type that might be supported">Možná podporováno</string>
+    <string name="not_supported" comment="Description of a device or image type that is not supported">Není podporováno</string>
+    <string name="supported_devices_and_images" comment="Title of the page that lists all the supported devices and images">Podporovaná zařízení a obrazy</string>
+    <string name="devices" comment="Title of the section that lists all the supported device types">Zařízení</string>
+    <string name="usb_flash_drives" comment="Device type">USB flash disky</string>
+    <string name="raspberry_pi_sd_card_images_unzip_first" comment="Image type">Obrazy karty SD Raspberry Pi (nejprve rozbalte!)</string>
+    <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">Nepoužívejte prosím své zařízení</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">Chcete být upozorněni, až bude hotovo? Pouze aktualizace průběhu, žádný spam ani reklamy.</string>
+    <string name="sure" comment="Button to accept receiving notifications">Jistě</string>
+    <string name="image_written_successfully" comment="Title of the success page">Obraz byl úspěšně zapsán!</string>
+    <string name="i_did_not_unplug_it" comment="Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Neodpojil jsem ho!</string>
+    <string name="how_did_this_happen" comment="Title of the card that, when a recoverable error occurs, teaches the user why it could have happened">Jak k tomu došlo?</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Možná je váš port USB znečištěný, adaptér je vadný nebo vaše zařízení nedokáže zajistit dostatečné elektrické napájení. Zvažte možnost použití jiného adaptéru nebo zařízení.</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">Disky USB jsou nespolehlivé a systém Android neuděluje dostatečná oprávnění pro automatické obnovení. Musíme si vystačit s tím, co máme!</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">Představení požadovaných kroků: odpojení, opětovné připojení, udělení povolení</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Odeslat anonymní data</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">Odmítnutí oprávnění pro zařízení USB%1$s</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">Tmavý</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">Běžné ISO systému Windows nebude s EtchDroidem fungovat, pokud nebylo speciálně připraveno pro použití s EtchDroidem, Etcherem nebo dd.</string>
+    <string name="select_a_usb_drive" comment="Title of the dialog listing the available USB drives">Vyberte USB zařízení</string>
+    <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected">Připojit USB zařízení</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">Zápis obrazu vymaže všechna data uložena na USB disku</string>
+    <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">Před pokračováním položte zařízení na stůl.</string>
+    <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">Pokračovat</string>
+    <string name="memory_cards_using_a_usb_adapter" comment="Device type">Paměťové karty, s použitím USB adaptéru</string>
+    <string name="usb_hard_drives_ssds_some_might_work" comment="Device type">Pevné disky USB / SSD (některé mohou fungovat)</string>
+    <string name="usb_docks_and_hubs_might_have_power_issues" comment="Device type">Dokovací stanice a rozbočovače USB (mohou mít problémy s napájením)</string>
+    <string name="memory_cards_using_the_internal_slot" comment="Device type">Paměťové karty, použití interního slotu</string>
+    <string name="any_other_image_that_works_with_balena_etcher_or_dd" comment="Image type">Jakýkoli jiný obrázek, který funguje s Balena Etcher nebo dd</string>
+    <string name="support_the_project" comment="Displayed in the about page links; keep it short!">Podpořit finančně</string>
+    <string name="verifying_image" comment="Title of the progress page while an image is being verified">Ověřování obrazu</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">Zapisování obrazu</string>
+    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Ověřování</string>
+    <string name="copying" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Kopírování</string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">proti</string>
+    <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">Připravuje se…</string>
+    <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">Přeskočit ověřování</string>
+    <string name="write_a_review" comment="Displayed in a button on the success page">Napsat hodnocení</string>
+    <string name="got_an_unsupported_drive_notification" comment="Title of the card that teaches the user about any &quot;Issues with this drive&quot; notifications">Dostali jste oznámení „Problémy s touto jednotkou“?</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it" comment="Message of the card about a recoverable unknown error">To je nečekané, pravděpodobně se jedná o chybu. Nahlaste ji prosím!</string>
+    <string name="plug_in_the_same_usb" comment="Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device">Připojte stejné zařízení USB, které jste používali dříve!</string>
+    <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">Znovu připojené zařízení USB, pokračování</string>
+    <string name="could_not_open_the_source_file" comment="Error message">Nelze otevřít zdrojový soubor</string>
+    <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">Došlo k neznámé chybě: %1$s</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">Disk USB byl odpojen</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">Disk USB přestal odpovídat</string>
+    <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">Zápis dalšího obrazu</string>
+    <string name="community_windows_images" comment="&quot;You're on your own&quot; can be translated with something similar to &quot;unsupported&quot; or &quot;be careful!&quot; if it makes more sense in the target language">Komunitní obrazy Windows vytvořené pro EtchDroid (jste odkázáni sami na sebe: mohou obsahovat viry!)</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Zobrazit problémy na GitHubu</string>
+    <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">Zásady ochrany soukromí</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Telemetrie</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">Potřebujeme vaši pomoc!</string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">Odhlášení</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">Ponechat povolení</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid odesílá telemetrické informace.</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Dozvědět se více</string>
 </resources>
