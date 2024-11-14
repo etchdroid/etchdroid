@@ -117,11 +117,15 @@ dependencies {
     implementation(libs.material3.adaptive)
     implementation(platform(libs.compose.bom))
 
-    "gplayImplementation"(libs.gplay.review)
-    "gplayImplementation"(libs.gplay.review.ktx)
-    "gplayImplementation"(libs.gplay.sentry.android)
-    "gplayImplementation"(libs.gplay.sentry.compose)
-
+    listOf(
+        libs.gplay.review,
+        libs.gplay.review.ktx,
+        libs.gplay.sentry.android,
+        libs.gplay.sentry.compose
+    ).forEach { dependency ->
+        "gplayImplementation" (dependency)
+    }
+    
     debugImplementation(libs.compose.ui.test.manifest)
     debugImplementation(libs.compose.ui.tooling)
 
