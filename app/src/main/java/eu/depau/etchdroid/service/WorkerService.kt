@@ -84,7 +84,7 @@ class WorkerService : LifecycleService() {
 
     private val mNotificationManager by lazy {
         getSystemService(
-            Context.NOTIFICATION_SERVICE
+            NOTIFICATION_SERVICE
         ) as NotificationManager
     }
 
