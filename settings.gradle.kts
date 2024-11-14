@@ -1,11 +1,13 @@
 @file:Suppress("UnstableApiUsage")
 
+val jitpackUrl = "https://jitpack.io"
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
         google()
         mavenCentral()
-        maven(url = "https://jitpack.io")
+        maven(url = jitpackUrl)
     }
 }
 dependencyResolutionManagement {
@@ -13,7 +15,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven(url = "https://jitpack.io")
+        maven(url = jitpackUrl)
     }
 }
 rootProject.name = "EtchDroid"
