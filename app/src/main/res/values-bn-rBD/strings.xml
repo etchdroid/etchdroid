@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false">EtchDroid</string>
+    <string name="cancel" comment="Cancel string, used all over the place">বাতিল</string>
+    <string name="write_finished" comment="Notification title when the write operation is successful">লেখা শেষ হয়েছে</string>
+    <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s সফলভাবে %2$s এ লেখা হয়েছে</string>
+    <string name="write_failed" comment="Notification title when a non-recoverable error occurs">লেখা ব্যর্থ হয়েছে</string>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">কার্য প্রয়োজন</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description for long-running job progress, shown in Android settings">বর্তমান কাজের অগ্রগতি প্রদর্শনের জন্য ব্যবহৃত</string>
+    <string name="notif_channel_job_progress_name" comment=" Notification channel name for long-running job progress, shown in Android settings">কাজের অগ্রগতি</string>
+    <string name="notif_channel_job_result_desc" comment=" Notification channel description for job outcome notifications, shown in Android settings">একটি সম্পূর্ণ কাজের ফলাফল প্রদর্শনের জন্য ব্যবহৃত</string>
+    <string name="notif_channel_job_result_name" comment=" Notification channel name for job outcome notifications, shown in Android settings">কাজের ফলাফল</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">ইমেজ লেখা হচ্ছে…</string>
+    <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">ইমেজ যাচাই হচ্ছে…</string>
+    <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">অগ্রগতির জন্য নোটিফিকেশন সক্রিয় করুন • %1$s থেকে %2$s এ লেখা হচ্ছে</string>
+    <string name="notification_write_tap_for_progress_text" comment=" Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name">অগ্রগতির জন্য ট্যাপ করুন • %1$s থেকে %2$s এ লেখা হচ্ছে</string>
+    <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s থেকে %2$s</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s এর সাথে %2$s যাচাই হচ্ছে</string>
+    <string name="unknown_filename" comment="Placeholder file name">অজানা ফাইলের নাম</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">"%1$s এর জন্য অনুমতি অস্বীকৃত"</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">ইউএসবি ডিভাইস আনপ্লাগ করা হয়েছে</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">একটি ইমেজ লিখুন</string>
+    <string name="whats_supported" comment="Displayed in the homepage; opens a page that lists all the supported devices and formats">কি সমর্থিত?</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">স্টাইল</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">ডিভাইস সেটিং</string>
+    <string name="light" comment="Style menu option that selects the light theme">হালকা</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">গাঢ়</string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme">ডাইনামিক রঙ</string>
+    <string name="about" comment="Menu option that opens the about page">সম্পর্কিত</string>
+    <string name="is_this_a_windows_iso" comment="Dialog title; the dialog alerts the user that Windows images are not supported">এটি কি একটি Windows ISO?</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">EtchDroid-এর সাথে একটি সাধারণ Windows ISO কাজ করবে না, যদি না এটি EtchDroid, Etcher বা dd-এর জন্য বিশেষভাবে প্রস্তুত করা হয়।</string>
+    <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">যাইহোক চালিয়ে যান</string>
+    <string name="select_a_usb_drive" comment="Title of the dialog listing the available USB drives">একটি ইউএসবি ড্রাইভ নির্বাচন করুন</string>
+    <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected">একটি ইউএসবি ড্রাইভ সংযুক্ত করুন</string>
+    <string name="looking_for_usb_drives">ইউএসবি ড্রাইভ খুঁজছে</string>
+    <string name="confirm_operation" comment="Title of the page where the operation details are listed; the user can confirm or cancel the operation from here">অপারেশন নিশ্চিত করুন</string>
+    <string name="disk_image">ডিস্ক ইমেজ</string>
+    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">লেখার জন্য ইমেজ</string>
+    <string name="usb_drive">ইউএসবি ড্রাইভ</string>
+    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">গন্তব্য ইউএসবি ডিভাইস</string>
+    <string name="unknown_device" comment="Device name placeholder">অজানা ডিভাইস</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">অ্যাক্সেস প্রদান করুন</string>
+    <string name="permission_granted">অনুমতি মঞ্জুর করা হয়েছে</string>
+    <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">সতর্ক থাকুন!</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">ইমেজ লেখার ফলে নির্বাচিত ড্রাইভের সমস্ত তথ্য মুছে যাবে</string>
+    <string name="write_image" comment="Confirmation button; when pressed, the operation starts">ইমেজ লিখুন</string>
+    <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">চালিয়ে যাওয়ার আগে আপনার ডিভাইসটি টেবিলে সমানভাবে রাখুন।</string>
+    <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">চালিয়ে যান</string>
+    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">আপনার ডিভাইসটি টেবিলে সমানভাবে রাখুন এবং এটি স্পর্শ করবেন না</string>
+    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">এড়িয়ে যান</string>
+    <string name="supported" comment="Description of a device or image type that is supported">সমর্থিত</string>
+    <string name="maybe_supported" comment="Description of a device or image type that might be supported">সম্ভবত সমর্থিত</string>
+    <string name="not_supported" comment="Description of a device or image type that is not supported">অসমর্থিত</string>
+    <string name="supported_devices_and_images" comment="Title of the page that lists all the supported devices and images">সমর্থিত ডিভাইস এবং ইমেজ</string>
+    <string name="devices" comment="Title of the section that lists all the supported device types">ডিভাইস</string>
+    <string name="usb_flash_drives" comment="Device type">ইউএসবি ফ্ল্যাশ ড্রাইভ</string>
+    <string name="memory_cards_using_a_usb_adapter" comment="Device type">মেমোরি কার্ড, ইউএসবি অ্যাডাপ্টার ব্যবহার করে</string>
+    <string name="usb_hard_drives_ssds_some_might_work" comment="Device type">ইউএসবি হার্ড ড্রাইভ / এসএসডি (কিছু কাজ করতে পারে)</string>
+    <string name="usb_docks_and_hubs_might_have_power_issues" comment="Device type">ইউএসবি ডক এবং হাব (এগুলিতে বিদ্যুৎ সমস্যা থাকতে পারে)</string>
+    <string name="memory_cards_using_the_internal_slot" comment="Device type">মেমোরি কার্ড, অভ্যন্তরীণ স্লট ব্যবহার করে</string>
+    <string name="optical_disk_drives" comment="Device type">অপটিক্যাল ডিস্ক ড্রাইভ</string>
+    <string name="floppy_disk_drives" comment="Device type">ফ্লপি ডিস্ক ড্রাইভ</string>
+    <string name="any_thunderbolt_only_device" comment="Device type">কোনও থান্ডারবোল্ট-শুধুমাত্র ডিভাইস</string>
+    <string name="disk_images" comment="Title of the section that lists all the supported image types">ডিস্ক ইমেজ</string>
+    <string name="microsoft_windows_isos_any_version" comment="Image type">মাইক্রোসফ্ট উইন্ডোজ আইএসও (যেকোনো সংস্করণ)</string>
+    <string name="apple_dmg_disk_images" comment="Image type">অ্যাপল ডিএমজি ডিস্ক ইমেজ</string>
+    <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc" comment="Image type">আর্চ লিনাক্স, উবুন্টু, ডেবিয়ান, ফেডোরা, পপ!_ওএস, লিনাক্স মিন্ট, ফ্রিবিএসডি ইত্যাদি।</string>
+    <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos" comment="Image type">অন্যান্য আধুনিক GNU/Linux এবং BSD ডিস্ট্রিবিউশনগুলির লাইভ আইএসও</string>
+    <string name="raspberry_pi_sd_card_images_unzip_first" comment="Image type">রাস্পবেরি পাই এসডি কার্ড ইমেজ (প্রথমে আনজিপ করুন!)</string>
+    <string name="any_other_image_that_works_with_balena_etcher_or_dd" comment="Image type">যেকোনো অন্যান্য ইমেজ যা Balena Etcher বা dd এর সাথে কাজ করে</string>
+    <string name="older_gnu_linux_distributions_isos_2010" comment="Image type">পুরানো GNU/Linux ডিস্ট্রিবিউশন আইএসও (&lt; ২০১০)</string>
+    <string name="support_for_dmg_images_was_removed" comment="At the end of the supported devices and images page we state that DMGs are no longer supported; the parameter is replaced with the word &quot;GitHub&quot;">EtchDroid 2.0 এ DMG ইমেজের জন্য সমর্থন সরানো হয়েছে। পুরানো সংস্করণ %1$s থেকে ডাউনলোড করা যেতে পারে।</string>
+    <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">%1$s এবং অন্যান্য %2$s দ্বারা উন্নত।\nসোর্স কোড %3$s এ পাওয়া যায়।\nGNU GPLv3 লাইসেন্সের অধীনে লাইসেন্সকৃত।</string>
+    <string name="contributors" comment="Part of the following sentence: &quot;Developed by Author Name and other contributors&quot;">অবদানকারীরা</string>
+    <string name="website" comment="Displayed in the about page links; keep it very short!">ওয়েবসাইট</string>
+    <string name="support_the_project" comment="Displayed in the about page links; keep it short!">আর্থিকভাবে সমর্থন করুন</string>
+    <string name="verifying_image" comment="Title of the progress page while an image is being verified">ইমেজ যাচাই হচ্ছে</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">ইমেজ লেখা হচ্ছে</string>
+    <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">অনুগ্রহ করে আপনার ডিভাইস ব্যবহার এড়িয়ে চলুন</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">সম্পন্ন হলে কি আপনাকে জানানো হবে? শুধুমাত্র অগ্রগতি আপডেট, কোন স্প্যাম বা বিজ্ঞাপন নেই।</string>
+    <string name="no_thanks" comment="Button to reject receiving notifications">না, ধন্যবাদ</string>
+    <string name="sure" comment="Button to accept receiving notifications">হ্যাঁ</string>
+    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">যাচাই</string>
+    <string name="copying" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">কপি হচ্ছে</string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">বিরুদ্ধে</string>
+    <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">প্রতি</string>
+    <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">প্রস্তুত হচ্ছে…</string>
+    <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">যাচাই এড়িয়ে যান</string>
+    <string name="image_written_successfully" comment="Title of the success page">ইমেজ সফলভাবে লেখা হয়েছে!</string>
+    <string name="write_a_review" comment="Displayed in a button on the success page">একটি পর্যালোচনা লিখুন</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">GitHub এ তারকা দিন</string>
+    <string name="got_an_unsupported_drive_notification" comment="Title of the card that teaches the user about any &quot;Issues with this drive&quot; notifications">একটি "এই ড্রাইভে সমস্যা" নোটিফিকেশন পেয়েছেন?</string>
+    <string name="it_s_safe_to_ignore" comment="Message of the card that teaches the user about any &quot;Issues with this drive&quot; notifications; the parameter will be replaced with the translation of &quot;Learn what it means&quot;">এটি উপেক্ষা করাই নিরাপদ! শুধু আপনার ড্রাইভ আনপ্লাগ করুন এবং স্বাভাবিকভাবে ব্যবহার করুন। %1$s এবং কিভাবে আপনার ড্রাইভ পরে ফরম্যাট করতে হবে দেখুন।</string>
+    <string name="learn_what_it_means" comment="Part of the message of the card that teaches the user about any &quot;Issues with this drive&quot; notifications; the full sentence is &quot;Learn what it means and see how to format your drive later&quot;">এটির অর্থ কি তা শিখুন</string>
+    <string name="there_was_an_error" comment="Title of the non-recoverable error page">একটি ত্রুটি ঘটেছে</string>
+    <string name="error">ত্রুটি</string>
+    <string name="start_over" comment="Button in the error page that, when pressed, restarts the app">পুনরায় শুরু করুন</string>
+    <string name="try_again" comment="Button in the error page that, when pressed, retries the write from scratch">আবার চেষ্টা করুন</string>
+    <string name="i_did_not_unplug_it" comment="Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">আমি এটি আনপ্লাগ করিনি!</string>
+    <string name="how_did_this_happen" comment="Title of the card that, when a recoverable error occurs, teaches the user why it could have happened">এটি কীভাবে ঘটেছে?</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">সম্ভবত আপনার ইউএসবি পোর্টটি ময়লা, আপনার অ্যাডাপ্টার ত্রুটিযুক্ত, অথবা আপনার ডিভাইস যথেষ্ট বিদ্যুৎ সরবরাহ করতে সক্ষম নয়। অন্য একটি অ্যাডাপ্টার বা ডিভাইস চেষ্টা করার কথা বিবেচনা করুন।</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">ইউএসবি ড্রাইভগুলি নির্ভরযোগ্য নয়, এবং Android স্বয়ংক্রিয়ভাবে পুনরুদ্ধারের জন্য যথেষ্ট অনুমতি প্রদান করে না। আমাদের যা আছে তার সাথে চলতে হবে!</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it" comment="Message of the card about a recoverable unknown error">এটি অপ্রত্যাশিত, সম্ভবত এটি একটি বাগ। অনুগ্রহ করে এটি রিপোর্ট করুন!</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">পুনরুদ্ধার করতে, আপনার ইউএসবি ড্রাইভ আনপ্লাগ করুন, এটি আবার প্লাগ ইন করুন এবং এটি অ্যাক্সেস করার অনুমতি দিন।</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">প্রয়োজনীয় ধাপগুলির উপস্থাপনা: আনপ্লাগ, পুনরায় সংযোগ, অনুমতি প্রদান</string>
+    <string name="plug_in_the_same_usb" comment="Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device">আপনার আগে যে ইউএসবি ডিভাইসটি ব্যবহার করেছেন সেটিই প্লাগ ইন করুন!</string>
+    <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">ইউএসবি ডিভাইস পুনরায় সংযুক্ত করা হয়েছে, আবার শুরু হচ্ছে</string>
+    <string name="the_device_is_not_responding" comment="Error message">ডিভাইসটি প্রতিক্রিয়া দিচ্ছে না</string>
+    <string name="missing_permission_to_access_the_usb_device" comment="Error message">ইউএসবি ডিভাইসে অ্যাক্সেস করার অনুমতি নেই</string>
+    <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">ইমেজ (%1$s) ডিভাইসের (%2$s) চেয়ে বড়</string>
+    <string name="could_not_open_the_source_file" comment="Error message">সোর্স ফাইলটি খোলা যায়নি</string>
+    <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">একটি অজানা ত্রুটি ঘটেছে: %1$s</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">ইউএসবি ড্রাইভটি আনপ্লাগ করা হয়েছে</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">ইউএসবি ড্রাইভটি প্রতিক্রিয়া বন্ধ করেছে</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">ইউএসবি ডিভাইসের বিষয়বস্তু ইমেজটির সাথে মেলে না</string>
+    <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">অন্য একটি ইমেজ লিখুন</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">অপারেশন নিশ্চিত করুন</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">কোনো ইমেজ URI প্রদান করা হয়নি</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">কোনো গন্তব্য ডিভাইস নির্বাচন করা হয়নি</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">লেখার প্রক্রিয়া আটকে গেছে বলে মনে হচ্ছে। অনুগ্রহ করে আবার চেষ্টা করুন।</string>
+    <string name="community_windows_images" comment="&quot;You're on your own&quot; can be translated with something similar to &quot;unsupported&quot; or &quot;be careful!&quot; if it makes more sense in the target language">EtchDroid-এর জন্য তৈরি কমিউনিটি-বিল্ট Windows ইমেজ (নিজের দায়িত্বে: এতে ভাইরাস থাকতে পারে!)</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">একটি লেখার প্রচেষ্টা শুরু করা হয়েছিল কিন্তু দুর্ভাগ্যবশত কিছু তথ্য হারিয়ে গেছে। অনুগ্রহ করে আবার চেষ্টা করুন।</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">যদি আপনি পারেন, এই ত্রুটি সম্পর্কে GitHub এ রিপোর্ট করুন এবং এর আগে যা ঘটেছিল তার পদক্ষেপগুলি অন্তর্ভুক্ত করুন।</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">GitHub সমস্যা দেখুন</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">টেলিমেট্রি</string>
+    <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">গোপনীয়তা নীতি</string>
+    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">EtchDroid আপনার গোপনীয়তার মূল্য দেয় এবং শুধুমাত্র অ্যাপের সমস্যাগুলি তদন্ত করতে ন্যূনতম টেলিমেট্রি ব্যবহার করে।\n\nআমাদের ওপেন-সোর্স কমিউনিটির অংশ হন—টেলিমেট্রি সক্রিয় রাখুন এবং EtchDroid উন্নত করতে সহায়তা করুন!\n\nআমরা কোনো ব্যক্তিগত-সনাক্তযোগ্য তথ্য সংগ্রহ করি না, তবে আমরা স্বচ্ছতায় বিশ্বাস করি এবং আপনাকে জানাতে চাই যে ওপেন করা ইমেজ ফাইলের নাম এবং ইউএসবি ডিভাইস আইডি বেনামেই সংগ্রহ করা হয় যাতে নির্দিষ্ট হার্ডওয়্যার নিয়ে সমস্যার সমাধান করা যায়। যদি আপনার ইমেজ ফাইলের নাম বা ডিভাইস আইডি অত্যন্ত সংবেদনশীল না হয়, তবে এটি শেয়ার করা নিরাপদ। (%1$s)</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">আমাদের আপনার সাহায্য দরকার!</string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">টেলিমেট্রি আইকন</string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">বিকল্প বাতিল করুন</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">সক্রিয় রাখুন</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid টেলিমেট্রি তথ্য পাঠায়।</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">আরও জানুন</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">বেনামী তথ্য পাঠান</string>
+</resources>
