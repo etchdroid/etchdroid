@@ -70,7 +70,7 @@
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">Live-ISOs anderer moderner GNU/Linux- und BSD-Distributionen</string>
     <string name="raspberry_pi_sd_card_images_unzip_first">Raspberry Pi SD-Karten-Abbilder (zuerst entpacken!)</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Jedes andere Abbild, das mit Balena Etcher oder dd funktioniert</string>
-    <string name="older_gnu_linux_distributions_isos_2010"><![CDATA[ISOs älterer GNU/Linux-Distributionen (< 2010)]]></string>
+    <string name="older_gnu_linux_distributions_isos_2010">ISOs älterer GNU/Linux-Distributionen (&lt; 2010)</string>
     <string name="support_for_dmg_images_was_removed">Die Unterstützung für DMG-Abbilder wurde in EtchDroid 2.0 entfernt. Ältere Versionen können von %1$s heruntergeladen werden.</string>
     <string name="developed_by">Entwickelt von %1$s und anderen %2$s.\nQuellcode verfügbar auf %3$s.\nLizenziert unter der GNU GPLv3-Lizenz.</string>
     <string name="contributors">Mitwirkenden</string>
@@ -131,4 +131,7 @@
     <string name="we_need_your_help">Wir brauchen deine Hilfe!</string>
     <string name="telemetry_icon">Telemetrie-Symbol</string>
     <string name="telemetry_rationale">EtchDroid schätzt deine Privatsphäre und verwendet nur minimale Telemetrie zur Untersuchung von App-Problemen.\n\nSei ein Teil unserer Open-Source-Community — halte die Telemetrie aktiviert und hilf mit, EtchDroid für alle zu verbessern!\n\nObwohl wir keine personenbezogenen Daten sammeln, legen wir Wert auf Transparenz und möchten, dass du weißt, dass die Namen von geöffneten Bilddateien und USB-Geräte-Kennungen anonym gesammelt werden, um Probleme mit bestimmter Hardware zu diagnostizieren. Sofern deine Bilddateinamen oder Geräte-Kennungen nicht hochsensibel sind, ist es sicher, diese Daten weiterzugeben. (%1$s)</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid sendet Telemetrieinformationen.</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Mehr erfahren</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Anonyme Daten senden</string>
 </resources>
