@@ -19,7 +19,7 @@ EtchDroid는 USB 드라이브에 이미지를 쓰는 것을 도와주는 오픈 
 ❌ 공식 Microsoft Windows ISO 이미지
 ⚠️ EtchDroid 전용 비공식 Windows 이미지 (바이러스를 포함할 수 있으니 조심하세요!)
 ❌ 애플 DMG 디스크 이미지
-❌ 이전 GNU/Linux 이미지 < 2010, Damn Small Linux와 Puppy Linux 등
+❌ 2010 이전의 GNU/Linux 이미지, Damn Small Linux 등
 
 
 GitHub에 소스 코드가 공개되어 있습니다: https://github.com/EtchDroid/EtchDroid
