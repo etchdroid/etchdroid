@@ -103,12 +103,12 @@
     <string name="it_s_safe_to_ignore">무시해도 안전해요! 드라이브를 분리하고 그냥 사용하세요. %1$s 드라이브를 나중에 포맷하는 방법을 확인해보세요.</string>
     <string name="skip_verification">확인 건너뛰기</string>
     <string name="learn_what_it_means">의미를 알아보고</string>
-    <string name="got_an_unsupported_drive_notification">\"지원되지 않는 드라이브\" 알림을 받았나요?</string>
+    <string name="got_an_unsupported_drive_notification">\"드라이브에 문제가 있음\" 알림을 받았나요?</string>
     <string name="there_was_an_error">오류가 있었습니다</string>
     <string name="error">오류</string>
     <string name="start_over">다시 시작하기</string>
     <string name="try_again">재시도</string>
-    <string name="i_did_not_unplug_it">제가 뽑은거 아닌데요?!</string>
+    <string name="i_did_not_unplug_it">하지만 제가 뽑은 게 아닌데요!</string>
     <string name="how_did_this_happen">어떻게 이게 일어난 건가요?</string>
     <string name="write_a_review">리뷰 남기러 가기</string>
     <string name="star_on_github">GitHub에서 스타 등록하기</string>
@@ -120,4 +120,15 @@
     <string name="title_activity_confirm_operation">작업 확인</string>
     <string name="no_image_uri_provided">제공된 이미지 URI 없음</string>
     <string name="no_destination_device_selected">선택한 장치가 없음</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">쓰기 작업이 시작되었지만, 작업 도중 정보를 잃어버렸어요. 다시 시도해주세요.</string>
+    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">EtchDroid는 사생활 보호를 중요시하고, 최소한의 정보 수집으로 앱의 문제를 조사합니다.\n\n정보 수집을 활성화하고 오픈 소스 활동에 참여하여, 모두를 위해 EtchDroid를 개선시키는 것을 도와주세요.\n\n저희는 개인을 추적할 수 있는 정보를 수집하지 않지만, 저희는 투명성을 중요시하며 특정한 하드웨어들의 문제를 진단하기 위해 이미지 파일명과 USB 장치 ID를 수집함을 알려드립니다. 이미지의 파일명이나 장치 ID에 민감한 정보가 포함되어 있지 않은 한, 이 데이터는 공유해도 안전합니다. (%1$s)</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">정보 수집</string>
+    <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">개인정보 정책</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">앱 개선을 도와주세요!</string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">정보 수집 아이콘</string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">참여 안함</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">수집 활성화</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">가능하다면, GitHub 저장소에 이 문제를 어떻게 나타났는지에 대한 자세한 정보와 함께 이 문제를 신고해주세요.</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">GitHub 이슈 보기</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid는 정보를 수집하여 전송합니다.</string>
 </resources>
