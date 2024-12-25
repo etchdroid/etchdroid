@@ -3,7 +3,7 @@
     <string name="write_an_image" comment="Displayed in the home page main call-to-action button">Write an படம்</string>
     <string name="write_image" comment="Confirmation button; when pressed, the operation starts">படத்தை எழுதுங்கள்</string>
     <string name="supported_devices_and_images" comment="Title of the page that lists all the supported devices and images">உதவி சாதனங்கள் மற்றும் படங்கள்</string>
-    <string name="devices" comment="Title of the section that lists all the supported device types">சாதனங்கள்</string>
+    <string name="devices" comment="Title of the section that lists all the supported device types">கருவிகள்</string>
     <string name="usb_flash_drives" comment="Device type">யூ.எச்.பி ஃபிளாச் இயக்கிகள்</string>
     <string name="disk_images" comment="Title of the section that lists all the supported image types">வட்டு படங்கள்</string>
     <string name="support_the_project" comment="Displayed in the about page links; keep it short!">பொருள் ரீதியாக ஆதரிக்கவும்</string>
@@ -52,7 +52,7 @@
     <string name="permission_granted">இசைவு வழங்கப்பட்டது</string>
     <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">இலக்கு யூ.எச்.பி சாதனம்</string>
     <string name="unknown_device" comment="Device name placeholder">தெரியாத சாதனம்</string>
-    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">அணுகல் வழங்கவும்</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">அனுமதி வழங்கு</string>
     <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">கவனமாக இருங்கள்!</string>
     <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">படத்தை எழுதுவது தேர்ந்தெடுக்கப்பட்ட இயக்ககத்தில் உள்ள எல்லா தரவையும் அழிக்கும்</string>
     <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">தொடர்வதற்கு முன் உங்கள் சாதனத்தை ஒரு அட்டவணையில் தட்டையாக வைக்கவும்.</string>
@@ -86,7 +86,7 @@
     <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">எதிராக</string>
     <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">பெறுநர்</string>
     <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">தயாராகி வருகிறது…</string>
-    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">சரிபார்க்கும்</string>
+    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">சரிபார்க்கிறது</string>
     <string name="copying" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">நகலெடுக்கும்</string>
     <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">சரிபார்ப்பைத் தவிர்க்கவும்</string>
     <string name="image_written_successfully" comment="Title of the success page">படம் வெற்றிகரமாக எழுதப்பட்டது!</string>
