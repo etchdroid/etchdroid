@@ -13,7 +13,7 @@
     <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">யூ.எச்.பி சாதன உள்ளடக்கம் படத்துடன் பொருந்தவில்லை</string>
     <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">ஒரு எழுதும் முயற்சி தொடங்கப்பட்டது, ஆனால் துரதிர்ச்டவசமாக சில தகவல்கள் வழியில் தொலைந்துவிட்டன. மீண்டும் முயற்சிக்கவும்.</string>
     <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">டெலிமெட்ரி படவுரு</string>
-    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">அநாமதேய தரவை அனுப்பவும்</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">பெயரிலி தரவை அனுப்பவும்</string>
     <string name="cancel" comment="Cancel string, used all over the place">ரத்துசெய்</string>
     <string name="write_finished" comment="Notification title when the write operation is successful">எழுதப்பட்டது</string>
     <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s வெற்றிகரமாக %2$s க்கு எழுதப்பட்டது</string>
@@ -74,7 +74,7 @@
     <string name="raspberry_pi_sd_card_images_unzip_first" comment="Image type">ராச்பெர்ரி பை எச்டி அட்டை படங்கள் (முதலில் unzip!)</string>
     <string name="microsoft_windows_isos_any_version" comment="Image type">மைக்ரோசாப்ட் சாளரங்கள் ஐஎச்ஓஎச் (எந்த பதிப்பும்)</string>
     <string name="apple_dmg_disk_images" comment="Image type">ஆப்பிள் டி.எம்.சி வட்டு படங்கள்</string>
-    <string name="any_other_image_that_works_with_balena_etcher_or_dd" comment="Image type">பலேனா எட்சர் அல்லது டி.டி.</string>
+    <string name="any_other_image_that_works_with_balena_etcher_or_dd" comment="Image type">பலேனா எட்சர் அல்லது டிடி உடன் வேலை செய்யும் எந்தொரு படம்</string>
     <string name="older_gnu_linux_distributions_isos_2010" comment="Image type">பழைய குனு/லினக்ச் விநியோகங்கள் \'ஐசோச் (&lt;2010)</string>
     <string name="support_for_dmg_images_was_removed" comment="At the end of the supported devices and images page we state that DMGs are no longer supported; the parameter is replaced with the word &quot;GitHub&quot;">டி.எம்.சி படங்களுக்கான உதவி எட்ச்ராய்டு 2.0 இல் அகற்றப்பட்டது. பழைய பதிப்புகளை %1$s இலிருந்து பதிவிறக்கம் செய்யலாம்.</string>
     <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">%1$s மற்றும் பிற %2$s ஆல் உருவாக்கப்பட்டது.\n மூலக் குறியீடு %3$s இல் கிடைக்கிறது.\n குனு சி.பி.எல்.வி 3 உரிமத்தின் கீழ் உரிமம் பெற்றது.</string>
