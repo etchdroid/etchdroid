@@ -1,2 +1,2 @@
-• 引入 libaums，更可靠地為「picky」USB 儲存體與其 Android 裝置服務。
+• 引入 libaums，更可靠地為「特定」USB 儲存體與其 Android 裝置服務。
 • 更新各語言的翻譯內容。
