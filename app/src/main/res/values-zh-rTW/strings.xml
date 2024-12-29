@@ -1,2 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="cancel" comment="Cancel string, used all over the place">取消</string>
+    <string name="image_written_successfully" comment="Title of the success page">已成功將鏡像檔寫入！</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">請幫幫我們！</string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">遙測圖示</string>
+    <string name="write_finished" comment="Notification title when the write operation is successful">已完成寫入</string>
+    <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">已成功將 %1$s 寫入至 %2$s</string>
+    <string name="write_failed" comment="Notification title when a non-recoverable error occurs">無法寫入</string>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">待決事項</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description for long-running job progress, shown in Android settings">顯示所處程序的進度</string>
+    <string name="notif_channel_job_progress_name" comment=" Notification channel name for long-running job progress, shown in Android settings">程序進度</string>
+    <string name="notif_channel_job_result_desc" comment=" Notification channel description for job outcome notifications, shown in Android settings">用於程序完竣時顯示通知</string>
+    <string name="notif_channel_job_result_name" comment=" Notification channel name for job outcome notifications, shown in Android settings">程序完竣</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">正在寫入鏡像檔……</string>
+    <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">正在校驗鏡像檔……</string>
+    <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">啟用程序進度通知 • 正在將 %1$s 寫入至 %2$s</string>
+    <string name="notification_write_tap_for_progress_text" comment=" Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name">點選以檢閱進度 • 正在將 %1$s 寫入至 %2$s</string>
+    <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">將 %1$s 寫入至 %2$s</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">校驗位於 %1$s 的 %2$s</string>
+    <string name="unknown_filename" comment="Placeholder file name">檔名不明</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">USB 裝置已遭拔栓</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">寫入鏡像檔</string>
+    <string name="whats_supported" comment="Displayed in the homepage; opens a page that lists all the supported devices and formats">目前支援哪幾類組合？</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">主題模式</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">按裝置設定</string>
+    <string name="light" comment="Style menu option that selects the light theme">淺色模式</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">深色模式</string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme">主題化配色</string>
+    <string name="about" comment="Menu option that opens the about page">關於</string>
+    <string name="unknown_device" comment="Device name placeholder">不明裝置</string>
+    <string name="is_this_a_windows_iso" comment="Dialog title; the dialog alerts the user that Windows images are not supported">有 Windows 自遠方來？</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">《EtchDroid》無法處理 Windows 官方光碟鏡像檔，請改採受《EtchDroid》、《Etcher》或 dd 支援的光碟鏡像檔。</string>
+    <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">仍要繼續</string>
+    <string name="select_a_usb_drive" comment="Title of the dialog listing the available USB drives">選擇 USB 儲存體</string>
+    <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected">連接 USB 儲存體</string>
+    <string name="looking_for_usb_drives">正在查找 USB 儲存體</string>
+    <string name="confirm_operation" comment="Title of the page where the operation details are listed; the user can confirm or cancel the operation from here">程序確認</string>
+    <string name="disk_image">磁碟鏡像檔</string>
+    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">用於寫入的鏡像檔</string>
+    <string name="usb_drive">USB 儲存體</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">進行授權</string>
+    <string name="permission_granted">已授權</string>
+    <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">請注意！</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">存取 USB 裝置 %1$s 遭拒</string>
+    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">用於儲存鏡像檔資料的目標 USB 裝置</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">已選定儲存體會在開始將鏡像檔寫入之前，先進行資料擦除</string>
+    <string name="write_image" comment="Confirmation button; when pressed, the operation starts">寫入鏡像檔</string>
+    <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">在程序進行之前，請將你的裝置平放在桌子上。</string>
+    <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">繼續</string>
+    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">無需觸控進行，請將你的裝置平放在桌子上</string>
+    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">跳過</string>
+    <string name="supported" comment="Description of a device or image type that is supported">已受支援</string>
+    <string name="maybe_supported" comment="Description of a device or image type that might be supported">部分支援</string>
+    <string name="not_supported" comment="Description of a device or image type that is not supported">未受支援</string>
+    <string name="devices" comment="Title of the section that lists all the supported device types">裝置</string>
+    <string name="usb_flash_drives" comment="Device type">USB 隨身碟</string>
+    <string name="memory_cards_using_a_usb_adapter" comment="Device type">以 USB 配接器連接的記憶卡</string>
+    <string name="usb_hard_drives_ssds_some_might_work" comment="Device type">USB 硬碟／固態硬碟（部分支援）</string>
+    <string name="usb_docks_and_hubs_might_have_power_issues" comment="Device type">USB 插座塢與集線器（或將出現電源供應問題）</string>
+    <string name="memory_cards_using_the_internal_slot" comment="Device type">以內部卡槽連接的記憶卡</string>
+    <string name="optical_disk_drives" comment="Device type">光碟機</string>
+    <string name="floppy_disk_drives" comment="Device type">軟式磁碟機</string>
+    <string name="any_thunderbolt_only_device" comment="Device type">僅含 Thunderbolt 連接埠的裝置</string>
+    <string name="disk_images" comment="Title of the section that lists all the supported image types">磁碟鏡像檔</string>
+    <string name="microsoft_windows_isos_any_version" comment="Image type">Microsoft Windows 光碟鏡像檔（不限版本）</string>
+    <string name="apple_dmg_disk_images" comment="Image type">Apple 磁碟鏡像檔</string>
+    <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc" comment="Image type">Arch Linux、Ubuntu、Debian、Fedora、pop!_OS、Linux Mint、FreeBSD 等等。</string>
+    <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos" comment="Image type">其他現代 GNU/Linux 以及 BSD 發行版的即用型光碟鏡像檔（Live ISO）</string>
+    <string name="raspberry_pi_sd_card_images_unzip_first" comment="Image type">Raspberry Pi SD 記憶卡鏡像檔（請事先作解壓縮！）</string>
+    <string name="any_other_image_that_works_with_balena_etcher_or_dd" comment="Image type">其他受《Balena Etcher》或 dd 支援的鏡像檔</string>
+    <string name="older_gnu_linux_distributions_isos_2010" comment="Image type">舊款 GNU/Linux 發行版的光碟鏡像檔（&lt; 2010 年）</string>
+    <string name="support_for_dmg_images_was_removed" comment="At the end of the supported devices and images page we state that DMGs are no longer supported; the parameter is replaced with the word &quot;GitHub&quot;">自《EtchDroid》2.0 起，DMG 鏡像檔便不再受支援。欲要下載舊版本，請前往 %1$s。</string>
+    <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">由 %1$s 與%2$s共同開發。\n原始碼已在 %3$s 上網公開。\n軟體授權係以《GNU GPLv3》明文規範。</string>
+    <string name="contributors" comment="Part of the following sentence: &quot;Developed by Author Name and other contributors&quot;">社群協力人員</string>
+    <string name="website" comment="Displayed in the about page links; keep it very short!">官方網站</string>
+    <string name="support_the_project" comment="Displayed in the about page links; keep it short!">捐款支持</string>
+    <string name="verifying_image" comment="Title of the progress page while an image is being verified">校驗鏡像檔</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">寫入鏡像檔</string>
+    <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">請與你的裝置保持距離</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">你是否想在程序完竣時另行通知？僅以展示程序進度為目標，絕無垃圾訊息或廣告內容。</string>
+    <string name="no_thanks" comment="Button to reject receiving notifications">婉拒</string>
+    <string name="sure" comment="Button to accept receiving notifications">接受</string>
+    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">正在校驗位於</string>
+    <string name="copying" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">正在將</string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">的</string>
+    <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">複製到</string>
+    <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">準備就緒……</string>
+    <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">跳過校驗程序</string>
+    <string name="write_a_review" comment="Displayed in a button on the success page">撰寫評論</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">前往 GitHub 進行標星</string>
+    <string name="got_an_unsupported_drive_notification" comment="Title of the card that teaches the user about any &quot;Issues with this drive&quot; notifications">為「儲存體發生錯誤」而來？</string>
+    <string name="it_s_safe_to_ignore" comment="Message of the card that teaches the user about any &quot;Issues with this drive&quot; notifications; the parameter will be replaced with the translation of &quot;Learn what it means&quot;">僅需正常拔栓與連接你的外部儲存體即可，無傷大雅！%1$s在稍後如何格式化你的儲存體。</string>
+    <string name="learn_what_it_means" comment="Part of the message of the card that teaches the user about any &quot;Issues with this drive&quot; notifications; the full sentence is &quot;Learn what it means and see how to format your drive later&quot;">深入瞭解</string>
+    <string name="there_was_an_error" comment="Title of the non-recoverable error page">發生錯誤</string>
+    <string name="error">錯誤</string>
+    <string name="start_over" comment="Button in the error page that, when pressed, restarts the app">重新啟動應用程式</string>
+    <string name="try_again" comment="Button in the error page that, when pressed, retries the write from scratch">再試一次</string>
+    <string name="i_did_not_unplug_it" comment="Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">我剛剛明明沒拔栓裝置！</string>
+    <string name="how_did_this_happen" comment="Title of the card that, when a recoverable error occurs, teaches the user why it could have happened">怎麼回事？</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">「USB 連接埠內部過於髒亂、配接器接觸不良、裝置無法供給足夠多的電力」都有可能是原因之一，請考慮改採不同款式的配接器或裝置。</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">此 USB 儲存體不受 Android 支援，難以實現自動復原。請改採其他儲存體，退一步海闊天空！</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it" comment="Message of the card about a recoverable unknown error">發生不明錯誤。請進行回報！</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">欲要進行復原程序，請於拔栓 USB 儲存體過後重新連接並授權存取。</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">三步驟搞定：拔栓裝置、重新連接、授權存取</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">USB 儲存體已拔栓</string>
+    <string name="plug_in_the_same_usb" comment="Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device">請連接你先前使用的 USB 裝置！</string>
+    <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">USB 裝置已重新連接，正在復原</string>
+    <string name="the_device_is_not_responding" comment="Error message">裝置未有回應</string>
+    <string name="missing_permission_to_access_the_usb_device" comment="Error message">存取 USB 裝置遭拒</string>
+    <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">此鏡像檔（%1$s）的占用空間大過裝置（%2$s）所剩空間</string>
+    <string name="could_not_open_the_source_file" comment="Error message">無法開啟原始檔案</string>
+    <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">發生不明錯誤：%1$s</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">USB 儲存體已終止回應</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">USB 裝置不與鏡像檔相符</string>
+    <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">寫入其他鏡像檔</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">程序確認</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">查無鏡像檔的統一資源識別碼（URI）</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">查無已選定的目標裝置</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">寫入程序或已陷入僵局，請稍後再試。</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">進行寫入程序時不幸碰上資料遺失問題，請稍後再試。</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">請力所能及地前往 GitHub 回報問題，附上在招致錯誤前做過的事情。</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">查看 GitHub 問題板</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">遙測計畫</string>
+    <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">《隱私權政策》</string>
+    <string name="community_windows_images" comment="&quot;You're on your own&quot; can be translated with something similar to &quot;unsupported&quot; or &quot;be careful!&quot; if it makes more sense in the target language">專為《EtchDroid》而生，由社群經手製作的 Windows 鏡像檔（風險自負：慎防病毒！）</string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">退出計畫</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">繼續加入</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">《EtchDroid》可供遙測你的使用足跡。</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">以匿名形式送交資料</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">深入瞭解</string>
+    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">《EtchDroid》十分看重你的隱私權利：不只讓遙測範圍最大程度受限，測得的資料也僅會用在追蹤應用程式問題上。\n\n誠摯歡迎你成為開放原始碼社群的一份子──繼續加入遙測計畫，協助開發人員為所有人打造愈發強大的《EtchDroid》！\n\n請知悉：為協助開發人員判別特定硬體上出現的問題，遙測資料僅會涵蓋已開啟鏡像檔的名稱以及 USB 裝置代號，且全程以匿名形式送交，不含任何具識別性的個人資料。只要鏡像檔的名稱或裝置代號不涉及機密內容，分享這類資料安全無虞。（請參閱%1$s）</string>
+    <string name="supported_devices_and_images" comment="Title of the page that lists all the supported devices and images">已受支援的裝置與鏡像檔組合</string>
+</resources>
