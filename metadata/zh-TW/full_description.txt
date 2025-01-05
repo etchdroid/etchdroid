@@ -1,0 +1,25 @@
+《EtchDroid》是個開放原始碼應用程式，旨在協助你將鏡像檔寫入至 USB 儲存體。
+正愁筆記型電腦開機未果的話，《EtchDroid》是讓你在 USB 儲存體安裝可開機型作業系統的不二之選。
+
+⭐️ 已受支援的裝置 ⭐️
+
+✅ USB 隨身碟
+✅ USB SD 記憶卡配接器
+❌ USB 硬碟／固態硬碟
+❌ USB 插座塢與集線器
+❌ 內部 SD 記憶卡槽
+❌ 光碟機或軟式磁碟機
+❌ 僅含 Thunderbolt 連接埠的裝置
+
+
+⭐️ 已受支援的鏡像檔格式 ⭐️
+
+✅ 現代 GNU/Linux 作業系統鏡像檔：Arch Linux、Ubuntu、Debian、Fedora、pop!_OS、Linux Mint、FreeBSD、BlissOS 等等
+✅ Raspberry PI SD 記憶卡鏡像檔（需事先進行解壓縮！）
+❌ Microsoft Windows 官方光碟鏡像檔
+⚠️ 專為《EtchDroid》而生，由社群經手製作的 Windows 鏡像檔（風險自負：慎防病毒！）
+❌ Apple 磁碟鏡像檔
+❌ < 2010 年的舊款 GNU/Linux 作業系統鏡像檔，例如 Damn Small Linux
+
+
+原始碼已在 GitHub 上網公開：https://github.com/EtchDroid/EtchDroid
