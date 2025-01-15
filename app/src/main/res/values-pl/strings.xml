@@ -10,7 +10,7 @@
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Służy do pokazywania postępów w bieżącej pracy</string>
     <string name="notif_channel_job_progress_name">Postęp pracy</string>
     <string name="learn_what_it_means">Dowiedz się, co to znaczy</string>
-    <string name="notification_write_progress_title">Wgrywanie obrazu…</string>
+    <string name="notification_write_progress_title">Zapisywanie obrazu…</string>
     <string name="notification_verify_progress_title">Weryfikacja obrazu…</string>
     <string name="notification_write_progress_content">%1$s do %2$s</string>
     <string name="device_setting">Ustawienia urządzenia</string>
@@ -82,9 +82,9 @@
     <string name="sure">Jasne</string>
     <string name="verifying">Weryfikacja</string>
     <string name="error">Błąd</string>
-    <string name="to">Do</string>
+    <string name="to">na</string>
     <string name="skip_verification">Pomiń weryfikację</string>
-    <string name="got_an_unsupported_drive_notification">Otrzymałeś powiadomienie „Nieobsługiwany dysk”?</string>
+    <string name="got_an_unsupported_drive_notification">Otrzymałeś powiadomienie „Problemy z tym dyskiem”?</string>
     <string name="it_s_safe_to_ignore">Można bezpiecznie zignorować! Odłącz dysk i używaj go normalnie. %1$s i zobacz, później, jak sformatować dysk.</string>
     <string name="there_was_an_error">Wystąpił błąd</string>
     <string name="try_again">Spróbuj ponownie</string>
@@ -100,4 +100,37 @@
     <string name="support_the_project">Wesprzyj finansowo</string>
     <string name="maybe_supported" comment="Description of a device or image type that might be supported">Możliwa obsługa</string>
     <string name="any_thunderbolt_only_device" comment="Device type">Dowolne urządzenie obsługujące tylko Thunderbolt</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s dla %2$s</string>
+    <string name="write_a_review" comment="Displayed in a button on the success page">Napisz recenzję</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it" comment="Message of the card about a recoverable unknown error">To jest nieoczekiwane, prawdopodobnie błąd. Proszę to zgłosić!</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">Przedstawienie wymaganych kroków: odłącz, podłącz ponownie, udziel pozwolenia</string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">Ikona telemetrii</string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">Zrezygnuj</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">Pozostaw włączone</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">Wydaje się, że proces zapisu utknął w miejscu. Spróbuj ponownie.</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">Aby odzyskać dostęp do urządzenia, odłącz dysk USB, podłącz go ponownie i ponownie udziel zgody na dostęp do niego.</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Próba zapisu została rozpoczęta, ale niestety niektóre informacje zostały utracone po drodze. Spróbuj ponownie.</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Jeśli to możliwe, zgłoś issue w serwisie GitHub, podając jednocześnie opis kroków, które doprowadziły do wystąpienia błędu.</string>
+    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">EtchDroid ceni Twoją prywatność i wykorzystuje jedynie minimalną ilość danych telemetrycznych do badania problemów z aplikacją.\n\nBądź częścią naszej społeczności open-source — włącz telemetrię i pomóż ulepszyć EtchDroid dla wszystkich!\n\nChociaż nie zbieramy żadnych danych osobowych, wierzymy w przejrzystość i chcemy, abyś wiedział, że nazwy otwartych plików obrazów i identyfikatory urządzeń USB są zbierane anonimowo, aby pomóc w diagnozowaniu problemów z konkretnym sprzętem. Jeśli nazwy plików obrazów lub identyfikatory urządzeń nie są wysoce poufne, możesz bezpiecznie udostępniać te dane. (%1$s)</string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">dla</string>
+    <string name="plug_in_the_same_usb" comment="Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device">Podłącz to samo urządzenie USB, którego używałeś wcześniej!</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">Zawartość urządzenia USB nie pasuje do obrazu</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">Potwierdź operację</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">Nie podano URI obrazu</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Wyświetl issues GitHub</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Telemetria</string>
+    <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">Polityka prywatności</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">Potrzebujemy Twojej pomocy!</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid wysyła dane telemetryczne.</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Przesyłaj anonimowe dane</string>
+    <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">Prosimy o unikanie korzystania z urządzenia</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">Chcesz otrzymać powiadomienie o zakończeniu? Tylko aktualizacje postępu, bez spamu i reklam.</string>
+    <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">Przygotowania…</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">Gwiazdka na GitHub</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Być może port USB jest brudny, adapter jest uszkodzony lub urządzenie nie może dostarczyć wystarczającej ilości energii elektrycznej. Rozważ wypróbowanie innego adaptera lub urządzenia.</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">Dyski USB są zawodne, a Android nie udziela wystarczających uprawnień do automatycznego odzyskiwania. Musimy się zadowolić tym, co mamy!</string>
+    <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">Urządzenie USB ponownie podłączone, wznawianie pracy</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">Nie wybrano urządzenia docelowego</string>
+    <string name="community_windows_images" comment="&quot;You're on your own&quot; can be translated with something similar to &quot;unsupported&quot; or &quot;be careful!&quot; if it makes more sense in the target language">Obrazy systemu Windows stworzone przez społeczność, przeznaczone dla programu EtchDroid (radzisz sobie sam, bo mogą zawierać wirusy!)</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Dowiedz się więcej</string>
 </resources>
