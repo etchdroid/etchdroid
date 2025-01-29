@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="cancel" comment="Cancel string, used all over the place">रद्द करना</string>
+    <string name="write_finished" comment="Notification title when the write operation is successful">लिखना ख़त्म</string>
+    <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s को सफलतापूर्वक लिखा गया %2$s</string>
+    <string name="notif_channel_job_progress_name" comment=" Notification channel name for long-running job progress, shown in Android settings">नौकरी में उन्नति</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description for long-running job progress, shown in Android settings">वर्तमान कार्य की प्रगति दिखाने के लिए उपयोग किया जाता है</string>
+    <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">छवि सत्यापित हो रही है…</string>
+    <string name="unknown_filename" comment="Placeholder file name">अज्ञात फ़ाइल नाम</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">USB डिवाइस अनप्लग किया गया था</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">एक छवि लिखें</string>
+    <string name="notification_write_tap_for_progress_text" comment=" Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name">प्रगति के लिए टैप करें • %1$s को %2$s में लिखें</string>
+    <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s से %2$s</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s बनाम %2$s</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">USB डिवाइस %1$s के लिए अनुमति अस्वीकृत</string>
+    <string name="whats_supported" comment="Displayed in the homepage; opens a page that lists all the supported devices and formats">क्या समर्थित है?</string>
+    <string name="notif_channel_job_result_desc" comment=" Notification channel description for job outcome notifications, shown in Android settings">पूर्ण कार्य परिणाम दिखाने के लिए उपयोग किया जाता है</string>
+    <string name="notif_channel_job_result_name" comment=" Notification channel name for job outcome notifications, shown in Android settings">नौकरी का परिणाम</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">छवि लिख रहा हूँ…</string>
+    <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">प्रगति के लिए सूचनाएं सक्षम करें • %1$s से %2$s लिखना</string>
+    <string name="write_failed" comment="Notification title when a non-recoverable error occurs">लिखना विफल</string>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">कार्रवाई आवश्यक है</string>
+</resources>
