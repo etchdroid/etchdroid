@@ -27,7 +27,7 @@
     <string name="try_again">Thử lại</string>
     <string name="how_did_this_happen">Tại sao lỗi này xảy ra?</string>
     <string name="perhaps_your_usb_port_is_dirty">Có thể cổng USB của bạn bị bẩn, adapter bị lỗi hoặc thiết bị không được cung cấp đủ nguồn điện. Vui lòng thử adapter hoặc thiết bị khác.</string>
-    <string name="usb_drives_are_unreliable">Các thiết bị USB có thể không hoạt động ổn định, và Android không cung cấp đủ quyền để tự động khôi phục. Chúng tôi chỉ có thể sử dụng các quyền được cấp!</string>
+    <string name="usb_drives_are_unreliable">Các thiết bị USB có thể hoạt động không ổn định, và Android không cung cấp đủ quyền để tự động khôi phục. Chúng tôi chỉ có thể sử dụng các quyền được cấp!</string>
     <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">Lỗi không mong muốn có thể đã xảy ra. Vui lòng gửi báo cáo!</string>
     <string name="to_recover_unplug">Để khắc phục, rút thiết bị USB, cắm lại và cấp lại quyền truy cập.</string>
     <string name="representation_of_the_required_steps">Mô tả các bước cần thiết: rút, cắm lại, cấp quyền</string>
@@ -91,11 +91,11 @@
 \nMã nguồn tại %3$s.
 \nPhân phối dưới bản quyền GNU GPLv3.</string>
     <string name="contributors">những người đóng góp khác</string>
-    <string name="website">Website</string>
+    <string name="website">Trang web</string>
     <string name="verifying_image">Đang xác minh file ảnh</string>
     <string name="please_avoid_using_your_device">Vui lòng hạn chế sử dụng thiết bị</string>
     <string name="would_you_like_to_be_notified">Bạn có muốn nhận thông báo khi hoàn tất không? Chỉ có thông báo tiến độ, không có spam hoặc quảng cáo.</string>
-    <string name="no_thanks">Không, cảm ơn</string>
+    <string name="no_thanks">Không cảm ơn</string>
     <string name="copying">Đang chép</string>
     <string name="verifying">Đang xác minh</string>
     <string name="against">với</string>
@@ -124,4 +124,10 @@
     <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">EtchDroid luôn coi trọng sự riêng tư của bạn và chỉ đo thông tin từ xa tối thiểu nhất để điều tra vấn đề về ứng dụng.\n\nHãy là một phần cộng đồng mã nguồn mở của chúng tôi—cho phép đo thông tin từ xa và giúp hoàn thiện EtchDroid cho mọi người!\n\nTrong khi chúng tôi không thu hoạch bất kì thông tin cá nhân, chúng tôi luôn tin tưởng vào sự minh bạch và cho bạn biết rằng file ảnh được mở và các mã số thiết bị USB đều thu thập ẩn danh để giúp chuẩn đoán những vấn đề về các phần cứng. Trừ khi file ảnh và các mã số thiết bị của bạn có nhạy cảm rất cao, vẫn có thể chia sẻ thông tin một cách an toàn. (­%1$s)</string>
     <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Bạn có thể báo cáo vấn đề này lên GitHub kèm theo bước đã gây ra lỗi nếu có thể.</string>
     <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">Chính sách bảo mật</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">Giữ trạng thái bật</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Tìm hiểu thêm</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Gửi thông tin ẩn danh</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid gửi thông tin từ xa.</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Xem vấn đề trên GitHub</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">Chúng tôi cần sự giúp đỡ của bạn!</string>
 </resources>
