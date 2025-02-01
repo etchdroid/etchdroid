@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="cancel" comment="Cancel string, used all over the place">ยกเลิก</string>
+    <string name="write_finished" comment="Notification title when the write operation is successful">การบันทึกข้อมูลเสร็จสิ้น</string>
+    <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">ไฟล์ %1$s ได้ถูกบันทึกลงใน %2$s เรียบร้อยแล้ว</string>
+    <string name="write_failed" comment="Notification title when a non-recoverable error occurs">การบันทึกล้มเหลว</string>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">จำเป็นต้องดำเนินการ</string>
+</resources>
