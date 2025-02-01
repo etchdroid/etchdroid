@@ -1,0 +1,2 @@
+• EtchDroid använder nu libusb under huven. Detta borde ge mycket förbättrad stabilitet.
+• Nattlägesväxling avaktiverad på Pie eller nyare eftersom det skulle orsaka problem för många människor. Vänligen meddela mig om du w

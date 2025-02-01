@@ -1,1 +1,1 @@
-Skriv ISO och DMG-avbilder till USB-enheter, ingen root krävs
+Skriv operativsystemets ISO-bilder till USB-enheter, ingen root krävs

@@ -1,1 +1,1 @@
-USB-skrivaren EtchDroid
+EtchDroid ISO till USB Writer

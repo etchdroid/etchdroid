@@ -1,0 +1,27 @@
+EtchDroid är ett program med öppen källkod som hjälper dig att skriva bilder till USB-enheter.
+Använd det för att skapa en startbar USB-enhet med operativsystem när din bärbara dator är död.
+
+⭐️ Enheter som stöds ⭐️
+
+✅ USB-minnen
+✅ USB SD-kortadaptrar
+❌ USB-hårddiskar / SSD-enheter
+❌ USB-dockor och hubbar
+❌ Intern plats för SD-kort
+❌ Optiska enheter eller diskettenheter
+❌ Enheter med enbart Thunderbolt
+
+
+⭐️ Diskbildstyper som stöds ⭐️
+
+✅ Moderna GNU/Linux-operativsystemavbildningar, inklusive Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS och många fler
+✅ Raspberry PI SD-kortbilder (men du måste packa upp dem först!)
+❌ Officiella Microsoft Windows-ISO:er
+⚠️ Gemenskapsbyggda Windows-bilder, gjorda för EtchDroid (var försiktig: de kan innehålla virus!)
+❌ Apple DMG-diskavbilder
+❌ Äldre GNU/Linux OS-avbildningar < 2010, t.ex. Damn Small Linux
+
+
+Källkoden finns på GitHub: https://github.com/EtchDroid/EtchDroid
+
+Translated with DeepL.com (free version)
