@@ -2,20 +2,20 @@
 <resources>
     <string name="unknown_filename">不明なファイル名</string>
     <string name="cancel">キャンセル</string>
-    <string name="write_finished">書き込み終了</string>
+    <string name="write_finished">書き込み完了</string>
     <string name="success_notif_content_text">%1$sは%2$sに正常に書き込まれました</string>
     <string name="write_failed">書き込みに失敗しました</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">現在のジョブの進行状況を表示するために使用されます</string>
     <string name="notif_channel_job_progress_name">書き込みの進捗状況</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">完了した書き込み結果の表示に使用されます</string>
     <string name="notification_verify_progress_title">イメージを確認しています…</string>
-    <string name="notification_write_no_notifications_text">進行状況の通知を有効にする • %1$s から %2$s への書き込み</string>
+    <string name="notification_write_no_notifications_text">%1$s から %2$s への書き込みについて、進捗状況の通知を有効にします</string>
     <string name="notif_channel_job_result_name">書き込み結果</string>
-    <string name="action_required">要対応</string>
+    <string name="action_required">アクションが必要です</string>
     <string name="notification_write_progress_title">イメージを書き込んでいます…</string>
     <string name="about">このアプリについて</string>
     <string name="permission_denied_for_usb_device">USB デバイス %1$s への許可が拒否されました</string>
-    <string name="whats_supported">対応イメージの形式は？</string>
+    <string name="whats_supported">対応イメージの形式は何ですか？</string>
     <string name="style">スタイル</string>
     <string name="notification_write_tap_for_progress_text">タップして進捗 • %1$s を %2$s に書き込む</string>
     <string name="notification_write_progress_content">%1$s から %2$sへ</string>
@@ -28,26 +28,26 @@
     <string name="dynamic_colors">ダイナミックカラー</string>
     <string name="a_regular_windows_iso_won_t_work">通常のWindows ISOは、EtchDroid、Etcherまたはddで使用するために特別に用意されていない限り、EtchDroidで動作しません。</string>
     <string name="is_this_a_windows_iso">これは Windows ISO ですか？</string>
-    <string name="continue_anyway">とにかく実行する</string>
+    <string name="continue_anyway">とにかく実行</string>
     <string name="confirm_operation">実行内容の確認</string>
     <string name="select_a_usb_drive">USBドライブを選択</string>
     <string name="connect_a_usb_drive">USB ドライブを接続する</string>
     <string name="looking_for_usb_drives">USBドライブを探しています</string>
-    <string name="image_to_write">書き込むイメージ</string>
+    <string name="image_to_write">書き込みイメージ</string>
     <string name="destination_usb_device">対象のUSBデバイス</string>
-    <string name="unknown_device">未知のデバイス</string>
+    <string name="unknown_device">不明なデバイス</string>
     <string name="be_careful">注意!</string>
     <string name="disk_image">ディスクイメージ</string>
     <string name="usb_drive">USBドライブ</string>
     <string name="grant_access">アクセス許可</string>
     <string name="permission_granted">許可が与えられました</string>
     <string name="write_image">イメージを書き込む</string>
-    <string name="lay_your_device_flat_no_accel">続ける前に、デバイスをテーブルの平らな場所に置いてください。</string>
+    <string name="lay_your_device_flat_no_accel">実行前に、デバイスを平らな場所に置いてください。</string>
     <string name="continue_">続行</string>
-    <string name="lay_your_device_flat">デバイスをテーブルの平らな場所に置き、触れないでください</string>
+    <string name="lay_your_device_flat">デバイスを平らな場所に置き、接触は避けてください。</string>
     <string name="skip">スキップ</string>
     <string name="supported">対応しています</string>
-    <string name="not_supported">対応されていません</string>
+    <string name="not_supported">未対応</string>
     <string name="devices">デバイス</string>
     <string name="memory_cards_using_a_usb_adapter">USBアダプター経由のメモリーカード</string>
     <string name="usb_hard_drives_ssds_some_might_work">USB ハードドライブ / SSD (動作するものもあります)</string>
@@ -106,7 +106,7 @@
     <string name="could_not_open_the_source_file">ソースファイルを開けませんでした</string>
     <string name="writing_the_image_will_erase">イメージを書き込むと、選択したドライブのすべてのデータが消去されます</string>
     <string name="maybe_supported">恐らく対応しています</string>
-    <string name="optical_disk_drives">光学デイスクドライブ</string>
+    <string name="optical_disk_drives">光学ディスクドライブ</string>
     <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux、Ubuntu、Debian、Fedora、pop!_OS、Linux Mint、FreeBSD 等。</string>
     <string name="sure">許可する</string>
     <string name="how_did_this_happen">何が起きた?</string>
