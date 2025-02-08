@@ -44,7 +44,7 @@
     <string name="write_image">イメージを書き込む</string>
     <string name="lay_your_device_flat_no_accel">実行前に、デバイスを平らな場所に置いてください。</string>
     <string name="continue_">続行</string>
-    <string name="lay_your_device_flat">デバイスを平らな場所に置き、接触は避けてください。</string>
+    <string name="lay_your_device_flat">デバイスを平らな場所に置き、接触を避けて下さい</string>
     <string name="skip">スキップ</string>
     <string name="supported">対応しています</string>
     <string name="not_supported">未対応</string>
