@@ -21,7 +21,7 @@
     <string name="support_for_dmg_images_was_removed">File ảnh DMG đã ngừng hỗ trợ từ EtchDroid 2.0. Các phiên bản cũ hơn có thể tải từ %1$s.</string>
     <string name="writing_image">Đang ghi file ảnh</string>
     <string name="sure">Có</string>
-    <string name="got_an_unsupported_drive_notification">Gặp thông báo \"Thiết bị không được hỗ trợ\"?</string>
+    <string name="got_an_unsupported_drive_notification">Bạn có nhận được thông báo \"Có sự cố với ổ đĩa này\" không?</string>
     <string name="it_s_safe_to_ignore">Có thể bỏ qua thông báo này. Bạn có thể rút thiết bị và sử dụng như bình thường. %1$s và xem cách để định dạng lại ổ.</string>
     <string name="error">Lỗi</string>
     <string name="try_again">Thử lại</string>
@@ -130,4 +130,7 @@
     <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid gửi thông tin từ xa.</string>
     <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Xem vấn đề trên GitHub</string>
     <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">Chúng tôi cần sự giúp đỡ của bạn!</string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">Biểu tượng dữ liệu đo từ xa</string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">Từ chối</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Dữ liệu đo từ xa</string>
 </resources>
