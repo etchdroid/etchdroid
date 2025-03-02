@@ -1,0 +1,1 @@
+• Đã sửa lỗi khiến ứng dụng bị sập khi nhấn bất kỳ nút nào trên Android 6.0.

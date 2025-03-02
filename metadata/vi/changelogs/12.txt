@@ -1,0 +1,2 @@
+• Các bản cập nhật và sửa lỗi cho libaum sẽ mang lại độ tin cậy được cải thiện với các ổ USB "khó tính" và các thiết bị Android.
+• Cập nhật bản dịch.
