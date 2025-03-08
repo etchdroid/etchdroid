@@ -1,5 +1,5 @@
 EtchDroid是一个开源的应用，能帮助你写入镜像到USB设备。
-当你的电脑出现问题时，使用它来制作一个可启动的操作系统USB硬盘。
+当你的电脑出现问题时，使用它来制作一个可引导的USB 操作系统。
 
 ⭐️ 支持的设备 ⭐️
 
@@ -7,19 +7,19 @@ EtchDroid是一个开源的应用，能帮助你写入镜像到USB设备。
 ✅USB SD卡适配器
 ❌USB 机械硬盘/固态硬盘
 ❌USB 坞/扩展器
-❌内置SD卡槽
+❌ 安装在设备内置SD卡槽上的设备
 ❌光盘/软盘驱动器
-❌仅Thunderbolt(雷电)设备
+❌仅支持Thunderbolt协议的设备
 
 
 ⭐️ 支持的磁盘镜像格式 ⭐️
 
-✅现代 GNU/Linux 操作系统镜像，包括Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS和更多。
+✅现代 GNU/Linux 操作系统镜像，包括Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS等等。
 ✅树莓派SD卡镜像(但是你必须先解压他们)
 ❌官方微软Windows ISO镜像
-⚠️社区为EtchDroid构建的Windows镜像(请小心，他们可能会包含病毒)
+⚠️社区为EtchDroid所制作的Windows镜像(请小心，他们可能会包含病毒)
 ❌苹果 DMG 磁盘镜像
-❌更老的 GNU/Linux 操作系统镜像，老于2010年像Damn Small Linux
+❌2010 年前发布的更老的GNU/Linux 操作系统镜像，像Damn Small Linux
 
 
 源代码托管在Github上: https://github.com/EtchDroid/EtchDroid
