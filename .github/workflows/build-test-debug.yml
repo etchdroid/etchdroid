@@ -1,0 +1,44 @@
+name: Build and test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-matrix:
+    name: Build and test variant ${{ matrix.variant }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        variant:
+          - Foss
+          - Gplay
+
+    env:
+      JAVA_TOOL_OPTIONS: "-Xmx4g"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Build ${{ matrix.variant }} (SENTRY=${{ matrix.enable_sentry }})
+        run: ./gradlew assemble${{ matrix.variant }}Debug
+        env:
+          ETCHDROID_ENABLE_SENTRY: ${{ matrix.variant == 'Gplay' }}
+
+      - name: Run Unit Tests (SENTRY=${{ matrix.enable_sentry }})
+        run: ./gradlew test${{ matrix.variant }}UnitTest
+        env:
+          ETCHDROID_ENABLE_SENTRY: ${{ matrix.variant == 'Gplay' }}
