@@ -37,7 +37,8 @@ jobs:
           gradle-version: wrapper
           cache-read-only: false
 
-      - uses: actions/cache@v4
+      - name: Gradle cache
+        uses: actions/cache@v4
         with:
           path: |
             ~/.gradle/caches
