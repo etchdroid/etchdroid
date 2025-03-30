@@ -1098,12 +1098,14 @@ fun FatalErrorView(
             )
         },
         suggestion = {
-            Text(
-                text = stringResource(R.string.please_report_fatal_issue),
-                textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.titleMedium.copy(fontSize = 18.sp),
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
+            if (exception !is NotEnoughSpaceException) {
+                Text(
+                    text = stringResource(R.string.please_report_fatal_issue),
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.titleMedium.copy(fontSize = 18.sp),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
         },
         icon = {
             Icon(
