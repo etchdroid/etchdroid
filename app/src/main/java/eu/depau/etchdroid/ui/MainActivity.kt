@@ -79,6 +79,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.semantics.Role
@@ -533,6 +534,7 @@ fun StartView(
         mainButton = {
             ExtendedFloatingActionButton(
                 onClick = onCTAClick,
+                modifier = Modifier.testTag("writeImageCTA"),
                 text = { Text(stringResource(R.string.write_an_image)) },
                 icon = {
                     Icon(
@@ -689,17 +691,22 @@ fun WindowsImageAlertDialog(
         contentDescription = "Windows logo"
     )
 }, confirmButton = {
-    TextButton(onClick = {
-        onConfirm()
-        onDismissRequest()
-    }) {
+    TextButton(
+        modifier = Modifier.testTag("confirmWindowsAlert"),
+        onClick = {
+            onConfirm()
+            onDismissRequest()
+        }
+    ) {
         Text(stringResource(R.string.continue_anyway))
     }
 }, dismissButton = {
-    TextButton(onClick = {
-        onCancel()
-        onDismissRequest()
-    }) {
+    TextButton(
+        modifier = Modifier.testTag("cancelWindowsAlert"),
+        onClick = {
+            onCancel()
+            onDismissRequest()
+        }) {
         Text(stringResource(R.string.cancel))
     }
 })
@@ -789,16 +796,17 @@ fun UsbDevicePickerBottomSheet(
             ) {
                 items(availableDevices().toList()) { device ->
                     ListItem(
-                        modifier = Modifier.clickable {
-                            selectDevice(device)
-                        },
+                        modifier = Modifier
+                            .testTag("usbDeviceListItem")
+                            .clickable { selectDevice(device) },
                         headlineContent = { Text(device.name) },
                         supportingContent = { Text(device.vidpid, fontStyle = FontStyle.Italic) },
                         leadingContent = {
                             Icon(
                                 imageVector = ImageVector.vectorResource(
                                     id = R.drawable.ic_usb_stick
-                                ), contentDescription = "USB drive"
+                                ),
+                                contentDescription = "USB drive"
                             )
                         },
                     )

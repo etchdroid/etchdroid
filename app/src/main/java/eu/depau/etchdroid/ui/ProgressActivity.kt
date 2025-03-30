@@ -79,6 +79,7 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.LinkAnnotation
@@ -433,6 +434,12 @@ fun JobInProgressView(
         modifier = Modifier.fillMaxSize(),
         title = {
             Text(
+                modifier = Modifier.testTag(
+                    if (uiState.isVerifying)
+                        "write_progress_title"
+                    else
+                        "verify_progress_title"
+                ),
                 text = if (uiState.isVerifying) stringResource(
                     R.string.verifying_image
                 ) else stringResource(
@@ -720,6 +727,7 @@ fun JobInProgressView(
             if (uiState.isVerifying) {
                 OutlinedButton(
                     modifier = Modifier
+                        .testTag("skip_verification_button")
                         .telemetryTag("skip_verification_button")
                         .fillMaxWidth()
                         .padding(horizontal = 32.dp),
@@ -853,6 +861,7 @@ fun SuccessView() {
         modifier = Modifier.fillMaxSize(),
         title = {
             Text(
+                modifier = Modifier.testTag("success_write_title"),
                 text = stringResource(R.string.image_written_successfully),
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
@@ -1073,6 +1082,7 @@ fun FatalErrorView(
         modifier = Modifier.fillMaxSize(),
         title = {
             Text(
+                modifier = Modifier.testTag("fatal_error_title"),
                 text = stringResource(R.string.there_was_an_error),
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),

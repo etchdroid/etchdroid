@@ -8,11 +8,15 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import eu.depau.etchdroid.ui.IThemeViewModel
 import eu.depau.etchdroid.ui.theme.EtchDroidTheme
 
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun MainView(
     viewModel: IThemeViewModel<*>,
@@ -26,7 +30,9 @@ fun MainView(
         darkTheme = darkMode, dynamicColor = uiState.dynamicColors
     ) {
         Surface(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize()
+                .semantics { testTagsAsResourceId = true },
             color = MaterialTheme.colorScheme.background,
         ) {
             Scaffold(snackbarHost = snackbarHost) { contentPadding ->

@@ -63,6 +63,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontStyle
@@ -625,6 +626,7 @@ fun ConfirmationView(
                             )
                         }
                         Button(
+                            modifier = Modifier.testTag("grantUsbPermissionButton"),
                             onClick = askUsbPermission,
                             enabled = !uiState.hasUsbPermission,
                             contentPadding = if (!uiState.hasUsbPermission) PaddingValues(
@@ -690,6 +692,7 @@ fun ConfirmationView(
         },
         confirmButton = {
             Button(
+                modifier = Modifier.testTag("writeImageButton"),
                 onClick = onConfirm,
                 enabled = uiState.selectedDevice != null && uiState.hasUsbPermission
             ) {
@@ -736,7 +739,10 @@ fun LayFlatOnTableBottomSheet(
                     }
                 }
                 Button(onClick = { hideSheet = true }) {
-                    Text(text = stringResource(R.string.continue_))
+                    Text(
+                        modifier = Modifier.testTag("layFlatSkipButton"),
+                        text = stringResource(R.string.continue_)
+                    )
                 }
             }
         } else {
@@ -843,7 +849,10 @@ fun LayFlatOnTableBottomSheet(
                     }
                 }
                 OutlinedButton(onClick = { hideSheet = true }) {
-                    Text(text = stringResource(R.string.skip))
+                    Text(
+                        modifier = Modifier.testTag("layFlatSkipButton"),
+                        text = stringResource(R.string.skip)
+                    )
                 }
             }
         }
