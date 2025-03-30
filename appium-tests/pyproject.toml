@@ -1,0 +1,21 @@
+[project]
+name = "appium-tests"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "appium-python-client>=5.0.0",
+    "pytest>=8.3.5",
+]
+
+[tool.pytest.ini_options]
+addopts = [
+    "-m", "not qemu", # Disable QEMU tests by default
+]
+markers = [
+    "qemu: Run tests that require QEMU",
+]
+
+[tool.ruff]
+line-length = 120
