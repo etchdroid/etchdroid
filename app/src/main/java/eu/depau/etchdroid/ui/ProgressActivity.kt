@@ -633,7 +633,9 @@ fun JobInProgressView(
                         horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.End)
                     ) {
                         OutlinedButton(
-                            modifier = Modifier.telemetryTag("notifications_dismiss_button"),
+                            modifier = Modifier
+                                .appiumTag("notifications_dismiss_button")
+                                .telemetryTag("notifications_dismiss_button"),
                             onClick = dismissNotificationsBanner
                         ) {
                             Telemetry.addBreadcrumb(
@@ -643,7 +645,9 @@ fun JobInProgressView(
                             Text(text = stringResource(R.string.no_thanks))
                         }
                         Button(
-                            modifier = Modifier.telemetryTag("notifications_enable_button"),
+                            modifier = Modifier
+                                .appiumTag("notifications_enable_button")
+                                .telemetryTag("notifications_enable_button"),
                             onClick = requestNotificationsPermission
                         ) {
                             Telemetry.addBreadcrumb(
