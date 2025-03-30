@@ -79,7 +79,6 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.LinkAnnotation
@@ -124,6 +123,7 @@ import eu.depau.etchdroid.ui.composables.MainView
 import eu.depau.etchdroid.ui.composables.ReconnectUsbDriveDialog
 import eu.depau.etchdroid.ui.composables.RecoverableExceptionExplanationCard
 import eu.depau.etchdroid.ui.composables.ScreenSizeLayoutSelector
+import eu.depau.etchdroid.ui.composables.appiumTag
 import eu.depau.etchdroid.ui.utils.rtlMirror
 import eu.depau.etchdroid.utils.broadcastReceiver
 import eu.depau.etchdroid.utils.exception.InitException
@@ -434,11 +434,11 @@ fun JobInProgressView(
         modifier = Modifier.fillMaxSize(),
         title = {
             Text(
-                modifier = Modifier.testTag(
+                modifier = Modifier.appiumTag(
                     if (uiState.isVerifying)
-                        "write_progress_title"
-                    else
                         "verify_progress_title"
+                    else
+                        "write_progress_title"
                 ),
                 text = if (uiState.isVerifying) stringResource(
                     R.string.verifying_image
@@ -727,7 +727,7 @@ fun JobInProgressView(
             if (uiState.isVerifying) {
                 OutlinedButton(
                     modifier = Modifier
-                        .testTag("skip_verification_button")
+                        .appiumTag("skip_verification_button")
                         .telemetryTag("skip_verification_button")
                         .fillMaxWidth()
                         .padding(horizontal = 32.dp),
@@ -861,7 +861,7 @@ fun SuccessView() {
         modifier = Modifier.fillMaxSize(),
         title = {
             Text(
-                modifier = Modifier.testTag("success_write_title"),
+                modifier = Modifier.appiumTag("success_write_title"),
                 text = stringResource(R.string.image_written_successfully),
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),
@@ -1082,7 +1082,7 @@ fun FatalErrorView(
         modifier = Modifier.fillMaxSize(),
         title = {
             Text(
-                modifier = Modifier.testTag("fatal_error_title"),
+                modifier = Modifier.appiumTag("fatal_error_title"),
                 text = stringResource(R.string.there_was_an_error),
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.titleLarge.copy(fontSize = 28.sp),

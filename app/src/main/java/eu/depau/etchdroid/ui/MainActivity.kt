@@ -79,7 +79,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.semantics.Role
@@ -106,6 +105,7 @@ import eu.depau.etchdroid.plugins.telemetry.Telemetry
 import eu.depau.etchdroid.plugins.telemetry.TelemetryLevel
 import eu.depau.etchdroid.ui.composables.MainView
 import eu.depau.etchdroid.ui.composables.ScreenSizeLayoutSelector
+import eu.depau.etchdroid.ui.composables.appiumTag
 import eu.depau.etchdroid.ui.composables.coloredShadow
 import eu.depau.etchdroid.ui.theme.notSupportedRed
 import eu.depau.etchdroid.ui.theme.partiallySupportedYellow
@@ -534,7 +534,7 @@ fun StartView(
         mainButton = {
             ExtendedFloatingActionButton(
                 onClick = onCTAClick,
-                modifier = Modifier.testTag("writeImageCTA"),
+                modifier = Modifier.appiumTag("writeImageCTA"),
                 text = { Text(stringResource(R.string.write_an_image)) },
                 icon = {
                     Icon(
@@ -679,41 +679,43 @@ fun WindowsImageAlertDialog(
     onDismissRequest: () -> Unit,
     onConfirm: () -> Unit,
     onCancel: () -> Unit = {},
-) = AlertDialog(onDismissRequest = onDismissRequest, title = {
-    Text(
-        modifier = Modifier.testTag("windows_image_alert_title"),
-        text = stringResource(R.string.is_this_a_windows_iso),
-        textAlign = TextAlign.Center
-    )
-}, text = {
-    Text(
-        text = stringResource(R.string.a_regular_windows_iso_won_t_work)
-    )
-}, icon = {
-    Icon(
-        imageVector = ImageVector.vectorResource(id = R.drawable.ic_windows),
-        contentDescription = "Windows logo"
-    )
-}, confirmButton = {
-    TextButton(
-        modifier = Modifier.testTag("confirmWindowsAlert"),
-        onClick = {
-            onConfirm()
-            onDismissRequest()
+) = AlertDialog(
+    modifier = Modifier.appiumTag("windows_image_alert"),
+    onDismissRequest = onDismissRequest, title = {
+        Text(
+            modifier = Modifier.appiumTag("windows_image_alert_title"),
+            text = stringResource(R.string.is_this_a_windows_iso),
+            textAlign = TextAlign.Center
+        )
+    }, text = {
+        Text(
+            text = stringResource(R.string.a_regular_windows_iso_won_t_work)
+        )
+    }, icon = {
+        Icon(
+            imageVector = ImageVector.vectorResource(id = R.drawable.ic_windows),
+            contentDescription = "Windows logo"
+        )
+    }, confirmButton = {
+        TextButton(
+            modifier = Modifier.appiumTag("confirmWindowsAlert"),
+            onClick = {
+                onConfirm()
+                onDismissRequest()
+            }
+        ) {
+            Text(stringResource(R.string.continue_anyway))
         }
-    ) {
-        Text(stringResource(R.string.continue_anyway))
-    }
-}, dismissButton = {
-    TextButton(
-        modifier = Modifier.testTag("cancelWindowsAlert"),
-        onClick = {
-            onCancel()
-            onDismissRequest()
-        }) {
-        Text(stringResource(R.string.cancel))
-    }
-})
+    }, dismissButton = {
+        TextButton(
+            modifier = Modifier.appiumTag("cancelWindowsAlert"),
+            onClick = {
+                onCancel()
+                onDismissRequest()
+            }) {
+            Text(stringResource(R.string.cancel))
+        }
+    })
 
 @Composable
 fun TelemetryAlertDialog(
@@ -801,7 +803,7 @@ fun UsbDevicePickerBottomSheet(
                 items(availableDevices().toList()) { device ->
                     ListItem(
                         modifier = Modifier
-                            .testTag("usbDeviceListItem")
+                            .appiumTag("usbDeviceListItem")
                             .clickable { selectDevice(device) },
                         headlineContent = { Text(device.name) },
                         supportingContent = { Text(device.vidpid, fontStyle = FontStyle.Italic) },

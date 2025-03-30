@@ -63,7 +63,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontStyle
@@ -97,6 +96,7 @@ import eu.depau.etchdroid.plugins.telemetry.Telemetry
 import eu.depau.etchdroid.service.WorkerService
 import eu.depau.etchdroid.ui.composables.MainView
 import eu.depau.etchdroid.ui.composables.ScreenSizeLayoutSelector
+import eu.depau.etchdroid.ui.composables.appiumTag
 import eu.depau.etchdroid.ui.utils.rememberPorkedAroundSheetState
 import eu.depau.etchdroid.utils.broadcastReceiver
 import eu.depau.etchdroid.utils.ktexts.formatID
@@ -626,7 +626,7 @@ fun ConfirmationView(
                             )
                         }
                         Button(
-                            modifier = Modifier.testTag("grantUsbPermissionButton"),
+                            modifier = Modifier.appiumTag("grantUsbPermissionButton"),
                             onClick = askUsbPermission,
                             enabled = !uiState.hasUsbPermission,
                             contentPadding = if (!uiState.hasUsbPermission) PaddingValues(
@@ -692,7 +692,7 @@ fun ConfirmationView(
         },
         confirmButton = {
             Button(
-                modifier = Modifier.testTag("writeImageButton"),
+                modifier = Modifier.appiumTag("writeImageButton"),
                 onClick = onConfirm,
                 enabled = uiState.selectedDevice != null && uiState.hasUsbPermission
             ) {
@@ -740,7 +740,7 @@ fun LayFlatOnTableBottomSheet(
                 }
                 Button(onClick = { hideSheet = true }) {
                     Text(
-                        modifier = Modifier.testTag("layFlatSkipButton"),
+                        modifier = Modifier.appiumTag("layFlatSkipButton"),
                         text = stringResource(R.string.continue_)
                     )
                 }
@@ -850,7 +850,7 @@ fun LayFlatOnTableBottomSheet(
                 }
                 OutlinedButton(onClick = { hideSheet = true }) {
                     Text(
-                        modifier = Modifier.testTag("layFlatSkipButton"),
+                        modifier = Modifier.appiumTag("layFlatSkipButton"),
                         text = stringResource(R.string.skip)
                     )
                 }
