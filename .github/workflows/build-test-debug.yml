@@ -72,6 +72,12 @@ jobs:
           ETCHDROID_ENABLE_SENTRY: ${{ matrix.variant == 'Gplay' }}
           VARIANT: ${{ matrix.variant }}
 
+      - name: Publish test report
+        uses: mikepenz/action-junit-report@v5
+        if: success() || failure()
+        with:
+          report_paths: '**/build/test-results/test${VARIANT^}DebugUnitTest/TEST-*.xml'
+
       - name: Upload built APK
         uses: actions/upload-artifact@v4
         with:
