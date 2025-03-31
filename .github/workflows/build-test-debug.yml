@@ -32,10 +32,14 @@ jobs:
           java-version: '17'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: wrapper
           cache-read-only: false
+          add-job-summary: on-failure
+
+      - name: Set up Gradle build scan
+        uses: bmuschko/setup-gradle-public-build-scan@v1
 
       - name: Gradle cache
         uses: actions/cache@v4
