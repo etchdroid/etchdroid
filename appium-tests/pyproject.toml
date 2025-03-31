@@ -6,13 +6,12 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "appium-python-client>=5.0.0",
+    "asgiref>=3.8.1",
     "pytest>=8.3.5",
+    "qemu-qmp>=0.0.3",
 ]
 
 [tool.pytest.ini_options]
-addopts = [
-    "-m", "not qemu", # Disable QEMU tests by default
-]
 markers = [
     "qemu: Run tests that require QEMU",
 ]
