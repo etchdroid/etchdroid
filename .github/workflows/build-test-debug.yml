@@ -57,13 +57,13 @@ jobs:
           EOF
 
       - name: Build ${{ matrix.variant }}
-        run: ./gradlew assemble${VARIANT^}Debug
+        run: ./gradlew assemble${VARIANT^}Debug --scan
         env:
           ETCHDROID_ENABLE_SENTRY: ${{ matrix.variant == 'Gplay' }}
           VARIANT: ${{ matrix.variant }}
 
       - name: Run unit tests for ${{ matrix.variant }}
-        run: ./gradlew test${VARIANT^}DebugUnitTest
+        run: ./gradlew test${VARIANT^}DebugUnitTest --scan
         env:
           ETCHDROID_ENABLE_SENTRY: ${{ matrix.variant == 'Gplay' }}
           VARIANT: ${{ matrix.variant }}
