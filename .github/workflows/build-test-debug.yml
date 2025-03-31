@@ -39,7 +39,7 @@ jobs:
           add-job-summary: on-failure
 
       - name: Set up Gradle build scan
-        uses: bmuschko/setup-gradle-public-build-scan@v1
+        uses: etchdroid/setup-gradle-public-build-scan@v2
 
       - name: Gradle cache
         uses: actions/cache@v4
