@@ -1,8 +1,10 @@
 import appium.webdriver
 
 from etchdroid import actions as app
-from etchdroid.fixtures import driver
-from etchdroid.utils import device_temp_sparse_file, wait_for_element
+from etchdroid.fixtures import appium_service, driver
+from etchdroid.utils import device_temp_sparse_file, used, wait_for_element
+
+used(appium_service)
 
 
 def test_regular_flow(driver: appium.webdriver.Remote):

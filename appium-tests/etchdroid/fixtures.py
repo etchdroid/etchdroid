@@ -1,9 +1,11 @@
+import os
 import traceback
 from typing import Generator
 
 import appium
 import pytest
 from appium.options.android import UiAutomator2Options
+from appium.webdriver.appium_service import AppiumService
 from appium.webdriver.client_config import AppiumClientConfig
 
 from etchdroid import package_name
@@ -12,11 +14,28 @@ from etchdroid.qemu import QEMUController
 from etchdroid.utils import execute_script
 
 
+@pytest.fixture(scope="session", autouse=True)
+def appium_service():
+    if not os.path.exists(Config.ANDROID_HOME):
+        raise RuntimeError(f"ANDROID_HOME environment variable is not set or points to an invalid directory")
+    os.environ["ANDROID_HOME"] = Config.ANDROID_HOME
+
+    service = AppiumService()
+    service.start(
+        # Check the output of `appium server --help` for the complete list of
+        # server command line arguments
+        args=["--address", Config.APPIUM_HOST, "-p", Config.APPIUM_PORT, "--allow-insecure=adb_shell"],
+        timeout_ms=20000,
+    )
+    yield service
+    service.stop()
+
+
 @pytest.fixture(scope="function")
-def driver() -> Generator[appium.webdriver.Remote, None, None]:
+def driver(appium_service) -> Generator[appium.webdriver.Remote, None, None]:
     options = UiAutomator2Options()
     options.app_package = package_name
-    client_config = AppiumClientConfig(remote_server_addr=Config.APPIUM_HOST)
+    client_config = AppiumClientConfig(remote_server_addr=f"http://{Config.APPIUM_HOST}:{Config.APPIUM_PORT}")
     _driver = appium.webdriver.Remote(
         options=UiAutomator2Options(),
         client_config=client_config,

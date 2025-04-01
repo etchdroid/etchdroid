@@ -8,6 +8,13 @@ from selenium.common import ElementNotVisibleException, NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
 
 
+def used(*a, **k):
+    """
+    Used to mark a function as used, so that it is not removed by the linter.
+    """
+    pass
+
+
 def execute_script(driver: appium.webdriver.Remote, script: str, *args: Any) -> Any:
     return driver.execute_script(script, *args)
 
