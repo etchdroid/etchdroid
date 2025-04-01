@@ -3,7 +3,8 @@ from selenium.common import (
     TimeoutException,
 )
 
-from etchdroid.utils import wait_for_element, find_element
+from etchdroid import package_name
+from etchdroid.utils import wait_for_element, find_element, run_adb_command
 
 
 def tap_write_image(driver: Remote):
@@ -70,3 +71,25 @@ def wait_for_write_progress(driver: Remote, timeout: int = 60):
 
 def get_skip_verify_button(driver: Remote, timeout: int = 60):
     return wait_for_element(driver, '//*[@resource-id="skip_verification_button"]', timeout=timeout)
+
+
+def open_file(driver: Remote, file_name: str):
+    """
+    Open a file in the EtchDroid app. Unfortunately, since EtchDroid does not request storage permissions, the file
+    won't be readable. It can still read the size and file name.
+
+    :param driver: The Appium driver instance.
+    :param file_name: The full path to the file to open.
+    """
+    run_adb_command(
+        driver,
+        "am",
+        "start-activity",
+        "-a",
+        "android.intent.action.VIEW",
+        f"-n{package_name}/.ui.MainActivity",
+        "-d",
+        f"file://{file_name}",
+        "--grant-persistable-uri-permission",
+        "--grant-read-uri-permission",
+    )

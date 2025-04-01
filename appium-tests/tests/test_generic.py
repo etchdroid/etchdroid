@@ -18,9 +18,32 @@ def test_regular_flow(driver: appium.webdriver.Remote):
         app.wait_for_success(driver)
 
 
-def test_windows_image_warning(driver: appium.webdriver.Remote):
-    with device_temp_sparse_file(driver, "etchdroid_test_image_windows_", ".iso", "1800M"):
+def test_skip_verification(driver: appium.webdriver.Remote):
+    with device_temp_sparse_file(driver, "etchdroid_test_image_", ".iso", "1000M"):
         app.tap_write_image(driver)
-        app.find_and_open_file(driver, "etchdroid_test_image_windows_", ".iso")
+        app.find_and_open_file(driver, "etchdroid_test_image_", ".iso")
+        app.select_first_usb_device_if_multiple(driver)
+        app.grant_usb_permission(driver)
+        app.confirm_write_image(driver)
+        app.skip_lay_flat_sheet(driver)
 
+        skip_btn = app.get_skip_verify_button(driver)
+        skip_btn.click()
+
+        app.wait_for_success(driver)
+
+
+def test_windows_image_warning(driver: appium.webdriver.Remote):
+    with device_temp_sparse_file(driver, "etchdroid_test_image_windows_", ".iso", "1M") as image:
+        app.open_file(driver, image)
         wait_for_element(driver, '//android.view.View[@resource-id="confirmWindowsAlert"]')
+
+
+def test_image_too_large(driver: appium.webdriver.Remote):
+    with device_temp_sparse_file(driver, "etchdroid_test_image_too_large_", ".iso", "100G") as image:
+        app.open_file(driver, image)
+        app.select_first_usb_device_if_multiple(driver)
+        app.grant_usb_permission(driver)
+        app.confirm_write_image(driver)
+        app.skip_lay_flat_sheet(driver)
+        app.wait_for_fatal_error(driver)
