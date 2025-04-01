@@ -43,7 +43,7 @@ fun ReconnectUsbDriveDialog(exception: RecoverableException) {
             tonalElevation = AlertDialogDefaults.TonalElevation,
         ) {
             Column(
-                modifier = Modifier.Companion
+                modifier = Modifier
                     .padding(all = 24.dp)
                     .verticalScroll(
                         rememberScrollState()
@@ -52,7 +52,7 @@ fun ReconnectUsbDriveDialog(exception: RecoverableException) {
                 val context = LocalContext.current
                 Text(
                     text = exception.getUiMessage(context),
-                    modifier = Modifier.Companion
+                    modifier = Modifier
                         .padding(bottom = 16.dp)
                         .align(Alignment.Companion.CenterHorizontally),
                     textAlign = TextAlign.Companion.Center,
@@ -60,7 +60,7 @@ fun ReconnectUsbDriveDialog(exception: RecoverableException) {
                 )
                 Text(
                     text = stringResource(R.string.to_recover_unplug),
-                    modifier = Modifier.Companion
+                    modifier = Modifier
                         .padding(bottom = 24.dp)
                         .align(Alignment.Companion.CenterHorizontally)
                         .weight(weight = 1f, fill = false),
@@ -78,14 +78,14 @@ fun ReconnectUsbDriveDialog(exception: RecoverableException) {
                     ),
                     contentScale = ContentScale.Companion.Fit,
                     colorFilter = ColorFilter.Companion.tint(AlertDialogDefaults.iconContentColor),
-                    modifier = Modifier.Companion
+                    modifier = Modifier
                         .fillMaxWidth()
                         .aspectRatio(vectorRes.defaultWidth / vectorRes.defaultHeight)
                         .padding(horizontal = 32.dp)
                 )
 
                 LinearProgressIndicator(
-                    modifier = Modifier.Companion
+                    modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 32.dp)
                 )
@@ -93,7 +93,7 @@ fun ReconnectUsbDriveDialog(exception: RecoverableException) {
                 RecoverableExceptionExplanationCard(exception = exception)
 
                 // Add a little bit of space so the vertical scroll doesn't clip the shadow
-                Spacer(modifier = Modifier.Companion.padding(bottom = 4.dp))
+                Spacer(modifier = Modifier.padding(bottom = 4.dp))
             }
         }
     }

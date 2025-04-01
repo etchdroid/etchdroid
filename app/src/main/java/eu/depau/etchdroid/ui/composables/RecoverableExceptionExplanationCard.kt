@@ -20,7 +20,7 @@ import eu.depau.etchdroid.utils.exception.base.isUnplugged
 @Composable
 fun RecoverableExceptionExplanationCard(
     exception: RecoverableException,
-    modifier: Modifier = Modifier.Companion,
+    modifier: Modifier = Modifier,
 ) {
     val title = when {
         exception.isUnplugged -> stringResource(R.string.i_did_not_unplug_it)
@@ -44,7 +44,7 @@ fun RecoverableExceptionExplanationCard(
             )
     ) {
         Column(
-                modifier = Modifier.Companion
+                modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth()
         ) {
