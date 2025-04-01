@@ -15,10 +15,11 @@ def find_and_open_file(driver: Remote, prefix: str, suffix: str):
     search_btn = wait_for_element(driver, '//*[@content-desc="Search"]')
     search_btn.click()
     search_field = wait_for_element(driver, "//android.widget.AutoCompleteTextView")
-    search_field.send_keys(f"{prefix}\n")
-    arch_iso = find_element(
+    search_field.send_keys(f"{prefix}")
+    arch_iso = wait_for_element(
         driver,
         f'//android.widget.TextView[starts-with(@text, "{prefix}") and ends-with(@text, "{suffix}")]',
+        5,
     )
     arch_iso.click()
 
