@@ -56,11 +56,11 @@ def unplug_and_reconnect_usb(
 
 
 @pytest.fixture(scope="function")
-def random_image_file(driver: appium.webdriver.Remote) -> Generator[tuple[str, bytes], None, None]:
+def random_image_file(driver: appium.webdriver.Remote, request) -> Generator[tuple[str, bytes], None, None]:
     size_bytes = 10 * 1024 * 1024  # 10 MB
     payload = os.urandom(size_bytes)
 
-    remote_path = tempfile.mktemp(prefix="etchdroid_test_random_image_", suffix=".iso", dir="/sdcard/Download/")
+    remote_path = tempfile.mktemp(prefix=f"etchdroid_{request.node.name}_", suffix=".iso", dir="/sdcard/Download/")
     execute_script(
         driver,
         "mobile: pushFile",
@@ -75,13 +75,13 @@ def random_image_file(driver: appium.webdriver.Remote) -> Generator[tuple[str, b
     run_adb_command(driver, "rm", "-f", remote_path)
 
 
-@pytest.fixture(scope="session")
-def raw_disk_image(qemu: QEMUController):
+@pytest.fixture(scope="function")
+def raw_disk_image(qemu: QEMUController, request):
     with tempfile.TemporaryDirectory("etchdroid_qemu_test") as tmp_path:
         tmp_path = Path(tmp_path)
 
         size_bytes = 50 * 1024 * 1024  # 50 MB
-        filename = tmp_path / "etchdroid_test_raw_disk_image.img"
+        filename = tmp_path / f"etchdroid_{request.node.name}.img"
 
         # Write random data to the image to catch more bugs
         with open(filename, "wb") as f:
