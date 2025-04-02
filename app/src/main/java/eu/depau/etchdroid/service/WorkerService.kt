@@ -341,7 +341,8 @@ class WorkerService : LifecycleService() {
                 "worker"
             )
 
-            var massStorageDev by lateInit<EtchDroidUsbMassStorageDevice>()
+            val massStorageDevDelegate = lateInit<EtchDroidUsbMassStorageDevice>()
+            var massStorageDev by massStorageDevDelegate
             var blockDev by lateInit<BlockDeviceDriver>()
             var rawSourceStream: InputStream? = null
             var currentOffset = offset
@@ -358,10 +359,7 @@ class WorkerService : LifecycleService() {
                     blockDev = massStorageDev.blockDevices[0]!!
                 } catch (e: Exception) {
                     Telemetry.captureException("Failed to initialize USB mass storage device", e)
-                    throw if (e is EtchDroidException)
-                        e
-                    else
-                        InitException("Initialization failed", e)
+                    throw e as? EtchDroidException ?: InitException("Initialization failed", e)
                 }
                 currentOffset = offset - (offset % blockDev.blockSize)
 
@@ -479,7 +477,8 @@ class WorkerService : LifecycleService() {
                     }
                 }
                 try {
-                    massStorageDev.close()
+                    if (massStorageDevDelegate.isInitialized)
+                        massStorageDev.close()
                 } catch (e: Exception) {
                     Telemetry.captureException("Failed to close USB drive", e)
                 }
