@@ -179,6 +179,7 @@ class ProgressActivity : ActivityBase() {
                 addAction(Intents.ERROR)
                 addAction(Intents.FINISHED)
             })
+        refreshNotificationsPermission()
     }
 
     override fun onPause() {
