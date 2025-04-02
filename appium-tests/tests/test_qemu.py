@@ -12,7 +12,14 @@ from etchdroid import actions as app
 from etchdroid.config import Config
 from etchdroid.fixtures import appium_service, driver, qemu
 from etchdroid.qemu import QEMUController
-from etchdroid.utils import used, device_temp_sparse_file, wait_for_element, execute_script, run_adb_command
+from etchdroid.utils import (
+    used,
+    device_temp_sparse_file,
+    wait_for_element,
+    execute_script,
+    run_adb_command,
+    grant_permissions,
+)
 
 used(appium_service)
 
@@ -174,3 +181,56 @@ def test_unplug_with_random_data_uhci(
     app.wait_for_success(driver)
 
     verify_written_image(image_payload, raw_disk_image_path)
+
+
+@pytest.mark.qemu
+def test_unplug_resume_from_notification(driver: appium.webdriver.Remote, qemu: QEMUController):
+    grant_permissions(driver, ["android.permission.POST_NOTIFICATIONS"])
+
+    with device_temp_sparse_file(driver, "etchdroid_test_unplug_resume_from_notification_", ".iso", "1800M") as image:
+        app.basic_flow(driver, image.filename)
+        app.wait_for_write_progress(driver)
+
+        # Unplug USB device
+        device = qemu.get_block_device(Config.QEMU_USB_DEV_ID)
+        qemu.device_del(Config.QEMU_USB_DEV_ID)
+
+        # Wait for reconnect dialog
+        wait_for_element(driver, '//android.widget.TextView[@resource-id="reconnect_usb_drive_title"]', 15)
+
+        # Close app from recents
+        driver.keyevent(187)  # KEYCODE_APP_SWITCH
+        sleep(0.5)
+        driver.keyevent(67)  # KEYCODE_DEL
+        sleep(0.5)
+        driver.keyevent(3)  # KEYCODE_HOME
+
+        driver.open_notifications()
+
+        notification = wait_for_element(
+            driver,
+            f'//android.widget.TextView[@resource-id="android:id/title" and @text="Action required"]',
+            timeout=5,
+        )
+        notification.click()
+
+        sleep(0.5)
+
+        # Reconnect USB device
+        qemu.add_usb_drive(
+            Config.QEMU_USB_DEV_ID,
+            bus=Config.QEMU_USB_BUS,
+            file=device["inserted"]["image"]["filename"],
+            format=device["inserted"]["image"]["format"],
+        )
+
+        # Wait 3 seconds to ensure the emulated device doesn't spit out Unit Attention sense codes on init.
+        # A patch should be submitted to libaums to handle this.
+        sleep(3)
+
+        app.accept_usb_permission(driver)
+
+        skip_btn = app.get_skip_verify_button(driver)
+        skip_btn.click()
+
+        app.wait_for_success(driver)

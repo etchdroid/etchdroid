@@ -9,6 +9,8 @@ from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common import ElementNotVisibleException, NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
 
+import etchdroid
+
 
 def used(*a, **k):
     """
@@ -85,6 +87,16 @@ def run_adb_command(
     if not result:
         raise RuntimeError("Failed to run adb command")
     return result
+
+
+def grant_permissions(driver: appium.webdriver.Remote, permissions: list[str]) -> None:
+    run_adb_command(
+        driver,
+        "pm",
+        "grant",
+        etchdroid.package_name,
+        *permissions,
+    )
 
 
 PathFilenamePair = namedtuple("PathFilenamePair", ["path", "filename"])
