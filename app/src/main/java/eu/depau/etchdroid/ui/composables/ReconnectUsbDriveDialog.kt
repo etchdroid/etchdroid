@@ -53,6 +53,7 @@ fun ReconnectUsbDriveDialog(exception: RecoverableException) {
                 Text(
                     text = exception.getUiMessage(context),
                     modifier = Modifier
+                        .appiumTag("reconnect_usb_drive_title")
                         .padding(bottom = 16.dp)
                         .align(Alignment.Companion.CenterHorizontally),
                     textAlign = TextAlign.Companion.Center,
