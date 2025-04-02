@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  BLISSOS_FILE: 'Bliss-v16.9.7-x86_64-OFFICIAL-foss-20241011.iso'
+  BLISSOS_URL: 'https://deac-fra.dl.sourceforge.net/project/blissos-x86/Official/BlissOS16/FOSS/Generic/'
+
 jobs:
   build-matrix:
     name: Build and test variant ${{ matrix.variant }}
@@ -83,3 +87,121 @@ jobs:
         with:
           name: app-${{ matrix.variant }}-debug
           path: app/build/outputs/apk/${{ matrix.variant }}/debug/app-${{ matrix.variant }}-debug.apk
+
+
+  qemu-tests:
+    name: Run integration tests for ${{ matrix.variant }}
+    runs-on: ubuntu-latest
+    needs: build-matrix
+    strategy:
+      matrix:
+        variant:
+          - foss
+          - gplay
+      fail-fast: false
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download APK
+        uses: actions/download-artifact@v4
+        with:
+          name: app-${{ matrix.variant }}-debug
+          path: apk
+
+      - name: Install QEMU
+        uses: etchdroid/qemu-kvm-action/setup@v1
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Set up BlissOS image cache
+        uses: actions/cache@v4
+        with:
+          key: ${{ env.BLISSOS_FILE }}
+          restore-keys: ${{ env.BLISSOS_FILE }}
+          path: |
+            ~/.cache/blissos
+
+      - name: Download BlissOS image
+        run: |
+          mkdir -p ~/.cache/blissos
+          cd ~/.cache/blissos
+          curl -L -o bliss.sha256 "${{ env.BLISSOS_URL }}/${{ env.BLISSOS_FILE }}.sha256"
+          
+          if [[ ! -f "${{ env.BLISSOS_FILE }}" ]] || ! sha256sum -c bliss.sha256; then
+            echo "Downloading ${BLISSOS_FILE}..."
+            curl -L -o "${{ env.BLISSOS_FILE }}" "${{ env.BLISSOS_URL }}/${{ env.BLISSOS_FILE }}"
+          else
+            echo "Using cached ${BLISSOS_FILE}"
+          fi
+
+      - name: Mount BlissOS image
+        run: |
+          ISO_PATH="$(realpath ~/.cache/blissos/${{ env.BLISSOS_FILE }})"
+          echo "Mounting ${ISO_PATH}..."
+          
+          sudo losetup -fP "$ISO_PATH"
+          LOOP_DEV="$(sudo losetup -j "$ISO_PATH" | cut -d: -f1)"
+          echo "Attached loop device: $LOOP_DEV"
+          echo "LOOP_DEV=$LOOP_DEV" >> $GITHUB_ENV
+          
+          mkdir -p /tmp/blissos
+          sudo mount -o loop,ro "${LOOP_DEV}p1" /tmp/blissos
+          echo "Mounted ${ISO_PATH} to /tmp/blissos"
+
+
+      - name: Create virtual USB drive image
+        run: |
+          qemu-img create -f qcow2 /tmp/usb-storage.img 2G
+
+      - name: Run QEMU
+        id: run-qemu
+        uses: etchdroid/qemu-kvm-action@v1
+        with:
+          video-record: true
+          kernel: /tmp/blissos/kernel
+          initrd: /tmp/blissos/initrd.img
+          cmdline: 'root=/dev/ram0 androidboot.selinux=permissive console=tty1 FFMPEG_CODEC=1 FFMPEG_PREFER_C2=1'
+          flags: |
+            -netdev
+            user,id=network,hostfwd=tcp::5556-:5555
+            -device
+            virtio-net-pci,netdev=network
+            -device
+            virtio-vga-gl
+            -display
+            sdl,gl=on
+            -drive
+            index=0,if=virtio,id=system,file=system.efs,format=raw,readonly=on
+            -usb
+            -device
+            usb-tablet,bus=usb-bus.0
+            -device
+            nec-usb-xhci,id=xhci
+            -device
+            ich9-usb-uhci1,id=uhci
+            -drive
+            if=none,id=usbstick,file=/tmp/usb-storage.qcow2,format=qcow2
+            -device
+            usb-storage,id=usbstick,bus=xhci.0,drive=usbstick,removable=on
+            -qmp
+            unix:/tmp/qmp.sock,server=on,wait=off
+            -monitor
+            unix:/tmp/qemu-monitor.sock,server=on,wait=off
+
+          run: |
+            cd appium-tests
+            ./scripts/ci-qemu-prepare.sh
+            adb install -r ../apk/*.apk
+            uv run pytest -sv
+
+      - name: Upload video recording
+        uses: actions/upload-artifact@v4
+        with:
+          name: recording
+          path: ${{ steps.run-qemu.outputs.video-output }}
