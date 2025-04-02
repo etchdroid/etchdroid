@@ -196,10 +196,7 @@ class ProgressActivity : ActivityBase() {
     private fun requestNotificationsPermission() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) return
         if (mNotificationManager.areNotificationsEnabled()) return refreshNotificationsPermission()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && !mPermissionAsked && shouldShowRequestPermissionRationale(
-                permission.POST_NOTIFICATIONS
-            )
-        ) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && !mPermissionAsked) {
             mPermissionAsked = true
             Telemetry.addBreadcrumb("Requesting notifications runtime permission", "notifications")
             return mNotificationPermissionRequester.launch(permission.POST_NOTIFICATIONS)
