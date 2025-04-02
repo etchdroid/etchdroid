@@ -49,10 +49,7 @@ def find_element(
     driver: appium.webdriver.Remote,
     xpath: str,
 ) -> appium.webdriver.WebElement:
-    return driver.find_element(
-        by=AppiumBy.XPATH,
-        value=xpath,
-    )
+    return wait_for_element(driver, xpath, timeout=0.5)
 
 
 def run_adb_command(

@@ -9,22 +9,13 @@ used(appium_service)
 
 def test_regular_flow(driver: appium.webdriver.Remote):
     with device_temp_sparse_file(driver, "etchdroid_test_image_", ".iso", "1800M"):
-        app.tap_write_image(driver)
-        app.find_and_open_file(driver, "etchdroid_test_image_", ".iso")
-        app.select_first_usb_device_if_multiple(driver)
-        app.grant_usb_permission(driver)
-        app.confirm_write_image(driver)
-        app.skip_lay_flat_sheet(driver)
+        app.basic_flow(driver, "etchdroid_test_image_", ".iso")
         app.wait_for_success(driver)
 
 
 def test_skip_verification(driver: appium.webdriver.Remote):
     with device_temp_sparse_file(driver, "etchdroid_test_image_", ".iso", "1000M"):
-        app.tap_write_image(driver)
-        app.find_and_open_file(driver, "etchdroid_test_image_", ".iso")
-        app.select_first_usb_device_if_multiple(driver)
-        app.grant_usb_permission(driver)
-        app.confirm_write_image(driver)
+        app.basic_flow(driver, "etchdroid_test_image_", ".iso")
         app.skip_lay_flat_sheet(driver)
 
         skip_btn = app.get_skip_verify_button(driver)

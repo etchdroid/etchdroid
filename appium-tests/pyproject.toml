@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "appium-python-client>=5.0.0",
-    "asgiref>=3.8.1",
+    "pexpect>=4.9.0",
     "pytest>=8.3.5",
     "qemu-qmp>=0.0.3",
 ]
@@ -18,3 +18,20 @@ markers = [
 
 [tool.ruff]
 line-length = 120
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "ptipython>=1.0.1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["etchdroid"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "etchdroid/**/*.py",
+]

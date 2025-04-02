@@ -4,7 +4,16 @@ from selenium.common import (
 )
 
 from etchdroid import package_name
-from etchdroid.utils import wait_for_element, find_element, run_adb_command
+from etchdroid.utils import wait_for_element, run_adb_command
+
+
+def basic_flow(driver: Remote, image_prefix: str, image_suffix: str):
+    tap_write_image(driver)
+    find_and_open_file(driver, image_prefix, image_suffix)
+    select_first_usb_device_if_multiple(driver)
+    grant_usb_permission(driver)
+    confirm_write_image(driver)
+    skip_lay_flat_sheet(driver)
 
 
 def tap_write_image(driver: Remote):
@@ -38,14 +47,18 @@ def grant_usb_permission(driver: Remote):
     grant_btn.click()
 
     try:
-        ok_btn = wait_for_element(driver, '//*[@text="OK"]', timeout=1)
-        ok_btn.click()
+        accept_usb_permission(driver)
     except TimeoutException:
         pass
 
 
+def accept_usb_permission(driver: Remote):
+    ok_btn = wait_for_element(driver, '//*[@text="OK"]', timeout=1)
+    ok_btn.click()
+
+
 def confirm_write_image(driver: Remote):
-    write_image_btn = find_element(driver, '//*[@resource-id="writeImageButton"]')
+    write_image_btn = wait_for_element(driver, '//*[@resource-id="writeImageButton"]')
     write_image_btn.click()
 
 

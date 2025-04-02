@@ -41,25 +41,27 @@ def driver(appium_service) -> Generator[appium.webdriver.Remote, None, None]:
         client_config=client_config,
     )
 
-    # noinspection PyBroadException
-    try:
-        execute_script(_driver, "mobile: clearApp", {"appId": package_name})
-    except Exception:
-        traceback.print_exc()
+    if not Config.DISABLE_SETUP:
+        # noinspection PyBroadException
+        try:
+            execute_script(_driver, "mobile: clearApp", {"appId": package_name})
+        except Exception:
+            traceback.print_exc()
 
-    execute_script(
-        _driver,
-        "mobile: startActivity",
-        {
-            "component": f"{package_name}/.ui.MainActivity",
-        },
-    )
+        execute_script(
+            _driver,
+            "mobile: startActivity",
+            {
+                "component": f"{package_name}/.ui.MainActivity",
+            },
+        )
 
     yield _driver
 
     # noinspection PyBroadException
     try:
-        _driver.terminate_app(package_name)
+        if not Config.DISABLE_SHUTDOWN:
+            _driver.terminate_app(package_name)
     except Exception:
         pass
     finally:
@@ -68,8 +70,11 @@ def driver(appium_service) -> Generator[appium.webdriver.Remote, None, None]:
 
 @pytest.fixture(scope="session")
 def qemu() -> Generator[QEMUController, None, None]:
-    if Config.QEMU_QMP_PATH is None or Config.QEMU_MONITOR_PATH is None:
-        pytest.skip("QEMU sockets are not provided via the QEMU_QMP_PATH and QEMU_MONITOR_PATH environment variables")
+    if not os.path.exists(Config.QEMU_QMP_PATH) or not os.path.exists(Config.QEMU_MONITOR_PATH):
+        pytest.skip(
+            "QEMU sockets do not exist, make sure you specify QEMU_QMP_PATH and QEMU_MONITOR_PATH in your "
+            "environment variables."
+        )
 
     with QEMUController(qmp_path=Config.QEMU_QMP_PATH, monitor_path=Config.QEMU_MONITOR_PATH) as qemu:
         yield qemu
