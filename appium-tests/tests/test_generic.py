@@ -1,3 +1,5 @@
+from time import sleep
+
 import appium.webdriver
 
 from etchdroid import actions as app
@@ -20,6 +22,53 @@ def test_skip_verification(driver: appium.webdriver.Remote):
 
         skip_btn = app.get_skip_verify_button(driver)
         skip_btn.click()
+
+        app.wait_for_success(driver)
+
+
+def test_accept_notifications(driver: appium.webdriver.Remote):
+    with device_temp_sparse_file(driver, "etchdroid_test_accept_notifications_", ".iso", "1800M") as image:
+        app.basic_flow(driver, image.filename)
+        sure_btn = wait_for_element(
+            driver,
+            '//*[@resource-id="notifications_enable_button"]',
+            timeout=5,
+        )
+        sure_btn.click()
+        allow_btn = wait_for_element(
+            driver,
+            '//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]',
+            timeout=5,
+        )
+        allow_btn.click()
+        app.wait_for_success(driver)
+
+
+def test_accept_then_deny_notifications(driver: appium.webdriver.Remote):
+    with device_temp_sparse_file(driver, "etchdroid_test_accept_notifications_", ".iso", "1800M") as image:
+        app.basic_flow(driver, image.filename)
+        sure_btn = wait_for_element(
+            driver,
+            '//*[@resource-id="notifications_enable_button"]',
+            timeout=5,
+        )
+        sure_btn.click()
+        deny_btn = wait_for_element(
+            driver,
+            '//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_deny_button"]',
+            timeout=5,
+        )
+        deny_btn.click()
+        sleep(0.5)
+        sure_btn.click()
+
+        enable_switch = wait_for_element(
+            driver,
+            '//android.widget.TextView[@text="All EtchDroid notifications"]',
+            timeout=5,
+        )
+        enable_switch.click()
+        driver.back()
 
         app.wait_for_success(driver)
 
