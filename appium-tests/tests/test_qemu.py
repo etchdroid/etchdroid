@@ -53,7 +53,7 @@ def random_image_file(driver: appium.webdriver.Remote) -> Generator[tuple[str, b
     size_bytes = 10 * 1024 * 1024  # 10 MB
     payload = os.urandom(size_bytes)
 
-    remote_path = tempfile.mktemp(prefix="etchdroid_test_image_", suffix=".iso", dir="/sdcard/Download/")
+    remote_path = tempfile.mktemp(prefix="etchdroid_test_random_image_", suffix=".iso", dir="/sdcard/Download/")
     execute_script(
         driver,
         "mobile: pushFile",
@@ -74,7 +74,7 @@ def raw_disk_image(qemu: QEMUController):
         tmp_path = Path(tmp_path)
 
         size_bytes = 50 * 1024 * 1024  # 50 MB
-        filename = tmp_path / "etchdroid_test_image.img"
+        filename = tmp_path / "etchdroid_test_raw_disk_image.img"
 
         # Write random data to the image to catch more bugs
         with open(filename, "wb") as f:
@@ -124,8 +124,8 @@ def verify_written_image(payload: bytes, raw_blockdev: Path):
 
 @pytest.mark.qemu
 def test_unplug_xhci(driver: appium.webdriver.Remote, qemu: QEMUController):
-    with device_temp_sparse_file(driver, "etchdroid_test_image_", ".iso", "1800M"):
-        app.basic_flow(driver, "etchdroid_test_image_", ".iso")
+    with device_temp_sparse_file(driver, "etchdroid_test_unplug_xhci_", ".iso", "1800M") as image:
+        app.basic_flow(driver, image.filename)
 
         print("Waiting for write progress...")
         app.wait_for_write_progress(driver)
@@ -146,7 +146,7 @@ def test_regular_flow_with_random_data_uhci(
     _, raw_disk_image_path = raw_usb_drive
     remote_fname = Path(remote_image_path).name
 
-    app.basic_flow(driver, remote_fname, ".iso")
+    app.basic_flow(driver, remote_fname)
     app.wait_for_success(driver)
 
     verify_written_image(image_payload, raw_disk_image_path)
@@ -163,7 +163,7 @@ def test_unplug_with_random_data_uhci(
     raw_device_id, raw_disk_image_path = raw_usb_drive
     remote_fname = Path(remote_image_path).name
 
-    app.basic_flow(driver, remote_fname, ".iso")
+    app.basic_flow(driver, remote_fname)
 
     print("Waiting for write progress...")
     app.wait_for_write_progress(driver)

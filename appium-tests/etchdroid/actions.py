@@ -7,9 +7,9 @@ from etchdroid import package_name
 from etchdroid.utils import wait_for_element, run_adb_command
 
 
-def basic_flow(driver: Remote, image_prefix: str, image_suffix: str):
+def basic_flow(driver: Remote, image_filename: str):
     tap_write_image(driver)
-    find_and_open_file(driver, image_prefix, image_suffix)
+    find_and_open_file(driver, image_filename)
     select_first_usb_device_if_multiple(driver)
     grant_usb_permission(driver)
     confirm_write_image(driver)
@@ -21,14 +21,14 @@ def tap_write_image(driver: Remote):
     btn.click()
 
 
-def find_and_open_file(driver: Remote, prefix: str, suffix: str):
+def find_and_open_file(driver: Remote, filename: str):
     search_btn = wait_for_element(driver, '//*[@content-desc="Search"]')
     search_btn.click()
     search_field = wait_for_element(driver, "//android.widget.AutoCompleteTextView")
-    search_field.send_keys(f"{prefix}")
+    search_field.send_keys(f"{filename}")
     arch_iso = wait_for_element(
         driver,
-        f'//android.widget.TextView[starts-with(@text, "{prefix}") and ends-with(@text, "{suffix}")]',
+        f'//android.widget.TextView[@text="{filename}"]',
         5,
     )
     arch_iso.click()

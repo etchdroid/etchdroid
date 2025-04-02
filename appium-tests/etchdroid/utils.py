@@ -1,6 +1,8 @@
 import tempfile
+from collections import namedtuple
 from contextlib import contextmanager
-from typing import Any
+from pathlib import Path
+from typing import Any, Generator
 
 import appium.webdriver
 from appium.webdriver.common.appiumby import AppiumBy
@@ -85,6 +87,9 @@ def run_adb_command(
     return result
 
 
+PathFilenamePair = namedtuple("PathFilenamePair", ["path", "filename"])
+
+
 @contextmanager
 def device_temp_sparse_file(
     driver: appium.webdriver.Remote,
@@ -92,7 +97,7 @@ def device_temp_sparse_file(
     name_suffix: str,
     size: int | str,
     path: str = "/sdcard/Download/",
-):
+) -> Generator[PathFilenamePair, None, None]:
     temp_file_name = tempfile.mktemp(prefix=name_prefix, suffix=name_suffix, dir=path)
     run_adb_command(
         driver,
@@ -102,6 +107,6 @@ def device_temp_sparse_file(
         temp_file_name,
     )
     try:
-        yield temp_file_name
+        yield PathFilenamePair(temp_file_name, Path(temp_file_name).name)
     finally:
         run_adb_command(driver, "rm", "-f", temp_file_name)
