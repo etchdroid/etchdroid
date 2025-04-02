@@ -45,7 +45,7 @@ def test_accept_notifications(driver: appium.webdriver.Remote):
 
 
 def test_accept_then_deny_notifications(driver: appium.webdriver.Remote):
-    with device_temp_sparse_file(driver, "etchdroid_test_accept_notifications_", ".iso", "1800M") as image:
+    with device_temp_sparse_file(driver, "etchdroid_test_accept_then_deny_notifications_", ".iso", "1800M") as image:
         app.basic_flow(driver, image.filename)
         sure_btn = wait_for_element(
             driver,
