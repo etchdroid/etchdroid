@@ -41,6 +41,10 @@ def test_accept_notifications(driver: appium.webdriver.Remote):
             timeout=5,
         )
         allow_btn.click()
+
+        skip_btn = app.get_skip_verify_button(driver)
+        skip_btn.click()
+
         app.wait_for_success(driver)
 
 
@@ -69,6 +73,9 @@ def test_accept_then_deny_notifications(driver: appium.webdriver.Remote):
         )
         enable_switch.click()
         driver.back()
+
+        skip_btn = app.get_skip_verify_button(driver)
+        skip_btn.click()
 
         app.wait_for_success(driver)
 
