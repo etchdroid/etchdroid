@@ -324,8 +324,7 @@ class WorkerService : LifecycleService() {
             startForegroundSpecialUse(mProgressNotificationId, basicForegroundNotification)
         } catch (exception: Exception) {
             Telemetry.captureException("Failed to start worker service", exception)
-            val downstreamException = if (exception is EtchDroidException) exception
-            else UnknownException(exception)
+            val downstreamException = exception as? EtchDroidException ?: UnknownException(exception)
             getErrorIntent(
                 mSourceUri, mDestDevice, mJobId, 0, 0, exception = downstreamException
             ).broadcastLocallySync(this@WorkerService)
@@ -454,8 +453,7 @@ class WorkerService : LifecycleService() {
 
             } catch (exception: Exception) {
                 Telemetry.captureException(exception)
-                val downstreamException = if (exception is EtchDroidException) exception
-                else UnknownException(exception)
+                val downstreamException = exception as? EtchDroidException ?: UnknownException(exception)
                 getErrorIntent(
                     mSourceUri,
                     mDestDevice,
