@@ -26,6 +26,7 @@ build-backend = "hatchling.build"
 [dependency-groups]
 dev = [
     "ptipython>=1.0.1",
+    "ruff>=0.11.3",
 ]
 
 [tool.hatch.build.targets.wheel]

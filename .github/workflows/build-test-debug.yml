@@ -71,6 +71,8 @@ jobs:
         uses: mikepenz/action-junit-report@v5
         if: success() || failure()
         with:
+          check_name: Test report for ${{ matrix.variant }}
+          detailed_summary: true
           report_paths: 'app/build/test-results/*/TEST-*.xml'
 
       - name: Upload built APK
