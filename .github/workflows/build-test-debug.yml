@@ -41,19 +41,10 @@ jobs:
           gradle-version: wrapper
           cache-read-only: false
           add-job-summary: on-failure
+          cache-encryption-key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
 
       - name: Set up Gradle build scan
         uses: etchdroid/setup-gradle-public-build-scan@v2
-
-      - name: Gradle cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: gradle-${{ matrix.variant }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties', '**/libs.versions.toml') }}
-          restore-keys: |
-            gradle-${{ matrix.variant }}-
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
@@ -153,7 +144,6 @@ jobs:
           mkdir -p /tmp/blissos
           sudo mount -o loop,ro "${LOOP_DEV}p1" /tmp/blissos
           echo "Mounted ${ISO_PATH} to /tmp/blissos"
-
 
       - name: Create virtual USB drive image
         run: |
