@@ -26,3 +26,4 @@ echo "Connected to ADB on $ADB_HOST"
 # Fix launcher and go home
 "${adb[@]}" shell pm set-home-activity com.android.launcher3
 "${adb[@]}" shell input keyevent KEYCODE_HOME
+"${adb[@]}" shell settings put system pointer_location 1
