@@ -157,7 +157,7 @@ jobs:
 
       - name: Create virtual USB drive image
         run: |
-          qemu-img create -f qcow2 /tmp/usb-storage.img 2G
+          qemu-img create -f qcow2 /tmp/usb-storage.qcow2 2G
           mkdir -p vm-outputs
 
       - name: Run QEMU
