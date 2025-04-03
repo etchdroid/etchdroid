@@ -204,5 +204,5 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: recording
+          name: recording-${{ matrix.variant }}
           path: ${{ steps.run-qemu.outputs.video-output }}
