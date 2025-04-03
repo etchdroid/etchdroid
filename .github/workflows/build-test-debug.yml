@@ -8,7 +8,7 @@ on:
 
 env:
   BLISSOS_FILE: 'Bliss-v16.9.7-x86_64-OFFICIAL-foss-20241011.iso'
-  BLISSOS_URL: 'https://deac-fra.dl.sourceforge.net/project/blissos-x86/Official/BlissOS16/FOSS/Generic/'
+  BLISSOS_URL: 'https://deac-riga.dl.sourceforge.net/project/blissos-x86/Official/BlissOS16/FOSS/Generic/'
 
 jobs:
   build-matrix:
