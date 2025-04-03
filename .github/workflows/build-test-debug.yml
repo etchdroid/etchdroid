@@ -218,6 +218,7 @@ jobs:
 
           run: |
             cd appium-tests
+            export LOGCAT_DIR="$PWD/../vm-outputs/logcat/"
             ./scripts/ci-qemu-prepare.sh
             adb install -r ../apk/*.apk
             uv run pytest -sv

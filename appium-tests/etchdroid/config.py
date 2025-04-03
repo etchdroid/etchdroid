@@ -15,3 +15,5 @@ class Config:
 
     DISABLE_SETUP = os.environ.get("DISABLE_SETUP", "0") == "1"
     DISABLE_SHUTDOWN = os.environ.get("DISABLE_SHUTDOWN", "0") == "1"
+
+    LOGCAT_DIR = os.environ.get("LOGCAT_DIR", None)

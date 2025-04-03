@@ -1,5 +1,7 @@
 import os
+import subprocess
 import traceback
+from pathlib import Path
 from typing import Generator
 
 import appium
@@ -11,7 +13,7 @@ from appium.webdriver.client_config import AppiumClientConfig
 from etchdroid import package_name
 from etchdroid.config import Config
 from etchdroid.qemu import QEMUController
-from etchdroid.utils import execute_script
+from etchdroid.utils import execute_script, get_adb_udid
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -32,7 +34,7 @@ def appium_service():
 
 
 @pytest.fixture(scope="function")
-def driver(appium_service) -> Generator[appium.webdriver.Remote, None, None]:
+def driver(appium_service, request) -> Generator[appium.webdriver.Remote, None, None]:
     options = UiAutomator2Options()
     options.app_package = package_name
     client_config = AppiumClientConfig(remote_server_addr=f"http://{Config.APPIUM_HOST}:{Config.APPIUM_PORT}")
@@ -41,30 +43,55 @@ def driver(appium_service) -> Generator[appium.webdriver.Remote, None, None]:
         client_config=client_config,
     )
 
-    if not Config.DISABLE_SETUP:
+    logcat = None
+    logcat_file = None
+    try:
+        if Config.LOGCAT_DIR:
+            logcat_dir = Path(Config.LOGCAT_DIR)
+            logcat_dir.mkdir(parents=True, exist_ok=True)
+            logcat_file = open(logcat_dir / f"{request.node.name}.log", "wb")
+            logcat = subprocess.Popen(
+                [
+                    f"{Config.ANDROID_HOME}/platform-tools/adb",
+                    "-s",
+                    get_adb_udid(_driver),
+                    "logcat",
+                ],
+                stdout=logcat_file,
+                stderr=subprocess.STDOUT,
+            )
+
+        if not Config.DISABLE_SETUP:
+            # noinspection PyBroadException
+            try:
+                execute_script(_driver, "mobile: clearApp", {"appId": package_name})
+            except Exception:
+                traceback.print_exc()
+
+            execute_script(
+                _driver,
+                "mobile: startActivity",
+                {
+                    "component": f"{package_name}/.ui.MainActivity",
+                },
+            )
+
+        yield _driver
+
         # noinspection PyBroadException
         try:
-            execute_script(_driver, "mobile: clearApp", {"appId": package_name})
+            if not Config.DISABLE_SHUTDOWN:
+                _driver.terminate_app(package_name)
         except Exception:
-            traceback.print_exc()
-
-        execute_script(
-            _driver,
-            "mobile: startActivity",
-            {
-                "component": f"{package_name}/.ui.MainActivity",
-            },
-        )
-
-    yield _driver
-
-    # noinspection PyBroadException
-    try:
-        if not Config.DISABLE_SHUTDOWN:
-            _driver.terminate_app(package_name)
-    except Exception:
-        pass
+            pass
     finally:
+        if Config.LOGCAT_DIR:
+            if logcat is not None:
+                logcat.terminate()
+                logcat.wait()
+            if logcat_file is not None:
+                logcat_file.close()
+
         _driver.quit()
 
 

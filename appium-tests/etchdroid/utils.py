@@ -56,6 +56,10 @@ def find_element(
     return wait_for_element(driver, xpath, timeout=0.5)
 
 
+def get_adb_udid(driver: appium.webdriver.Remote) -> str:
+    return driver.capabilities["deviceUdid"]
+
+
 def run_adb_command(
     driver: appium.webdriver.Remote,
     command: str,
