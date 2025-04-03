@@ -201,6 +201,7 @@ jobs:
             uv run pytest -sv
 
       - name: Upload video recording
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: recording
