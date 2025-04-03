@@ -1,4 +1,5 @@
 import os
+import signal
 import subprocess
 import traceback
 from pathlib import Path
@@ -14,6 +15,8 @@ from etchdroid import package_name
 from etchdroid.config import Config
 from etchdroid.qemu import QEMUController
 from etchdroid.utils import execute_script, get_adb_udid
+
+adb = f"{Config.ANDROID_HOME}/platform-tools/adb"
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -51,12 +54,7 @@ def driver(appium_service, request) -> Generator[appium.webdriver.Remote, None, 
             logcat_dir.mkdir(parents=True, exist_ok=True)
             logcat_file = open(logcat_dir / f"{request.node.name}.log", "wb")
             logcat = subprocess.Popen(
-                [
-                    f"{Config.ANDROID_HOME}/platform-tools/adb",
-                    "-s",
-                    get_adb_udid(_driver),
-                    "logcat",
-                ],
+                [adb, "-s", get_adb_udid(_driver), "logcat", "-T", "1"],
                 stdout=logcat_file,
                 stderr=subprocess.STDOUT,
             )
@@ -87,8 +85,15 @@ def driver(appium_service, request) -> Generator[appium.webdriver.Remote, None, 
     finally:
         if Config.LOGCAT_DIR:
             if logcat is not None:
-                logcat.terminate()
-                logcat.wait()
+                logcat.send_signal(signal.SIGINT)
+                try:
+                    logcat.wait(timeout=5)
+                except subprocess.TimeoutExpired:
+                    logcat.terminate()
+                    try:
+                        logcat.wait(timeout=5)
+                    except subprocess.TimeoutExpired:
+                        logcat.kill()
             if logcat_file is not None:
                 logcat_file.close()
 
