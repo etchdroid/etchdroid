@@ -10,7 +10,7 @@ used(appium_service)
 
 
 def test_regular_flow(driver: appium.webdriver.Remote):
-    with device_temp_sparse_file(driver, "etchdroid_test_regular_flow_", ".iso", "1800M") as image:
+    with device_temp_sparse_file(driver, "etchdroid_test_regular_flow_", ".iso", "1000M") as image:
         app.basic_flow(driver, image.filename)
         app.wait_for_success(driver)
 
@@ -27,7 +27,7 @@ def test_skip_verification(driver: appium.webdriver.Remote):
 
 
 def test_accept_notifications(driver: appium.webdriver.Remote):
-    with device_temp_sparse_file(driver, "etchdroid_test_accept_notifications_", ".iso", "1800M") as image:
+    with device_temp_sparse_file(driver, "etchdroid_test_accept_notifications_", ".iso", "1000M") as image:
         app.basic_flow(driver, image.filename)
         sure_btn = wait_for_element(
             driver,

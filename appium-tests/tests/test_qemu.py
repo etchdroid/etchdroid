@@ -131,7 +131,7 @@ def verify_written_image(payload: bytes, raw_blockdev: Path):
 
 @pytest.mark.qemu
 def test_unplug_xhci(driver: appium.webdriver.Remote, qemu: QEMUController):
-    with device_temp_sparse_file(driver, "etchdroid_test_unplug_xhci_", ".iso", "1800M") as image:
+    with device_temp_sparse_file(driver, "etchdroid_test_unplug_xhci_", ".iso", "1000M") as image:
         app.basic_flow(driver, image.filename)
 
         print("Waiting for write progress...")
@@ -187,7 +187,7 @@ def test_unplug_with_random_data_uhci(
 def test_unplug_resume_from_notification(driver: appium.webdriver.Remote, qemu: QEMUController):
     grant_permissions(driver, ["android.permission.POST_NOTIFICATIONS"])
 
-    with device_temp_sparse_file(driver, "etchdroid_test_unplug_resume_from_notification_", ".iso", "1800M") as image:
+    with device_temp_sparse_file(driver, "etchdroid_test_unplug_resume_from_notification_", ".iso", "1000M") as image:
         app.basic_flow(driver, image.filename)
         app.wait_for_write_progress(driver)
 
