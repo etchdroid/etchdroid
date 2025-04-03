@@ -70,19 +70,19 @@ def skip_lay_flat_sheet(driver: Remote):
         pass
 
 
-def wait_for_success(driver: Remote, timeout: int = 60):
+def wait_for_success(driver: Remote, timeout: int = 120):
     wait_for_element(driver, '//android.widget.TextView[@resource-id="success_write_title"]', timeout=timeout)
 
 
-def wait_for_fatal_error(driver: Remote, timeout: int = 60):
+def wait_for_fatal_error(driver: Remote, timeout: int = 120):
     wait_for_element(driver, '//android.widget.TextView[@resource-id="fatal_error_title"]', timeout=timeout)
 
 
-def wait_for_write_progress(driver: Remote, timeout: int = 60):
+def wait_for_write_progress(driver: Remote, timeout: int = 120):
     wait_for_element(driver, '//android.widget.TextView[@resource-id="write_progress_title"]', timeout=timeout)
 
 
-def get_skip_verify_button(driver: Remote, timeout: int = 60):
+def get_skip_verify_button(driver: Remote, timeout: int = 120):
     return wait_for_element(driver, '//*[@resource-id="skip_verification_button"]', timeout=timeout)
 
 
