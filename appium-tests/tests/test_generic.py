@@ -89,7 +89,7 @@ def test_windows_image_warning(driver: appium.webdriver.Remote):
 def test_image_too_large(driver: appium.webdriver.Remote):
     with device_temp_sparse_file(driver, "etchdroid_test_image_too_large_", ".iso", "100G") as image:
         app.open_file(driver, image.path)
-        app.select_first_usb_device_if_multiple(driver)
+        app.select_first_usb_device_if_multiple(driver, timeout=5)
         app.grant_usb_permission(driver)
         app.confirm_write_image(driver)
         app.skip_lay_flat_sheet(driver)
