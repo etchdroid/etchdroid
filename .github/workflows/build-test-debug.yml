@@ -12,7 +12,7 @@ env:
 
 jobs:
   build-matrix:
-    name: Build and test variant ${{ matrix.variant }}
+    name: Build and test ${{ matrix.variant }}
     runs-on: ubuntu-latest
 
     strategy:
@@ -71,7 +71,7 @@ jobs:
         uses: mikepenz/action-junit-report@v5
         if: success() || failure()
         with:
-          check_name: Test report for ${{ matrix.variant }}
+          check_name: Unit test report for ${{ matrix.variant }}
           detailed_summary: true
           report_paths: 'app/build/test-results/*/TEST-*.xml'
 
@@ -83,7 +83,7 @@ jobs:
 
 
   qemu-tests:
-    name: Run integration tests for ${{ matrix.variant }}
+    name: Run end-to-end tests for ${{ matrix.variant }}
     runs-on: ubuntu-latest
     needs: build-matrix
     strategy:
@@ -225,7 +225,16 @@ jobs:
             ./scripts/ci-qemu-prepare.sh
             adb install -r ../apk/*.apk
             adb logcat -d > "$LOGCAT_DIR/0_before.log" 2>&1
-            uv run pytest -sv
+            mkdir -p ../junit-xml
+            uv run pytest -sv --tb=native --junit-xml=../junit-xml/ 
+
+      - name: Publish test report
+        uses: mikepenz/action-junit-report@v5
+        if: success() || failure()
+        with:
+          check_name: End-to-end test report for ${{ matrix.variant }}
+          detailed_summary: true
+          report_paths: junit-xml/*.xml
 
       - name: Upload VM outputs
         if: always()
