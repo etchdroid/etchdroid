@@ -183,7 +183,7 @@ jobs:
             -display
             sdl,gl=on
             -drive
-            index=0,if=virtio,id=system,file=system.efs,format=raw,readonly=on
+            index=0,if=virtio,id=system,file=/tmp/blissos/system.efs,format=raw,readonly=on
             -usb
             -device
             usb-tablet,bus=usb-bus.0
