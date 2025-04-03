@@ -221,8 +221,10 @@ jobs:
           run: |
             cd appium-tests
             export LOGCAT_DIR="$PWD/../vm-outputs/logcat/"
+            mkdir -p "$LOGCAT_DIR"
             ./scripts/ci-qemu-prepare.sh
             adb install -r ../apk/*.apk
+            adb logcat -d > "$LOGCAT_DIR/0_before.log" 2>&1
             uv run pytest -sv
 
       - name: Upload VM outputs
