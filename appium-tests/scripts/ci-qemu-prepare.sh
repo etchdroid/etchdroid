@@ -9,9 +9,9 @@ adb disconnect "$ADB_HOST" || true
 echo "Connecting to ADB on $ADB_HOST"
 
 # Wait for ADB to show up
-for _ in {1..60}; do
+for _ in {1..20}; do
     if ! adb connect "$ADB_HOST"; then
-        sleep 1
+        sleep 3
         continue
     fi
 
