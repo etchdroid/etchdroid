@@ -158,6 +158,7 @@ jobs:
       - name: Create virtual USB drive image
         run: |
           qemu-img create -f qcow2 /tmp/usb-storage.img 2G
+          mkdir -p vm-outputs
 
       - name: Run QEMU
         id: run-qemu
@@ -166,8 +167,13 @@ jobs:
           video-record: true
           kernel: /tmp/blissos/kernel
           initrd: /tmp/blissos/initrd.img
-          cmdline: 'root=/dev/ram0 androidboot.selinux=permissive console=tty1 FFMPEG_CODEC=1 FFMPEG_PREFER_C2=1'
+          cmdline: 'root=/dev/ram0 androidboot.selinux=permissive console=ttyS0 FFMPEG_CODEC=1 FFMPEG_PREFER_C2=1'
+          video-output: vm-outputs/recording.mkv
           flags: |
+            -chardev
+            stdio,id=char0,logfile=vm-outputs/serial.log,signal=off \
+            -serial
+            chardev:char0
             -netdev
             user,id=network,hostfwd=tcp::5556-:5555
             -device
@@ -200,9 +206,9 @@ jobs:
             adb install -r ../apk/*.apk
             uv run pytest -sv
 
-      - name: Upload video recording
+      - name: Upload VM outputs
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: recording-${{ matrix.variant }}
-          path: ${{ steps.run-qemu.outputs.video-output }}
+          name: vm-outputs-${{ matrix.variant }}
+          path: vm-outputs/
