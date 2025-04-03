@@ -171,7 +171,7 @@ jobs:
           video-output: vm-outputs/recording.mkv
           flags: |
             -chardev
-            stdio,id=char0,logfile=vm-outputs/serial.log,signal=off \
+            stdio,id=char0,logfile=vm-outputs/serial.log,signal=off
             -serial
             chardev:char0
             -netdev
