@@ -57,7 +57,7 @@ def find_element(
 
 
 def get_adb_udid(driver: appium.webdriver.Remote) -> str:
-    return driver.capabilities["deviceUdid"]
+    return driver.capabilities["deviceUDID"]
 
 
 def run_adb_command(
