@@ -225,8 +225,7 @@ jobs:
             ./scripts/ci-qemu-prepare.sh
             adb install -r ../apk/*.apk
             adb logcat -d > "$LOGCAT_DIR/0_before.log" 2>&1
-            mkdir -p ../junit-xml
-            uv run pytest -sv --tb=native --junit-xml=../junit-xml/ 
+            uv run pytest -sv --tb=native --junit-xml=../junit.xml
 
       - name: Publish test report
         uses: mikepenz/action-junit-report@v5
@@ -234,7 +233,7 @@ jobs:
         with:
           check_name: End-to-end test report for ${{ matrix.variant }}
           detailed_summary: true
-          report_paths: junit-xml/*.xml
+          report_paths: junit.xml
 
       - name: Upload VM outputs
         if: always()
