@@ -110,15 +110,15 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Set up BlissOS image cache
-        uses: actions/cache@v4
+      - name: Restore BlissOS image from cache
+        uses: actions/cache/restore@v4
         with:
           key: ${{ env.BLISSOS_FILE }}
           restore-keys: ${{ env.BLISSOS_FILE }}
-          path: |
-            ~/.cache/blissos
+          path: ~/.cache/blissos
 
       - name: Download BlissOS image
+        id: download-bliss
         run: |
           mkdir -p ~/.cache/blissos
           cd ~/.cache/blissos
@@ -127,9 +127,18 @@ jobs:
           if [[ ! -f "${{ env.BLISSOS_FILE }}" ]] || ! sha256sum -c bliss.sha256; then
             echo "Downloading ${BLISSOS_FILE}..."
             curl -L -o "${{ env.BLISSOS_FILE }}" "${{ env.BLISSOS_URL }}/${{ env.BLISSOS_FILE }}"
+            echo "cached=0" >> "$GITHUB_OUTPUT"
           else
             echo "Using cached ${BLISSOS_FILE}"
+            echo "cached=1" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Store BlissOS to cache
+        uses: actions/cache/save@v4
+        if: steps.download-bliss.outputs.cached == 0
+        with:
+          key: ${{ env.BLISSOS_FILE }}
+          path: ~/.cache/blissos
 
       - name: Mount BlissOS image
         run: |
