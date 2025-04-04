@@ -11,8 +11,8 @@ env:
   BLISSOS_URL: 'https://deac-riga.dl.sourceforge.net/project/blissos-x86/Official/BlissOS16/FOSS/Generic/'
 
 jobs:
-  build-matrix:
-    name: Build and test ${{ matrix.variant }}
+  build:
+    name: Build ${{ matrix.variant }}
     runs-on: ubuntu-latest
 
     strategy:
@@ -43,9 +43,6 @@ jobs:
           add-job-summary: on-failure
           cache-encryption-key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
 
-      - name: Set up Gradle build scan
-        uses: etchdroid/setup-gradle-public-build-scan@v2
-
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
@@ -61,6 +58,53 @@ jobs:
           ETCHDROID_ENABLE_SENTRY: ${{ matrix.variant == 'Gplay' }}
           VARIANT: ${{ matrix.variant }}
 
+      - name: Upload built APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-${{ matrix.variant }}-debug
+          path: app/build/outputs/apk/${{ matrix.variant }}/debug/app-${{ matrix.variant }}-debug.apk
+
+  unit-tests:
+    name: Unit tests for ${{ matrix.variant }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        variant:
+          - foss
+          - gplay
+      fail-fast: false
+
+    env:
+      JAVA_TOOL_OPTIONS: "-Xmx4g"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: wrapper
+          cache-read-only: false
+          add-job-summary: on-failure
+          cache-encryption-key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Set up Firebase config
+        run: |
+          cat <<'EOF' > app/google-services.json
+          ${{ secrets.GOOGLE_SERVICES_JSON }}
+          EOF
+
       - name: Run unit tests for ${{ matrix.variant }}
         run: ./gradlew test${VARIANT^}DebugUnitTest --scan --configuration-cache
         env:
@@ -75,17 +119,10 @@ jobs:
           detailed_summary: true
           report_paths: 'app/build/test-results/*/TEST-*.xml'
 
-      - name: Upload built APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-${{ matrix.variant }}-debug
-          path: app/build/outputs/apk/${{ matrix.variant }}/debug/app-${{ matrix.variant }}-debug.apk
-
-
   qemu-tests:
-    name: Run end-to-end tests for ${{ matrix.variant }}
+    name: End-to-end tests for ${{ matrix.variant }}
     runs-on: ubuntu-latest
-    needs: build-matrix
+    needs: build
     strategy:
       matrix:
         variant:
