@@ -118,6 +118,7 @@ jobs:
           check_name: Unit test report for ${{ matrix.variant }}
           detailed_summary: true
           report_paths: 'app/build/test-results/*/TEST-*.xml'
+          require_tests: true
 
   qemu-tests:
     name: End-to-end tests for ${{ matrix.variant }}
@@ -271,6 +272,7 @@ jobs:
           check_name: End-to-end test report for ${{ matrix.variant }}
           detailed_summary: true
           report_paths: junit.xml
+          require_tests: true
 
       - name: Upload VM outputs
         if: always()
