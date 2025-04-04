@@ -9,3 +9,13 @@ plugins {
         alias(libs.plugins.google.firebase.crashlytics) apply false
     }
 }
+
+if (hasProperty("develocity")) {
+    println("EtchDroid: Accepting scans.gradle.com terms of service")
+    extensions.findByName("develocity")?.withGroovyBuilder {
+        getProperty("buildScan")?.withGroovyBuilder {
+            setProperty("termsOfUseUrl", "https://gradle.com/help/legal-terms-of-use")
+            setProperty("termsOfUseAgree", "yes")
+        }
+    }
+}
