@@ -68,7 +68,7 @@ gplay-sentry-compose = { group = "io.sentry", name = "sentry-compose-android", v
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit" }
 kotlin-stdlib-jdk8 = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlinx-coroutines-debug = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-debug", version.ref = "kotlinx-coroutines-debug" }
-libaums-core = { group = "me.jahnen.libaums", name = "core", version.ref = "libaums" }
+libaums-core = { group = "me.jahnen.libaums", name = "core", version.ref = "libaums"                                                                                                                                                     }
 libaums-libusbcommunication = { group = "me.jahnen.libaums", name = "libusbcommunication", version.ref = "libaums-libusbcommunication" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
 lifecycle-service = { group = "androidx.lifecycle", name = "lifecycle-service", version.ref = "lifecycle" }
