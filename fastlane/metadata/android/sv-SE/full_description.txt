@@ -23,5 +23,3 @@ Använd det för att skapa en startbar USB-enhet med operativsystem när din bä
 
 
 Källkoden finns på GitHub: https://github.com/EtchDroid/EtchDroid
-
-Translated with DeepL.com (free version)
