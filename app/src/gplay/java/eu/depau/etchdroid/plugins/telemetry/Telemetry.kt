@@ -25,10 +25,8 @@ import eu.depau.etchdroid.plugins.telemetry.DummyTelemetry.telemetryTag as dummy
 internal const val SENTRY_DSN =
     "https://39a6e220c97c585acd25ced5a6855b4d@o4508123221590016.ingest.de.sentry.io/4508123222704209"
 
-internal const val DEBUG_SAMPLE_RATE = 1.0
-internal const val DEBUG_ERROR_SAMPLE_RATE = 1.0
-internal const val PROD_SAMPLE_RATE = 0.01
-internal const val PROD_ERROR_SAMPLE_RATE = 0.1
+internal const val SAMPLE_RATE = 0.1
+internal const val ERROR_SAMPLE_RATE = 1.0
 
 internal const val PREFS_NAME = "telemetry"
 internal const val PREFS_ENABLED_KEY = "telemetry_enabled"
@@ -154,19 +152,15 @@ object Telemetry : ITelemetry {
                 it.dsn = SENTRY_DSN
                 it.isEnableUserInteractionTracing = true
 
-                if (BuildConfig.DEBUG) {
-                    it.environment = "debug"
-                    it.tracesSampleRate = DEBUG_SAMPLE_RATE
-                    it.profilesSampleRate = DEBUG_SAMPLE_RATE
-                    it.sessionReplay.sessionSampleRate = DEBUG_SAMPLE_RATE
-                    it.sessionReplay.onErrorSampleRate = DEBUG_ERROR_SAMPLE_RATE
-                } else {
-                    it.environment = "production"
-                    it.tracesSampleRate = PROD_SAMPLE_RATE
-                    it.profilesSampleRate = PROD_SAMPLE_RATE
-                    it.sessionReplay.sessionSampleRate = PROD_SAMPLE_RATE
-                    it.sessionReplay.onErrorSampleRate = PROD_ERROR_SAMPLE_RATE
-                }
+                it.environment = if (BuildConfig.DEBUG)
+                    "debug"
+                else
+                    "production"
+
+                it.tracesSampleRate = SAMPLE_RATE
+                it.profilesSampleRate = SAMPLE_RATE
+                it.sessionReplay.sessionSampleRate = SAMPLE_RATE
+                it.sessionReplay.onErrorSampleRate = ERROR_SAMPLE_RATE
             }
         }
     }
