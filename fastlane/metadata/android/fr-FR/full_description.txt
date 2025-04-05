@@ -10,9 +10,9 @@ Appareils pris en charge:
 ❌ CD/DVD/Disquettes
 ❌ Appareils thunderbolt
 
-Prévu :
+Prévu :
 • Écrire une distribution GNU / Linux commune en streaming depuis Internet sans la stocker sur l'appareil
 • Prise en charge de l'installation ISO de Windows (nécessitera probablement la racine)
 • Prise en charge du clignotement d'image de type Unetbootin
 
-Le code source est sur GitHub : https://github.com/Depau/EtchDroid
+Le code source est sur GitHub : https://github.com/Depau/EtchDroid
