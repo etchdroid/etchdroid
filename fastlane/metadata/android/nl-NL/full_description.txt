@@ -2,6 +2,7 @@ EtchDroid is een vrije GPLv3+-app waarmee je schijfkopieën kunt wegschrijven na
 Zo kun je bijv. een opstartbare GNU/Linux usb-schijf maken voor als je laptop de geest geeft terwijl je in de middle of nowhere bent.
 
 ⭐️ Ondersteunde apparaten: ⭐️
+
 ✅ Usb-sticks;
 ✅ Usb-sd-kaartadapters;
 ❌ Usb-schijven/-ssd's;
@@ -10,12 +11,15 @@ Zo kun je bijv. een opstartbare GNU/Linux usb-schijf maken voor als je laptop de
 ❌ Optische of floppylezers;
 ❌ Thunderbolt-apparaten.
 
+
 ⭐️ Ondersteunde schijfkopieën/bestanden: ⭐️
+
 ✅ Moderne GNU/Linux-distributies (iso), waaronder Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS en vele anderen;
 ✅ Raspberry PI-schijfkopieën (na uitpakken!);
 ❌ Officiële Microsoft Windows-iso's;
 ⚠️ Windows-schijfkopieën van de gemeenschap, speciaal voor EtchDroid (let op: ze kunnen mogelijk virussen bevatten!);
 ❌ Apple dmg-schijfkopieën;
 ❌ Oudere GNU/Linux-iso's (vóór 2010), zoals Damn Small Linux.
+
 
 De broncode is beschikbaar op GitHub: https://github.com/EtchDroid/EtchDroid
