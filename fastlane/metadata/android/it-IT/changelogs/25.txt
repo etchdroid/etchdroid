@@ -1,0 +1,6 @@
+EtchDroid è stato riscritto dalla testa ai piedi!
+
+• Nuova interfaccia con lo stile Material You, molto più intuitiva e facile da usare!
+• EtchDroid è ora in grado di riprendersi dalla maggior parte degli errori di scrittura: ti verrà chiesto di ricollegare il dispositivo USB
+• Dopo la scrittura dell'immagine, il contenuto del dispositivo USB verrà verificato per assicurare che non sia corrotto
+• La funzionalità di scrittura DMG è stata rimossa; usa una versione più vecchia se ti serve ancora

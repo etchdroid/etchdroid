@@ -1,0 +1,6 @@
+Major rewrite of EtchDroid!
+
+• New Material You UI, much more intuitive and easier to use!
+• EtchDroid will now recover from most write failures and ask you to unplug and reconnect your USB drive
+• After writing the image, it will also be verified to ensure it didn't get corrupted
+• The DMG functionality has been removed; use an older version if you still need it

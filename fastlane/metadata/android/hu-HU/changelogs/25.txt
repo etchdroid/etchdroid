@@ -1,0 +1,6 @@
+Jelentős változások az EtchDroidban!
+
+• Új, Material You kezelőfelület. Intuitívebb és egyszerűbb használat!
+• Az EtchDroid mostantól helyre tud állni a legtöbb hibából, ebben az esetben arra fogja kérni, hogy húzza ki majd csatalkoztassa újra az USB eszközt
+• Az írás után automatikusan ellenőrzésre kerül, hogy a lemezkép nem sérült-e meg
+• A DMG funkció már nem elérhető; használjon régebbi verziót, ha szükséges

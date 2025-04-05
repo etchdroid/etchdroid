@@ -1,0 +1,6 @@
+Geheel opnieuw ontworpen versie!
+
+• Nieuwe Material You-vormgeving die veel handiger en makkelijker in het gebruik is;
+• EtchDroid kan voortaan schrijffouten herstellen en zal je vragen om je usb-apparaat opnieuw aan te koppelen;
+• Na het wegschrijven wordt een verificatie uitgevoerd, zodat kan worden vastgesteld of er niets is misgegaan;
+• De dmg-functionaliteit is geschrapt - gebruik hiervoor een oudere versie.

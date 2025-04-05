@@ -1,0 +1,6 @@
+Große Neufassung von EtchDroid!
+
+• Neue Material You-Benutzeroberfläche, viel intuitiver und einfacher zu bedienen!
+• EtchDroid erholt sich nun von den meisten Schreibfehlern und fordert Sie auf, Ihr USB-Laufwerk zu trennen und wieder anzuschließen
+• Nach dem Schreiben des Bildes wird es außerdem überprüft, um sicherzustellen, dass es nicht beschädigt wurde
+• Die DMG-Funktionalität wurde entfernt; Verwenden Sie eine ältere Version, wenn Sie diese noch benötigen

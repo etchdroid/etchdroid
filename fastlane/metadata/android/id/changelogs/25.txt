@@ -1,0 +1,6 @@
+Pembaruan besar pada EtchDroid!
+
+- UI Material You yang baru, jauh lebih intuitif dan lebih mudah digunakan! 
+- EtchDroid sekarang akan pulih dari sebagian besar kegagalan penulisan dan meminta Anda untuk mencabut dan menyambungkan kembali drive USB 
+- Setelah menulis images, ada proses verifikasi untuk memastikannya tidak rusak 
+- Fungsionalitas DMG telah dihapus; gunakan versi yang lebih lama jika Anda masih membutuhkannya

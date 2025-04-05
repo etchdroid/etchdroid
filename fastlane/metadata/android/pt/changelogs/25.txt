@@ -1,0 +1,6 @@
+Reescrita principal do EtchDroid!
+
+• Novo IU material You, muito mais intuitiva e mais fácil de usar!
+• EtchDroid agora irá recuperar da maioria das falhas de gravação e pedir-lhe para desligar e reconectar a sua unidade USB
+• Após escrever a imagem, será verificada para garantir que não se corromper
+• A funcionalidade DMG foi removida; use uma versão mais antiga se ainda precisar dele

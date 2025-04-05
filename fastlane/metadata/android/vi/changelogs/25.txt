@@ -1,0 +1,6 @@
+Viết lại hoàn toàn EtchDroid!
+
+• Giao diện người dùng Material You mới, trực quan hơn nhiều và dễ sử dụng hơn!
+• EtchDroid hiện sẽ phục hồi sau hầu hết các lỗi ghi và yêu cầu bạn rút ổ USB ra và kết nối lại
+• Sau khi ghi hình ảnh, nó cũng sẽ được xác minh để đảm bảo không bị hỏng
+• Chức năng DMG đã bị xóa; hãy sử dụng phiên bản cũ hơn nếu bạn vẫn cần

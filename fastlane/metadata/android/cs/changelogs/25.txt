@@ -1,0 +1,6 @@
+Zásadní přepsání EtchDroidu!
+
+• Nové uživatelské rozhraní Material You, mnohem intuitivnější a jednodušší na používání!
+• EtchDroid se nyní zotaví z většiny selhání zápisu a požádá vás o odpojení a opětovné připojení jednotky USB
+• Po zapsání bitové kopie se také ověří, zda nedošlo k jejímu poškození
+• Funkce DMG byla odstraněna; pokud ji stále potřebujete, použijte starší verzi.
