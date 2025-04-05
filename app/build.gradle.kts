@@ -23,12 +23,12 @@ plugins {
 
 android {
     namespace = "eu.depau.etchdroid"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "eu.depau.etchdroid"
         minSdk = 21
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 24
         versionName = "1.9.rc4"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
