@@ -47,6 +47,7 @@ import eu.depau.etchdroid.utils.ktexts.getFileName
 import eu.depau.etchdroid.utils.ktexts.getFileSize
 import eu.depau.etchdroid.utils.ktexts.safeParcelableExtra
 import eu.depau.etchdroid.utils.ktexts.startForegroundSpecialUse
+import eu.depau.etchdroid.utils.ktexts.threadID
 import eu.depau.etchdroid.utils.ktexts.toHRSize
 import eu.depau.etchdroid.utils.lateInit
 import eu.depau.etchdroid.utils.timeoutWatchdog
@@ -336,7 +337,7 @@ class WorkerService : LifecycleService() {
             Thread.currentThread().name = "WorkerService coroutine scope"
 
             Telemetry.debug(
-                "Job coroutine scope started; thread ${Thread.currentThread().name} (${Thread.currentThread().id})",
+                "Job coroutine scope started; thread ${Thread.currentThread().name} (${Thread.currentThread().threadID})",
                 "worker"
             )
 

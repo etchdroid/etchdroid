@@ -138,6 +138,7 @@ import eu.depau.etchdroid.utils.ktexts.broadcastLocally
 import eu.depau.etchdroid.utils.ktexts.getDisplayName
 import eu.depau.etchdroid.utils.ktexts.registerExportedReceiver
 import eu.depau.etchdroid.utils.ktexts.startForegroundServiceCompat
+import eu.depau.etchdroid.utils.ktexts.threadID
 import eu.depau.etchdroid.utils.ktexts.toHRSize
 import eu.depau.etchdroid.utils.ktexts.toast
 import eu.depau.etchdroid.utils.ktexts.usbDevice
@@ -220,7 +221,7 @@ class ProgressActivity : ActivityBase() {
         super.onCreate(savedInstanceState)
 
         println(
-            "ProgressActivity running in thread ${Thread.currentThread().name} (${Thread.currentThread().id})"
+            "ProgressActivity running in thread ${Thread.currentThread().name} (${Thread.currentThread().threadID})"
         )
 
         mSettings = AppSettings(this).apply {
