@@ -122,6 +122,7 @@ fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
 
+fastlane/Appfile
 
 # Project exclude paths
 /dmg2img/.cxx/
