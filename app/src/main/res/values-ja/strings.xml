@@ -31,7 +31,7 @@
     <string name="continue_anyway">とにかく実行</string>
     <string name="confirm_operation">実行内容の確認</string>
     <string name="select_a_usb_drive">USBドライブを選択</string>
-    <string name="connect_a_usb_drive">USB ドライブを接続する</string>
+    <string name="connect_a_usb_drive">USBドライブを接続</string>
     <string name="looking_for_usb_drives">USBドライブを探しています</string>
     <string name="image_to_write">書き込みイメージ</string>
     <string name="destination_usb_device">対象のUSBデバイス</string>
@@ -121,7 +121,7 @@
     <string name="view_github_issues">GitHub Issueを見る</string>
     <string name="worker_null_device_error">イメージを書き込もうとしましたが、エラーが発生しました。もう一度お試しください。</string>
     <string name="please_report_fatal_issue">お手数ですが、GitHub Issueを用いてこのエラーの発生手順についてご報告頂けますでしょうか。</string>
-    <string name="telemetry_rationale">EtchDroidはあなたのプライバシーを尊重し、アプリの問題調査の為の最小限の遠隔情報のみを利用します。\n\nEtchDroidオープンソース・コミュニティの一員として、遠隔情報収集を有効にして、EtchDroidの改善にご協力下さい！\n\n私たちは個人を特定する情報は収集しませんが、透明を信じており、特定のハードウェアの問題を診断する為に、利用されたイメージファイル名とUSBデバイスIDを匿名で収集される点をご認識頂ければと存じます。イメージファイル名やデバイスIDが非常に機密性の高いものでない限りは、当該データの共有は安全です。 (%1$s)</string>
+    <string name="telemetry_rationale">EtchDroidはあなたのプライバシーを尊重し、アプリの問題調査の為の最小限の遠隔情報のみを利用します。\n\nEtchDroidオープンソース・コミュニティの一員として、遠隔情報収集を有効にして、EtchDroidの改善にご協力下さい！\n\n私たちは個人を特定する情報は収集しませんが、透明性を信じており、特定のハードウェアの問題を診断する為に、利用されたイメージファイル名とUSBデバイスIDを匿名で収集される点をご認識頂ければと存じます。イメージファイル名やデバイスIDが非常に機密性の高いものでない限りは、当該データの共有は安全です。 (%1$s)</string>
     <string name="telemetry">情報収集</string>
     <string name="privacy_policy">プライバシーポリシー</string>
     <string name="we_need_your_help">ご支援をお待ちしております！</string>
