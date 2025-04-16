@@ -11,7 +11,7 @@
     <string name="notification_verify_progress_title">イメージを確認しています…</string>
     <string name="notification_write_no_notifications_text">%1$s から %2$s への書き込みについて、進捗状況の通知を有効にします</string>
     <string name="notif_channel_job_result_name">書き込み結果</string>
-    <string name="action_required">アクションが必要です</string>
+    <string name="action_required">要対応</string>
     <string name="notification_write_progress_title">イメージを書き込んでいます…</string>
     <string name="about">このアプリについて</string>
     <string name="permission_denied_for_usb_device">USB デバイス %1$s への許可が拒否されました</string>
