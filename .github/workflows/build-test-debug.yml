@@ -53,6 +53,11 @@ jobs:
           ${{ secrets.GOOGLE_SERVICES_JSON }}
           EOF
 
+          # Use mock if the secret is not available
+          if [[ "$(wc -l app/google-services.json)" -lt 10 ]]; then
+            cp misc/mock-google-services.json app/google-services.json
+          fi
+
       - name: Build ${{ matrix.variant }}
         run: ./gradlew assemble${VARIANT^}Debug --scan --configuration-cache
         env:
@@ -105,6 +110,11 @@ jobs:
           cat <<'EOF' > app/google-services.json
           ${{ secrets.GOOGLE_SERVICES_JSON }}
           EOF
+
+          # Use mock if the secret is not available
+          if [[ "$(wc -l app/google-services.json)" -lt 10 ]]; then
+            cp misc/mock-google-services.json app/google-services.json
+          fi
 
       - name: Run unit tests for ${{ matrix.variant }}
         run: ./gradlew test${VARIANT^}DebugUnitTest --scan --configuration-cache
