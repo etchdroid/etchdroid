@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s escrito exitosamente a %2$s</string>
+    <string name="write_failed" comment="Notification title when a non-recoverable error occurs">Escritura errada</string>
+    <string name="cancel" comment="Cancel string, used all over the place">Cancelar</string>
+    <string name="write_finished" comment="Notification title when the write operation is successful">Escritura rematada</string>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">Acción requirida</string>
+</resources>
