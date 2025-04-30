@@ -54,7 +54,7 @@ jobs:
           EOF
 
           # Use mock if the secret is not available
-          if [[ "$(wc -l app/google-services.json)" -lt 10 ]]; then
+          if [[ "$(wc -c < app/google-services.json)" -lt 10 ]]; then
             cp misc/mock-google-services.json app/google-services.json
           fi
 
@@ -112,7 +112,7 @@ jobs:
           EOF
 
           # Use mock if the secret is not available
-          if [[ "$(wc -l app/google-services.json)" -lt 10 ]]; then
+          if [[ "$(wc -c < app/google-services.json)" -lt 10 ]]; then
             cp misc/mock-google-services.json app/google-services.json
           fi
 
