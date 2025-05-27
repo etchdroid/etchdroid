@@ -60,9 +60,7 @@
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">Live ISO-образы других современных дистрибутивов GNU/Linux и BSD</string>
     <string name="raspberry_pi_sd_card_images_unzip_first">Образы SD-карт Raspberry Pi (сначала разархивируйте!)</string>
     <string name="support_for_dmg_images_was_removed">Поддержка образов DMG была удалена в EtchDroid 2.0. Старые версии можно загрузить с %1$s.</string>
-    <string name="developed_by">Разработано %1$s и другими %2$s.
-\nИсходный код доступен на %3$s.
-\nЛццензирован по GNU GPLv3.</string>
+    <string name="developed_by">Разработана %1$s и другими %2$s.\nИсходный код доступен на %3$s.\nПод лицензией GNU GPLv3.</string>
     <string name="contributors">участниками</string>
     <string name="website">Веб-сайт</string>
     <string name="verifying_image">Образ проверяется</string>
@@ -120,4 +118,17 @@
     <string name="title_activity_confirm_operation">Подтвердить операцию</string>
     <string name="no_image_uri_provided">Образ не выбран</string>
     <string name="no_destination_device_selected">Целевое устройство не выбрано</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Если вы можете, сообщите об этой проблеме на GitHub вместе с шагами, которые привели к этой ошибке.</string>
+    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">EtchDroid ценит вашу конфиденциальность и использует только минимальную телеметрию для исследования проблем приложения.\n\nБудьте частью нашего сообщества с открытым исходным кодом - сохраняйте телеметрию включенной и помогайте улучшать EtchDroid для всех!\n\nХотя мы не собираем никакой личной информации, мы верим в прозрачность и хотим, чтобы вы знали, что имена открытых файлов изображений и идентификаторы USB-устройств собираются анонимно, чтобы помочь диагностировать проблемы с конкретным оборудованием. Если имена файлов изображений или идентификаторы устройств не являются очень секретными, то эти данные можно смело передавать. (%1$s)</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">Нам нужна ваша помощь!</string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">Значок телеметрии</string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">Отключить телеметрию</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Просмотр проблем на GitHub</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">Сохраняйте включенной</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid отправляет телеметрическую информацию.</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Узнать больше</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Отправка анонимных данных</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Была начата попытка записи, но, к сожалению, часть информации была утеряна. Пожалуйста, попробуйте еще раз.</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Телеметрия</string>
+    <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">Политика конфиденциальности</string>
 </resources>
