@@ -41,7 +41,7 @@
     <string name="notification_write_no_notifications_text">Włącz powiadomienia o postępach • Zapisywanie %1$s do %2$s</string>
     <string name="notification_write_tap_for_progress_text">Dotknij, aby zobaczyć postęp • Zapisywanie %1$s do %2$s</string>
     <string name="usb_device_was_unplugged">Urządzenie USB zostało odłączone</string>
-    <string name="write_an_image">Zapisz obraz</string>
+    <string name="write_an_image">Wgraj obraz</string>
     <string name="style">Styl</string>
     <string name="light">Jasny</string>
     <string name="permission_denied_for_usb_device">Odmowa uprawnień do urządzenia USB %1$s</string>
@@ -53,7 +53,7 @@
     <string name="permission_granted">Uprawnienie przyznane</string>
     <string name="writing_the_image_will_erase">Zapisanie obrazu spowoduje usunięcie wszystkich danych z wybranego dysku</string>
     <string name="be_careful">Postępuj ostrożnie!</string>
-    <string name="write_image">Zapisz obraz</string>
+    <string name="write_image">Rozpocznij wgrywanie</string>
     <string name="lay_your_device_flat_no_accel">Zanim przejdziesz dalej, połóż urządzenie płasko na stole.</string>
     <string name="continue_">Kontynuuj</string>
     <string name="lay_your_device_flat">Połóż urządzenie płasko na stole i nie dotykaj go</string>
