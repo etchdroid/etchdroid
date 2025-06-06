@@ -16,6 +16,7 @@ This repository hosts **EtchDroid**, an Android application for writing OS image
 ## Build and Test
 - The first build and test run may take up to **10 minutes**. Allow enough time.
 - Run unit tests with Gradle for the appropriate flavor.
+- You should not use `--scan` when invoking Gradle, since that would attempt to contact scans.gradle.com.
 
 ### FOSS variant
 1. Ensure `ETCHDROID_ENABLE_SENTRY` is **unset** or empty.
