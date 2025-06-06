@@ -3,7 +3,7 @@
     <string name="unknown_filename">Onbekende bestandsnaam</string>
     <string name="cancel">Annuleren</string>
     <string name="write_finished">Wegschrijven voltooid</string>
-    <string name="success_notif_content_text">%1$s is weggeschreven nar %2$s</string>
+    <string name="success_notif_content_text">%1$s is weggeschreven naar %2$s</string>
     <string name="write_failed">Wegschrijven mislukt</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">Wordt gebruikt om de voortgang van de huidige taak te tonen</string>
     <string name="notif_channel_job_progress_name">Taakvoortgang</string>
