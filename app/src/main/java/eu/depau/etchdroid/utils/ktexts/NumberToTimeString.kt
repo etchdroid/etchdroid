@@ -20,7 +20,7 @@ fun <T> humanReadableTimeDelta(time: T): String where T : Number {
         dbTime /= div
     }
 
-    return "${dbTime.toInt()}${timeStrings[-1]} $outString"
+    return "${dbTime.toInt()}${timeStrings.last()} $outString"
 }
 
 fun Long.toHRTime() = humanReadableTimeDelta(this)
