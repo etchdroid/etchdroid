@@ -698,7 +698,12 @@ object WorkerServiceFlowImpl {
                         throw UsbCommunicationException(e)
                     }
 
-                    if (!fileBuffer.contentEquals(deviceBuffer)) {
+                    val mismatch = if (read == fileBuffer.size) {
+                        !fileBuffer.contentEquals(deviceBuffer)
+                    } else {
+                        !fileBuffer.copyOf(read).contentEquals(deviceBuffer.copyOf(read))
+                    }
+                    if (mismatch) {
                         Telemetry.captureMessage("Verification failed")
                         if (Build.VERSION.SDK_INT > 999999) {
                             // Prevent the compiler from optimizing out the buffers, for debugging
