@@ -15,6 +15,7 @@ This repository hosts **EtchDroid**, an Android application for writing OS image
 
 ## Build and Test
 - The first build and test run may take up to **10 minutes**. Allow enough time.
+- It's best to run the build as a background process by daemonizing it and make it log to a file, so you can periodically check whether it's done or not, and so you don't accidentally risk interrupting it when checking.
 - Run unit tests with Gradle for the appropriate flavor.
 - You should not use `--scan` when invoking Gradle, since that would attempt to contact scans.gradle.com.
 
