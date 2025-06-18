@@ -76,7 +76,7 @@
     <string name="image_written_successfully">Образ записан успешно!</string>
     <string name="write_a_review">Написать отзыв</string>
     <string name="star_on_github">Отметить на GitHub</string>
-    <string name="got_an_unsupported_drive_notification">Получили уведомление «Неподдерживаемый накопитель»?</string>
+    <string name="got_an_unsupported_drive_notification">Получили уведомление «Проблемы с этим диском»?</string>
     <string name="learn_what_it_means">Узнайте, что это значит</string>
     <string name="there_was_an_error">Произошла ошибка</string>
     <string name="error">Ошибка</string>
