@@ -20,4 +20,5 @@
     <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">प्रगति के लिए सूचनाएं सक्षम करें • %1$s से %2$s लिखना</string>
     <string name="write_failed" comment="Notification title when a non-recoverable error occurs">लिखना विफल</string>
     <string name="action_required" comment="Notification title when a recoverable error occurs">कार्रवाई आवश्यक है</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">Device settings</string>
 </resources>
