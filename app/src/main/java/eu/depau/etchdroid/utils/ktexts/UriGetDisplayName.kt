@@ -5,8 +5,6 @@ import android.net.Uri
 import android.provider.OpenableColumns
 import eu.depau.etchdroid.plugins.telemetry.Telemetry
 
-const val TAG = "UriGetFileNameExt"
-
 fun Uri.getDisplayName(context: Context): String? {
     var result: String? = null
 
