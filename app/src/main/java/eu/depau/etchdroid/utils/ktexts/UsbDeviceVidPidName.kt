@@ -10,8 +10,4 @@ val UsbDevice.vidpid: String
 
 
 val UsbDevice.name: String
-    get() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-        "${this.manufacturerName} ${this.productName}"
-    } else {
-        this.deviceName
-    }
+    get() = "${this.manufacturerName} ${this.productName}"
