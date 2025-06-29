@@ -109,7 +109,7 @@
     <string name="missing_permission_to_access_the_usb_device">Falta de permissão para aceder o dispositivo USB</string>
     <string name="the_image_is_is_larger_than_the_device">A imagem (%1$s) é maior que o dispositivo (%2$s)</string>
     <string name="could_not_open_the_source_file">Não foi possível abrir o ficheiro de origem</string>
-    <string name="an_unknown_error_occurred">Ocorreu um erro desconhecido: %1$s</string>
+    <string name="an_unknown_error_occurred">Um erro desconhecido ocorreu: %1$s</string>
     <string name="the_usb_drive_was_unplugged">A unidade USB foi desconectada</string>
     <string name="the_usb_drive_stopped_responding">A unidade USB parou de responder</string>
     <string name="the_usb_device_content_does_not_match_the_image">O conteúdo do dispositivo USB não corresponde à imagem</string>
@@ -123,4 +123,9 @@
     <string name="worker_null_device_error">Uma tentativa de escrita foi iniciada, mas infelizmente algumas informações foram perdidas. Por favor, tente novamente.</string>
     <string name="please_report_fatal_issue">Por favor, relate esse problema no GitHub junto com as etapas que levaram a esse erro, se possível.</string>
     <string name="view_github_issues">Ver problemas no GitHub</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Telemetria</string>
+    <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">Política de privacidade</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">A gente precisa de sua ajuda!</string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">Ícone de telemetria</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">Manter habilitado</string>
 </resources>
