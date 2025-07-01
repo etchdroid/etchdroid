@@ -14,12 +14,12 @@ Utilisez-le pour créer une clé USB amorçable lorsque votre ordinateur portabl
 
 ⭐️ Types d'image disques pris en charge ⭐️
 
-✅ Les images de systèmes d'exploitation modernes GNU/Linux, comme Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS et tant d'autres
-✅ Les images Raspberry PI en format carte SD (mais vous devez les décompresser en premier lieu!)
+✅ Les images de systèmes d'exploitation modernes GNU/Linux, comme Arch Linux, Ubuntu, Debian, Fedora, pop !_OS, Linux Mint, FreeBSD, BlissOS et tant d'autres
+✅ Les images Raspberry PI en format carte SD (mais vous devez les décompresser en premier lieu !)
 ❌ Les ISOs officielles de Microsoft Windows
-⚠️ Les images Windows fait par la communauté, pour EtchDroid (soyez vigilant: ils peuvent contenir des virus!)
+⚠️ Les images Windows fait par la communauté, pour EtchDroid (soyez vigilant : ils peuvent contenir des virus !)
 ❌ Les images de disque Apple DMG
 ❌ Les images de systèmes d'exploitation GNU/Linux antérieures à 2010, comme Damn Small Linux
 
 
-Le code source est sur GitHub: https://github.com/EtchDroid/EtchDroid
+Le code source est sur GitHub : https ://github.com/EtchDroid/EtchDroid
