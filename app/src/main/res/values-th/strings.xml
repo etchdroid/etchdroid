@@ -3,6 +3,132 @@
     <string name="cancel" comment="Cancel string, used all over the place">ยกเลิก</string>
     <string name="write_finished" comment="Notification title when the write operation is successful">การบันทึกข้อมูลเสร็จสิ้น</string>
     <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">ไฟล์ %1$s ได้ถูกบันทึกลงใน %2$s เรียบร้อยแล้ว</string>
-    <string name="write_failed" comment="Notification title when a non-recoverable error occurs">การบันทึกล้มเหลว</string>
+    <string name="write_failed" comment="Notification title when a non-recoverable error occurs">การเขียนล้มเหลว</string>
     <string name="action_required" comment="Notification title when a recoverable error occurs">จำเป็นต้องดำเนินการ</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description for long-running job progress, shown in Android settings">แสดงความคืบหน้างานปัจจุบัน</string>
+    <string name="notif_channel_job_progress_name" comment=" Notification channel name for long-running job progress, shown in Android settings">ความคืบหน้า</string>
+    <string name="notif_channel_job_result_desc" comment=" Notification channel description for job outcome notifications, shown in Android settings">ใช้เพื่อแสดงผลลัพธ์เมื่อเสร็จสมบูรณ์</string>
+    <string name="notif_channel_job_result_name" comment=" Notification channel name for job outcome notifications, shown in Android settings">ผลลัพธ์ของงาน</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">กำลังเขียนไฟล์…</string>
+    <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">กำลังยืนยันไฟล์…</string>
+    <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">แจ้งเตือนความคืบหน้า • กำลังเขียน %1$s ถึง %2$s</string>
+    <string name="notification_write_tap_for_progress_text" comment=" Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name">แตะเพื่อดูความคืบหน้า • %1$s ถึง %2$s</string>
+    <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s ถึง %2$s</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s เทียบกับ %2$s</string>
+    <string name="unknown_filename" comment="Placeholder file name">ไม่ทราบชื่อไฟล์</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">การอนุญาตสำหรับอุปกรณ์ USB %1$s ถูกปฏิเสธ</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">อุปกรณ์ USB ถูกถอด</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">เขียนไฟล์</string>
+    <string name="whats_supported" comment="Displayed in the homepage; opens a page that lists all the supported devices and formats">รองรับอะไรบ้าง?</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">สไตล์</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">ตั้งค่าอุปกรณ์</string>
+    <string name="light" comment="Style menu option that selects the light theme">สว่าง</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">มืด</string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme">สีไดนามิก</string>
+    <string name="about" comment="Menu option that opens the about page">เกี่ยวกับ</string>
+    <string name="is_this_a_windows_iso" comment="Dialog title; the dialog alerts the user that Windows images are not supported">นี่คือไฟล์ Windows ISO?</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">ISO ของ Windows ทั่วไปจะไม่สามารถใช้ร่วมกับ EtchDroid ได้ เว้นแต่จะได้รับการเตรียมไว้โดยเฉพาะเพื่อใช้กับ EtchDroid, Etcher หรือ dd</string>
+    <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">ดำเนินการต่อ</string>
+    <string name="select_a_usb_drive" comment="Title of the dialog listing the available USB drives">เลือกไดรฟ์ USB</string>
+    <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected">เชื่อมต่อไดรฟ์ USB</string>
+    <string name="looking_for_usb_drives">กำลังมองหาไดรฟ์ USB</string>
+    <string name="confirm_operation" comment="Title of the page where the operation details are listed; the user can confirm or cancel the operation from here">ยืนยันดำเนินการ</string>
+    <string name="disk_image">อิมเมจดิสก์</string>
+    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">ไฟล์ที่จะเขียน</string>
+    <string name="usb_drive">ไดรฟ์ USB</string>
+    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">อุปกรณ์ USB ปลายทาง</string>
+    <string name="unknown_device" comment="Device name placeholder">อุปกรณ์ที่ไม่รู้จัก</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">ให้สิทธิ์เข้าถึง</string>
+    <string name="permission_granted">ได้รับอนุญาต</string>
+    <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">ระวัง!</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">การไฟล์จะลบข้อมูลทั้งหมดในไดรฟ์ที่เลือก</string>
+    <string name="write_image" comment="Confirmation button; when pressed, the operation starts">เขียนไฟล์</string>
+    <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">วางอุปกรณ์ของคุณลงบนโต๊ะก่อนดำเนินการต่อ</string>
+    <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">ดำเนินการต่อ</string>
+    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">วางอุปกรณ์ลงบนโต๊ะและอย่าเพิ่งทำอะไร</string>
+    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">ข้าม</string>
+    <string name="supported" comment="Description of a device or image type that is supported">รองรับ</string>
+    <string name="maybe_supported" comment="Description of a device or image type that might be supported">อาจจะได้รับการสนับสนุน</string>
+    <string name="not_supported" comment="Description of a device or image type that is not supported">ไม่รองรับ</string>
+    <string name="supported_devices_and_images" comment="Title of the page that lists all the supported devices and images">อุปกรณ์และไฟล์ที่รองรับ</string>
+    <string name="devices" comment="Title of the section that lists all the supported device types">อุปกรณ์</string>
+    <string name="usb_flash_drives" comment="Device type">USB แฟลชไดรฟ์</string>
+    <string name="memory_cards_using_a_usb_adapter" comment="Device type">การ์ดหน่วยความจำใช้ตัวแปลง USB</string>
+    <string name="usb_hard_drives_ssds_some_might_work" comment="Device type">ฮาร์ดไดรฟ์ USB / SSD (บางอันอาจใช้งานได้)</string>
+    <string name="usb_docks_and_hubs_might_have_power_issues" comment="Device type">แท่นชาร์จหรือฮับ USB (อาจมีปัญหาเรื่องไฟฟ้า)</string>
+    <string name="memory_cards_using_the_internal_slot" comment="Device type">การ์ดหน่วยความจำใช้ช่องเสียบภายใน</string>
+    <string name="optical_disk_drives" comment="Device type">ไดรฟ์ดิสก์แบบออปติคัล</string>
+    <string name="floppy_disk_drives" comment="Device type">ฟลอปปี้ดิสก์</string>
+    <string name="any_thunderbolt_only_device" comment="Device type">อุปกรณ์ที่ใช้ Thunderbolt เท่านั้น</string>
+    <string name="disk_images" comment="Title of the section that lists all the supported image types">อิมเมจไฟล์</string>
+    <string name="microsoft_windows_isos_any_version" comment="Image type">ISO ของ Microsoft Windows (เวอร์ชันใดก็ได้)</string>
+    <string name="apple_dmg_disk_images" comment="Image type">อิมเมจดิสก์ Apple DMG</string>
+    <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc" comment="Image type">Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD และอื่นๆ</string>
+    <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos" comment="Image type">ISO LIVE ของ Linux หรือ BSD รุ่นอื่นๆ ที่ทันสมัย</string>
+    <string name="raspberry_pi_sd_card_images_unzip_first" comment="Image type">SD Card Raspberry Pi (แตกไฟล์ก่อน!)</string>
+    <string name="any_other_image_that_works_with_balena_etcher_or_dd" comment="Image type">ไฟล์อื่น ๆ ที่ใช้ได้กับ Balena Etcher หรือ dd</string>
+    <string name="older_gnu_linux_distributions_isos_2010" comment="Image type">ISO GNU/Linux รุ่นเก่า (&lt; 2010)</string>
+    <string name="support_for_dmg_images_was_removed" comment="At the end of the supported devices and images page we state that DMGs are no longer supported; the parameter is replaced with the word &quot;GitHub&quot;">ไฟล์ DMG ถูกลบออกใน EtchDroid 2.0 สามารถดาวน์โหลดเวอร์ชันเก่าได้จาก %1$s</string>
+    <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">พัฒนาโดย %1$s และ %2$s \nซอร์สโค้ดพร้อมใช้งานบน %3$s\nได้รับอนุญาตภายใต้ใบอนุญาต GNU GPLv3</string>
+    <string name="contributors" comment="Part of the following sentence: &quot;Developed by Author Name and other contributors&quot;">ผู้สนับสนุน</string>
+    <string name="website" comment="Displayed in the about page links; keep it very short!">เว็บไซต์</string>
+    <string name="support_the_project" comment="Displayed in the about page links; keep it short!">สนับสนุนค่าใช้จ่าย</string>
+    <string name="verifying_image" comment="Title of the progress page while an image is being verified">ตรวจสอบไฟล์</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">เขียนไฟล์</string>
+    <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">โปรดอย่าเพิ่งใช้อุปกรณ์ของคุณ</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">ต้องการรับการแจ้งเตือนเมื่อเสร็จสิ้นหรือไม่? มีเพียงอัปเดตความคืบหน้าเท่านั้น ไม่มีสแปมหรือโฆษณา</string>
+    <string name="no_thanks" comment="Button to reject receiving notifications">ไม่, ขอบคุณ</string>
+    <string name="sure" comment="Button to accept receiving notifications">แน่นอน</string>
+    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">ยืนยัน</string>
+    <string name="copying" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">กำลังคัดลอก</string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">อุปกรณ์กับไฟล์</string>
+    <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">ไปยัง</string>
+    <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">เตรียมตัวให้พร้อม…</string>
+    <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">ข้ามการยืนยัน</string>
+    <string name="image_written_successfully" comment="Title of the success page">เขียนไฟล์สำเร็จแล้ว!</string>
+    <string name="write_a_review" comment="Displayed in a button on the success page">เขียนบทวิจารณ์</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">ดาวบน GitHub</string>
+    <string name="got_an_unsupported_drive_notification" comment="Title of the card that teaches the user about any &quot;Issues with this drive&quot; notifications">ได้รับการแจ้งเตือน \"มีปัญหาเกี่ยวกับไดรฟ์นี้\" หรือไม่?</string>
+    <string name="it_s_safe_to_ignore" comment="Message of the card that teaches the user about any &quot;Issues with this drive&quot; notifications; the parameter will be replaced with the translation of &quot;Learn what it means&quot;">ไม่ต้องสนใจก็ได้! แค่ถอดปลั๊กไดรฟ์แล้วใช้งานตามปกติ %1$s แล้วดูวิธีฟอร์แมตไดรฟ์ในภายหลัง</string>
+    <string name="learn_what_it_means" comment="Part of the message of the card that teaches the user about any &quot;Issues with this drive&quot; notifications; the full sentence is &quot;Learn what it means and see how to format your drive later&quot;">เรียนรู้ว่ามันคืออะไร</string>
+    <string name="there_was_an_error" comment="Title of the non-recoverable error page">มีข้อผิดพลาดเกิดขึ้น</string>
+    <string name="error">ผิดพลาด</string>
+    <string name="start_over" comment="Button in the error page that, when pressed, restarts the app">เริ่มใหม่</string>
+    <string name="try_again" comment="Button in the error page that, when pressed, retries the write from scratch">ลองใหม่</string>
+    <string name="i_did_not_unplug_it" comment="Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">ฉันไม่ได้ถอดอุปกรณ์!</string>
+    <string name="how_did_this_happen" comment="Title of the card that, when a recoverable error occurs, teaches the user why it could have happened">เกิดขึ้นได้ยังไง?</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">บางทีพอร์ต USB ของคุณอาจสกปรก อะแดปเตอร์ชำรุด หรืออุปกรณ์ของคุณจ่ายไฟได้ไม่เพียงพอ ลองพิจารณาเปลี่ยนอะแดปเตอร์หรืออุปกรณ์อื่น</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">ไดรฟ์ USB ไม่น่าเชื่อถือ และ Android ไม่ได้ให้สิทธิ์เพียงพอสำหรับการกู้คืนข้อมูลโดยอัตโนมัติ ต้องใช้สิทธิ์สูงสุด!</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it" comment="Message of the card about a recoverable unknown error">ผิดพลาดไม่คาดคิด อาจเป็นบั๊ก รายงานมาหาเราได้เลย!</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">การกู้คืน ให้ถอดไดรฟ์ USB ออก แล้วเสียบกลับเข้าไปใหม่ และให้สิทธิ์ในการเข้าถึงอีกครั้ง</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">แสดงขั้นตอนที่จำเป็น: ถอดปลั๊ก, เชื่อมต่อใหม่, การให้สิทธิ์อนุญาต</string>
+    <string name="plug_in_the_same_usb" comment="Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device">เสียบอุปกรณ์ USB เดียวกันกับที่คุณใช้ก่อนหน้านี้!</string>
+    <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">เชื่อมต่ออุปกรณ์ USB แล้ว กำลังกลับมาดำเนินการต่อ</string>
+    <string name="the_device_is_not_responding" comment="Error message">อุปกรณ์ไม่ตอบสนอง</string>
+    <string name="missing_permission_to_access_the_usb_device" comment="Error message">ขาดการอนุญาตให้เข้าถึงอุปกรณ์ USB</string>
+    <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">ไฟล์ (%1$s) มีขนาดใหญ่กว่าอุปกรณ์ (%2$s)</string>
+    <string name="could_not_open_the_source_file" comment="Error message">ไม่สามารถเปิดไฟล์ได้</string>
+    <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ: %1$s</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">ไดรฟ์ USB ถูกถอดออก</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">ไดรฟ์ USB ไม่ตอบสนอง</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">ไฟล์ในอุปกรณ์ USB ไม่ตรงกับไฟล์ต้นฉบับ</string>
+    <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">เขียนไฟล์อื่น ๆ</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">ยืนยันดำเนินการ</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">ไม่มีการระบุ URI ไฟล์</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">ไม่ได้เลือกอุปกรณ์ปลายทาง</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">ดูเหมือนว่าการเขียนไฟล์จะมีปัญหา โปรดลองอีกครั้ง</string>
+    <string name="community_windows_images" comment="&quot;You're on your own&quot; can be translated with something similar to &quot;unsupported&quot; or &quot;be careful!&quot; if it makes more sense in the target language">ไฟล์ Windows ที่สร้างโดยชุมชน, สร้างขึ้นสำหรับ EtchDroid (คุณต้องทำด้วยตัวเอง: อาจมีไวรัสได้!)</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">เริ่มเขียนแล้ว แต่น่าเสียดายที่ข้อมูลบางส่วนสูญหายไประหว่างทาง โปรดลองอีกครั้ง</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">หากทำได้ โปรดรายงานปัญหานี้บน GitHub พร้อมขั้นตอนที่นำไปสู่ข้อผิดพลาดนี้</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">ดูปัญหาของบน GitHub</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">แสดงในเมนูแอปที่สร้างในปัจจุบัน</string>
+    <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">นโยบายความเป็นส่วนตัว</string>
+    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">EtchDroid ให้ความสำคัญกับความเป็นส่วนตัวของคุณ และใช้ข้อมูลเพียงเล็กน้อยเพื่อตรวจสอบปัญหาของแอป\nร่วมเป็นส่วนหนึ่งของชุมชนโอเพนซอร์สของเรา เปิดใช้งานส่งข้อมูลอย่างต่อเนื่อง จะช่วยพัฒนา EtchDroid ให้ดียิ่งขึ้นสำหรับทุกคน! แม้ว่าเราจะไม่เก็บข้อมูลใดๆ ที่ระบุตัวตน\nเราเชื่อมั่นในความโปร่งใส และต้องการให้คุณทราบว่าชื่อไฟล์ที่เปิดและรหัสอุปกรณ์ USB จะถูกเก็บรวบรวมแบบไม่ระบุตัวตน เพื่อช่วยวินิจฉัยปัญหาของฮาร์ดแวร์โดยเฉพาะ เว้นแต่ชื่อไฟล์หรือรหัสอุปกรณ์ของคุณจะมีความละเอียดมาก การแบ่งปันข้อมูลนี้จึงปลอดภัย (%1$s)</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">เราต้องการความช่วยเหลือจากคุณ!</string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">ไอคอนระยะ</string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">ยกเลิกการเลือก</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">เปิดใช้งานต่อไป</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid จะส่งข้อมูลระยะไกล</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">เรียนรู้เพิ่มเติม</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">ส่งข้อมูลแบบไม่ระบุตัวตน</string>
 </resources>
