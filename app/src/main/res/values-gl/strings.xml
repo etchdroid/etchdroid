@@ -5,4 +5,5 @@
     <string name="cancel" comment="Cancel string, used all over the place">Cancelar</string>
     <string name="write_finished" comment="Notification title when the write operation is successful">Escritura rematada</string>
     <string name="action_required" comment="Notification title when a recoverable error occurs">Acción requirida</string>
+    <string name="unknown_filename" comment="Placeholder file name">Nome de ficheiro descoñecido</string>
 </resources>
