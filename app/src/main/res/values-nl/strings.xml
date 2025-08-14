@@ -97,8 +97,8 @@
 \nDe broncode is beschikbaar op %3$s.
 \nUitgebracht onder de GNU GPLv3-licentie.</string>
     <string name="website">Website</string>
-    <string name="verifying_image">Bezig met verifiëren…</string>
-    <string name="writing_image">Bezig met wegschrijven…</string>
+    <string name="verifying_image">Bezig met het verifiëren van de schijfkopie...</string>
+    <string name="writing_image">Schijfkopie aan het maken...</string>
     <string name="verifying">Bezig met verifiëren van</string>
     <string name="it_s_safe_to_ignore">Negeer deze melding gerust! Koppel je schijf af en gebruik hem. %1$s om te lezen hoe je je apparaat op een later moment kunt formatteren.</string>
     <string name="there_was_an_error">Er is een fout opgetreden</string>
@@ -123,4 +123,5 @@
     <string name="worker_null_device_error">Er is een schrijfpoging gedaan, maar er is informatie verloren gegaan. Probeer het opnieuw.</string>
     <string name="please_report_fatal_issue">Meld deze fout op GitHub, voorzien van stappen om de foutmelding in beeld te krijgen.</string>
     <string name="view_github_issues">GitHub-problemen bekijken</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Telemetrie</string>
 </resources>
