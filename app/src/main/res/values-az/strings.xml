@@ -44,7 +44,7 @@
     <string name="devices">Cihazlar</string>
     <string name="usb_flash_drives">USB flash sürücülər</string>
     <string name="usb_hard_drives_ssds_some_might_work">USB sərt disklər / SSD-lər (bəziləri işləyə bilər)</string>
-    <string name="usb_docks_and_hubs_might_have_power_issues">USB dokları və hubları (elektrik problemləri ola bilər)</string>
+    <string name="usb_docks_and_hubs_might_have_power_issues">USB doklar və hub-lar (onlarda enerji problemləri ola bilər)</string>
     <string name="memory_cards_using_the_internal_slot">Yaddaş kartları, Daxili yuvadan istifadə edərək</string>
     <string name="optical_disk_drives">Optik disklər</string>
     <string name="floppy_disk_drives">Floppy disklər</string>
@@ -92,7 +92,7 @@
     <string name="notification_write_no_notifications_text">Prosses üçün bildirişləri aktivləşdirin • %1$s-in %2$s-ə yazılması</string>
     <string name="notification_write_progress_content">%1$s - %2$s</string>
     <string name="usb_device_was_unplugged">USB cihazı ayrıldı</string>
-    <string name="a_regular_windows_iso_won_t_work">Adi Windows ISO, Etcher, dd və ya EtchDroid ilə istifadə üçün xüsusi olaraq hazırlanmadığı halda, EtchDroid ilə işləməyəcək.</string>
+    <string name="a_regular_windows_iso_won_t_work">Adi bir Windows ISO faylı EtchDroid ilə işləməyəcək, yalnız Etcher, dd və ya Droid ilə istifadə üçün xüsusi hazırlanıbsa işləyə bilər.</string>
     <string name="skip">Keç</string>
     <string name="microsoft_windows_isos_any_version">Microsoft Windows ISO (istənilən versiya)</string>
     <string name="supported">Dəstəklənir</string>
@@ -116,8 +116,21 @@
     <string name="missing_permission_to_access_the_usb_device">USB cihazına daxil olmaq üçün icazə yoxdur</string>
     <string name="an_unknown_error_occurred">Naməlum xəta baş verdi: %1$s</string>
     <string name="title_activity_confirm_operation">Əməliyyatı təsdiqləyin</string>
-    <string name="no_image_uri_provided">Şəkil URI təmin edilməyib</string>
+    <string name="no_image_uri_provided">Üzlük URI təmin edilməyib</string>
     <string name="no_destination_device_selected">Heç bir təyinat cihazı seçilməyib</string>
     <string name="service_timeout_message">Deyəsən yazı prosesi ilişib qalıb. Yenidən cəhd edin.</string>
-    <string name="community_windows_images">EtchDroid üçün hazırlanmış icma tərəfindən yaradılmış Windows şəkilləri (Ehtiyatlı olun: onların tərkibində virus ola bilər!)</string>
+    <string name="community_windows_images">EtchDroid üçün hazırlanmış icma tərəfindən yaradılmış Windows imici (Ehtiyatlı olun: onların tərkibində virus ola bilər!)</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Diskə yazma prosesi başlandı, lakin təəssüf ki, proses zamanı bəzi məlumatlar itdi. Zəhmət olmasa, yenidən cəhd edin.</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Əgər mümkündürsə, bu problemi GitHub-da və bu xətaya gətirib çıxaran addımlarla birlikdə qeyd edin.</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">\"GitHub issues\" -də görüntülə</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">İstifadə Məlumatları</string>
+    <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">Məxfilik Siyasəti</string>
+    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">EtchDroid məxfiliyinizi qiymətləndirir və tətbiq problemlərini araşdırmaq üçün yalnız minimal telemetriyadan istifadə edir.\n\nAçıq mənbə icmamızın bir hissəsi olun — telemetriyanı aktiv saxlayın və EtchDroid-i hamı üçün daha da yaxşılaşdırmağa kömək edin!\n\nŞəxsiyyəti müəyyən edən məlumatları toplamırıq, lakin şəffaflığa inanırıq və bilməyinizi istəyirik ki, açılmış imic fayllarının adları və USB cihaz ID-ləri müəyyən bir avadanlıqla bağlı problemləri diaqnoz etmək üçün anonim şəkildə toplanır. İmic fayllarınızın adları və ya cihaz ID-ləriniz çox həssas deyilsə, bu məlumatı paylaşmaq təhlükəsizdir. (%1$s)</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">Köməyinizə ehtiyyacımız var!</string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">Telemetry simgəsi</string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">İmtina Et</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">Açıq Tut</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid telemetriya məlumatı göndərir.</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Daha çox</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Anonim məlumat göndərin</string>
 </resources>
