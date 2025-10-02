@@ -9,4 +9,51 @@
     <string name="notif_channel_job_progress_name">Jobb-framdrift</string>
     <string name="notif_channel_job_result_name">Jobb-utfall</string>
     <string name="notif_channel_job_result_desc" comment="Notification channel description">Brukt for visning av fullført jobbutfall</string>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">Handling kreves</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">Skriver bilde…</string>
+    <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">Verifiserer bilde…</string>
+    <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">Aktiver varsler for fremdrift • Skrive %1$s til %2$s</string>
+    <string name="notification_write_tap_for_progress_text" comment=" Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name">Trykk for fremdrift • Skrive %1$s til %2$s</string>
+    <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s til %2$s</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s mot %2$s</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">Ingen tillatelse for USB-enhet %1$s</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">USB-enheten ble koblet fra</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">Skriv et bilde</string>
+    <string name="whats_supported" comment="Displayed in the homepage; opens a page that lists all the supported devices and formats">Hva støttes?</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">Stil</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">Innstilling av enhet</string>
+    <string name="light" comment="Style menu option that selects the light theme">Lys</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">Mørk</string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme">Dynamiske farger</string>
+    <string name="about" comment="Menu option that opens the about page">Om</string>
+    <string name="is_this_a_windows_iso" comment="Dialog title; the dialog alerts the user that Windows images are not supported">Er dette en Windows ISO?</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">En vanlig Windows ISO vil ikke fungere med EtchDroid, med mindre den er spesielt forberedt for bruk med EtchDroid, Etcher eller dd.</string>
+    <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">Fortsett uansett</string>
+    <string name="select_a_usb_drive" comment="Title of the dialog listing the available USB drives">Velg en USB-stasjon</string>
+    <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected">Koble til en USB-stasjon</string>
+    <string name="looking_for_usb_drives">Leter du etter USB-stasjoner</string>
+    <string name="confirm_operation" comment="Title of the page where the operation details are listed; the user can confirm or cancel the operation from here">Bekreft operasjon</string>
+    <string name="disk_image">Diskbilde</string>
+    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">Bilde å skrive</string>
+    <string name="usb_drive">USB-stasjon</string>
+    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">Destinasjon USB-enhet</string>
+    <string name="unknown_device" comment="Device name placeholder">Ukjent enhet</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">Gi tilgang</string>
+    <string name="permission_granted">Tillatelse gitt</string>
+    <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">Vær forsiktig!</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">Hvis du skriver bildet, slettes alle data på den valgte stasjonen</string>
+    <string name="write_image" comment="Confirmation button; when pressed, the operation starts">Skriv bilde</string>
+    <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">Legg enheten flatt på et bord før du fortsetter.</string>
+    <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">Fortsette</string>
+    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">Legg enheten flatt på et bord og ikke berør den</string>
+    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">Hoppe over</string>
+    <string name="supported" comment="Description of a device or image type that is supported">Støttes</string>
+    <string name="maybe_supported" comment="Description of a device or image type that might be supported">Kanskje støttet</string>
+    <string name="not_supported" comment="Description of a device or image type that is not supported">Støttes ikke</string>
+    <string name="supported_devices_and_images" comment="Title of the page that lists all the supported devices and images">Støttede enheter og bilder</string>
+    <string name="devices" comment="Title of the section that lists all the supported device types">Enheter</string>
+    <string name="usb_flash_drives" comment="Device type">USB-flash-stasjoner</string>
+    <string name="usb_hard_drives_ssds_some_might_work" comment="Device type">USB-harddisker / SSD-er (noen kan fungere)</string>
+    <string name="usb_docks_and_hubs_might_have_power_issues" comment="Device type">USB-dokkingstasjoner og huber (kan ha strømproblemer)</string>
+    <string name="memory_cards_using_the_internal_slot" comment="Device type">Minnekort, ved hjelp av det interne sporet</string>
 </resources>
