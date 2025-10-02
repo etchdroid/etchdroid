@@ -1,16 +1,38 @@
-EtchDroid er fri programvare som lar deg skrive avtrykk til USB-enheter.
-Du kan bruke det til å legge en oppstartbar Linux|GNU-distribusjon på din USB-pinne når din bærbare har dødd og du er ute i ingenmannsland.
+EtchDroid er en åpen kildekode-applikasjon som hjelper deg med å skrive bilder til USB-stasjoner. 
+Bruk den til å lage en oppstartbar USB-stasjon for operativsystemet når den bærbare datamaskinen er død. 
 
-Funksjoner:
-• Støtter råe avtrykk og ISO-er fra de fleste Linux|GNU-distribusjoner
-• Støtter Raspberry Pi-avtrykk (pakk ut ZIP-filen først; bruk en SD-til-USB-adapter, intern SD-kortplass støttes ikke)
-• Støtter de fleste DMG-avtrykkene (beta)
-• Ingen rot-rettigheter. Alt gjøres innenfor Android-API-et
-• Fri som i ytringsfrihet
+⭐️ Støttede enheter ⭐️ 
 
-Planlagte funksjoner:
-• Skriv populære Linux|GNU-distribusjoner ved å strømme dem fra Internett, uten å lagre dem på enheten
-• Støtte for ISO for Windows-installasjon (vil antagelig kreve rot-rettigheter)
-• Støtte for innbrenning i Unetbootin-stil
+✅ USB-flash-stasjoner 
+✅ USB SD-kortadaptere 
+❌ USB-harddisker / SSD-er 
+❌ USB-dokkingstasjoner og huber 
+❌ Internt SD-kortspor 
+❌ Optiske stasjoner eller diskettstasjoner 
+❌ Bare Thunderbolt-enheter 
 
-Kildekode på GitHub: https://github.com/Depau/EtchDroid
+⭐️ Støttede diskbildetyper ⭐️ 
+
+✅ Moderne GNU/Linux-operativsystembilder, inkludert Arch Linux, Ubuntu, Debian, Fedora, pop!EtchDroid er en åpen kildekode-applikasjon som hjelper deg med å skrive bilder til USB-stasjoner. 
+Bruk den til å lage en oppstartbar USB-stasjon for operativsystemet når den bærbare datamaskinen er død. 
+
+⭐️ Støttede enheter ⭐️ 
+
+✅ USB-flash-stasjoner 
+✅ USB SD-kortadaptere 
+❌ USB-harddisker / SSD-er 
+❌ USB-dokkingstasjoner og huber 
+❌ Internt SD-kortspor 
+❌ Optiske stasjoner eller diskettstasjoner 
+❌ Bare Thunderbolt-enheter 
+
+⭐️ Støttede diskbildetyper ⭐️ 
+
+✅ Moderne GNU/Linux-operativsystembilder, inkludert Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS og mange flere 
+✅ Raspberry PI SD-kortbilder (men du må pakke dem ut først!) 
+❌ Offisielle Microsoft Windows ISO-er 
+⚠️ Community-bygde Windows-bilder, laget for EtchDroid (vær forsiktig: de kan inneholde virus!) 
+❌ Apple DMG-diskbilder 
+❌ Eldre GNU/Linux OS-bilder < 2010, for eksempel Damn Small Linux 
+
+Kildekoden er på GitHub: https://github.com/EtchDroid/EtchDroid
