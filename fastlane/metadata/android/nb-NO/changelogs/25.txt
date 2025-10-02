@@ -1,0 +1,6 @@
+Stor omskriving av EtchDroid! 
+
+• Nytt Material You-brukergrensesnitt, mye mer intuitivt og enklere å bruke! 
+• EtchDroid vil nå gjenopprette fra de fleste skrivefeil og be deg om å koble fra og koble til USB-stasjonen igjen 
+• Etter å ha skrevet bildet, vil det også bli verifisert for å sikre at det ikke ble ødelagt 
+• DMG-funksjonaliteten er fjernet; Bruk en eldre versjon hvis du fortsatt trenger den
