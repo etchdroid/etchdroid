@@ -21,4 +21,5 @@
     <string name="write_failed" comment="Notification title when a non-recoverable error occurs">लिखना विफल</string>
     <string name="action_required" comment="Notification title when a recoverable error occurs">कार्रवाई आवश्यक है</string>
     <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">Device settings</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">काला</string>
 </resources>
