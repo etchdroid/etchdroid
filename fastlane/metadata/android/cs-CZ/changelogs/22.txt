@@ -1,0 +1,5 @@
+Zásadní přepracování EtchDroidu!
+  • Nové uživatelské rozhraní Material You, mnohem intuitivnější a snadněji použitelné!
+• EtchDroid se nyní zotaví z většiny chyb zápisu a vyzve vás k odpojení a opětovnému připojení USB disku
+• Po zapsání obrazu bude také ověřeno, zda nedošlo k jeho poškození
+• Funkce DMG byla odstraněna; pokud ji stále potřebujete, použijte starší verzi
