@@ -82,7 +82,7 @@
     <string name="no_thanks">Köszönöm, nem</string>
     <string name="verifying">A(z)</string>
     <string name="write_a_review">Vélemény írása</string>
-    <string name="got_an_unsupported_drive_notification">\"A csatlakoztatott USB eszköz nem támogatott\" értesítést kapott?</string>
+    <string name="got_an_unsupported_drive_notification">\"Problémák az USB eszközzel\" értesítést kapott?</string>
     <string name="it_s_safe_to_ignore">Hagyja figyelmen kívül! Csak húzza ki az eszközt és használja. %1$s és nézze meg, hogy formázhatja az eszközt később.</string>
     <string name="learn_what_it_means">Tudja meg mit jelent</string>
     <string name="there_was_an_error">Hiba történt</string>
@@ -120,4 +120,13 @@
     <string name="community_windows_images">Nem hivatalos Windows lemezképek, kifejezetten EtchDroidhoz készítve (Figyelem: Vírusokat tartalmazhatnak!)</string>
     <string name="plug_in_the_same_usb">Ugyanazt az USB eszközt csatlakoztassa!</string>
     <string name="try_again">Próbálja újra</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Az írási kísérlet elindult, de sajnos néhány információ elveszett út közben. Kérjük, próbálja meg újra.</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Kérjük, jelentse ezt a problémát a GitHubon, és mellékelje azokat a lépéseket, amelyek ehhez a hibához vezettek.</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">Segítsen nekünk!</string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">Telemetria ikon</string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">Elutasít</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">Telemtria engedélyezése</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">Az EtchDroid telemetriát használ.</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Névtelen adatok küldése</string>
+    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">Az EtchDroid tiszteletben tartja az Ön adatvédelmét, és csak minimális telemetriát használ az alkalmazás problémáinak kivizsgálására.\n\nLegyen részese nyílt forráskódú közösségünknek – hagyja bekapcsolva a telemetriát, és segítse az EtchDroid fejlesztését mindenki számára!\n\nHabár semmilyen személyazonosításra alkalmas információt nem gyűjtünk, hiszünk az átláthatóságban, és szeretnénk, ha tudná, hogy a megnyitott képfájlneveket és az USB-eszközök azonosítóit névtelenül gyűjtjük, ez segít a konkrét hardverekkel kapcsolatos problémák diagnosztizálásában. Hacsak a képfájlnevek vagy az eszközazonosítók nem rendkívül érzékenyek, megoszthajta ezeket az adatokat. (%1$s)</string>
 </resources>
