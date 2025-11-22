@@ -1,3 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="cancel" comment="Cancel string, used all over the place">Скасувати</string>
+    <string name="write_finished" comment="Notification title when the write operation is successful">Запис завершено</string>
+    <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s успішно записано на %2$s</string>
+    <string name="write_failed" comment="Notification title when a non-recoverable error occurs">Помилка запису</string>
 </resources>
