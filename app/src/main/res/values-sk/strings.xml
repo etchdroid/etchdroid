@@ -1,3 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="cancel" comment="Cancel string, used all over the place">Zrušiť</string>
 </resources>
