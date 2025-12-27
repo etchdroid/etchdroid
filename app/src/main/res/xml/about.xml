@@ -179,6 +179,12 @@
             avatar="https://avatars2.githubusercontent.com/u/16625266"
             locales="ru"
             login="anonlatte" />
-
+        
+        <me.jfenn.attribouter.wedges.TranslatorWedge
+            name="Hridyansh Narwal"
+            avatar="https://avatars.githubusercontent.com/u/79190078"
+            locales="hi"
+            login="hridyansx" />
+        
     </me.jfenn.attribouter.wedges.TranslatorsWedge>
 </about>
