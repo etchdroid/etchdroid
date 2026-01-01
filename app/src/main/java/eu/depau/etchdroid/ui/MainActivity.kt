@@ -528,7 +528,7 @@ fun StartView(
                     headColor = if (darkMode) MaterialTheme.colorScheme.primary.toArgb()
                         .toLong() else MaterialTheme.colorScheme.primaryContainer.toArgb()
                         .toLong(),
-                ), contentDescription = "EtchDroid", tint = Color.Unspecified
+                ), contentDescription = null, tint = Color.Unspecified
             )
         },
         mainButton = {
