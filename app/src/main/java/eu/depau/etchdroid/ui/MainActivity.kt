@@ -532,15 +532,18 @@ fun StartView(
             )
         },
         mainButton = {
+            val label = stringResource(R.string.write_an_image)
             ExtendedFloatingActionButton(
                 onClick = onCTAClick,
                 modifier = Modifier.appiumTag("writeImageCTA"),
-                text = { Text(stringResource(R.string.write_an_image)) },
+                text = { Text(label) },
                 icon = {
                     Icon(
                         imageVector = ImageVector.vectorResource(
                             id = R.drawable.ic_write_to_usb
-                        ), contentDescription = null
+                        ),
+                        // button isn't focusable without this for some reason
+                        contentDescription = label
                     )
                 },
             )
