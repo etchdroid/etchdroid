@@ -1,0 +1,6 @@
+Réécriture majeure d'EtchDroid !
+
+• Nouvelle interface utilisateur "Material You", bien plus intuitive et facile d'utilisation !
+• Etchdroid se remettra de la plupart des échecs d'écriture et vous demandera de déconnecter puis de reconnecter votre support USB
+• L'application effectuera une vérification de la non-corruption de l'image écrite sur le support
+• La fonctionnalité DMG a été retirée ; veuillez utiliser une version précédente si vous en avez besoin

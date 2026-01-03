@@ -1,1 +1,1 @@
-Graver l image ISO vers USB
+Graveur d'ISO à USB Etchdroid
