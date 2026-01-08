@@ -19,4 +19,9 @@
     <string name="usb_drive">USB накопичувач</string>
     <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">Цільовий USB накопичувач</string>
     <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">Образ для запису</string>
+    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">Пропустити</string>
+    <string name="supported" comment="Description of a device or image type that is supported">Є підтримка</string>
+    <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">Продовжити</string>
+    <string name="unknown_device" comment="Device name placeholder">Невідомий пристрій</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">Надати доступ</string>
 </resources>
