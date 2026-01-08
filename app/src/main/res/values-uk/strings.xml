@@ -4,4 +4,19 @@
     <string name="write_finished" comment="Notification title when the write operation is successful">Запис завершено</string>
     <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s успішно записано на %2$s</string>
     <string name="write_failed" comment="Notification title when a non-recoverable error occurs">Помилка запису</string>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">Потрібні дії</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description for long-running job progress, shown in Android settings">Використовується для показу прогресу поточного завдання</string>
+    <string name="light" comment="Style menu option that selects the light theme">Світла</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">Темна</string>
+    <string name="permission_granted">Дозвіл отримано</string>
+    <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">Будьте обережні!</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">Запис образу призведе до видалення всіх даних на вибраному диску</string>
+    <string name="write_image" comment="Confirmation button; when pressed, the operation starts">Записати образ</string>
+    <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">Покладіть пристрій рівно на стіл перед продовженням.</string>
+    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">Покладіть пристрій рівно на стіл і не торкайтеся його</string>
+    <string name="maybe_supported" comment="Description of a device or image type that might be supported">Може підтримуватися</string>
+    <string name="not_supported" comment="Description of a device or image type that is not supported">Не підтримується</string>
+    <string name="usb_drive">USB накопичувач</string>
+    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">Цільовий USB накопичувач</string>
+    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">Образ для запису</string>
 </resources>
