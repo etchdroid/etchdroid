@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="cancel">ألغِ</string>
-    <string name="write_finished">انتهى الكتابة</string>
+    <string name="write_finished">انتهت الكتابة</string>
     <string name="unknown_filename">اسم ملف غير معروف</string>
     <string name="success_notif_content_text">%1$s تمت كتابته بنجاح إلى %2$s</string>
     <string name="it_s_safe_to_ignore">من الآمن تجاهلها! فقط افصل محرك الأقراص الخاص بك واستخدمه بشكل طبيعي. %1$s وشاهد كيفية تهيئة محرك الأقراص لاحقًا.</string>
@@ -10,17 +10,17 @@
     <string name="error">خطأ</string>
     <string name="how_did_this_happen">كيف حدث هذا؟</string>
     <string name="perhaps_your_usb_port_is_dirty">ربما يكون منفذ USB متسخًا أو المحول معيبًا أو لا يستطيع جهازك توفير طاقة كهربائية كافية. ضع في اعتبارك تجربة محول أو جهاز مختلف.</string>
-    <string name="usb_drives_are_unreliable">محركات أقراص USB غير موثوقة ، ولا يمنح Android أذونات كافية للتعافي تلقائيًا. علينا أن نفعل ما لدينا!</string>
-    <string name="plug_in_the_same_usb">قم بتوصيل نفس جهاز USB الذي استخدمته من قبل!</string>
-    <string name="usb_device_reconnected_resuming">تمت إعادة توصيل جهاز USB ، والاستئناف</string>
+    <string name="usb_drives_are_unreliable">محركات أقراص USB غير موثوقة، ولا يمنح Android أذونات كافية للتعافي تلقائيًا. علينا أن نفعل ما لدينا!</string>
+    <string name="plug_in_the_same_usb">وصِل نفس جهاز USB الذي استخدمته من قبل!</string>
+    <string name="usb_device_reconnected_resuming">أُعيد توصيل جهاز USB، والاستئناف</string>
     <string name="missing_permission_to_access_the_usb_device">إذن مفقود للوصول إلى جهاز USB</string>
     <string name="the_image_is_is_larger_than_the_device">الصورة (%1$s) أكبر من الجهاز (%2$s)</string>
     <string name="community_windows_images">صور Windows التي أنشأها المجتمع، والمصممة لـ EtchDroid (على مسؤوليتك: قد تحتوي على فيروسات!)</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">تستخدم لإظهار تقدم الوظيفة الحالية</string>
     <string name="notif_channel_job_result_name">نتيجة المهمة</string>
-    <string name="notification_write_progress_title">كتابة الصورة …</string>
-    <string name="notification_verify_progress_title">جارٍ التحقق من الصورة …</string>
-    <string name="notification_write_tap_for_progress_text">انقر للتقدم • الكتابة %1$s إلى %2$s</string>
+    <string name="notification_write_progress_title">يكتب الصورة …</string>
+    <string name="notification_verify_progress_title">يتحقق من الصورة…</string>
+    <string name="notification_write_tap_for_progress_text">انقر للتقدم • يكتب %1$s إلى %2$s</string>
     <string name="notification_write_progress_content">%1$s إلى %2$s</string>
     <string name="notification_verify_progress_content">%1$s ضد %2$s</string>
     <string name="permission_denied_for_usb_device">تم رفض الإذن لجهاز USB %1$s</string>
@@ -28,32 +28,32 @@
     <string name="style">نمط</string>
     <string name="light">فاتح</string>
     <string name="device_setting">إعدادات الجهاز</string>
-    <string name="grant_access">منح حق الوصول</string>
+    <string name="grant_access">امنح حق الوصول</string>
     <string name="writing_the_image_will_erase">ستؤدي كتابة الصورة إلى محو جميع البيانات الموجودة على محرك الأقراص المحدد</string>
     <string name="any_thunderbolt_only_device">أي جهاز يعمل بنظام Thunderbolt فقط</string>
     <string name="lay_your_device_flat">ضع جهازك بشكل مسطح على طاولة ولا تلمسه</string>
     <string name="disk_images">صور القرص</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">أي صورة أخرى تعمل مع Balena Etcher أو dd</string>
     <string name="support_for_dmg_images_was_removed">تمت إزالة دعم صور DMG في EtchDroid 2.0. يمكن تنزيل الإصدارات الأقدم من %1$s.</string>
-    <string name="please_avoid_using_your_device">يرجى تجنب استخدام جهازك</string>
-    <string name="would_you_like_to_be_notified">هل ترغب في أن يتم إعلامك عند الانتهاء؟ تقدم التحديثات فقط ، لا ازعاج أو إعلانات.</string>
+    <string name="please_avoid_using_your_device">يُرجى تجنب استخدام جهازك</string>
+    <string name="would_you_like_to_be_notified">هل ترغب في أن يتم إعلامك عند الانتهاء؟ تقدم التحديثات فقط، لا ازعاج أو إعلانات.</string>
     <string name="write_failed">فشلت الكتابة</string>
     <string name="action_required">الإجراء مطلوب</string>
     <string name="notif_channel_job_progress_name">تقدم المهمة</string>
     <string name="notif_channel_job_result_desc">تستخدم لإظهار نتيجة عمل مكتملة</string>
-    <string name="notification_write_no_notifications_text">تمكين الإخطارات للتقدم • كتابة %1$s إلى %2$s</string>
+    <string name="notification_write_no_notifications_text">فعِّل الإشعارات للتقدم • يكتب %1$s إلى %2$s</string>
     <string name="usb_device_was_unplugged">تم فصل جهاز USB</string>
     <string name="write_an_image">اكتب صورة</string>
     <string name="dark">داكن</string>
     <string name="dynamic_colors">ألوان ديناميكية</string>
     <string name="about">عن المشروع</string>
     <string name="is_this_a_windows_iso">هل هذا هو Windows ISO؟</string>
-    <string name="a_regular_windows_iso_won_t_work">لن يعمل Windows ISO العادي مع EtchDroid ، إلا إذا تم إعداده خصيصًا للاستخدام مع Etcher أو dd أو EtchDroid.</string>
-    <string name="continue_anyway">استكمال على أي حال</string>
+    <string name="a_regular_windows_iso_won_t_work">لن يعمل Windows ISO العادي مع EtchDroid، إلا إذا تم إعداده خصيصًا للاستخدام مع Etcher أو dd أو EtchDroid.</string>
+    <string name="continue_anyway">استمر على أي حال</string>
     <string name="select_a_usb_drive">حدد محرك أقراص USB</string>
     <string name="connect_a_usb_drive">قم بتوصيل محرك أقراص USB</string>
     <string name="looking_for_usb_drives">أبحث عن محركات أقراص USB</string>
-    <string name="confirm_operation">قم بتأكيد العملية</string>
+    <string name="confirm_operation">تأكيد العملية</string>
     <string name="disk_image">صورة القرص</string>
     <string name="image_to_write">صورة للكتابة</string>
     <string name="usb_drive">محرك أقراص USB</string>
@@ -63,7 +63,7 @@
     <string name="be_careful">كن حريصا!!</string>
     <string name="write_image">اكتب الصورة</string>
     <string name="lay_your_device_flat_no_accel">ضع جهازك بشكل مسطح على طاولة قبل المتابعة.</string>
-    <string name="continue_">أستمرار</string>
+    <string name="continue_">استمر</string>
     <string name="skip">تخطي</string>
     <string name="supported">مدعوم</string>
     <string name="maybe_supported">ربما يكون مدعوما</string>
@@ -71,9 +71,9 @@
     <string name="supported_devices_and_images">الأجهزة والصور المدعومة</string>
     <string name="devices">الأجهزة</string>
     <string name="usb_flash_drives">وحدة تخزين USB</string>
-    <string name="memory_cards_using_a_usb_adapter">بطاقات الذاكرة ، باستخدام محول USB</string>
+    <string name="memory_cards_using_a_usb_adapter">بطاقات الذاكرة، باستخدام محول USB</string>
     <string name="usb_hard_drives_ssds_some_might_work">محركات أقراص USB الصلبة / محركات أقراص الحالة الصلبة (قد يعمل بعضها)</string>
-    <string name="memory_cards_using_the_internal_slot">بطاقات الذاكرة ، باستخدام الفتحة الداخلية</string>
+    <string name="memory_cards_using_the_internal_slot">بطاقات الذاكرة، باستخدام الفتحة الداخلية</string>
     <string name="optical_disk_drives">محركات الأقراص الضوئية</string>
     <string name="floppy_disk_drives">محركات الأقراص المرنة</string>
     <string name="microsoft_windows_isos_any_version">Microsoft Windows ISOs (أي إصدار)</string>
@@ -87,14 +87,14 @@
 \nمُرخصة بموجب ترخيص GNU GPLv3.</string>
     <string name="contributors">المساهمون</string>
     <string name="website">الموقع اﻹلكتروني</string>
-    <string name="verifying_image">التحقق من الصورة</string>
-    <string name="writing_image">كتابة الصورة</string>
-    <string name="no_thanks">لا شكراً</string>
+    <string name="verifying_image">يتحقق من الصورة</string>
+    <string name="writing_image">يكتب الصورة</string>
+    <string name="no_thanks">لا شكرًا</string>
     <string name="sure">بالتأكيد</string>
-    <string name="verifying">يتم التحقق</string>
-    <string name="copying">نسخ</string>
+    <string name="verifying">يتحقق</string>
+    <string name="copying">ينسخ</string>
     <string name="against">ضد</string>
-    <string name="to">الى</string>
+    <string name="to">إلى</string>
     <string name="getting_ready">يستعد…</string>
     <string name="skip_verification">تخطي التحقق</string>
     <string name="image_written_successfully">تمت كتابة الصورة بنجاح!</string>
@@ -104,16 +104,16 @@
     <string name="learn_what_it_means">تعرف على ما تعنيه</string>
     <string name="try_again">أعد المحاولة</string>
     <string name="i_did_not_unplug_it">أنا لم أفصله!</string>
-    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">هذا غير متوقع ، ربما يكون خطأ. الرجاء الإبلاغ عن ذلك!</string>
-    <string name="to_recover_unplug">للاسترداد ، افصل محرك أقراص USB ، وأعد توصيله ومنح الإذن بالوصول إليه مرة أخرى.</string>
-    <string name="representation_of_the_required_steps">تمثيل الخطوات المطلوبة: فصل ، إعادة الاتصال ، منح الإذن</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">هذا غير متوقع، ربما تكون علة. الرجاء الإبلاغ عن ذلك!</string>
+    <string name="to_recover_unplug">للاسترداد، افصل محرك أقراص USB، وأعد توصيله ومنح الإذن بالوصول إليه مرة أخرى.</string>
+    <string name="representation_of_the_required_steps">تمثيل الخطوات المطلوبة: فصل، إعادة الاتصال، منح الإذن</string>
     <string name="the_device_is_not_responding">الجهاز لا يستجيب</string>
     <string name="could_not_open_the_source_file">تعذر فتح الملف المصدر</string>
     <string name="an_unknown_error_occurred">حدث خطأ غير معروف: %1$s</string>
     <string name="the_usb_drive_was_unplugged">تم فصل محرك أقراص USB</string>
     <string name="the_usb_drive_stopped_responding">توقف محرك أقراص USB عن الاستجابة</string>
     <string name="the_usb_device_content_does_not_match_the_image">محتوى جهاز USB لا يتطابق مع الصورة</string>
-    <string name="support_the_project">دعم ماليًا</string>
+    <string name="support_the_project">ادعم ماليًا</string>
     <string name="write_another_image">اكتب صورة أخرى</string>
     <string name="title_activity_confirm_operation">تأكيد العملية</string>
     <string name="no_image_uri_provided">لم يتم توفير صورة URI</string>
@@ -132,5 +132,5 @@
     <string name="telemetry_icon">ايقونة القياس عن بعد</string>
     <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">يرسل EtchDroid معلومات القياس عن بُعد.</string>
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">احصل على المزيد من المعلومات</string>
-    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">إرسال بيانات مجهولة المصدر</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">أرسل بيانات مجهولة</string>
 </resources>
