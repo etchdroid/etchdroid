@@ -73,9 +73,9 @@ See the [privacy policy](https://etchdroid.app/privacy/) for more information.
 <p align="center">
 <!-- Exact dimensions are specified to avoid the images jumping as they load -->
 <!-- The "force inline" comment ensures the images stay inline, the fact that it's needed might be a GFM bug -->
-<img src="metadata/en-US/images/phoneScreenshots/0.png" width="100" height="216"> <!-- Force inline -->
-<img src="metadata/en-US/images/phoneScreenshots/2.png" width="100" height="216"> <!-- Force inline -->
-<img src="metadata/en-US/images/phoneScreenshots/3.png" width="100" height="216"> <!-- Force inline -->
-<img src="metadata/en-US/images/phoneScreenshots/4.png" width="100" height="216"> <!-- Force inline -->
-<img src="metadata/en-US/images/phoneScreenshots/5.png" width="100" height="216"> <!-- Force inline -->
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/0.png" width="100" height="216"> <!-- Force inline -->
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="100" height="216"> <!-- Force inline -->
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="100" height="216"> <!-- Force inline -->
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="100" height="216"> <!-- Force inline -->
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="100" height="216"> <!-- Force inline -->
 </p>
