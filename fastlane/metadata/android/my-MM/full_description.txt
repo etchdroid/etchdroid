@@ -1,0 +1,24 @@
+Etchdroidက USBပေါ်တွင် ISO imagesများရေးရန် လွတ်လပ်စွာ
+အသုံးပြုနိုင်သော အခမဲ့Appတခုပါ၊
+သင့်ရဲ့ laptopပျက်နေပါက Bootable USBများပြုလုပ်နိုင်ရန် အသုံးပြုနိုင်ပါသည်။
+
+⭐️ အောက်ပါအရာများတွင် အသုံးပြုနိုင်ပါသည် ⭐️
+
+✅ USB flash drives
+✅ USB SD card adaptersများ
+❌ USB hard drives / SSDs
+❌ USB docks and hubs
+❌ ဖုန်းရဲ့ SD card slot
+❌ Optical or floppy disk drives
+❌ Thunderbolt-only devices
+
+
+
+⭐️ အောက်ပါ disk imagesများကို ရေးနိုင်ပါသည် ⭐️
+
+✅ Modern GNU/Linux operating system images, including Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS အစရှိသဖြင့်
+✅ Raspberry PI SD card images (ဒါပေမဲ့ zipဖိုင်ကိုအရင်ဖြေဖို့လိုအပ်ပါသည်!)
+❌ Official Microsoft Windows ISOs
+⚠️ Community-built Windows images, made for EtchDroid (သတိပြုရန် : သူတို့ဟာ virusများ ပါနိုင်ပါသည်!)
+❌ Apple DMG disk imagesများ
+❌ ဟောင်းနေတဲ့ GNU/Linux OS images < 2010 Damn Small Linuxလိုအရာမျိုး
