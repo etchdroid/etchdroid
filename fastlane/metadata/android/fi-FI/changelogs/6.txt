@@ -1,0 +1,1 @@
+• Ohjelmointivirheen korjaus, joka sai sovelluksen kaatumaan painettaessa mitä tahansa painiketta Android 6.0:lla.

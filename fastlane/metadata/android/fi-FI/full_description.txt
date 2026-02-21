@@ -1,0 +1,25 @@
+EtchDroid on avoimen lähdekoodin sovellus, joka auttaa sinua kirjoittamaan levykuvia USB-asemille.
+Käytä sitä käynnistettävien käyttöjärjestelmien tekemisessä, kun tietokoneesi on kuollut.
+
+⭐️Tuetut laitteet⭐️
+
+Kyllä: USB-asemat
+Kyllä: USB SD-kortti muuntajat
+Ei: USB kovelevyt/SSD:t
+Ei: USB telakat ja keskusasemat
+Ei: Sisäiset SD-korttien portit
+Ei: Optiset levyt tai levykkeet
+Ei: Laitteet, jotka käyttävät yksinomaan Thunderbolt:ia
+
+
+⭐️Tuetut ISO tyypit⭐️
+
+Kyllä: Modernit GNU/Linux käyttöjärjestelmä kuvat. (Esimerkiksi Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS ja monta muuta.)
+Kyllä: Raspberry PI SD-kortti kuvat (pakatut tiedostot täytyy purkaa ensin!) 
+Ei: Viralliset Microsoft Windows ISO:t
+Ehkä: Yhteisön rakentamat, EtchDroidia varten tehdyt Windows kuvat (Ole varovainen: Ne saattavat sisältää viruksia!)
+Ei: Apple DMG levykuvat
+Ei: Vanhemmat (< 2010) GNU/Linux käyttöjärjestelmä kuvat (Esimerkiksi Damn Small Linux)
+
+
+Lähdekoodi on GitHub:issa: https://github.com/EtchDroid/EtchDroid

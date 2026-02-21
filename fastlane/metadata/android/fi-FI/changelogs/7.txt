@@ -1,0 +1,3 @@
+• Turkinkielinen käännös lisätty.
+• LibreSSL päivitetty uusimpaan versioon.
+• Ohjelmointivirhe korjattu, joka sai sovelluksen kaatumaan painettaessa mitä tahansa painiketta Android 6.0:lla.
