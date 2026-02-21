@@ -1,3 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="cancel" comment="Cancel string, used all over the place">Peruuta</string>
+    <string name="write_failed" comment="Notification title when a non-recoverable error occurs">Kirjoitus epäonnistui</string>
+    <string name="write_finished" comment="Notification title when the write operation is successful">Kirjoitus valmis</string>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">Toimenpiteitä tarvitaan</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description for long-running job progress, shown in Android settings">Käytetään näyttämään tämänhetkisen työn eteneminen</string>
+    <string name="notif_channel_job_progress_name" comment=" Notification channel name for long-running job progress, shown in Android settings">Työn eteneminen</string>
+    <string name="notif_channel_job_result_desc" comment=" Notification channel description for job outcome notifications, shown in Android settings">Käytetään näyttämään valmiin työn lopputulos</string>
+    <string name="notif_channel_job_result_name" comment=" Notification channel name for job outcome notifications, shown in Android settings">Työn lopputulos</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">Kirjoitetaan kuvaa…</string>
+    <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">Tarkistetaan kuvaa…</string>
+    <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s kohteeseen %2$s</string>
+    <string name="unknown_filename" comment="Placeholder file name">Tuntematon tiedosto nimi</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">%1$s USB-laitteen käyttöoikeus kiellettiin</string>
+    <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">USB-laite kytkettiin irti</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">Kirjoita levykuva</string>
+    <string name="whats_supported" comment="Displayed in the homepage; opens a page that lists all the supported devices and formats">Mikä on tuettu?</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">Tyyli</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">Laitteen asetus</string>
+    <string name="light" comment="Style menu option that selects the light theme">Vaalea</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">Tumma</string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme">Dynaamiset värit</string>
+    <string name="is_this_a_windows_iso" comment="Dialog title; the dialog alerts the user that Windows images are not supported">Onko tämä Windows ISO?</string>
+    <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">Jatka silti</string>
+    <string name="select_a_usb_drive" comment="Title of the dialog listing the available USB drives">Valitse USB-asema</string>
+    <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected">Liitä USB-asema</string>
+    <string name="looking_for_usb_drives">Etsitään USB-asemia</string>
+    <string name="confirm_operation" comment="Title of the page where the operation details are listed; the user can confirm or cancel the operation from here">Vahvista toimenpide</string>
+    <string name="disk_image">Levykuva</string>
+    <string name="image_to_write" comment="Label for the card that displays the details about the image that is about to be written">Kirjoitettava kuva</string>
+    <string name="usb_drive">USB-asema</string>
+    <string name="unknown_device" comment="Device name placeholder">Tuntematon laite</string>
+    <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">Salli</string>
+    <string name="permission_granted">Käyttöoikeus sallittu</string>
+    <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">Ole varovainen!</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">Kuvan kirjoitus pyyhkii kaiken datan valitulta asemalta</string>
+    <string name="write_image" comment="Confirmation button; when pressed, the operation starts">Kirjoita kuva</string>
+    <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">Jatka</string>
+    <string name="skip" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor; when pressed the flat check is skipped and the operation starts.">Ohita</string>
+    <string name="supported" comment="Description of a device or image type that is supported">Tuettu</string>
+    <string name="maybe_supported" comment="Description of a device or image type that might be supported">Ehkä tuettu</string>
+    <string name="not_supported" comment="Description of a device or image type that is not supported">Ei tuettu</string>
+    <string name="supported_devices_and_images" comment="Title of the page that lists all the supported devices and images">Tuetut laitteet ja levykuvat</string>
+    <string name="devices" comment="Title of the section that lists all the supported device types">Laitteet</string>
+    <string name="usb_flash_drives" comment="Device type">USB muistitikut</string>
+    <string name="memory_cards_using_a_usb_adapter" comment="Device type">Muistikortit, käyttäen USB-adapteria</string>
+    <string name="usb_hard_drives_ssds_some_might_work" comment="Device type">USB kovelevyt / SSD:t (jotkut saattavat toimia)</string>
+    <string name="usb_docks_and_hubs_might_have_power_issues" comment="Device type">USB telakat ja keskusasemat (saattaa esiintyä virta ongelmia)</string>
+    <string name="disk_images" comment="Title of the section that lists all the supported image types">Levykuvat</string>
+    <string name="microsoft_windows_isos_any_version" comment="Image type">Microsoft Windows ISO:t (kaikki versiot)</string>
+    <string name="apple_dmg_disk_images" comment="Image type">Apple DMG levykuvat</string>
+    <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc" comment="Image type">Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD jne.</string>
+    <string name="raspberry_pi_sd_card_images_unzip_first" comment="Image type">Raspberry Pi SD-kortti levykuvat (pura ensin!)</string>
+    <string name="any_other_image_that_works_with_balena_etcher_or_dd" comment="Image type">Kaikki muut levykuvat, jotka toimivat Balena Etcherin tai dd:n kanssa</string>
+    <string name="older_gnu_linux_distributions_isos_2010" comment="Image type">Vanhempien GNU/Linux jakeluitten ISO:t (&lt; 2010)</string>
+    <string name="website" comment="Displayed in the about page links; keep it very short!">Nettisivu</string>
+    <string name="support_the_project" comment="Displayed in the about page links; keep it short!">Tue taloudellisesti</string>
+    <string name="verifying_image" comment="Title of the progress page while an image is being verified">Varmennetaan kuvaa</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">Kirjoitetaan kuvaa</string>
+    <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">Vältä käyttämästä laitettasi, kiitos</string>
+    <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">Haluatko ilmoituksen kun on valmista? Vain etenemisen päivityksiä, ei roskapostia tai mainoksia.</string>
+    <string name="no_thanks" comment="Button to reject receiving notifications">Ei, kiitos</string>
+    <string name="sure" comment="Button to accept receiving notifications">Kyllä</string>
+    <string name="verifying" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Varmistetaan</string>
+    <string name="copying" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">Kopioidaan</string>
+    <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">kohteeseen</string>
+    <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">Ohita varmistus</string>
+    <string name="image_written_successfully" comment="Title of the success page">Kuvan kirjoitus onnistui!</string>
+    <string name="learn_what_it_means" comment="Part of the message of the card that teaches the user about any &quot;Issues with this drive&quot; notifications; the full sentence is &quot;Learn what it means and see how to format your drive later&quot;">Selvitä mitä se tarkoittaa</string>
+    <string name="there_was_an_error" comment="Title of the non-recoverable error page">Esiintyi virhe</string>
+    <string name="error">Virhe</string>
+    <string name="start_over" comment="Button in the error page that, when pressed, restarts the app">Aloita alusta</string>
+    <string name="i_did_not_unplug_it" comment="Title of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">En kytkenyt sitä irti!</string>
+    <string name="how_did_this_happen" comment="Title of the card that, when a recoverable error occurs, teaches the user why it could have happened">Miten tämä tapahtui?</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it" comment="Message of the card about a recoverable unknown error">Tämän on odottamatonta, varmaan ohjelmointivirhe. Tee siitä raportti, kiitos!</string>
+    <string name="representation_of_the_required_steps" comment="Textual description (for accessibility purposes) of the graphic that shows the required steps to recover from a recoverable error">Esitys tarpeellisista toimista: kytke irti, kytke kiinni, salli käyttöoikeus</string>
+    <string name="plug_in_the_same_usb" comment="Message displayed when a user tries to recover from a recoverable error but plugs in a different USB device">Kytke sama USB-laite, jota käytit aiemmin!</string>
+    <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">USB-laite kytketty takaisin, jatketaan</string>
+    <string name="the_device_is_not_responding" comment="Error message">Laite ei reagoi</string>
+    <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">Levykuva (%1$s) on isompi kuin laite (%2$s)</string>
+    <string name="could_not_open_the_source_file" comment="Error message">Lähdetiedoston avaaminen epäonnistui</string>
+    <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">Tuntematon virhe: %1$s</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">USB-asema kytkettiin irti</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">USB-laitteen sisältö ei vastaa kuvaa</string>
+    <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">Kirjoita toinen levykuva</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">Hyväksy toimenpide</string>
+    <string name="community_windows_images" comment="&quot;You're on your own&quot; can be translated with something similar to &quot;unsupported&quot; or &quot;be careful!&quot; if it makes more sense in the target language">Yhteisön rakentamia Windows levykuvia, tehty EtchDroidia varten (olet omillasi; ne saattavat sisältää viruksia!)</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Jos on mahdollista, ole hyvä ja raportoi tästä virheestä GitHub sivustolla; kerro myös, mitkä toimenpiteet johtivat tähän virheeseen.</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Telemetria</string>
+    <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">Yksityisyystiedote</string>
+    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">EtchDroid arvostaa yksityisyyttäsi ja käyttää vain minimaalista telemetriaa sovelluksen virheiden tutkimisessa.\n\nOle osa meidän avoin lähteistä yhteisöä–pidä telemetria päällä ja auta tekemään EtchDroidista parempi kaikille!\n\nVaikka emme kerää yksilön tunnistamiseen liittyvää tietoa, uskomme avoimuuteen. Haluamme sinun tietävän, että avattujen levykuva tiedostojen nimet ja USB-laitteiden ID:t kerätään anonyymisti, koska tämä tieto auttaa selvittämään tiettyjä laitteistoja koskevia ongelmia. Kunhan tiedostojesi nimet tai USB-laitteidesi ID:t eivät ole arkaluonteista tietoa, näitten tietojen jakaminen on turvallista. (%1$s)</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">Tarvitsemme apuasi!</string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">Telemetria kuvake</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid kerää telemetrista tietoa.</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Lue lisää</string>
+    <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s onnistuneesti kirjoitettu kohteeseen %2$s</string>
+    <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">Ota käyttöön ilmoitukset etenemiselle • Kirjoitetaan %1$s kohteeseen %2$s</string>
+    <string name="notification_write_tap_for_progress_text" comment=" Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name">Napauta nähdäksesi eteneminen • Kirjoitetaan %1$s kohteeseen %2$s</string>
+    <string name="about" comment="Menu option that opens the about page">Tietoa ohjelmasta</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">Normaali Windows ISO ei toimi EtchDroidin kanssa, jos sitä ei ole tarkoituksella muunneltu soveltumaan EtchDroidin, Etcherin tai dd:n kanssa.</string>
+    <string name="destination_usb_device" comment="Label for the card that displays the details about the USB drive that is about to be used">Kohde USB-asema</string>
+    <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">Aseta laitteesi tasaiselle pinnalle ennen jatkamista.</string>
+    <string name="lay_your_device_flat" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has a gravity sensor">Aseta laitteesi tasaiselle pinnalle äläkä kosketa sitä</string>
+    <string name="memory_cards_using_the_internal_slot" comment="Device type">Muistikortit, käyttäen sisäistä porttia</string>
+    <string name="optical_disk_drives" comment="Device type">Optiset levyasemat</string>
+    <string name="floppy_disk_drives" comment="Device type">Levyke asemat</string>
+    <string name="support_for_dmg_images_was_removed" comment="At the end of the supported devices and images page we state that DMGs are no longer supported; the parameter is replaced with the word &quot;GitHub&quot;">DMG levykuvien tukeminen poistettiin EtchDroidin 2.0 versiossa. Vanhemmat versiot on ladattavissa %1$s sivustolta.</string>
+    <string name="developed_by" comment="Displayed in the about page; parameters are: author name, the word &quot;contributors&quot; (translated separately), &quot;GitHub&quot;">Kehittäjänä %1$s ja muut %2$s.\nLähdekoodi saatavilla %3$s sivustolta.\nLisensoitu GNU GPLv3 lisenssin mukaisesti.</string>
+    <string name="contributors" comment="Part of the following sentence: &quot;Developed by Author Name and other contributors&quot;">kehittäjät</string>
+    <string name="getting_ready" comment="Displayed in the progress info indicator while no progress data is available">Valmistellaan…</string>
+    <string name="write_a_review" comment="Displayed in a button on the success page">Kirjoita palaute</string>
+    <string name="it_s_safe_to_ignore" comment="Message of the card that teaches the user about any &quot;Issues with this drive&quot; notifications; the parameter will be replaced with the translation of &quot;Learn what it means&quot;">Se on turvallista jättää huomiotta! Kytke asemasi irti ja käytä sitä normaalisti. %1$s ja katso miten voit alustaa aseman myöhemmin.</string>
+    <string name="got_an_unsupported_drive_notification" comment="Title of the card that teaches the user about any &quot;Issues with this drive&quot; notifications">Saitko \"Ongelmia tämän aseman kanssa\" ilmoituksen?</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">Käytä</string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">Älä käytä</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Lähetä anonyymisiä tietoja</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">Kirjoitus prosessi jäi jumiin. Ole hyvä ja yritä uudelleen.</string>
+    <string name="star_on_github" comment="Displayed in a button on the success page">Tähditä GitHubissa</string>
+    <string name="perhaps_your_usb_port_is_dirty" comment="Message of the card that, when a USB disconnection is detected, teaches the user how it could have happened inadvertently">Voi olla, että USB-porttisi on likainen, adapterisi on viallinen, tai laitteesi ei pysty antamaan tarpeeksi virtaa. Harkitse eri adapterin tai laitteen käyttöä.</string>
+    <string name="usb_drives_are_unreliable" comment="Message of the card that, when a recoverable error occurs, teaches the user why it could have happened">USB-asemat ovat epäluotettavia, eikä Android salli tarpeeksi käyttölupia jotta automaattinen toipuminen virheistä olisi mahdollista. Meidän täytyy pärjätä sillä mitä on!</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">USB-asema lopetti reagoimisen</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">GitHubin issues-sivu</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Kirjoittaminen aloitettiin, mutta valitettavasti jotkin tiedot menetettiin matkan varrella. Kokeile uudelleen.</string>
+    <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s vasten %2$s</string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language.">vasten tiedostoa</string>
+    <string name="try_again" comment="Button in the error page that, when pressed, retries the write from scratch">Yritä uudelleen</string>
+    <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">Toipuaksesi virheestä, irrota USB-asemasi, kytke se kiinni uudelleen ja salli sen käyttöoikeus uudelleen.</string>
+    <string name="missing_permission_to_access_the_usb_device" comment="Error message">Ei käyttöoikeutta USB-laiteeseen</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">Levykuvan URI:tä ei määritetty</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">Kohde laitetta ei määritetty</string>
+    <string name="any_thunderbolt_only_device" comment="Device type">Yksinomaan Thunderbolt:ia käyttävät laitteet</string>
+    <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos" comment="Image type">Toisten modernien GNU/Linux ja BSD jakeluitten live ISO:t</string>
 </resources>
