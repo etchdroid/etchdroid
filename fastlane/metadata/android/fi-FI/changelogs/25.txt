@@ -1,0 +1,6 @@
+• Merkittävä EtchDroidin uudelleenkirjoitus!
+
+• Uusi Material You -käyttöliittymä, intuitiivisempi ja helpompi käyttää!
+• EtchDroid pystyy toipumaan enimmistä kirjoituksen virheistä, ja pyytää sinua uudelleen kytkemään USB-asemasi.
+• Levykuvan kirjoituksen jälkeen ohjelma varmentaa kuvan, varmistaakseen ettei se vioittunut.
+• DMG-funktio on poistettu; käytä vanhempaa versiota jos tarvitset sitä

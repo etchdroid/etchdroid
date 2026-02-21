@@ -1,0 +1,2 @@
+• Päivityksiä ja ohjelma virheiden korjauksia libaums:ille tuo parempaa vakautta "nirsoille" USB-asemille ja Android-laitteille.
+• Käännös päivityksiä.

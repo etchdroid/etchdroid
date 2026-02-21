@@ -1,0 +1,3 @@
+• Tumma tila.
+• Nyt mahdollista avata kuva tiedostoja ulkoisesta sovelluksesta.
+• Pieniä ohjelmavirheiden korjauksia.

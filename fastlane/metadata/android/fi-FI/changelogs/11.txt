@@ -1,0 +1,2 @@
+• Etchdroid käyttää nyt libusb:ia pellin alla. Tämän pitäisi tuoda parempaa vakautta.
+• Tumman tilan kytkin poistettu Pie:ssa ja uudemissa, koska se tuotti ongelmia monille. Kerro minulle jos haluat sen takaisin, kiitos.
