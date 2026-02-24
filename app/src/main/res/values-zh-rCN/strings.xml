@@ -61,7 +61,7 @@
     <string name="any_thunderbolt_only_device">任何只支持雷电接口的设备</string>
     <string name="microsoft_windows_isos_any_version">微软Windows ISO（任何版本）</string>
     <string name="apple_dmg_disk_images">Apple DMG 磁盘镜像</string>
-    <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD等。</string>
+    <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux、Ubuntu、Debian、Fedora、pop!_OS、Linux Mint、FreeBSD等。</string>
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">其他现代GNU/Linux和BSD发行版的即时ISO文件</string>
     <string name="raspberry_pi_sd_card_images_unzip_first">树莓派 SD 卡镜像（请先解压缩！）</string>
     <string name="older_gnu_linux_distributions_isos_2010">旧的 GNU/Linux 发行版 ISO镜像（&lt; 2010年）</string>
@@ -91,11 +91,11 @@
     <string name="the_usb_drive_was_unplugged">USB 驱动器已拔出</string>
     <string name="an_unknown_error_occurred">出现未知错误：%1$s</string>
     <string name="could_not_open_the_source_file">无法打开源文件</string>
-    <string name="plug_in_the_same_usb">插入您之前使用过的同一个 USB 设备！</string>
-    <string name="usb_device_reconnected_resuming">USB设备重新连接，恢复中</string>
+    <string name="plug_in_the_same_usb">您的USB设备电流超标，请断开后重新连接！</string>
+    <string name="usb_device_reconnected_resuming">USB设备已重新连接，正在恢复写入</string>
     <string name="maybe_supported">也许支持</string>
     <string name="memory_cards_using_a_usb_adapter">储存卡，使用USB适配器</string>
-    <string name="usb_hard_drives_ssds_some_might_work">USB硬盘/固态硬盘（有些可能适用）</string>
+    <string name="usb_hard_drives_ssds_some_might_work">USB硬盘/固态硬盘（部分适用）</string>
     <string name="floppy_disk_drives">软盘驱动器</string>
     <string name="disk_images">磁盘镜像</string>
     <string name="developed_by">由 %1$s 和其他 %2$s 开发。
