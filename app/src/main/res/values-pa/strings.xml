@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">ਧਿਆਨ ਦੇਣ ਦੀ ਲੋੜ ਹੈ:</string>
+</resources>
