@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="action_required" comment="Notification title when a recoverable error occurs">ਧਿਆਨ ਦੇਣ ਦੀ ਲੋੜ ਹੈ::</string>
+    <string name="action_required" comment="Notification title when a recoverable error occurs">ਧਿਆਨ ਦੇਣ ਦੀ ਲੋੜ ਹੈ:</string>
     <string name="cancel" comment="Cancel string, used all over the place">ਰੱਦ ਕਰੋ</string>
     <string name="write_finished" comment="Notification title when the write operation is successful">ਮੁਕੰਮਲ ਲਿਖੋ</string>
     <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s ਨੂੰ ਸਫਲਤਾਪੂਰਵਕ ਲਿਖਿਆ ਗਿਆ ਹੈ %2$s</string>
     <string name="write_failed" comment="Notification title when a non-recoverable error occurs">ਲਿਖਣਾ ਅਸਫਲ ਰਿਹਾ</string>
+    <string name="dark" comment="Style menu option that selects the dark theme">ਗੂੜ੍ਹਾ</string>
+    <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">ਫੇਰ ਵੀ ਜਾਰੀ ਰੱਖੋ</string>
 </resources>
