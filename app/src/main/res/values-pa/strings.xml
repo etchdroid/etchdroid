@@ -7,4 +7,20 @@
     <string name="write_failed" comment="Notification title when a non-recoverable error occurs">ਲਿਖਣਾ ਅਸਫਲ ਰਿਹਾ</string>
     <string name="dark" comment="Style menu option that selects the dark theme">ਗੂੜ੍ਹਾ</string>
     <string name="continue_anyway" comment="Dialog button text: if the user clicks it, the app ignores the warning and continues">ਫੇਰ ਵੀ ਜਾਰੀ ਰੱਖੋ</string>
+    <string name="notif_channel_job_progress_desc" comment="Notification channel description for long-running job progress, shown in Android settings">ਮੌਜੂਦਾ ਕੰਮ ਦੀ ਪ੍ਰਗਤੀ ਦਿਖਾਉਣ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ</string>
+    <string name="notif_channel_job_progress_name" comment=" Notification channel name for long-running job progress, shown in Android settings">ਨੌਕਰੀ ਦੀ ਤਰੱਕੀ</string>
+    <string name="notif_channel_job_result_desc" comment=" Notification channel description for job outcome notifications, shown in Android settings">ਇੱਕ ਮੁਕੰਮਲ ਕੰਮ ਦਾ ਨਤੀਜਾ ਦਿਖਾਉਣ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ</string>
+    <string name="notif_channel_job_result_name" comment=" Notification channel name for job outcome notifications, shown in Android settings">ਨੌਕਰੀ ਦਾ ਨਤੀਜਾ</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">ਚਿੱਤਰ ਲਿਖਿਆ ਜਾ ਰਿਹਾ ਹੈ…</string>
+    <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">ਚਿੱਤਰ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…</string>
+    <string name="notification_write_no_notifications_text" comment=" Notification content for long-running job status, used when the user has not granted the notification permission. The first parameter will be replaced with the source file name, the second one with the USB stick name">ਤਰੱਕੀ ਲਈ ਸੂਚਨਾਵਾਂ ਚਾਲੂ ਕਰੋ • %1$s ਨੂੰ %2$s ਵਿੱਚ ਲਿਖਿਆ ਜਾ ਰਿਹਾ ਹੈ</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">ਇੱਕ ਚਿੱਤਰ ਲਿਖੋ</string>
+    <string name="whats_supported" comment="Displayed in the homepage; opens a page that lists all the supported devices and formats">ਕੀ ਸਮਰਥਿਤ ਹੈ?</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">ਸ਼ੈਲੀ</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">ਡਿਵਾਈਸ ਸੈਟਿੰਗ</string>
+    <string name="light" comment="Style menu option that selects the light theme">ਚਾਨਣ</string>
+    <string name="about" comment="Menu option that opens the about page">ਬਾਰੇ</string>
+    <string name="is_this_a_windows_iso" comment="Dialog title; the dialog alerts the user that Windows images are not supported">ਕੀ ਇਹ Windows ISO ਹੈ?</string>
+    <string name="a_regular_windows_iso_won_t_work" comment="Dialog message; the dialog alerts the user that Windows images are not supported">ਇੱਕ ਨਿਯਮਤ Windows ISO EtchDroid ਨਾਲ ਕੰਮ ਨਹੀਂ ਕਰੇਗਾ, ਜਦੋਂ ਤੱਕ ਕਿ ਇਸਨੂੰ EtchDroid, Etcher ਜਾਂ dd ਨਾਲ ਵਰਤੋਂ ਲਈ ਖਾਸ ਤੌਰ \'ਤੇ ਤਿਆਰ ਨਹੀਂ ਕੀਤਾ ਗਿਆ ਹੈ।.</string>
+    <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">ਜਾਰੀ ਰੱਖੋ</string>
 </resources>
