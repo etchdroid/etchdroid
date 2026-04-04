@@ -54,6 +54,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
 import me.jahnen.libaums.core.driver.BlockDeviceDriver
 import java.io.BufferedInputStream
 import java.io.InputStream
@@ -474,12 +475,18 @@ class WorkerService : LifecycleService() {
                         Telemetry.captureException("Failed to close image file", e)
                     }
                 }
-                try {
-                    if (massStorageDevDelegate.isInitialized)
-                        massStorageDev.close()
-                } catch (e: Exception) {
-                    Telemetry.captureException("Failed to close USB drive", e)
-                }
+                // Use a timeout to prevent hanging if the USB device is stuck in a native
+                // libusb transfer (e.g. after a Huawei/Samsung OTG reset mid-write).
+                // close() calls into native code and cannot be interrupted by coroutine
+                // cancellation, so without this timeout the service hangs indefinitely.
+                withTimeoutOrNull(3000L) {
+                    try {
+                        if (massStorageDevDelegate.isInitialized)
+                            massStorageDev.close()
+                    } catch (e: Exception) {
+                        Telemetry.captureException("Failed to close USB drive", e)
+                    }
+                } ?: Telemetry.captureMessage("Timed out closing USB drive (device may be stuck in native transfer)")
                 stopSelf()
             }
         }
