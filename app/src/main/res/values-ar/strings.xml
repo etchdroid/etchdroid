@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="cancel">ألغِ</string>
+    <string name="cancel">ألغِ العملية أو الشيء الذي يقوم به الشخص أو الجهاز أو أي شيء آخر، أو (في سياق العملية) ما هو بصدد القيام به</string>
     <string name="write_finished">انتهت الكتابة</string>
     <string name="unknown_filename">اسم ملف غير معروف</string>
     <string name="success_notif_content_text">%1$s تمت كتابته بنجاح إلى %2$s</string>
