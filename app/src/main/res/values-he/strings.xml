@@ -6,7 +6,7 @@
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">משמש להצגת התקדמות המשימה הנוכחית</string>
     <string name="success_notif_content_text">%1$s נכתבה בהצלחה אל %2$s</string>
     <string name="write_finished">הכתיבה הושלמה</string>
-    <string name="cancel">ביטול</string>
+    <string name="cancel">ביטול התהליך או מה שבוצע (מבחינת תהליך) או הולך להתבצע</string>
     <string name="write_failed">הכתיבה נכשלה</string>
     <string name="unknown_filename">שם הקובץ לא ידוע</string>
     <string name="about">על אודות</string>
