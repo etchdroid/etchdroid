@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" comment=" App name, please do not translate " translatable="false">EtchDroid</string>
-    <string name="cancel" comment="Cancel string, used all over the place">Cancel</string>
+    <string name="cancel" comment="Cancel string, used all over the place">Cancel the process or thing that the person device or other thing is doing or (in the context of a process) is going to do</string>
     <string name="write_finished" comment="Notification title when the write operation is successful">Write finished</string>
     <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s successfully written to %2$s</string>
     <string name="write_failed" comment="Notification title when a non-recoverable error occurs">Write failed</string>
