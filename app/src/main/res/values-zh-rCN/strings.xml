@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="unknown_filename">未知文件名</string>
-    <string name="cancel">取消</string>
+    <string name="cancel">取消个人设备或其他东西正在进行或者（在进程上下文中）打算进行的过程或事情</string>
     <string name="write_finished">写入完成</string>
     <string name="success_notif_content_text">%1$s 成功写入到 %2$s</string>
     <string name="write_failed">写入失败</string>
