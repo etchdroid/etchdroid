@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="unknown_filename">不明なファイル名</string>
-    <string name="cancel">キャンセル</string>
+    <string name="cancel">対象者がデバイスや別対象へ実施中か（作業工程において）実行しようとしている処理や動作を中止</string>
     <string name="write_finished">書き込み完了</string>
     <string name="success_notif_content_text">%1$sは%2$sに正常に書き込まれました</string>
     <string name="write_failed">書き込みに失敗しました</string>
