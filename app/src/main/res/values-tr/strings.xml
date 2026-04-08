@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="unknown_filename">Bilinmeyen dosya adı</string>
-    <string name="cancel">İptal</string>
+    <string name="cancel">Kişinin, aygıtın veya başka bir şeyin yaptığı ya da (bir işlem bağlamında) yapacağı işlemi veya eylemi iptal et</string>
     <string name="write_finished">Yazma tamamlandı</string>
     <string name="success_notif_content_text">%1$s başarıyla %2$s üzerine yazıldı</string>
     <string name="write_failed">Yazma başarısız</string>
