@@ -78,7 +78,7 @@ class BlockDeviceInputStream(
      * The size of the block device in bytes.
      */
     private val sizeBytes: Long
-        get() = blockDev.blocks * blockDev.blockSize
+        get() = blockDev.blocks.toLong() * blockDev.blockSize
 
     /**
      * Whether the stream is at or past the end of the block device.

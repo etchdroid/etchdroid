@@ -366,7 +366,7 @@ class WorkerService : LifecycleService() {
                 // Resume a few blocks earlier in case things went haywire earlier
                 currentOffset = max(currentOffset - blockDev.blockSize * BUFFER_BLOCKS * 2, 0L)
 
-                val devSize = blockDev.blocks * blockDev.blockSize
+                val devSize = blockDev.blocks.toLong() * blockDev.blockSize
                 Telemetry.debug(
                     "Device size: ${devSize.toHRSize(false)} " +
                             "(block size: ${blockDev.blockSize.toHRSize(false)}, " +
