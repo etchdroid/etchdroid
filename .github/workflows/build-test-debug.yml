@@ -124,7 +124,7 @@ jobs:
 
       - name: Publish test report
         uses: mikepenz/action-junit-report@v5
-        if: success() || failure()
+        if: (success() || failure()) && github.event.pull_request.head.repo.full_name == github.repository
         with:
           check_name: Unit test report for ${{ matrix.variant }}
           detailed_summary: true
@@ -278,7 +278,7 @@ jobs:
 
       - name: Publish test report
         uses: mikepenz/action-junit-report@v5
-        if: success() || failure()
+        if: (success() || failure()) && github.event.pull_request.head.repo.full_name == github.repository
         with:
           check_name: End-to-end test report for ${{ matrix.variant }}
           detailed_summary: true
