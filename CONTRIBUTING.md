@@ -1,109 +1,62 @@
-# How to contribute
+# Contributing to EtchDroid
 
-Thanks for taking your time to contribute to EtchDroid!
+Thanks for taking the time to contribute! To maintain a high standard of code quality and a clean project history, please follow these guidelines.
 
-Here's a few things to keep in mind so that your contributions will be happily
-accepted.
+## 🤝 Code of Conduct
+EtchDroid follows the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/version/1/4/code-of-conduct/). In short: be helpful, don't take code critiques personally, and **Don't Be A Dick™️**.
 
+---
 
-## Code of conduct
+## 🐛 Reporting Bugs & Suggestions
+* **Check for duplicates:** Ensure the issue hasn't been reported or suggested already.
+* **Troubleshoot hardware:** Many "bugs" are actually bad cables or sleep settings. Try writing while the device is on a table with the screen kept on.
+* **Use the templates:** Fill out the requested information in the issue template so the bug can be reproduced.
+* **Scope:** Features requiring root privileges or those outside the app's scope will not be accepted.
 
-EtchDroid follows the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/version/1/4/code-of-conduct/)
+---
 
-In general:
+## 🌍 Translating
+* **Weblate Only:** All translations must be done via [Weblate](https://hosted.weblate.org/engage/etchdroid/). **Pull requests for string files will be rejected.**
+* **Credits:** After translating, you may send a PR to update [`about.xml`](https://github.com/EtchDroid/EtchDroid/blob/main/app/src/main/res/xml/about.xml) to be credited in the app.
 
-- Try to be helpful.
-- Do not take critiques to code personally. See if you can improve it or explain
-  your point better instead.
-- Don't Be A Dick™️
+---
 
+## 🛠 Development Workflow
 
-## Your first code contribution
+### 1. Linear History (No Merge Commits)
+We use a **rebase-only workflow**. Your branch must be rebased onto the latest `main` branch.
+* **Do:** Use `git rebase main`.
+* **Do:** Use `git rebase -i main` to clean up your history.
+* **Don't:** Use `git merge main` or the GitHub "Resolve conflicts" button.
 
-Want to help out with EtchDroid?
+### 2. Atomic & Concise Commits
+* **One Thing Per Commit:** Each commit should perform one logical task. 
+* **Small PRs:** If you are fixing multiple unrelated bugs, submit them as separate PRs.
+* **No "Fixup" History:** Do not include commits that revert or fix changes introduced earlier in the same PR. Use `git commit --amend` or `git rebase -i` to squash mistakes before submitting.
 
-Look for issues tagged with "good first issue". Those are issues that should be
-pretty simple to address, so you can get started with them and become familiar
-with the codebase.
+### 3. Separate Cleanup from Logic
+**Do not lump stylistic/formatting/cleanup changes into functional commits.**
+* If you need to reformat code, do it in a dedicated commit (or separate PR).
+* **Rule of thumb:** Do not fix what isn't broken unless it's necessary for your change.
 
-If you're more experienced, you may want to give a look to the "help wanted"
-issues.
+### 4. Commit Messages
+Be descriptive. We suggest (but don't require) the [Conventional Commits](https://www.conventionalcommits.org/) format (e.g., `feat(ui): add progress bar`).
 
+---
 
-## Reporting bugs
+## 💻 Coding Standards & Testing
 
-Before opening a new issue, make sure someone else has not reported it already.
+* **Formatting:** Use default Android Studio formatting (`Ctrl+Alt+L`).
+* **Clean Code:** Use constants instead of magic numbers and write self-documenting code. Comments should explain *why*, not *what*.
+* **Testing:** * Run unit tests via Android Studio or `./gradlew test`.
+    * Manually verify your changes by running the app and flashing a test image.
 
-Also, make sure the bug isn't a device or USB adapter issue. If the app fails
-writing your ISO, try again while your device is on a table, and make sure the
-screen doesn't turn off. That does the trick very often.
+---
 
-When reporting bugs, you will be shown a template that you will have to fill in.
-Do it. I need that information to help you troubleshoot. I can't troubleshoot
-issues that cannot be reproduced.
+## 🚀 Pull Request Process
+1. **Discuss Big Changes:** For significant features, open an issue first to ensure it aligns with project goals.
+2. **Self-Review:** Review your own code for typos or leftover debug logs before submitting.
+3. **Be Professional:** If changes are requested, explain your reasoning if you disagree. Disagreements are fine; the goal is to find a compromise.
 
-
-## Suggesting features
-
-As with issues, make sure no one else has already suggested the same feature.
-
-Note that, while I do accept feature suggestions, I don't always have time to
-work on it. This is a personal, free time project.
-
-In general, if you can implement it yourself, that would be a lot better.
-
-I will not be accepting features suggestions that involve requesting root
-privileges or, in general, that are out of the scope of this app.
-
-
-## Translating
-
-If you want to help translating EtchDroid in your language, head over to the
-[Weblate page](https://hosted.weblate.org/engage/etchdroid/).
-
-If you have any issues, let me know: there's a [thread](https://github.com/EtchDroid/EtchDroid/issues/18)
-dedicated to translations you can join.
-
-Please beware that translations should **only** be contributed using Weblate!
-Pull requests for translations will be rejected. Your changes will be credited:
-Weblate will commit the changes using the email address you used to register.
-
-When you're done translating, make sure you update [`about.xml`](https://github.com/EtchDroid/EtchDroid/blob/develop/app/src/main/res/xml/about.xml)
-with your info, so you will be credited in the app's "About" page. You can send
-a pull request for that.
-
-Weblate hosting is kindly provided for free: if you like it, you can buy them a
-coffee: https://weblate.org/en/donate/
-
-
-## Sending pull requests
-
-Here's a few rules to follow to make sure your pull requests get merged
-painlessly:
-
-- Before submitting a big change, open an issue first and let me know what's
-  your plan. This will avoid wasting your time in case your change conflicts
-  with the project goals.
-
-- Do not reformat files. Or at least, ask first. Pull requests in which more
-  than 10% changes are simply fixing indentations, renaming variables
-  or sorting stuff around will likely be rejected. They take time to review
-  and they don't add anything useful to the project.
-
-- Remember: **Do not fix what's not broken**
-
-- The linter is configured: use it. Before submitting, run `./gradlew lint`
-  and check the result. Feel free to ignore translation issues or preexisting
-  warnings.
-
-- Test your changes. This involves running unit tests (either from Android Studio
-  or with `./gradlew test`), running the app and flashing a test image. I would
-  like to automate this part as well at some point, but for the time being,
-  [technical limitations](https://github.com/magnusja/libaums/issues/209)
-  do not make it possible.
-
-- If I request changes, do not take it personally. If you think I'm wrong,
-  explain why. If we still do not agree, try to work to find a compromise or remove
-  that change. Disagreements happen and the solution is compromise. Acting
-  passive-aggressive won't help.
+By contributing, you agree that your code will be licensed under the project's [GPLv3 License](LICENSE).
 
