@@ -7,7 +7,7 @@ requires-python = ">=3.12"
 dependencies = [
     "appium-python-client>=5.0.0",
     "pexpect>=4.9.0",
-    "pytest>=8.3.5",
+    "pytest>=9.0.3",
     "qemu-qmp>=0.0.3",
 ]
 
