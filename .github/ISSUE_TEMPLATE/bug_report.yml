@@ -8,6 +8,7 @@ body:
       value: |
         Thanks for taking the time to fill out this bug report! 
         Please ensure you have checked the [Open Issues](https://github.com/EtchDroid/EtchDroid/issues) first.
+        Note that most issues are temporary and go away after a phone reboot or flipping the USB drive. Only submit an issue after having made a few attempts.
 
   - type: checkboxes
     id: checks
