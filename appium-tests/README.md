@@ -18,77 +18,62 @@ The tests are divided into two modules:
 - The Android SDK must be installed. It should either be stored under `~/Android/Sdk` (Android Studio default) or
   specified using the `ANDROID_HOME` environment variable.
 - [`uv`](https://docs.astral.sh/uv/) must be installed
+- `7z`, `qemu-img` and `qemu` for VM testing.
 
 ### On a real device
+
+>[!WARNING]
+> The tests will erase the content of the connected USB drive.
+> Some wear is to be expected on the drive since random data will be written to it.
 
 1. Connect the device to the computer using wireless ADB (for older devices: connect via USB and run
    `adb tcpip 5555 && adb connect <device-ip>:5555`).
 2. Connect a USB drive of at least 2GB to the device.
-3. Run the tests using `pytest`:
+3. Build and install EtchDroid: `./gradlew installFossDebug`
+4. Run the tests using `pytest` from the `appium-tests/` directory, excluding those specifically designed to run in a VM:
    ```bash
    uv run pytest -m "not qemu" -sv
    ```
 
-### On QEMU
+### In a virtual machine (recommended, Linux-only)
+
+>[!NOTE]
+> Running the tests in a VM is recommended over a physical device since it allows testing the USB hotplugging logic without risking damage to physical drives. The VM is configured to use a virtual USB drive that can be safely erased and re-created on each test run.
 
 Make sure to have `qemu-system-x86_64` installed.
 
-1. Download a recent version of Bliss OS x86_64 **without GApps** (the GApps version has a setup wizard on boot) such
-   as [this build](https://sourceforge.net/projects/blissos-x86/files/Official/BlissOS16/FOSS/Generic/Bliss-v16.9.7-x86_64-OFFICIAL-foss-20241011.iso/download)
-2. Mount the ISO image
+1. **Prepare the VM files**:
     ```bash
-    mkdir -p /tmp/bliss
-    losetup -P /dev/loop10 /path/to/Bliss.iso
-    mount /dev/loop10p1 /tmp/bliss
+    ./appium-tests/scripts/prepare-vm.sh
     ```
-3. Create a USB drive image
+    This will download the Bliss OS ISO, extract the required files, and create a virtual USB drive image in the `.appium-vm/` directory.
+
+2. **Launch QEMU** (in a separate terminal):
     ```bash
-    qemu-img create -f qcow2 /tmp/usb-storage.qcow2 2G
+    ./appium-tests/scripts/run-vm.sh
     ```
-4. Launch QEMU
+    This starts the VM with a GTK UI and redirects the serial console to stdio. ADB will be available on `localhost:5556`.
+
+3. **Wait for startup and configure**:
     ```bash
-    cd /tmp/bliss
-    qemu-system-x86_64 \
-     -enable-kvm \
-     -cpu host \
-     -smp 2 \
-     -m 4096 \
-     -kernel kernel \
-     -initrd initrd.img \
-     -append 'root=/dev/ram0 androidboot.selinux=permissive console=tty1 FFMPEG_CODEC=1 FFMPEG_PREFER_C2=1' \
-     -audiodev pa,id=snd0 -device AC97,audiodev=snd0 \
-     -netdev user,id=network,hostfwd=tcp::5556-:5555 \
-     -device virtio-net-pci,netdev=network \
-     -device virtio-vga-gl -display sdl,gl=on \
-     -drive index=0,if=virtio,id=system,file=system.efs,format=raw,readonly=on \
-     -usb \
-     -device usb-tablet,bus=usb-bus.0 \
-     -device nec-usb-xhci,id=xhci \
-     -device ich9-usb-uhci1,id=uhci \
-     -drive if=none,id=usbstick,file=/tmp/usb-storage.qcow2,format=qcow2 \
-     -device usb-storage,id=usbstick,bus=xhci.0,drive=usbstick,removable=on \
-     -qmp unix:/tmp/qmp.sock,server=on,wait=off \
-     -monitor unix:/tmp/qemu-monitor.sock,server=on,wait=off
+    ./appium-tests/scripts/wait-vm-startup.sh
     ```
-    - Notes:
-      - The `audiodev` can be removed if you don't need audio.
-      - The two USB controllers are both necessary for the tests
-      - The tests expect a USB drive to be connected at boot time so the generic tests can work both on real devices
-        and QEMU.
-      - Both the QMP and monitor sockets are necessary for the tests to work.
-5. Connect ADB to QEMU
-    ```bash
-    adb connect localhost:5556
-    ```
-6. Set the default launcher
-   ```bash
-    adb shell pm set-home-activity com.android.launcher3 && adb shell input keyevent KEYCODE_HOME
-    ```
-7. Install EtchDroid
+    This script waits for the VM to be reachable via ADB and applies necessary settings (like setting the default launcher) for the tests to run reliably.
+    
+    We recommend running this script at least once before running the tests to ensure the VM is properly configured, even if the ADB connection is working already.
+
+4. **Build and install EtchDroid**:
     ```bash
     ./gradlew installFossDebug
     ```
-8. Run the tests using `pytest`:
+
+5. **Run the tests** from the `appium-tests/` directory:
    ```bash
    uv run pytest -sv
    ```
+
+## Notes
+
+- The tests expect a USB drive to be connected before the tests start (the script handles this for QEMU).
+- **Warning**: The tests will erase the content of the connected USB drive if run on a physical device.
+- Both the QMP and monitor sockets are used by the tests to simulate USB hotplugging in QEMU.

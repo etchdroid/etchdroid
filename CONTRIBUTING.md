@@ -47,9 +47,14 @@ Be descriptive. We suggest (but don't require) the [Conventional Commits](https:
 ## 💻 Coding Standards & Testing
 
 * **Formatting:** Use default Android Studio formatting (`Ctrl+Alt+L`).
-* **Clean Code:** Use constants instead of magic numbers and write self-documenting code. Comments should explain *why*, not *what*.
-* **Testing:** * Run unit tests via Android Studio or `./gradlew test`.
+* **Clean Code:** Use constants instead of magic numbers and write self-documenting code. **Comments should explain *why*, not *what***.
+* **Testing:**
+    * Run unit tests via Android Studio or `./gradlew test`.
     * Manually verify your changes by running the app and flashing a test image.
+    * **End-to-End Tests:** We use Appium for E2E tests. You are encouraged to run them locally:
+        * **Linux:** (probably macOS too, untested) You can run the tests using a Bliss OS VM. See `appium-tests/README.md` for setup instructions.
+        * **Physical Device:** Connect a device via ADB and plug in a USB drive (at least 2GB).
+        * **Note:** On physical devices, skip QEMU tests using `uv run pytest -m "not qemu" -sv`. The tests **will fully erase** the connected USB drive since random data will be written to it.
 
 ---
 
