@@ -8,8 +8,10 @@ on:
   workflow_dispatch:
 
 env:
+  # If changed, also update the variables in appium-tests/scripts/prepare-vm.sh
   BLISSOS_FILE: 'Bliss-v16.9.7-x86_64-OFFICIAL-foss-20241011.iso'
   BLISSOS_URL: 'https://deac-riga.dl.sourceforge.net/project/blissos-x86/Official/BlissOS16/FOSS/Generic/'
+  VM_DIR: ~/.cache/appium-vm
 
 jobs:
   build:
@@ -183,57 +185,32 @@ jobs:
         with:
           key: ${{ env.BLISSOS_FILE }}
           restore-keys: ${{ env.BLISSOS_FILE }}
-          path: ~/.cache/blissos
+          path: ${{ env.VM_DIR }}
 
-      - name: Download BlissOS image
-        id: download-bliss
+      - name: Prepare BlissOS VM
+        id: prepare-vm
         run: |
-          mkdir -p ~/.cache/blissos
-          cd ~/.cache/blissos
-          curl -L -o bliss.sha256 "${{ env.BLISSOS_URL }}/${{ env.BLISSOS_FILE }}.sha256"
-          
-          if [[ ! -f "${{ env.BLISSOS_FILE }}" ]] || ! sha256sum -c bliss.sha256; then
-            echo "Downloading ${BLISSOS_FILE}..."
-            curl -L -o "${{ env.BLISSOS_FILE }}" "${{ env.BLISSOS_URL }}/${{ env.BLISSOS_FILE }}"
-            echo "cached=0" >> "$GITHUB_OUTPUT"
-          else
-            echo "Using cached ${BLISSOS_FILE}"
-            echo "cached=1" >> "$GITHUB_OUTPUT"
-          fi
+          ./appium-tests/scripts/prepare-vm.sh
+          # Save cache space by removing the ISO, we only need the extracted contents for QEMU
+          rm -f "${{ env.VM_DIR }}/${{ env.BLISSOS_FILE }}"
 
       - name: Store BlissOS to cache
         uses: actions/cache/save@v4
-        if: steps.download-bliss.outputs.cached == 0
+        if: steps.prepare-vm.outputs.cached == 0
         with:
           key: ${{ env.BLISSOS_FILE }}
-          path: ~/.cache/blissos
-
-      - name: Mount BlissOS image
-        run: |
-          ISO_PATH="$(realpath ~/.cache/blissos/${{ env.BLISSOS_FILE }})"
-          echo "Mounting ${ISO_PATH}..."
-          
-          sudo losetup -fP "$ISO_PATH"
-          LOOP_DEV="$(sudo losetup -j "$ISO_PATH" | cut -d: -f1)"
-          echo "Attached loop device: $LOOP_DEV"
-          echo "LOOP_DEV=$LOOP_DEV" >> $GITHUB_ENV
-          
-          mkdir -p /tmp/blissos
-          sudo mount -o loop,ro "${LOOP_DEV}p1" /tmp/blissos
-          echo "Mounted ${ISO_PATH} to /tmp/blissos"
+          path: ${{ env.VM_DIR }}
 
       - name: Create virtual USB drive image
-        run: |
-          qemu-img create -f qcow2 /tmp/usb-storage.qcow2 2G
-          mkdir -p vm-outputs
+        run: mkdir -p vm-outputs
 
       - name: Run QEMU
         id: run-qemu
         uses: etchdroid/qemu-kvm-action@v1
         with:
           video-record: true
-          kernel: /tmp/blissos/kernel
-          initrd: /tmp/blissos/initrd.img
+          kernel: ${{ env.VM_DIR }}/kernel
+          initrd: ${{ env.VM_DIR }}/initrd.img
           cmdline: 'root=/dev/ram0 androidboot.selinux=permissive console=ttyS0 FFMPEG_CODEC=1 FFMPEG_PREFER_C2=1'
           video-output: vm-outputs/recording.mkv
           flags: |
@@ -250,7 +227,7 @@ jobs:
             -display
             sdl,gl=on
             -drive
-            index=0,if=virtio,id=system,file=/tmp/blissos/system.efs,format=raw,readonly=on
+            index=0,if=virtio,id=system,file=${{ env.VM_DIR }}/system.efs,format=raw,readonly=on
             -usb
             -device
             usb-tablet,bus=usb-bus.0
@@ -259,7 +236,7 @@ jobs:
             -device
             ich9-usb-uhci1,id=uhci
             -drive
-            if=none,id=usbstick,file=/tmp/usb-storage.qcow2,format=qcow2
+            if=none,id=usbstick,file=${{ env.VM_DIR }}/usb-storage.qcow2,format=qcow2
             -device
             usb-storage,id=usbstick,bus=xhci.0,drive=usbstick,removable=on
             -qmp
@@ -271,7 +248,7 @@ jobs:
             cd appium-tests
             export LOGCAT_DIR="$PWD/../vm-outputs/logcat/"
             mkdir -p "$LOGCAT_DIR"
-            ./scripts/ci-qemu-prepare.sh
+            ./scripts/wait-vm-startup.sh
             adb install -r ../apk/*.apk
             adb logcat -d > "$LOGCAT_DIR/0_before.log" 2>&1
             uv run pytest -sv --tb=native --junit-xml=../junit.xml

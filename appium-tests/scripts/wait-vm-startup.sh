@@ -31,4 +31,6 @@ fi
 # Fix launcher and go home
 "${adb[@]}" shell pm set-home-activity com.android.launcher3
 "${adb[@]}" shell input keyevent KEYCODE_HOME
+
+# Enable pointer location to see what the appium tests are doing
 "${adb[@]}" shell settings put system pointer_location 1

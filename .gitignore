@@ -98,6 +98,9 @@ proguard/
 # Android Studio Navigation editor temp files
 .navigation/
 
+# Appium VM files
+.appium-vm/
+
 # Android Studio captures folder
 captures/
 
