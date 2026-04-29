@@ -1,0 +1,73 @@
+name: Bug Report
+description: Report a bug to help improve EtchDroid
+title: "[Bug]: "
+labels: [ "bug", "triage" ]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! 
+        Please ensure you have checked the [Open Issues](https://github.com/EtchDroid/EtchDroid/issues) first.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Preliminary Checks
+      options:
+        - label: I have searched the existing issues and didn't find my problem.
+          required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: App Version Info
+      description: Copy this from the "About" page (e.g., `eu.depau.etchdroid v1.2.3+45, gplay+release`)
+      placeholder: eu.depau.etchdroid v1.2.3+45, gplay+release
+    validations:
+      required: true
+
+  - type: dropdown
+    id: source
+    attributes:
+      label: Installation Source
+      description: Where did you download EtchDroid?
+      options:
+        - Google Play Store
+        - F-Droid
+        - GitHub Releases / Obtainium
+        - Self-compiled
+        - Other (please specify)
+    validations:
+      required: true
+
+  - type: input
+    id: source_other
+    attributes:
+      label: 'If "Other", please specify:'
+      placeholder: e.g. AppGallery, direct APK from a friend, etc.
+
+  - type: input
+    id: device
+    attributes:
+      label: Device Brand and Model
+      placeholder: e.g. Samsung Galaxy S23, Google Pixel 8
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Describe exactly what you did before the error occurred.
+      placeholder: |
+        1. Open EtchDroid
+        2. Select ISO file...
+        3. Plug in USB drive...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Additional Context / Logs
+      description: Any error messages or behavior details you noticed.
