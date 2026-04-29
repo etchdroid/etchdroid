@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Ask a question
+  - name: Community Discussions
     url: https://github.com/EtchDroid/EtchDroid/discussions
-    about: Please use Discussions for general questions or help.
+    about: For general questions, troubleshooting, or "How do I..." queries.

@@ -1,0 +1,48 @@
+name: Feature Request
+description: Suggest an idea for EtchDroid
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Before suggesting a feature...
+        Please note that **EtchDroid is a raw image writer.** To keep the app stable and rootless, some features are explicitly **out of scope** and will not be implemented, ever:
+        
+        * **Windows ISOs (unmodified):** Windows ISOs are not "hybrid" and won't boot if written raw to USB. EtchDroid will not include a Windows ISO converter ([#5](https://github.com/etchdroid/etchdroid/issues/5)).
+        * **macOS / DMG Support:** Creating macOS installers or writing DMG files is unsupported and not planned ([#6](https://github.com/etchdroid/etchdroid/issues/6)).
+        * **Internal SD Card Slot:** Android prevents writing to the internal SD slot at a block level without root. Any feature that requires root will never be added ([#39](https://github.com/etchdroid/etchdroid/issues/39)).
+        * **Multi-boot (Ventoy-style):** EtchDroid writes only one image without modifications. Multi-boot requires modifying the images and is outside the project's scope ([#281](https://github.com/etchdroid/etchdroid/issues/281)).
+
+  - type: checkboxes
+    id: scope_check
+    attributes:
+      label: Scope Acknowledgment
+      options:
+        - label: I confirm my request is NOT about Windows ISOs, macOS/DMG, Internal SD cards, or Multi-boot support.
+          required: true
+        - label: I have searched existing issues to see if this has already been requested.
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the feature
+      description: A clear and concise description of what you want to happen.
+      placeholder: I would like to see...
+    validations:
+      required: true
+
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Why is this feature needed?
+      description: Explain the problem this feature would solve or the scenario where it's useful.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any other ways you've tried to achieve this.
