@@ -19,6 +19,11 @@ The tests are divided into two modules:
   specified using the `ANDROID_HOME` environment variable.
 - [`uv`](https://docs.astral.sh/uv/) must be installed
 - `7z`, `qemu-img` and `qemu` for VM testing.
+- `node` and `npm` to install Appium:
+  ```bash
+  npm install -g appium
+  appium driver install uiautomator2
+  ```
 
 ### On a real device
 
