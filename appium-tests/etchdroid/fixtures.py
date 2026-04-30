@@ -29,7 +29,7 @@ def appium_service():
     service.start(
         # Check the output of `appium server --help` for the complete list of
         # server command line arguments
-        args=["--address", Config.APPIUM_HOST, "-p", Config.APPIUM_PORT, "--allow-insecure=adb_shell"],
+        args=["--address", Config.APPIUM_HOST, "-p", Config.APPIUM_PORT, "--allow-insecure=uiautomator2:adb_shell"],
         timeout_ms=20000,
     )
     yield service
@@ -40,9 +40,10 @@ def appium_service():
 def driver(appium_service, request) -> Generator[appium.webdriver.Remote, None, None]:
     options = UiAutomator2Options()
     options.app_package = package_name
+    options.app_activity = ".ui.MainActivity"
     client_config = AppiumClientConfig(remote_server_addr=f"http://{Config.APPIUM_HOST}:{Config.APPIUM_PORT}")
     _driver = appium.webdriver.Remote(
-        options=UiAutomator2Options(),
+        options=options,
         client_config=client_config,
     )
 
