@@ -44,10 +44,10 @@ We use a **rebase-only workflow**. Your branch must be rebased onto the latest `
 ### 4. End-to-End (Appium) Tests
 Agents should run Appium tests unless instructed otherwise.
 - Requirements: Android SDK, `uv`, `7z`, `qemu-img`, `node`/`npm` installed.
-- **Install Appium** (if not present, but make sure to ask the user for permission):
+- **Install Appium**:
   ```bash
-  npm install -g appium
-  appium driver install uiautomator2
+  cd appium-tests
+  npm ci
   ```
 - Location: `appium-tests/`
 

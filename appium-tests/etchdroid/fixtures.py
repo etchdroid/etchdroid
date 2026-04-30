@@ -25,13 +25,21 @@ def appium_service():
         raise RuntimeError(f"ANDROID_HOME environment variable is not set or points to an invalid directory")
     os.environ["ANDROID_HOME"] = Config.ANDROID_HOME
 
+    # Try to find the local Appium main script to avoid requiring it in the PATH
+    # The file is expected to be in appium-tests/node_modules/appium/build/lib/main.js
+    # but since this file is in appium-tests/etchdroid/fixtures.py, we go up two levels.
+    project_root = Path(__file__).parent.parent
+    local_appium = project_root / "node_modules" / "appium" / "build" / "lib" / "main.js"
+
     service = AppiumService()
-    service.start(
-        # Check the output of `appium server --help` for the complete list of
-        # server command line arguments
-        args=["--address", Config.APPIUM_HOST, "-p", Config.APPIUM_PORT, "--allow-insecure=uiautomator2:adb_shell"],
-        timeout_ms=20000,
-    )
+    kwargs = {
+        "args": ["--address", Config.APPIUM_HOST, "-p", Config.APPIUM_PORT, "--allow-insecure=uiautomator2:adb_shell"],
+        "timeout_ms": 20000,
+    }
+    if local_appium.exists():
+        kwargs["main_script"] = str(local_appium)
+
+    service.start(**kwargs)
     yield service
     service.stop()
 
@@ -48,7 +56,14 @@ def driver(appium_service, request) -> Generator[appium.webdriver.Remote, None, 
         options=options,
         client_config=client_config,
     )
-    print("[DEBUG] Connected.")
+    # noinspection PyBroadException
+    try:
+        status = _driver.get_status()
+        build_info = status.get("build", {})
+        appium_version = build_info.get("version", "unknown")
+        print(f"[DEBUG] Connected to Appium: {appium_version}")
+    except Exception:
+        print("[DEBUG] Connected (failed to retrieve version info).")
 
     logcat = None
     logcat_file = None

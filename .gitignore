@@ -129,3 +129,5 @@ fastlane/Appfile
 
 # Project exclude paths
 /dmg2img/.cxx/
+
+node_modules/

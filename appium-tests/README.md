@@ -21,8 +21,8 @@ The tests are divided into two modules:
 - `7z`, `qemu-img` and `qemu` for VM testing.
 - `node` and `npm` to install Appium:
   ```bash
-  npm install -g appium
-  appium driver install uiautomator2
+  # Inside the appium-tests/ directory
+  npm ci
   ```
 
 ### On a real device

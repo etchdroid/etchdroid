@@ -1,0 +1,10 @@
+{
+  "name": "etchdroid-appium-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Appium server and drivers for EtchDroid E2E tests",
+  "dependencies": {
+    "appium": "^3.3.1",
+    "appium-uiautomator2-driver": "^7.1.2"
+  }
+}
