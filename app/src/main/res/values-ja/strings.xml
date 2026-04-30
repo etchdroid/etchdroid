@@ -52,6 +52,7 @@
     <string name="memory_cards_using_a_usb_adapter">USBアダプター経由のメモリーカード</string>
     <string name="usb_hard_drives_ssds_some_might_work">USB ハードドライブ / SSD (動作するものもあります)</string>
     <string name="any_thunderbolt_only_device">Thunderbolt専用デバイス</string>
+    <string name="very_large_drives_2tb">非常に大容量のドライブ (≥ 2 TB)</string>
     <string name="microsoft_windows_isos_any_version">Microsoft Windows ISO(全てのバージョン)</string>
     <string name="memory_cards_using_the_internal_slot">内部スロットのメモリーカード</string>
     <string name="floppy_disk_drives">フロッピー ディスク ドライブ</string>
@@ -79,6 +80,7 @@
     <string name="support_the_project">経済的に支援する</string>
     <string name="plug_in_the_same_usb">以前使用していたものと同じ USB デバイスを接続してください!</string>
     <string name="the_image_is_is_larger_than_the_device">イメージ (%1$s) がデバイス (%2$s) より大きい</string>
+    <string name="the_usb_drive_is_too_large">USBドライブの容量が大きすぎるため、EtchDroidではサポートされていません。</string>
     <string name="supported_devices_and_images">対応されているデバイスとイメージ</string>
     <string name="usb_docks_and_hubs_might_have_power_issues">USB ドックとハブ (電源に問題がある可能性があります)</string>
     <string name="usb_flash_drives">USBフラッシュドライブ</string>

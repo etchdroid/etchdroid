@@ -79,6 +79,7 @@
     <string name="usb_device_reconnected_resuming" comment="Message displayed in a toast when the write operation is successfully resumed">USB-laite kytketty takaisin, jatketaan</string>
     <string name="the_device_is_not_responding" comment="Error message">Laite ei reagoi</string>
     <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">Levykuva (%1$s) on isompi kuin laite (%2$s)</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">USB-asema on liian suuri, eikä EtchDroid tue sitä.</string>
     <string name="could_not_open_the_source_file" comment="Error message">Lähdetiedoston avaaminen epäonnistui</string>
     <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">Tuntematon virhe: %1$s</string>
     <string name="the_usb_drive_was_unplugged" comment="Error message">USB-asema kytkettiin irti</string>
@@ -130,5 +131,6 @@
     <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">Levykuvan URI:tä ei määritetty</string>
     <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">Kohde laitetta ei määritetty</string>
     <string name="any_thunderbolt_only_device" comment="Device type">Yksinomaan Thunderbolt:ia käyttävät laitteet</string>
+    <string name="very_large_drives_2tb" comment="Device type">Erittäin suuret asemat (≥ 2 TB)</string>
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos" comment="Image type">Toisten modernien GNU/Linux ja BSD jakeluitten live ISO:t</string>
 </resources>

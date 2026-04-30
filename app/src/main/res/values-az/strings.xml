@@ -49,6 +49,7 @@
     <string name="optical_disk_drives">Optik disklər</string>
     <string name="floppy_disk_drives">Floppy disklər</string>
     <string name="any_thunderbolt_only_device">Hər hansı bir Thunderbolt cihazı</string>
+    <string name="very_large_drives_2tb">Çox böyük disklər (≥ 2 TB)</string>
     <string name="disk_images">Disk imajları</string>
     <string name="apple_dmg_disk_images">Apple DMG disk imajları</string>
     <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD və s.</string>
@@ -81,6 +82,7 @@
     <string name="usb_device_reconnected_resuming">USB cihazı yenidən qoşuldu, davam etdirilir</string>
     <string name="the_device_is_not_responding">Cihaz cavab vermir</string>
     <string name="the_image_is_is_larger_than_the_device">İmaj (%1$s) cihazdan (%2$s) böyükdür</string>
+    <string name="the_usb_drive_is_too_large">USB disk çox böyükdür və EtchDroid bunu dəstəkləmir.</string>
     <string name="could_not_open_the_source_file">Mənbə faylı açmaq mümkün olmadı</string>
     <string name="the_usb_drive_was_unplugged">USB sürücüsü ayrıldı</string>
     <string name="the_usb_device_content_does_not_match_the_image">USB cihazının məzmunu imaj ilə uyğun gəlmir</string>

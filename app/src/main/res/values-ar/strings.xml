@@ -15,6 +15,7 @@
     <string name="usb_device_reconnected_resuming">أُعيد توصيل جهاز USB، والاستئناف</string>
     <string name="missing_permission_to_access_the_usb_device">إذن مفقود للوصول إلى جهاز USB</string>
     <string name="the_image_is_is_larger_than_the_device">الصورة (%1$s) أكبر من الجهاز (%2$s)</string>
+    <string name="the_usb_drive_is_too_large">محرك أقراص USB كبير جداً ولا يدعمه EtchDroid.</string>
     <string name="community_windows_images">صور Windows التي أنشأها المجتمع، والمصممة لـ EtchDroid (على مسؤوليتك: قد تحتوي على فيروسات!)</string>
     <string name="notif_channel_job_progress_desc" comment="Notification channel description">تستخدم لإظهار تقدم الوظيفة الحالية</string>
     <string name="notif_channel_job_result_name">نتيجة المهمة</string>
@@ -31,6 +32,7 @@
     <string name="grant_access">امنح حق الوصول</string>
     <string name="writing_the_image_will_erase">ستؤدي كتابة الصورة إلى محو جميع البيانات الموجودة على محرك الأقراص المحدد</string>
     <string name="any_thunderbolt_only_device">أي جهاز يعمل بنظام Thunderbolt فقط</string>
+    <string name="very_large_drives_2tb">محركات أقراص كبيرة جداً (≥ 2 تيرابايت)</string>
     <string name="lay_your_device_flat">ضع جهازك بشكل مسطح على طاولة ولا تلمسه</string>
     <string name="disk_images">صور القرص</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">أي صورة أخرى تعمل مع Balena Etcher أو dd</string>

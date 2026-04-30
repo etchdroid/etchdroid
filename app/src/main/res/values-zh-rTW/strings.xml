@@ -62,6 +62,7 @@
     <string name="optical_disk_drives" comment="Device type">光碟機</string>
     <string name="floppy_disk_drives" comment="Device type">軟式磁碟機</string>
     <string name="any_thunderbolt_only_device" comment="Device type">僅含 Thunderbolt 連接埠的裝置</string>
+    <string name="very_large_drives_2tb">極大容量磁碟 (≥ 2 TB)</string>
     <string name="disk_images" comment="Title of the section that lists all the supported image types">磁碟鏡像檔</string>
     <string name="microsoft_windows_isos_any_version" comment="Image type">Microsoft Windows 光碟鏡像檔（不限版本）</string>
     <string name="apple_dmg_disk_images" comment="Image type">Apple 磁碟鏡像檔</string>
@@ -109,6 +110,7 @@
     <string name="the_device_is_not_responding" comment="Error message">裝置未有回應</string>
     <string name="missing_permission_to_access_the_usb_device" comment="Error message">存取 USB 裝置遭拒</string>
     <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">此鏡像檔（%1$s）的占用空間大過裝置（%2$s）所剩空間</string>
+    <string name="the_usb_drive_is_too_large">USB 磁碟容量太大，EtchDroid 不支援。</string>
     <string name="could_not_open_the_source_file" comment="Error message">無法開啟原始檔案</string>
     <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">發生不明錯誤：%1$s</string>
     <string name="the_usb_drive_stopped_responding" comment="Error message">USB 儲存體已終止回應</string>

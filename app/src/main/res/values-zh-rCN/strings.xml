@@ -122,6 +122,7 @@
     <string name="representation_of_the_required_steps">所需步骤的表示：拔出、重新连接、授予权限</string>
     <string name="the_device_is_not_responding">设备没有响应</string>
     <string name="the_image_is_is_larger_than_the_device">镜像 (%1$s) 大于设备 (%2$s)</string>
+    <string name="the_usb_drive_is_too_large">USB 驱动器太大，EtchDroid 不支持。</string>
     <string name="usb_drives_are_unreliable">USB 驱动器不可靠，安卓系统也没有授予足够的权限来自动恢复。我们只能将就！</string>
     <string name="worker_null_device_error">启动了写入尝试，但某些信息在此过程中丢失了。请重试。</string>
     <string name="please_report_fatal_issue">如果可以，请在 GitHub 上报告此问题，描述导致此错误的步骤。</string>

@@ -64,6 +64,7 @@
     <string name="memory_cards_using_a_usb_adapter">Cartões de memória, usando um adaptador USB</string>
     <string name="usb_hard_drives_ssds_some_might_work">Discos rígidos USB / SSDs (alguns podem funcionar)</string>
     <string name="any_thunderbolt_only_device">Qualquer dispositivo somente Thunderbolt</string>
+    <string name="very_large_drives_2tb">Unidades muito grandes (≥ 2 TB)</string>
     <string name="disk_images">Imagens de disco</string>
     <string name="microsoft_windows_isos_any_version">ISOs do Microsoft Windows (qualquer versão)</string>
     <string name="apple_dmg_disk_images">Imagens de disco Apple DMG</string>

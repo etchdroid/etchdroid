@@ -106,8 +106,10 @@
     <string name="error">Erro</string>
     <string name="unknown_device">Dispositivo desconhecido</string>
     <string name="any_thunderbolt_only_device">Qualquer dispositivo somente Thunderbolt</string>
+    <string name="very_large_drives_2tb">Unidades muito grandes (≥ 2 TB)</string>
     <string name="image_written_successfully">Imagem escrita com sucesso!</string>
     <string name="the_image_is_is_larger_than_the_device">A imagem (%1$s) é maior que o dispositivo (%2$s)</string>
+    <string name="the_usb_drive_is_too_large">A unidade USB é muito grande e o EtchDroid não a suporta.</string>
     <string name="i_did_not_unplug_it">Eu não desconectei!</string>
     <string name="lay_your_device_flat">Coloque o dispositivo em uma mesa e não toque nele</string>
     <string name="continue_anyway">Continuar mesmo assim</string>

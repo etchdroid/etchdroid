@@ -76,6 +76,7 @@
     <string name="optical_disk_drives">دستگاه‌های دیسک نوری</string>
     <string name="floppy_disk_drives">دستگاه‌های دیسک فلاپی</string>
     <string name="any_thunderbolt_only_device">هر دستگاهی که تنها از Thunderbolt پشتیبانی می‌کند</string>
+    <string name="very_large_drives_2tb">درایوهای بسیار بزرگ (>= ۲ ترابایت)</string>
     <string name="disk_images">تصاویر دیسک</string>
     <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD و...</string>
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">تصاویر ISO زنده توزیع‌های مدرن GNU/Linux و BSD</string>
@@ -111,6 +112,7 @@
     <string name="the_device_is_not_responding">دستگاه پاسخ نمی‌دهد</string>
     <string name="missing_permission_to_access_the_usb_device">دسترسی به دستگاه USB وجود ندارد</string>
     <string name="the_image_is_is_larger_than_the_device">تصویر (%1$s) از دستگاه (%2$s) بزرگتر است</string>
+    <string name="the_usb_drive_is_too_large">درایو USB بسیار بزرگ است و EtchDroid از آن پشتیبانی نمی‌کند.</string>
     <string name="could_not_open_the_source_file">نمی‌توان پرونده خاستگاه را باز کرد</string>
     <string name="an_unknown_error_occurred">نادرستی ناشناخته‌ای رخ داد: %1$s</string>
     <string name="the_usb_drive_was_unplugged">دستگاه‌ USB جدا شد</string>

@@ -43,7 +43,8 @@
     <string name="optical_disk_drives">Lecteurs de disques optiques</string>
     <string name="floppy_disk_drives">Lecteurs de disquettes</string>
     <string name="any_thunderbolt_only_device">Tout appareil fonctionnant uniquement avec Thunderbolt</string>
-    <string name="disk_images">Images de disques</string>
+    <string name="very_large_drives_2tb">Lecteurs très volumineux (≥ 2 TB)</string>
+    <string name="disk_images">Images disque</string>
     <string name="raspberry_pi_sd_card_images_unzip_first">Images de la carte SD du Raspberry Pi (décompressez d\'abord !)</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Toute autre image qui fonctionne avec Balena Etcher ou dd</string>
     <string name="older_gnu_linux_distributions_isos_2010">Anciennes ISO de distributions GNU/Linux (&lt; 2010)</string>
@@ -70,6 +71,7 @@
     <string name="usb_device_reconnected_resuming">Périphérique USB reconnecté, reprise</string>
     <string name="the_device_is_not_responding">L\'appareil ne répond pas</string>
     <string name="the_image_is_is_larger_than_the_device">L\'image (%1$s) est plus grande que le périphérique (%2$s)</string>
+    <string name="the_usb_drive_is_too_large">Le lecteur USB est trop grand et EtchDroid ne le supporte pas.</string>
     <string name="the_usb_drive_was_unplugged">La clé USB a été débranchée</string>
     <string name="support_the_project">Soutenir financièrement</string>
     <string name="write_another_image">Écrire une autre image</string>

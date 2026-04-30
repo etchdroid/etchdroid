@@ -83,6 +83,7 @@
     <string name="plug_in_the_same_usb">Riconnetti lo stesso dispositivo USB che hai usato prima!</string>
     <string name="the_device_is_not_responding">Il dispositivo ha smesso di rispondere</string>
     <string name="the_image_is_is_larger_than_the_device">L\'immagine (%1$s) è più grande del dispositivo (%2$s)</string>
+    <string name="the_usb_drive_is_too_large">L\'unità USB è troppo grande e EtchDroid non la supporta.</string>
     <string name="could_not_open_the_source_file">Impossibile aprire il file sorgente</string>
     <string name="an_unknown_error_occurred">Si è verificato un errore inaspettato: %1$s</string>
     <string name="the_usb_drive_was_unplugged">Il dispositivo USB è stato staccato staccato</string>
@@ -104,6 +105,7 @@
     <string name="lay_your_device_flat_no_accel">Appoggia il dispositivo su un tavolo prima di continuare.</string>
     <string name="apple_dmg_disk_images">Immagini disco Apple DMG</string>
     <string name="any_thunderbolt_only_device">Qualsiasi dispositivo che supporta solo Thunderbolt</string>
+    <string name="very_large_drives_2tb">Dischi molto grandi (≥ 2 TB)</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Qualsiasi altra immagine che funziona con Balena Etcher o dd</string>
     <string name="support_for_dmg_images_was_removed">Il supporto per le immagini DMG è stato rimosso a partire da EtchDroid 2.0. Si possono scaricare versioni precedenti su %1$s.</string>
     <string name="developed_by">Sviluppato da %1$s e altrз %2$s.

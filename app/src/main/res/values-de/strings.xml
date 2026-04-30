@@ -67,6 +67,7 @@
     <string name="usb_docks_and_hubs_might_have_power_issues">USB-Docks und -Hubs (können Probleme mit der Stromversorgung haben)</string>
     <string name="memory_cards_using_the_internal_slot">Speicherkarten über den internen Steckplatz</string>
     <string name="any_thunderbolt_only_device">Jedes reine Thunderbolt-Gerät</string>
+    <string name="very_large_drives_2tb">Sehr große Laufwerke (≥ 2 TB)</string>
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">Live-ISOs anderer moderner GNU/Linux- und BSD-Distributionen</string>
     <string name="raspberry_pi_sd_card_images_unzip_first">Raspberry Pi SD-Karten-Abbilder (zuerst entpacken!)</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Jedes andere Abbild, das mit Balena Etcher oder dd funktioniert</string>
@@ -97,6 +98,7 @@
     <string name="the_device_is_not_responding">Das Gerät reagiert nicht</string>
     <string name="missing_permission_to_access_the_usb_device">Fehlende Berechtigung für den Zugriff auf das USB-Gerät</string>
     <string name="the_image_is_is_larger_than_the_device">Das Datenträgerabbild (%1$s) ist größer als das Gerät (%2$s)</string>
+    <string name="the_usb_drive_is_too_large">Das USB-Laufwerk ist zu groß und wird von EtchDroid nicht unterstützt.</string>
     <string name="could_not_open_the_source_file">Die Quelldatei konnte nicht geöffnet werden</string>
     <string name="an_unknown_error_occurred">Ein unbekannter Fehler ist aufgetreten: %1$s</string>
     <string name="the_usb_drive_was_unplugged">Das USB-Laufwerk wurde entfernt</string>

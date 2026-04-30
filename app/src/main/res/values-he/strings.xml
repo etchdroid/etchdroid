@@ -49,6 +49,7 @@
     <string name="the_device_is_not_responding">ההתקן אינו מגיב</string>
     <string name="could_not_open_the_source_file">לא ניתן לפתוח את קובץ המקור</string>
     <string name="the_image_is_is_larger_than_the_device">קובץ הדמות (%1$s) גדול מנפח ההתקן (%2$s)</string>
+    <string name="the_usb_drive_is_too_large">כונן ה-USB גדול מדי ו-EtchDroid לא תומכת בו.</string>
     <string name="missing_permission_to_access_the_usb_device">חסרה הרשאה לגשת להתקן ה־USB</string>
     <string name="action_required">פעולה נדרשת</string>
     <string name="notification_write_no_notifications_text">הפעלת התראות על התקדמות • %1$s נכתבת אל %2$s</string>
@@ -110,6 +111,7 @@
     <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">תקלה בלתי צפויה, כנראה תקלה. עדיף לדווח עליה!</string>
     <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">לינוקס ארץ׳, אובונטו, דביאן, פדורה, pop!_OS, לינוקס מינט, FreeBSD ועוד.</string>
     <string name="any_thunderbolt_only_device">כל התקן עם חיבור Thunderbolt בלבד</string>
+    <string name="very_large_drives_2tb">כוננים גדולים מאוד (≥ 2 TB)</string>
     <string name="disk_images">דמויות כונן</string>
     <string name="plug_in_the_same_usb">יש לחבר את אותו התקן ה־USB בו השתמשת קודם לכן!</string>
     <string name="usb_drives_are_unreliable">כונני USB אינם אמינים, ומערכת Android לא מעניקה מספיק הרשאות לשחזור אוטומטי. עלינו להסתפק במה שיש!</string>

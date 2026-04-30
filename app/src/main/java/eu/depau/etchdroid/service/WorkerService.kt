@@ -35,10 +35,11 @@ import eu.depau.etchdroid.utils.exception.InitException
 import eu.depau.etchdroid.utils.exception.MissingDeviceException
 import eu.depau.etchdroid.utils.exception.NotEnoughSpaceException
 import eu.depau.etchdroid.utils.exception.OpenFileException
+import eu.depau.etchdroid.utils.exception.UsbDriveTooLargeException
+import eu.depau.etchdroid.utils.exception.base.EtchDroidException
 import eu.depau.etchdroid.utils.exception.UnknownException
 import eu.depau.etchdroid.utils.exception.UsbCommunicationException
 import eu.depau.etchdroid.utils.exception.VerificationFailedException
-import eu.depau.etchdroid.utils.exception.base.EtchDroidException
 import eu.depau.etchdroid.utils.exception.base.FatalException
 import eu.depau.etchdroid.utils.ktexts.broadcastLocally
 import eu.depau.etchdroid.utils.ktexts.broadcastLocallySync
@@ -373,6 +374,15 @@ class WorkerService : LifecycleService() {
                             "num blocks: ${blockDev.blocks})",
                     "worker"
                 )
+
+                if (blockDev.blocks < 0) {
+                    Telemetry.captureMessage(
+                        "Device is too large: " +
+                                "num blocks: ${blockDev.blocks}"
+                    )
+                    throw UsbDriveTooLargeException()
+                }
+
                 imageSize = mSourceUri.getFileSize(this@WorkerService)
 
                 if (devSize < imageSize) {

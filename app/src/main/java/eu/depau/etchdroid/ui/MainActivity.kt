@@ -959,6 +959,12 @@ fun WhatCanIWriteBottomSheet(onDismissRequest: () -> Unit, darkTheme: Boolean = 
                 )
             }
             item {
+                ItemSupportEntry(
+                    description = stringResource(R.string.very_large_drives_2tb),
+                    SupportStatus.UNSUPPORTED, darkTheme
+                )
+            }
+            item {
                 Text(
                     text = stringResource(R.string.disk_images),
                     style = MaterialTheme.typography.titleMedium, textAlign = TextAlign.Center,

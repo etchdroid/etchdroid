@@ -71,7 +71,8 @@
     <string name="optical_disk_drives">Unidades de disco óptico</string>
     <string name="floppy_disk_drives">Unidades de disquete</string>
     <string name="any_thunderbolt_only_device">Cualquier dispositivo que solo admita Thunderbolt</string>
-    <string name="disk_images">Imágenes del disco</string>
+    <string name="very_large_drives_2tb">Unidades muy grandes (≥ 2 TB)</string>
+    <string name="disk_images">Imágenes de disco</string>
     <string name="microsoft_windows_isos_any_version">ISO de Microsoft Windows (cualquier versión)</string>
     <string name="apple_dmg_disk_images">Imágenes del disco DMG de Apple</string>
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">ISO para visualización de distribuciones modernas GNU/Linux o BSD</string>
@@ -114,6 +115,7 @@
     <string name="the_device_is_not_responding">El dispositivo no responde</string>
     <string name="missing_permission_to_access_the_usb_device">Falta el permiso para acceder al dispositivo USB</string>
     <string name="the_image_is_is_larger_than_the_device">La imagen (%1$s) ocupa mas, que la capacidad del dispositivo (%2$s)</string>
+    <string name="the_usb_drive_is_too_large">La unidad USB es demasiado grande y EtchDroid no la admite.</string>
     <string name="could_not_open_the_source_file">No se pudo abrir el archivo de origen</string>
     <string name="the_usb_drive_was_unplugged">La unidad USB fue desconectada</string>
     <string name="the_usb_drive_stopped_responding">La unidad USB no responde</string>

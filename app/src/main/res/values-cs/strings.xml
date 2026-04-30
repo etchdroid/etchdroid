@@ -28,6 +28,7 @@
     <string name="to_recover_unplug" comment="Text that explains what to do when a recoverable error has occurred">Chcete-li provést obnovení, odpojte jednotku USB, znovu ji připojte a znovu k ní povolte přístup.</string>
     <string name="the_device_is_not_responding" comment="Error message">Zařízení neodpovídá</string>
     <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">Obraz (%1$s) je větší než zařízení (%2$s)</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">USB disk je příliš velký a EtchDroid jej nepodporuje.</string>
     <string name="missing_permission_to_access_the_usb_device" comment="Error message">Chybí oprávnění k přístupu k zařízení USB</string>
     <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">EtchDroid si cení vašeho soukromí a k řešení problémů s aplikacemi používá pouze minimální telemetrii.\n\nBuďte součástí naší open-source komunity - udržujte telemetrii povolenou a pomozte vylepšit EtchDroid pro všechny!\n\nAčkoli neshromažďujeme žádné osobní údaje, věříme v transparentnost a chceme, abyste věděli, že názvy otevřených obrazových souborů a ID zařízení USB jsou shromažďovány anonymně, aby pomohly diagnostikovat problémy s konkrétním hardwarem. Pokud názvy souborů s obrázky nebo ID zařízení nejsou vysoce citlivé, je bezpečné tyto údaje sdílet. (%1$s)</string>
     <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">Potvrzení operace</string>
@@ -48,6 +49,7 @@
     <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">Buďte opatrní!</string>
     <string name="floppy_disk_drives" comment="Device type">Disketové jednotky</string>
     <string name="any_thunderbolt_only_device" comment="Device type">Jakékoli zařízení s rozhraním Thunderbolt</string>
+    <string name="very_large_drives_2tb" comment="Device type">Velmi velké disky (≥ 2 TB)</string>
     <string name="disk_images" comment="Title of the section that lists all the supported image types">Diskové obrazy</string>
     <string name="optical_disk_drives" comment="Device type">Optické diskové jednotky</string>
     <string name="microsoft_windows_isos_any_version" comment="Image type">Microsoft Windows ISOs (všechny verze)</string>

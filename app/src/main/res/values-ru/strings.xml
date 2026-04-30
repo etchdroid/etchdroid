@@ -111,6 +111,7 @@
     <string name="the_device_is_not_responding">Устройство не отвечает</string>
     <string name="usb_device_reconnected_resuming">USB-устройство переподключено, возобновление</string>
     <string name="the_image_is_is_larger_than_the_device">Образ (%1$s) больше, чем устройство (%2$s)</string>
+    <string name="the_usb_drive_is_too_large">USB-накопитель слишком велик, и EtchDroid его не поддерживает.</string>
     <string name="support_the_project">Поддержать деньгами</string>
     <string name="write_another_image">Записать другой образ</string>
     <string name="community_windows_images">Созданные сообществом образы Windows для EtchDroid (вам решать: они могут содержать вирусы!)</string>
