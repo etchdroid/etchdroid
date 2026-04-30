@@ -133,4 +133,6 @@
     <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Telemetri</string>
     <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">Gizlilik Politikası</string>
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Daha fazla bilgi edin</string>
+    <string name="very_large_drives_2tb" comment="Device type">Çok büyük sürücüler (≥ 2 TB)</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">USB bellek çok büyük ve EtchDroid bunu desteklemiyor.</string>
 </resources>
