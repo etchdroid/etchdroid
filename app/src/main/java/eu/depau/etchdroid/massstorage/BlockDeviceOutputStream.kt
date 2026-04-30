@@ -77,12 +77,12 @@ class BlockDeviceOutputStream(
      * The total size of the block device in bytes.
      */
     private val mSizeBytes: Long
-        get() = blockDev.blocks * blockDev.blockSize
+        get() = blockDev.blocks * blockDev.blockSize.toLong()
 
     /**
      * The buffer used to store the data before it is written to the block device.
      */
-    private var mByteBuffer = ByteBuffer.allocate(minOf(blockDev.blockSize * bufferBlocks, mSizeBytes).toInt())
+    private var mByteBuffer = ByteBuffer.allocate(minOf((blockDev.blockSize.toLong() * bufferBlocks), mSizeBytes).toInt())
 
     /**
      * Whether the stream position is at or past the end of the block device.

@@ -78,7 +78,7 @@ class BlockDeviceInputStream(
      * The size of the block device in bytes.
      */
     private val sizeBytes: Long
-        get() = blockDev.blocks.toLong() * blockDev.blockSize
+        get() = blockDev.blocks * blockDev.blockSize.toLong()
 
     /**
      * Whether the stream is at or past the end of the block device.
@@ -198,7 +198,7 @@ class BlockDeviceInputStream(
 
                 while (true) {
                     val blockNumber = mReadNextBlockNumber.getAndAdd(bufferBlocks)
-                    if (blockNumber !in 0 until blockDev.blocks) break
+                    if (blockNumber !in 0 until (blockDev.blocks.toLong() and 0xFFFFFFFFL)) break
                     mInFlightBlockNumber.set(blockNumber)
 
                     traceIo("read $blockNumber buffer $bufferBlocks blocks start")
@@ -259,7 +259,7 @@ class BlockDeviceInputStream(
 
         if (newPosition == sizeBytes) {
             // EOF
-            mCurrentBlockOffset = blockDev.blocks
+            mCurrentBlockOffset = blockDev.blocks.toLong() and 0xFFFFFFFFL
             mReadBuffer = ByteBuffer.allocate(0)
             return
         }
