@@ -38,19 +38,23 @@ def appium_service():
 
 @pytest.fixture(scope="function")
 def driver(appium_service, request) -> Generator[appium.webdriver.Remote, None, None]:
+    print(f"\n[DEBUG] Starting driver fixture for {request.node.name}")
     options = UiAutomator2Options()
     options.app_package = package_name
     options.app_activity = ".ui.MainActivity"
     client_config = AppiumClientConfig(remote_server_addr=f"http://{Config.APPIUM_HOST}:{Config.APPIUM_PORT}")
+    print("[DEBUG] Connecting to Appium...")
     _driver = appium.webdriver.Remote(
         options=options,
         client_config=client_config,
     )
+    print("[DEBUG] Connected.")
 
     logcat = None
     logcat_file = None
     try:
         if Config.LOGCAT_DIR:
+            print(f"[DEBUG] Starting logcat to {Config.LOGCAT_DIR}")
             logcat_dir = Path(Config.LOGCAT_DIR)
             logcat_dir.mkdir(parents=True, exist_ok=True)
             logcat_file = open(logcat_dir / f"{request.node.name}.log", "wb")
@@ -61,6 +65,7 @@ def driver(appium_service, request) -> Generator[appium.webdriver.Remote, None, 
             )
 
         if not Config.DISABLE_SETUP:
+            print("[DEBUG] Performing setup (clearApp, startActivity)...")
             # noinspection PyBroadException
             try:
                 execute_script(_driver, "mobile: clearApp", {"appId": package_name})
@@ -75,15 +80,18 @@ def driver(appium_service, request) -> Generator[appium.webdriver.Remote, None, 
                 },
             )
 
+        print("[DEBUG] Yielding driver.")
         yield _driver
 
         # noinspection PyBroadException
         try:
             if not Config.DISABLE_SHUTDOWN:
+                print("[DEBUG] Terminating app...")
                 _driver.terminate_app(package_name)
         except Exception:
             pass
     finally:
+        print("[DEBUG] Cleaning up...")
         if Config.LOGCAT_DIR:
             if logcat is not None:
                 logcat.send_signal(signal.SIGINT)
