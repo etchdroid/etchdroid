@@ -137,4 +137,5 @@
     <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid 发送遥测信息。</string>
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">了解更多</string>
     <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">发送匿名信息</string>
+    <string name="very_large_drives_2tb" comment="Device type">非常大的驱动器（≥ 2 TB）</string>
 </resources>
