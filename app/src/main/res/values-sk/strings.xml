@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="cancel" comment="Cancel string, used all over the place">Zrušiť</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">USB kľúč je príliš veľký a EtchDroid ho nepodporuje.</string>
+    <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">Obraz disku (%1$s) je väčší ako kapacita zariadenia (%2$s)</string>
+    <string name="could_not_open_the_source_file" comment="Error message">Nepodarilo sa otvoriť zdrojový súbor</string>
+    <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">Došlo k neznámej chybe: %1$s</string>
+    <string name="the_usb_drive_was_unplugged" comment="Error message">USB kľúč bol odpojený</string>
+    <string name="the_usb_drive_stopped_responding" comment="Error message">USB kľúč prestal reagovať</string>
+    <string name="the_usb_device_content_does_not_match_the_image" comment="Error message displayed when the verification failed">Obsah USB zariadenia nezodpovedá obrazu disku</string>
+    <string name="write_another_image" comment="Displayed in the successful write page, when clicked the app goes back to the initial page">Zapísať ďalší obraz disku</string>
+    <string name="title_activity_confirm_operation" comment="Title of the screen that displays the summary of the operation about to be performed">Potvrdiť operáciu</string>
+    <string name="no_image_uri_provided" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a source file; the app redirects back to the home page">Chýba URI obrazu</string>
+    <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">Nebolo vybrané žiadne cieľové zariadenie</string>
+    <string name="service_timeout_message" comment="Error message displayed when the background write service does not send any progress updates for a suspiciously long time. In this case, the app assumes the service got stuck and prompts the user to try again.">Zdá sa, že sa proces zápisu zasekol. Skúste to znova.</string>
+    <string name="community_windows_images" comment="&quot;You're on your own&quot; can be translated with something similar to &quot;unsupported&quot; or &quot;be careful!&quot; if it makes more sense in the target language">Komunitné Windows obrazy vytvorené pre EtchDroid (na vlastné riziko: môžu obsahovať vírusy!)</string>
+    <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Proces zápisu bol spustený, no došlo k strate potrebných údajov. Skúste to znova.</string>
+    <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Ak je to možné, nahláste túto chybu na GitHube aj s postupom, ako k nej došlo.</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Zobrazit GitHub issues</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Telemetria</string>
+    <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">Ochrana osobných údajov</string>
+    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">EtchDroid si váži vaše súkromie a využíva len minimálnu telemetriu na analýzu problémov v aplikácii.\n\nStaňte sa súčasťou našej open-source komunity – ponechajte telemetriu zapnutú a pomôžte vylepšiť EtchDroid pre všetkých!\n\nHoci nezhromažďujeme žiadne osobne identifikovateľné údaje, veríme v transparentnosť a chceme, aby ste vedeli, že názvy otvorených súborov obrazov a ID USB zariadení sú zbierané anonymne na účely diagnostiky problémov so špecifickým hardvérom. Ak názvy vašich súborov alebo ID zariadení nie sú vysoko citlivé, zdieľanie týchto údajov je bezpečné. (%1$s)</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">Pomôžte vylepšiť EtchDroid!</string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">Ikona telemetrie</string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">Vypnúť telemetriu</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">Povoliť telemetriu</string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid odosiela telemetriu.</string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Zobraziť viac</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Odosielať anonymné údaje</string>
 </resources>
