@@ -7,7 +7,7 @@
     <string name="write_failed">Falha na gravação</string>
     <string name="success_notif_content_text">%1$s gravado com sucesso para %2$s</string>
     <string name="write_finished">Gravação finalizada</string>
-    <string name="cancel">Cancelar</string>
+    <string name="cancel">Cancele o processo ou a ação que a pessoa, dispositivo ou coisa está realizando ou irá realizar</string>
     <string name="unknown_filename">Nome de ficheiro desconhecido</string>
     <string name="light">Claro</string>
     <string name="usb_docks_and_hubs_might_have_power_issues">Docks USB e hubs (podem ter problemas de energia)</string>
@@ -15,27 +15,27 @@
     <string name="optical_disk_drives">Unidades de disco óptico</string>
     <string name="floppy_disk_drives">Unidades de disquete</string>
     <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, etc.</string>
-    <string name="sure">Claro</string>
+    <string name="sure">Aceitar</string>
     <string name="image_written_successfully">Imagem escrita com sucesso!</string>
     <string name="write_a_review">Escreva uma análise</string>
     <string name="action_required">Ação necessária</string>
     <string name="notification_write_progress_title">A Escrever imagem…</string>
-    <string name="notification_verify_progress_title">A verificar imagem…</string>
-    <string name="notification_write_no_notifications_text">Ative notificações de progresso • A gravar %1$s em %2$s</string>
+    <string name="notification_verify_progress_title">Verificando imagem…</string>
+    <string name="notification_write_no_notifications_text">Habilitar notificações de progresso • Escrevendo %1$s para %2$s</string>
     <string name="notification_write_tap_for_progress_text">Toque para ver o progresso • Escrevendo %1$s em %2$s</string>
     <string name="notification_write_progress_content">%1$s em %2$s</string>
     <string name="notification_verify_progress_content">%1$s contra %2$s</string>
     <string name="permission_denied_for_usb_device">Permissão negada para dispositivo USB %1$s</string>
     <string name="usb_device_was_unplugged">O dispositivo USB foi desconectado</string>
-    <string name="write_an_image">Escrever uma imagem</string>
+    <string name="write_an_image">Escreva uma imagem</string>
     <string name="whats_supported">O que é suportado?</string>
     <string name="style">Estilo</string>
-    <string name="device_setting">Configuração do dispositivo</string>
+    <string name="device_setting">Configurações do dispositivo</string>
     <string name="dark">Escuro</string>
     <string name="dynamic_colors">Cores dinâmicas</string>
     <string name="about">Sobre</string>
     <string name="is_this_a_windows_iso">Isso é um ISO do Windows?</string>
-    <string name="a_regular_windows_iso_won_t_work">Um ISO normal do Windows não funcionará com EtchDroid, a menos que tenha sido especificamente preparado para uso com EtchDroid, Etcher ou dd.</string>
+    <string name="a_regular_windows_iso_won_t_work">Um ISO normal do Windows não funcionará com o EtchDroid, a menos que tenha sido preparado especificamente para uso com o Etcher, dd ou EtchDroid.</string>
     <string name="continue_anyway">Continuar mesmo assim</string>
     <string name="select_a_usb_drive">Selecione uma unidade USB</string>
     <string name="connect_a_usb_drive">Conecte uma unidade USB</string>
@@ -114,7 +114,7 @@
     <string name="the_usb_drive_was_unplugged">A unidade USB foi desconectada</string>
     <string name="the_usb_drive_stopped_responding">A unidade USB parou de responder</string>
     <string name="the_usb_device_content_does_not_match_the_image">O conteúdo do dispositivo USB não corresponde à imagem</string>
-    <string name="support_the_project">Apoio financeiro</string>
+    <string name="support_the_project">Apoie financeiramente</string>
     <string name="write_another_image">Escrever outra imagem</string>
     <string name="title_activity_confirm_operation">Confirmar operação</string>
     <string name="no_image_uri_provided">Nenhuma URI de imagem foi fornecida</string>
@@ -134,4 +134,5 @@
     <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">O EtchDroid envia dados de telemetria.</string>
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Saber mais</string>
     <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Enviar dados anônimos</string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">Optar fora</string>
 </resources>
