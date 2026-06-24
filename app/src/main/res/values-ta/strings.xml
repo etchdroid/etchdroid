@@ -14,7 +14,7 @@
     <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">ஒரு எழுதும் முயற்சி தொடங்கப்பட்டது, ஆனால் துரதிர்ச்டவசமாக சில தகவல்கள் வழியில் தொலைந்துவிட்டன. மீண்டும் முயற்சிக்கவும்.</string>
     <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">டெலிமெட்ரி படவுரு</string>
     <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">பெயரிலி தரவை அனுப்பவும்</string>
-    <string name="cancel" comment="Cancel string, used all over the place">ரத்துசெய்</string>
+    <string name="cancel" comment="Cancel string, used all over the place">நபர் சாதனம் அல்லது பிற பொருள் செய்யும் அல்லது (செயல்முறையின் சூழலில்) செய்யப் போகும் செயல்முறை அல்லது காரியத்தை ரத்துசெய்யவும்</string>
     <string name="write_finished" comment="Notification title when the write operation is successful">எழுதப்பட்டது</string>
     <string name="success_notif_content_text" comment=" Notification title when the write operation is successful. Parameters: filename, device name">%1$s வெற்றிகரமாக %2$s க்கு எழுதப்பட்டது</string>
     <string name="write_failed" comment="Notification title when a non-recoverable error occurs">எழுத்து தோல்வியுற்றது</string>
@@ -91,7 +91,7 @@
     <string name="skip_verification" comment="Displayed on a button that, when pressed, skips the verification of the written image">சரிபார்ப்பைத் தவிர்க்கவும்</string>
     <string name="image_written_successfully" comment="Title of the success page">படம் வெற்றிகரமாக எழுதப்பட்டது!</string>
     <string name="write_a_review" comment="Displayed in a button on the success page">மதிப்பாய்வு எழுதுங்கள்</string>
-    <string name="got_an_unsupported_drive_notification" comment="Title of the card that teaches the user about any &quot;Issues with this drive&quot; notifications">இந்த இயக்கி அறிவிப்பில் சிக்கல் உள்ளதா?</string>
+    <string name="got_an_unsupported_drive_notification" comment="Title of the card that teaches the user about any &quot;Issues with this drive&quot; notifications">\"இந்த இயக்ககத்தில் சிக்கல்கள்\" அறிவிப்பு கிடைத்ததா?</string>
     <string name="star_on_github" comment="Displayed in a button on the success page">கிட்அப்பில் விண்மீன்</string>
     <string name="it_s_safe_to_ignore" comment="Message of the card that teaches the user about any &quot;Issues with this drive&quot; notifications; the parameter will be replaced with the translation of &quot;Learn what it means&quot;">புறக்கணிப்பது பாதுகாப்பானது! உங்கள் இயக்ககத்தை அவிழ்த்து சாதாரணமாகப் பயன்படுத்துங்கள். %1$s மற்றும் பின்னர் உங்கள் இயக்ககத்தை எவ்வாறு வடிவமைப்பது என்று பாருங்கள்.</string>
     <string name="learn_what_it_means" comment="Part of the message of the card that teaches the user about any &quot;Issues with this drive&quot; notifications; the full sentence is &quot;Learn what it means and see how to format your drive later&quot;">அதன் பொருள் என்ன என்பதை அறிக</string>
@@ -131,4 +131,6 @@
     <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">இயக்கப்பட்டிருங்கள்</string>
     <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">எட்ச்ராய்டு டெலிமெட்ரி தகவலை அனுப்புகிறது.</string>
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">மேலும் அறிக</string>
+    <string name="very_large_drives_2tb" comment="Device type">மிகப் பெரிய இயக்கிகள் (≥ 2 TB)</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">USB இயக்கி மிகவும் பெரியது மற்றும் EtchDroid அதை ஆதரிக்காது.</string>
 </resources>
