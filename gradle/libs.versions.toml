@@ -1,37 +1,38 @@
 [versions]
-accompanist = "0.32.0"
-activity-compose = "1.10.1"
+accompanist = "0.37.3"
+activity-compose = "1.13.0"
 android-gradle-plugin = "9.2.1"
-android-junit5 = "1.10.0.0"
-coil = "2.5.0"
-compose = "1.7.8"
-compose-bom = "2025.03.00"
-core-ktx = "1.15.0"
+android-junit5 = "2.0.1"
+coil = "2.7.0"
+compose-bom = "2026.06.00"
+core-ktx = "1.18.0"
 constraintlayout-compose = "1.1.1"
-espresso-core = "3.6.1"
+espresso-core = "3.7.0"
 gplay = "2.0.2"
-junit = "5.11.3"
+junit = "6.1.0"
 kotlin = "2.4.0"
-kotlinx-coroutines-debug = "1.7.3"
+kotlinx-coroutines-debug = "1.11.0"
 libaums = "0.10.0"
 libaums-libusbcommunication = "0.3.0"
-lifecycle = "2.8.7"
-lottie = "6.2.0"
-material = "1.12.0"
-material3 = "1.3.1"
-material3-adaptive = "1.1.0"
-mockito = "5.8.0"
-robolectric = "4.14"
+lifecycle = "2.10.0"
+localbroadcastmanager = "1.1.0"
+lottie = "6.7.1"
+material = "1.14.0"
+material3 = "1.4.0"
+material3-adaptive = "1.2.0"
+mockito = "5.23.0"
+navigation-compose = "2.9.8"
+robolectric = "4.16.1"
 robolectric-junit5 = "0.9.0"
-test-core = "1.6.1"
-test-runner = "1.6.2"
+test-core = "1.7.0"
+test-runner = "1.7.0"
 
 # Note for F-Droid developers: Sentry and Firebase are not enabled for F-Droid builds
-sentry-lib = "8.4.0"
-sentry-plugin = "4.12.0"
-firebase-crashlytics = "19.4.2"
-google-gms-google-services = "4.4.2"
-google-firebase-crashlytics = "3.0.3"
+sentry-lib = "8.46.0"
+sentry-plugin = "6.13.0"
+firebase-crashlytics = "20.0.6"
+google-gms-google-services = "4.5.0"
+google-firebase-crashlytics = "3.0.7"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
@@ -45,18 +46,17 @@ kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref =
 robolectric-junit5 = { id = "tech.apter.junit5.jupiter.robolectric-extension-gradle-plugin", version.ref = "robolectric-junit5" }
 
 [libraries]
-accompanist-navigation-animation = { group = "com.google.accompanist", name = "accompanist-navigation-animation", version.ref = "accompanist" }
 accompanist-permissions = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "accompanist" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coil" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose" }
-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "compose" }
-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "compose" }
-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "compose" }
-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "compose" }
-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayout-compose" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
@@ -70,12 +70,14 @@ libaums-core = { group = "me.jahnen.libaums", name = "core", version.ref = "liba
 libaums-libusbcommunication = { group = "me.jahnen.libaums", name = "libusbcommunication", version.ref = "libaums-libusbcommunication" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
 lifecycle-service = { group = "androidx.lifecycle", name = "lifecycle-service", version.ref = "lifecycle" }
+localbroadcastmanager = { group = "androidx.localbroadcastmanager", name = "localbroadcastmanager", version.ref = "localbroadcastmanager" }
 lottie-compose = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottie" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "compose" }
+material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
 material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
 material3-adaptive = { group = "androidx.compose.material3.adaptive", name = "adaptive", version.ref = "material3-adaptive" }
 mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation-compose" }
 robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 test-core = { group = "androidx.test", name = "core", version.ref = "test-core" }
 test-runner = { group = "androidx.test", name = "runner", version.ref = "test-runner" }

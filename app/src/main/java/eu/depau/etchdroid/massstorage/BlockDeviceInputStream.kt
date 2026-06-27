@@ -4,7 +4,6 @@ import android.util.Log
 import eu.depau.etchdroid.utils.AsyncInputStream
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ClosedReceiveChannelException
 import kotlinx.coroutines.channels.ClosedSendChannelException
@@ -198,7 +197,7 @@ class BlockDeviceInputStream(
 
                 while (true) {
                     val blockNumber = mReadNextBlockNumber.getAndAdd(bufferBlocks)
-                    if (blockNumber !in 0 until (blockDev.blocks.toLong() and 0xFFFFFFFFL)) break
+                    if (blockNumber !in 0 until (blockDev.blocks and 0xFFFFFFFFL)) break
                     mInFlightBlockNumber.set(blockNumber)
 
                     traceIo("read $blockNumber buffer $bufferBlocks blocks start")
@@ -259,7 +258,7 @@ class BlockDeviceInputStream(
 
         if (newPosition == sizeBytes) {
             // EOF
-            mCurrentBlockOffset = blockDev.blocks.toLong() and 0xFFFFFFFFL
+            mCurrentBlockOffset = blockDev.blocks and 0xFFFFFFFFL
             mReadBuffer = ByteBuffer.allocate(0)
             return
         }

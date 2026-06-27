@@ -21,13 +21,16 @@ plugins {
 }
 
 android {
+    val sdkMin = 23
+    val sdkTarget = 36
+
     namespace = "eu.depau.etchdroid"
-    compileSdk = 35
+    compileSdk = sdkTarget
 
     defaultConfig {
         applicationId = "eu.depau.etchdroid"
-        minSdk = 21
-        targetSdk = 35
+        minSdk = sdkMin
+        targetSdk = sdkTarget
         versionCode = 25
         versionName = "2.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -72,8 +75,8 @@ android {
     }
     compileOptions {
         encoding = "UTF-8"
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     buildFeatures {
         compose = true
@@ -94,12 +97,11 @@ android {
 
 kotlin {
     compilerOptions {
-        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
     }
 }
 
 dependencies {
-    implementation(libs.accompanist.navigation.animation)
     implementation(libs.accompanist.permissions)
     implementation(libs.activity.compose)
     implementation(libs.coil.compose)
@@ -114,11 +116,13 @@ dependencies {
     implementation(libs.libaums.libusbcommunication)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.lifecycle.service)
+    implementation(libs.localbroadcastmanager)
     implementation(libs.lottie.compose)
     implementation(libs.material)
     implementation(libs.material.icons.extended)
     implementation(libs.material3)
     implementation(libs.material3.adaptive)
+    implementation(libs.navigation.compose)
     implementation(platform(libs.compose.bom))
 
     "gplayImplementation"(libs.gplay.review)
