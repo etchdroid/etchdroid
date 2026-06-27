@@ -11,7 +11,7 @@ constraintlayout-compose = "1.1.1"
 espresso-core = "3.6.1"
 gplay = "2.0.2"
 junit = "5.11.3"
-kotlin = "2.2.10"
+kotlin = "2.4.0"
 kotlinx-coroutines-debug = "1.7.3"
 libaums = "0.10.0"
 libaums-libusbcommunication = "0.3.0"
@@ -41,7 +41,7 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 google-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "google-firebase-crashlytics" }
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "google-gms-google-services" }
 gplay-sentry-kotlin = { id = "io.sentry.kotlin.compiler.gradle", version.ref = "sentry-plugin" }
-kotlin-parcelize = { id = "kotlin-parcelize" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 robolectric-junit5 = { id = "tech.apter.junit5.jupiter.robolectric-extension-gradle-plugin", version.ref = "robolectric-junit5" }
 
 [libraries]
