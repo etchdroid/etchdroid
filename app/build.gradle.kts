@@ -49,10 +49,6 @@ android {
             isMinifyEnabled = false
             isShrinkResources = false
             isPseudoLocalesEnabled = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android.txt"),
-                "proguard-rules.pro",
-            )
         }
     }
     flavorDimensions += "store"
@@ -80,9 +76,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
     buildFeatures {
         compose = true
         buildConfig = true
@@ -100,6 +93,12 @@ android {
     }
 }
 
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+    }
+}
+
 dependencies {
     implementation(libs.accompanist.navigation.animation)
     implementation(libs.accompanist.permissions)
@@ -111,7 +110,6 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.constraintlayout.compose)
     implementation(libs.core.ktx)
-    implementation(libs.kotlin.stdlib.jdk8)
     implementation(libs.kotlinx.coroutines.debug)
     implementation(libs.libaums.core)
     implementation(libs.libaums.libusbcommunication)

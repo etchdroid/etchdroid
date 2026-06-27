@@ -1,7 +1,7 @@
 [versions]
 accompanist = "0.32.0"
 activity-compose = "1.10.1"
-android-gradle-plugin = "8.13.2"
+android-gradle-plugin = "9.2.1"
 android-junit5 = "1.10.0.0"
 coil = "2.5.0"
 compose = "1.7.8"
@@ -11,7 +11,7 @@ constraintlayout-compose = "1.1.1"
 espresso-core = "3.6.1"
 gplay = "2.0.2"
 junit = "5.11.3"
-kotlin = "2.1.0"
+kotlin = "2.2.10"
 kotlinx-coroutines-debug = "1.7.3"
 libaums = "0.10.0"
 libaums-libusbcommunication = "0.3.0"
@@ -66,7 +66,6 @@ gplay-review-ktx = { group = "com.google.android.play", name = "review-ktx", ver
 gplay-sentry-android = { group = "io.sentry", name = "sentry-android", version.ref = "sentry-lib" }
 gplay-sentry-compose = { group = "io.sentry", name = "sentry-compose-android", version.ref = "sentry-lib" }
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit" }
-kotlin-stdlib-jdk8 = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlinx-coroutines-debug = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-debug", version.ref = "kotlinx-coroutines-debug" }
 libaums-core = { group = "me.jahnen.libaums", name = "core", version.ref = "libaums"                                                                                                                                                     }
 libaums-libusbcommunication = { group = "me.jahnen.libaums", name = "libusbcommunication", version.ref = "libaums-libusbcommunication" }
