@@ -63,6 +63,7 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -110,7 +111,6 @@ import eu.depau.etchdroid.ui.composables.coloredShadow
 import eu.depau.etchdroid.ui.theme.notSupportedRed
 import eu.depau.etchdroid.ui.theme.partiallySupportedYellow
 import eu.depau.etchdroid.ui.theme.supportedGreen
-import eu.depau.etchdroid.ui.utils.rememberPorkedAroundSheetState
 import eu.depau.etchdroid.utils.broadcastReceiver
 import eu.depau.etchdroid.utils.ktexts.getFileName
 import eu.depau.etchdroid.utils.ktexts.registerExportedReceiver
@@ -780,7 +780,7 @@ fun UsbDevicePickerBottomSheet(
     skipHalfExpanded: Boolean = true,
 ) {
     val bottomSheetState =
-        rememberPorkedAroundSheetState(onDismissRequest, skipPartiallyExpanded = skipHalfExpanded)
+        rememberModalBottomSheetState(skipPartiallyExpanded = skipHalfExpanded)
     val anyDeviceAvailable by remember(availableDevices) {
         derivedStateOf { availableDevices().isNotEmpty() }
     }
@@ -884,7 +884,7 @@ fun ItemSupportEntry(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WhatCanIWriteBottomSheet(onDismissRequest: () -> Unit, darkTheme: Boolean = false) {
-    val sheetState = rememberPorkedAroundSheetState(onDismissRequest, false)
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = false)
     ModalBottomSheet(onDismissRequest = onDismissRequest, sheetState = sheetState) {
         LazyColumn(
             modifier = Modifier

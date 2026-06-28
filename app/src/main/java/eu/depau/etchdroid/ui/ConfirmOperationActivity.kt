@@ -47,6 +47,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -97,7 +98,6 @@ import eu.depau.etchdroid.service.WorkerService
 import eu.depau.etchdroid.ui.composables.MainView
 import eu.depau.etchdroid.ui.composables.ScreenSizeLayoutSelector
 import eu.depau.etchdroid.ui.composables.appiumTag
-import eu.depau.etchdroid.ui.utils.rememberPorkedAroundSheetState
 import eu.depau.etchdroid.utils.broadcastReceiver
 import eu.depau.etchdroid.utils.ktexts.formatID
 import eu.depau.etchdroid.utils.ktexts.getFileName
@@ -210,6 +210,7 @@ class ConfirmOperationActivity : ActivityBase() {
     }
 
     private fun writeImage(uri: Uri, device: UsbMassStorageDeviceDescriptor) {
+        println("writeImage $uri, $device")
         val jobId = Random.nextInt()
         val intent =
             getStartJobIntent(uri, device, jobId, 0, false, this, WorkerService::class.java)
@@ -323,6 +324,7 @@ class ConfirmOperationActivity : ActivityBase() {
                 if (uiState.hasUsbPermission && showLayFlatDialog) {
                     LayFlatOnTableBottomSheet(
                         onReady = {
+                            println("onReady")
                             writeImage(
                                 uiState.openedImage!!, uiState.selectedDevice!!
                             )
@@ -714,7 +716,7 @@ fun LayFlatOnTableBottomSheet(
     val sensorManager =
         remember { context.getSystemService(Context.SENSOR_SERVICE) as SensorManager }
     val sensor = remember(sensorManager) { sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY) }
-    val sheetState = rememberPorkedAroundSheetState(onDismissRequest, skipPartiallyExpanded = true)
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
 
     ModalBottomSheet(onDismissRequest = onDismissRequest, sheetState = sheetState) {
         if (sensor == null || !useGravitySensor) {
