@@ -13,10 +13,12 @@ import com.google.firebase.crashlytics.CustomKeysAndValues
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.crashlytics.crashlytics
 import eu.depau.etchdroid.BuildConfig
+import eu.depau.etchdroid.utils.exception.base.isEnvironmentalFault
 import io.sentry.Breadcrumb
 import io.sentry.IScope
 import io.sentry.Sentry
 import io.sentry.SentryLevel
+import io.sentry.SentryOptions
 import io.sentry.android.core.SentryAndroid
 import io.sentry.compose.SentryModifier.sentryTag
 import io.sentry.compose.SentryTraced
@@ -162,6 +164,18 @@ object Telemetry : ITelemetry {
                     it.profilesSampleRate = SAMPLE_RATE
                     it.sessionReplay.sessionSampleRate = SAMPLE_RATE
                     it.sessionReplay.onErrorSampleRate = ERROR_SAMPLE_RATE
+
+                    // Recoverable, environmental failures (USB stalls/unplugs, init
+                    // failures, libusb errors) aren't app bugs: keep them for
+                    // visibility but downgrade to WARNING + tag so they don't pollute
+                    // the error page.
+                    it.beforeSend = SentryOptions.BeforeSendCallback { event, _ ->
+                        if (event.throwable.isEnvironmentalFault()) {
+                            event.level = SentryLevel.WARNING
+                            event.setTag("recoverable", "true")
+                        }
+                        event
+                    }
                 }
             }
         } catch (e: Throwable) {

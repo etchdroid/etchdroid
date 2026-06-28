@@ -9,3 +9,17 @@ abstract class RecoverableException(message: String, cause: Throwable? = null) :
 
 val RecoverableException.isUnplugged: Boolean
     get() = rootCause is LibusbException && (rootCause as LibusbException).libusbError == LibusbError.NO_DEVICE
+
+/**
+ * A known non-app-fault: a recoverable EtchDroid error or a libusb hardware error
+ * anywhere in the cause chain. Used to de-prioritize such failures in telemetry.
+ */
+fun Throwable?.isEnvironmentalFault(): Boolean {
+    var t = this
+    val seen = HashSet<Throwable>()
+    while (t != null && seen.add(t)) {
+        if (t is RecoverableException || t is LibusbException) return true
+        t = t.cause
+    }
+    return false
+}
