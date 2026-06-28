@@ -33,7 +33,7 @@ interface ITelemetry {
      *
      * @param callback The configure scope callback.
      */
-    fun configureScope(scope: ITelemetryScope.() -> Unit);
+    fun configureScope(callback: ITelemetryScope.() -> Unit);
 
     /**
      * Captures the exception.
