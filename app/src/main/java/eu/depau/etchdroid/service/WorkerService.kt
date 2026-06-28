@@ -327,10 +327,16 @@ class WorkerService : LifecycleService() {
             startForegroundSpecialUse(mProgressNotificationId, basicForegroundNotification)
         } catch (exception: Exception) {
             Telemetry.captureException("Failed to start worker service", exception)
-            val downstreamException = exception as? EtchDroidException ?: UnknownException(exception)
-            getErrorIntent(
-                mSourceUri, mDestDevice, mJobId, 0, 0, exception = downstreamException
-            ).broadcastLocallySync(this@WorkerService)
+            // mDestDevice (and mSourceUri/mJobId) may be unset if we failed before parsing
+            // them; getErrorIntent needs a device, so only broadcast when we have one,
+            // otherwise reading the uninitialized lateinit would crash the service itself.
+            if (::mDestDevice.isInitialized) {
+                val downstreamException =
+                    exception as? EtchDroidException ?: UnknownException(exception)
+                getErrorIntent(
+                    mSourceUri, mDestDevice, mJobId, 0, 0, exception = downstreamException
+                ).broadcastLocallySync(this@WorkerService)
+            }
             stopSelf()
             return START_NOT_STICKY
         }
