@@ -370,7 +370,9 @@ class WorkerService : LifecycleService() {
                     }
                     blockDev = massStorageDev.blockDevices[0]!!
                 } catch (e: Exception) {
-                    Telemetry.captureException("Failed to initialize USB mass storage device", e)
+                    // Breadcrumb only: the wrapped exception below is captured (and
+                    // classified/downgraded) at the outer handler — avoid duplicate events.
+                    Telemetry.warning("Failed to initialize USB mass storage device: ${e.message}")
                     throw e as? EtchDroidException ?: InitException("Initialization failed", e)
                 }
                 currentOffset = offset - (offset % blockDev.blockSize)
@@ -422,7 +424,7 @@ class WorkerService : LifecycleService() {
                     try {
                         rawSourceStream = contentResolver.openInputStream(mSourceUri)!!
                     } catch (e: Exception) {
-                        Telemetry.captureException("Failed to open image file", e)
+                        Telemetry.warning("Failed to open image file: ${e.message}")
                         throw OpenFileException("Failed to open image file", e)
                     }
 
@@ -653,7 +655,7 @@ object WorkerServiceFlowImpl {
                     } catch (e: CancellationException) {
                         throw e
                     } catch (e: Exception) {
-                        Telemetry.captureException("Failed to write to USB drive", e)
+                        Telemetry.warning("Failed to write to USB drive: ${e.message}")
                         throw UsbCommunicationException(e)
                     }
                     currentOffset += read
@@ -668,7 +670,7 @@ object WorkerServiceFlowImpl {
                 } catch (e: CancellationException) {
                     throw e
                 } catch (e: Exception) {
-                    Telemetry.captureException("Failed to flush USB drive", e)
+                    Telemetry.warning("Failed to flush USB drive: ${e.message}")
                     throw UsbCommunicationException(e)
                 }
             }
@@ -732,7 +734,7 @@ object WorkerServiceFlowImpl {
                     } catch (e: CancellationException) {
                         throw e
                     } catch (e: Exception) {
-                        Telemetry.captureException("Failed to read from USB drive", e)
+                        Telemetry.warning("Failed to read from USB drive: ${e.message}")
                         throw UsbCommunicationException(e)
                     }
 
@@ -762,7 +764,7 @@ object WorkerServiceFlowImpl {
             try {
                 dst.closeAsync()
             } catch (e: Exception) {
-                Telemetry.captureException("Failed to read from USB drive", e)
+                Telemetry.warning("Failed to read from USB drive: ${e.message}")
                 throw UsbCommunicationException(e)
             }
         }
