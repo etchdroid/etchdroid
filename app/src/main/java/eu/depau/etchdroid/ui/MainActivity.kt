@@ -262,8 +262,8 @@ class MainActivity : ActivityBase() {
             var telemetryDialogOpen by remember { mutableStateOf(false) }
 
             fun setTelemetry(enabled: Boolean) {
-                Telemetry.setEnabled(this.applicationContext, enabled)
                 mViewModel.setTelemetry(enabled)
+                Telemetry.setEnabled(this.applicationContext, enabled)
             }
 
 
@@ -284,7 +284,7 @@ class MainActivity : ActivityBase() {
                         startActivity(Intent(this, AboutActivity::class.java))
                     },
                     toggleTelemetry = {
-                        if (Telemetry.enabled) {
+                        if (mViewModel.state.value.telemetry) {
                             telemetryDialogOpen = true
                         } else {
                             setTelemetry(true)
@@ -628,7 +628,7 @@ fun StartView(
                         leadingIcon = {
                             Checkbox(
                                 modifier = Modifier.size(20.dp),
-                                checked = Telemetry.enabled,
+                                checked = uiState.telemetry,
                                 onCheckedChange = { toggleTelemetry() }
                             )
                         }

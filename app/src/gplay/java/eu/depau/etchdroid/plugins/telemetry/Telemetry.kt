@@ -143,25 +143,29 @@ object Telemetry : ITelemetry {
         _enabled = enabled
         Log.i("Telemetry", "Enabled: $enabled")
 
-        FirebaseCrashlytics.getInstance().isCrashlyticsCollectionEnabled = enabled
+        try {
+            FirebaseCrashlytics.getInstance().isCrashlyticsCollectionEnabled = enabled
 
-        if (!enabled) {
-            Sentry.close()
-        } else {
-            SentryAndroid.init(context) {
-                it.dsn = SENTRY_DSN
-                it.isEnableUserInteractionTracing = true
+            if (!enabled) {
+                Sentry.close()
+            } else {
+                SentryAndroid.init(context) {
+                    it.dsn = SENTRY_DSN
+                    it.isEnableUserInteractionTracing = true
 
-                it.environment = if (BuildConfig.DEBUG)
-                    "debug"
-                else
-                    "production"
+                    it.environment = if (BuildConfig.DEBUG)
+                        "debug"
+                    else
+                        "production"
 
-                it.tracesSampleRate = SAMPLE_RATE
-                it.profilesSampleRate = SAMPLE_RATE
-                it.sessionReplay.sessionSampleRate = SAMPLE_RATE
-                it.sessionReplay.onErrorSampleRate = ERROR_SAMPLE_RATE
+                    it.tracesSampleRate = SAMPLE_RATE
+                    it.profilesSampleRate = SAMPLE_RATE
+                    it.sessionReplay.sessionSampleRate = SAMPLE_RATE
+                    it.sessionReplay.onErrorSampleRate = ERROR_SAMPLE_RATE
+                }
             }
+        } catch (e: Throwable) {
+            Log.w("Telemetry", "Telemetry SDK init/teardown failed", e)
         }
     }
 
