@@ -1,5 +1,4 @@
 [versions]
-accompanist = "0.37.3"
 activity-compose = "1.13.0"
 android-gradle-plugin = "9.2.1"
 android-junit5 = "2.0.1"
@@ -21,7 +20,6 @@ material = "1.14.0"
 material3 = "1.4.0"
 material3-adaptive = "1.2.0"
 mockito = "5.23.0"
-navigation-compose = "2.9.8"
 robolectric = "4.16.1"
 robolectric-junit5 = "0.9.0"
 test-core = "1.7.0"
@@ -46,7 +44,6 @@ kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref =
 robolectric-junit5 = { id = "tech.apter.junit5.jupiter.robolectric-extension-gradle-plugin", version.ref = "robolectric-junit5" }
 
 [libraries]
-accompanist-permissions = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "accompanist" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coil" }
@@ -78,7 +75,6 @@ material-icons-extended = { group = "androidx.compose.material", name = "materia
 material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
 material3-adaptive = { group = "androidx.compose.material3.adaptive", name = "adaptive", version.ref = "material3-adaptive" }
 mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation-compose" }
 robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 test-core = { group = "androidx.test", name = "core", version.ref = "test-core" }
 test-runner = { group = "androidx.test", name = "runner", version.ref = "test-runner" }

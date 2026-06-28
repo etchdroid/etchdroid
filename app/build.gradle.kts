@@ -101,7 +101,6 @@ kotlin {
 }
 
 dependencies {
-    implementation(libs.accompanist.permissions)
     implementation(libs.activity.compose)
     implementation(libs.coil.compose)
     implementation(libs.coil.gif)
@@ -122,7 +121,6 @@ dependencies {
     implementation(libs.material.icons.extended)
     implementation(libs.material3)
     implementation(libs.material3.adaptive)
-    implementation(libs.navigation.compose)
     implementation(platform(libs.compose.bom))
 
     "gplayImplementation"(libs.gplay.review)
