@@ -18,7 +18,11 @@
 package eu.depau.etchdroid.massstorage
 
 import android.content.Context
-import android.hardware.usb.*
+import android.hardware.usb.UsbConstants
+import android.hardware.usb.UsbDevice
+import android.hardware.usb.UsbEndpoint
+import android.hardware.usb.UsbInterface
+import android.hardware.usb.UsbManager
 import android.os.Build
 import android.os.Parcelable
 import android.util.Log
@@ -36,7 +40,6 @@ import me.jahnen.libaums.core.usb.UsbCommunication
 import me.jahnen.libaums.core.usb.UsbCommunicationFactory
 import me.jahnen.libaums.libusbcommunication.LibusbCommunicationCreator
 import java.io.IOException
-import java.util.*
 
 infix fun UsbDevice.matches(other: UsbDevice): Boolean {
     /*
@@ -60,7 +63,7 @@ infix fun UsbDevice.matches(other: UsbDevice): Boolean {
     */
 
     // deviceId and deviceName are not consistent across reconnects
-    var match = manufacturerName == other.manufacturerName &&
+    val match = manufacturerName == other.manufacturerName &&
             productName == other.productName &&
             vendorId == other.vendorId &&
             productId == other.productId &&
@@ -68,12 +71,13 @@ infix fun UsbDevice.matches(other: UsbDevice): Boolean {
             deviceSubclass == other.deviceSubclass &&
             deviceProtocol == other.deviceProtocol &&
             configurationCount == other.configurationCount &&
-            interfaceCount == other.interfaceCount
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-        match = match && version == other.version
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
-        match = match && serialNumber == other.serialNumber
-    return match
+            interfaceCount == other.interfaceCount &&
+            version == other.version
+
+    return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
+        match && serialNumber == other.serialNumber
+    else
+        match
 }
 
 infix fun UsbDevice.doesNotMatch(other: UsbDevice) = !matches(other)
