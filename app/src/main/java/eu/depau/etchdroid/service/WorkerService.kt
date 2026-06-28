@@ -35,11 +35,11 @@ import eu.depau.etchdroid.utils.exception.InitException
 import eu.depau.etchdroid.utils.exception.MissingDeviceException
 import eu.depau.etchdroid.utils.exception.NotEnoughSpaceException
 import eu.depau.etchdroid.utils.exception.OpenFileException
-import eu.depau.etchdroid.utils.exception.UsbDriveTooLargeException
-import eu.depau.etchdroid.utils.exception.base.EtchDroidException
 import eu.depau.etchdroid.utils.exception.UnknownException
 import eu.depau.etchdroid.utils.exception.UsbCommunicationException
+import eu.depau.etchdroid.utils.exception.UsbDriveTooLargeException
 import eu.depau.etchdroid.utils.exception.VerificationFailedException
+import eu.depau.etchdroid.utils.exception.base.EtchDroidException
 import eu.depau.etchdroid.utils.exception.base.FatalException
 import eu.depau.etchdroid.utils.ktexts.broadcastLocally
 import eu.depau.etchdroid.utils.ktexts.broadcastLocallySync
@@ -48,6 +48,7 @@ import eu.depau.etchdroid.utils.ktexts.getFileName
 import eu.depau.etchdroid.utils.ktexts.getFileSize
 import eu.depau.etchdroid.utils.ktexts.safeParcelableExtra
 import eu.depau.etchdroid.utils.ktexts.startForegroundSpecialUse
+import eu.depau.etchdroid.utils.ktexts.threadIdCompat
 import eu.depau.etchdroid.utils.ktexts.toHRSize
 import eu.depau.etchdroid.utils.lateInit
 import eu.depau.etchdroid.utils.timeoutWatchdog
@@ -338,7 +339,7 @@ class WorkerService : LifecycleService() {
             Thread.currentThread().name = "WorkerService coroutine scope"
 
             Telemetry.debug(
-                "Job coroutine scope started; thread ${Thread.currentThread().name} (${Thread.currentThread().id})",
+                "Job coroutine scope started; thread ${Thread.currentThread().name} (${Thread.currentThread().threadIdCompat})",
                 "worker"
             )
 
