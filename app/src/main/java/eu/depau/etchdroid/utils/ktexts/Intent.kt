@@ -7,6 +7,7 @@ import android.hardware.usb.UsbManager
 import android.os.Build
 import android.util.Log
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import eu.depau.etchdroid.plugins.telemetry.Telemetry
 
 private fun assertNotNull(value: Any?) {
     if (value == null) {
@@ -23,13 +24,30 @@ private fun assertNotNull(value: Any?) {
     }
 }
 
+@Suppress("DEPRECATION")
 fun <T> Intent.safeParcelableExtra(key: String, clazz: Class<T>): T? {
     assertNotNull(clazz)
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        getParcelableExtra(key, clazz)
-    } else {
-        @Suppress("DEPRECATION")
-        return getParcelableExtra(key)
+    return try {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            getParcelableExtra(key, clazz)
+        } else {
+            getParcelableExtra(key)
+        }
+    } catch (e: Exception) {
+        // Android 13 (API 33) has a framework bug in the typed getParcelableExtra
+        // overload (NPE in Parcel.readParcelableCreatorInternal for lazily-stored
+        // extras; fixed in API 34). Capture the failure (records the real NPE +
+        // stacktrace as a handled event), then fall back to the unaffected
+        // deprecated untyped reader to recover the value.
+        Telemetry.captureException(
+            "Typed getParcelableExtra('$key') failed, falling back to untyped", e
+        )
+        try {
+            getParcelableExtra(key)
+        } catch (e2: Exception) {
+            Telemetry.captureException("Failed to read parcelable extra '$key'", e2)
+            null
+        }
     }
 }
 
