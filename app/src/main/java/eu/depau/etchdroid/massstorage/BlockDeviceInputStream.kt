@@ -429,6 +429,9 @@ class BlockDeviceInputStream(
      * Closes the stream, shutting down the I/O thread.
      */
     override suspend fun closeAsync() {
+        // The IO thread (and thus the channel) is only started on first read; nothing
+        // to close if it never ran (e.g. a 0-byte/unreadable source).
+        if (!::mBlockChannel.isInitialized) return
         setPosition(sizeBytes) // Move to EOF
         mBlockChannel.close()
 

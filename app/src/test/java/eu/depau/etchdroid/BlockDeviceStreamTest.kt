@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.fail
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.extension.ExtendWith
 import org.robolectric.annotation.Config
 import tech.apter.junit.jupiter.robolectric.RobolectricExtension
@@ -40,6 +41,17 @@ class BlockDeviceInputStreamTest {
             512,
             2048
         )
+    }
+
+    @Test
+    fun closeWithoutReadingDoesNotThrow() = runBlocking {
+        // Regression: closeAsync used to touch the lateinit channel that is only
+        // created on first read, crashing for 0-byte/unreadable sources (ETCHDROID-2T).
+        val testDev = MemoryBufferBlockDeviceDriver(10L * 1024 * 1024, 512).apply {
+            fillWithGrowingSequence()
+        }
+        val inputStream = BlockDeviceInputStream(testDev, coroutineScope)
+        assertDoesNotThrow { runBlocking { inputStream.closeAsync() } }
     }
 
     @Test
