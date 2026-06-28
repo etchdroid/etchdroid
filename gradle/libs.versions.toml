@@ -64,7 +64,7 @@ gplay-sentry-compose = { group = "io.sentry", name = "sentry-compose-android", v
 junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit" }
 kotlinx-coroutines-debug = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-debug", version.ref = "kotlinx-coroutines-debug" }
 # TODO: switch back to non-JitPack version once new release is out
-libaums-core = { group = "com.github.magnusja", name = "libaums", version = "746ef756d3" }
+libaums-core = { group = "com.github.magnusja", name = "libaums", version = "cef48e29a5" }
 #libaums-libusbcommunication = { group = "me.jahnen.libaums", name = "libusbcommunication", version.ref = "libaums-libusbcommunication" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
 lifecycle-service = { group = "androidx.lifecycle", name = "lifecycle-service", version.ref = "lifecycle" }
