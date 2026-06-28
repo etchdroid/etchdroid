@@ -51,6 +51,15 @@ android {
             isMinifyEnabled = false
             isPseudoLocalesEnabled = true
         }
+        create("optimized") {
+            // Optimized like release (minify + shrinkResources + proguard) but debug-signed
+            // and non-debuggable, so it installs in CI and runs fast on the slow e2e VM.
+            initWith(getByName("release"))
+            signingConfig = signingConfigs.getByName("debug")
+            isDebuggable = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+        }
     }
     flavorDimensions += "store"
     productFlavors {
@@ -145,4 +154,10 @@ dependencies {
     if (System.getProperty("etchdroid.isGPlayFlavor") == "true" || System.getenv("ETCHDROID_ENABLE_SENTRY") == "true") {
         implementation(libs.firebase.crashlytics)
     }
+}
+
+if (System.getProperty("etchdroid.isGPlayFlavor") == "true" || System.getenv("ETCHDROID_ENABLE_SENTRY") == "true") {
+    tasks.matching {
+        it.name.startsWith("uploadCrashlyticsMappingFile") && it.name.contains("Optimized")
+    }.configureEach { enabled = false }
 }

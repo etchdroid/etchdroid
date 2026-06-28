@@ -61,16 +61,22 @@ jobs:
           fi
 
       - name: Build ${{ matrix.variant }}
-        run: ./gradlew assemble${VARIANT^}Debug --scan --configuration-cache
+        run: ./gradlew assemble${VARIANT^}Debug assemble${VARIANT^}Optimized --scan --configuration-cache
         env:
           ETCHDROID_ENABLE_SENTRY: ${{ matrix.variant == 'Gplay' }}
           VARIANT: ${{ matrix.variant }}
 
-      - name: Upload built APK
+      - name: Upload built debug APK
         uses: actions/upload-artifact@v5
         with:
           name: app-${{ matrix.variant }}-debug
           path: app/build/outputs/apk/${{ matrix.variant }}/debug/app-${{ matrix.variant }}-debug.apk
+
+      - name: Upload built optimized APK
+        uses: actions/upload-artifact@v5
+        with:
+          name: app-${{ matrix.variant }}-optimized
+          path: app/build/outputs/apk/${{ matrix.variant }}/optimized/app-${{ matrix.variant }}-optimized.apk
 
   unit-tests:
     name: Unit tests for ${{ matrix.variant }}
@@ -151,7 +157,7 @@ jobs:
       - name: Download APK
         uses: actions/download-artifact@v5
         with:
-          name: app-${{ matrix.variant }}-debug
+          name: app-${{ matrix.variant }}-optimized
           path: apk
 
       - name: Install QEMU
