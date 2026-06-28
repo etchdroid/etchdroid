@@ -30,6 +30,7 @@ import eu.depau.etchdroid.plugins.telemetry.Telemetry
 import eu.depau.etchdroid.service.WorkerServiceFlowImpl.verifyImage
 import eu.depau.etchdroid.service.WorkerServiceFlowImpl.writeImage
 import eu.depau.etchdroid.ui.ProgressActivity
+import eu.depau.etchdroid.utils.TimeoutExpiredException
 import eu.depau.etchdroid.utils.broadcastReceiver
 import eu.depau.etchdroid.utils.exception.InitException
 import eu.depau.etchdroid.utils.exception.MissingDeviceException
@@ -37,6 +38,7 @@ import eu.depau.etchdroid.utils.exception.NotEnoughSpaceException
 import eu.depau.etchdroid.utils.exception.OpenFileException
 import eu.depau.etchdroid.utils.exception.UnknownException
 import eu.depau.etchdroid.utils.exception.UsbCommunicationException
+import eu.depau.etchdroid.utils.exception.UsbCommunicationTimeoutException
 import eu.depau.etchdroid.utils.exception.UsbDriveTooLargeException
 import eu.depau.etchdroid.utils.exception.VerificationFailedException
 import eu.depau.etchdroid.utils.exception.base.EtchDroidException
@@ -52,6 +54,7 @@ import eu.depau.etchdroid.utils.ktexts.threadIdCompat
 import eu.depau.etchdroid.utils.ktexts.toHRSize
 import eu.depau.etchdroid.utils.lateInit
 import eu.depau.etchdroid.utils.timeoutWatchdog
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
@@ -62,6 +65,7 @@ import java.io.BufferedInputStream
 import java.io.InputStream
 import java.util.Random
 import kotlin.math.max
+import kotlin.time.Duration.Companion.milliseconds
 
 private const val TAG = "WorkerService"
 
@@ -470,8 +474,12 @@ class WorkerService : LifecycleService() {
                 )
 
             } catch (exception: Exception) {
-                Telemetry.captureException(exception)
-                val downstreamException = exception as? EtchDroidException ?: UnknownException(exception)
+                val downstreamException = when (exception) {
+                    is EtchDroidException -> exception
+                    is TimeoutExpiredException -> UsbCommunicationTimeoutException(exception)
+                    else -> UnknownException(exception)
+                }
+                Telemetry.captureException(downstreamException)
                 getErrorIntent(
                     mSourceUri,
                     mDestDevice,
@@ -496,7 +504,7 @@ class WorkerService : LifecycleService() {
                 // libusb transfer (e.g. after a Huawei/Samsung OTG reset mid-write).
                 // close() calls into native code and cannot be interrupted by coroutine
                 // cancellation, so without this timeout the service hangs indefinitely.
-                withTimeoutOrNull(3000L) {
+                withTimeoutOrNull(3000L.milliseconds) {
                     try {
                         if (massStorageDevDelegate.isInitialized)
                             massStorageDev.close()
@@ -642,6 +650,8 @@ object WorkerServiceFlowImpl {
                     try {
                         dst.writeAsync(buffer, 0, read)
                         watchdog.bump()
+                    } catch (e: CancellationException) {
+                        throw e
                     } catch (e: Exception) {
                         Telemetry.captureException("Failed to write to USB drive", e)
                         throw UsbCommunicationException(e)
@@ -655,6 +665,8 @@ object WorkerServiceFlowImpl {
                 try {
                     dst.flushAsync()
                     watchdog.bump()
+                } catch (e: CancellationException) {
+                    throw e
                 } catch (e: Exception) {
                     Telemetry.captureException("Failed to flush USB drive", e)
                     throw UsbCommunicationException(e)
@@ -717,6 +729,8 @@ object WorkerServiceFlowImpl {
                             deviceRead >= read
                         ) { "Device read $deviceRead < file read $read" }
                         watchdog.bump()
+                    } catch (e: CancellationException) {
+                        throw e
                     } catch (e: Exception) {
                         Telemetry.captureException("Failed to read from USB drive", e)
                         throw UsbCommunicationException(e)

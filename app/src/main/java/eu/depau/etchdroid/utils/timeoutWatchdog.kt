@@ -1,11 +1,19 @@
 package eu.depau.etchdroid.utils
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.util.concurrent.atomic.AtomicLong
 
 interface TimeoutBump {
     fun bump()
 }
+
+/** Thrown by [timeoutWatchdog] when [timeMillis] elapses without a [TimeoutBump.bump]. */
+class TimeoutExpiredException : CancellationException("Timeout expired")
 
 suspend fun <T> timeoutWatchdog(
     timeMillis: Long,
@@ -26,7 +34,7 @@ suspend fun <T> timeoutWatchdog(
         while (true) {
             val delayTime = expirationTime.get() - System.currentTimeMillis()
             if (delayTime <= 0) {
-                result.cancel(CancellationException("Timeout expired"))
+                result.cancel(TimeoutExpiredException())
                 break
             } else {
                 // Wait for the remaining time
