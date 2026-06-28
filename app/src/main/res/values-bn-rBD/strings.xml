@@ -61,7 +61,7 @@
     <string name="optical_disk_drives" comment="Device type">অপটিক্যাল ডিস্ক ড্রাইভ</string>
     <string name="floppy_disk_drives" comment="Device type">ফ্লপি ডিস্ক ড্রাইভ</string>
     <string name="any_thunderbolt_only_device" comment="Device type">কোনও থান্ডারবোল্ট-শুধুমাত্র ডিভাইস</string>
-    <string name="very_large_drives_2tb" comment="Device type">খুব বড় ড্রাইভ (>= ২ টিবি)</string>
+    <string name="very_large_drives_2tb" comment="Device type">খুব বড় ড্রাইভ (&gt;= ২ টিবি)</string>
     <string name="disk_images" comment="Title of the section that lists all the supported image types">ডিস্ক ইমেজ</string>
     <string name="microsoft_windows_isos_any_version" comment="Image type">মাইক্রোসফ্ট উইন্ডোজ আইএসও (যেকোনো সংস্করণ)</string>
     <string name="apple_dmg_disk_images" comment="Image type">অ্যাপল ডিএমজি ডিস্ক ইমেজ</string>
