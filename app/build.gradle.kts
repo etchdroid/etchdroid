@@ -113,7 +113,8 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.kotlinx.coroutines.debug)
     implementation(libs.libaums.core)
-    implementation(libs.libaums.libusbcommunication)
+    // TODO: re-enable once released
+    // implementation(libs.libaums.libusbcommunication)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.lifecycle.service)
     implementation(libs.localbroadcastmanager)
