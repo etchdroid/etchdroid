@@ -22,6 +22,7 @@ import io.sentry.SentryOptions
 import io.sentry.android.core.SentryAndroid
 import io.sentry.compose.SentryModifier.sentryTag
 import io.sentry.compose.SentryTraced
+import kotlinx.coroutines.CancellationException
 import eu.depau.etchdroid.plugins.telemetry.DummyTelemetry.telemetryTag as dummyTelemetryTag
 
 internal const val SENTRY_DSN =
@@ -170,6 +171,9 @@ object Telemetry : ITelemetry {
                     // visibility but downgrade to WARNING + tag so they don't pollute
                     // the error page.
                     it.beforeSend = SentryOptions.BeforeSendCallback { event, _ ->
+                        // Coroutine cancellation is normal control flow, never an error.
+                        if (event.throwable is CancellationException)
+                            return@BeforeSendCallback null
                         if (event.throwable.isEnvironmentalFault()) {
                             event.level = SentryLevel.WARNING
                             event.setTag("recoverable", "true")
