@@ -60,6 +60,7 @@ Agents should run Appium tests unless instructed otherwise.
 
 - Run only generic tests (excluding QEMU): `uv run pytest -m "not qemu" -sv`
 - *Note: QEMU tests require a specific setup (see `appium-tests/README.md`). If the environment supports KVM/QEMU, they should be run.*
+- **Proxy gotcha:** if `HTTP_PROXY`/`HTTPS_PROXY` are set in the environment, selenium/urllib3 route the localhost Appium connection through the proxy and fail with `SSL: CERTIFICATE_VERIFY_FAILED`. Exclude localhost when running: `NO_PROXY=127.0.0.1,localhost,127.0.0.10 no_proxy=127.0.0.1,localhost,127.0.0.10 uv run pytest -sv`.
 
 ### 5. Linting
 Run `./gradlew lint` before submitting changes.
