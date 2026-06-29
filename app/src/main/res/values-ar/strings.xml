@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="cancel">ألغِ العملية أو الشيء الذي يقوم به الشخص أو الجهاز أو أي شيء آخر، أو (في سياق العملية) ما هو بصدد القيام به</string>
+    <string name="cancel">ألغِ</string>
     <string name="write_finished">انتهت الكتابة</string>
     <string name="unknown_filename">اسم ملف غير معروف</string>
     <string name="success_notif_content_text">%1$s تمت كتابته بنجاح إلى %2$s</string>
@@ -24,7 +24,7 @@
     <string name="notification_write_tap_for_progress_text">انقر للتقدم • يكتب %1$s إلى %2$s</string>
     <string name="notification_write_progress_content">%1$s إلى %2$s</string>
     <string name="notification_verify_progress_content">%1$s ضد %2$s</string>
-    <string name="permission_denied_for_usb_device">تم رفض الإذن لجهاز USB %1$s</string>
+    <string name="permission_denied_for_usb_device">رُفض الإذن لجهاز USB %1$s</string>
     <string name="whats_supported">ما المدعوم؟</string>
     <string name="style">نمط</string>
     <string name="light">فاتح</string>
@@ -44,7 +44,7 @@
     <string name="notif_channel_job_progress_name">تقدم المهمة</string>
     <string name="notif_channel_job_result_desc">تستخدم لإظهار نتيجة عمل مكتملة</string>
     <string name="notification_write_no_notifications_text">فعِّل الإشعارات للتقدم • يكتب %1$s إلى %2$s</string>
-    <string name="usb_device_was_unplugged">تم فصل جهاز USB</string>
+    <string name="usb_device_was_unplugged">فُصِل جهاز USB</string>
     <string name="write_an_image">اكتب صورة</string>
     <string name="dark">داكن</string>
     <string name="dynamic_colors">ألوان ديناميكية</string>
@@ -61,7 +61,7 @@
     <string name="usb_drive">محرك أقراص USB</string>
     <string name="destination_usb_device">جهاز USB الوجهة</string>
     <string name="unknown_device">جهز مجهول</string>
-    <string name="permission_granted">تم منح الإذن</string>
+    <string name="permission_granted">مُنح الإذن</string>
     <string name="be_careful">كن حريصا!!</string>
     <string name="write_image">اكتب الصورة</string>
     <string name="lay_your_device_flat_no_accel">ضع جهازك بشكل مسطح على طاولة قبل المتابعة.</string>
