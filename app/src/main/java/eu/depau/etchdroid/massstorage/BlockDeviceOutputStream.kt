@@ -233,8 +233,11 @@ class BlockDeviceOutputStream(
         if (mByteBuffer.position() == 0) return
 
         val oldBuffer = mByteBuffer.apply { flip() }
+        // Capture before the buffer is handed off to the I/O thread, which may mutate its
+        // limit (partial-block path below). Reading oldBuffer after channel.send is a data race.
+        val committedLength = oldBuffer.limit()
 
-        val newOffset = mCurrentOffset + oldBuffer.limit()
+        val newOffset = mCurrentOffset + committedLength
         val capacity = minOf(
             blockDev.blockSize.toLong() * bufferBlocks, mSizeBytes - newOffset
         )
@@ -255,7 +258,7 @@ class BlockDeviceOutputStream(
         channel.send(Pair(mCurrentBlockOffset, oldBuffer))
         traceIo("block $mCurrentBlockOffset push done")
         mByteBuffer = newBuffer
-        mCurrentBlockOffset += oldBuffer.limit() / blockDev.blockSize
+        mCurrentBlockOffset += committedLength / blockDev.blockSize
     }
 
     /**
