@@ -88,7 +88,7 @@
     <string name="whats_supported">Wat wordt er ondersteund\?</string>
     <string name="dynamic_colors">Dynamische kleuren</string>
     <string name="write_image">Schijfkopie wegschrijven</string>
-    <string name="looking_for_usb_drives">Bezig met zoeken naar usb-schijven…</string>
+    <string name="looking_for_usb_drives">zoeken naar usb-schijven</string>
     <string name="writing_the_image_will_erase">Door het wegschrijven worden alle gegevens op de gekozen schijf gewist</string>
     <string name="continue_">Doorgaan</string>
     <string name="supported_devices_and_images">Ondersteunde apparaten en schijfkopiëen</string>
@@ -124,4 +124,7 @@
     <string name="please_report_fatal_issue">Meld deze fout op GitHub, voorzien van stappen om de foutmelding in beeld te krijgen.</string>
     <string name="view_github_issues">GitHub-problemen bekijken</string>
     <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Telemetrie</string>
+    <string name="very_large_drives_2tb" comment="Device type">Grote Schijf ( &gt;= 2 Terra Byte)</string>
+    <string name="the_usb_drive_is_too_large" comment="Error message">De USB opslagcapaciteit is te groot en EtchDroid ondersteunt deze niet</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Verstuur anonieme data.</string>
 </resources>
