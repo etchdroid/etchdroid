@@ -1,0 +1,25 @@
+EtchDroid é unha aplicación de código aberto que che axuda a gravar imaxes en unidades USB.
+Úsaa para crear unha unidade USB de arranque cun sistema operativo cando o teu portátil non funciona.
+
+⭐️ Dispositivos compatibles ⭐️
+
+✅ Unidades flash USB
+✅ Adaptadores USB para tarxetas SD
+❌ Discos duros / SSD USB
+❌ Bases e concentradores USB
+❌ Rañura interna para tarxetas SD
+❌ Unidades ópticas ou de disquete
+❌ Dispositivos só Thunderbolt
+
+
+⭐️ Tipos de imaxe de disco compatibles ⭐️
+
+✅ Imaxes modernas de sistemas operativos GNU/Linux, incluíndo Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS e moitas máis
+✅ Imaxes de tarxeta SD para Raspberry PI (pero primeiro tes que descomprimilas!)
+❌ ISO oficiais de Microsoft Windows
+⚠️ Imaxes de Windows creadas pola comunidade para EtchDroid (ten coidado: poden conter virus!)
+❌ Imaxes de disco DMG de Apple
+❌ Imaxes antigas de SO GNU/Linux anteriores a 2010, como Damn Small Linux
+
+
+O código fonte está en GitHub: https://github.com/EtchDroid/EtchDroid
