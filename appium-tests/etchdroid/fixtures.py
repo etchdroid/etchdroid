@@ -1,20 +1,18 @@
+import appium
 import os
+import pytest
 import signal
 import subprocess
 import traceback
-from pathlib import Path
-from typing import Generator
-
-import appium
-import pytest
 from appium.options.android import UiAutomator2Options
 from appium.webdriver.appium_service import AppiumService
 from appium.webdriver.client_config import AppiumClientConfig
-
 from etchdroid import package_name
 from etchdroid.config import Config
 from etchdroid.qemu import QEMUController
-from etchdroid.utils import execute_script, get_adb_udid
+from etchdroid.utils import denoise_logcat, execute_script, get_adb_udid, write_app_filtered_logcat
+from pathlib import Path
+from typing import Generator
 
 adb = f"{Config.ANDROID_HOME}/platform-tools/adb"
 
@@ -74,7 +72,7 @@ def driver(appium_service, request) -> Generator[appium.webdriver.Remote, None, 
             logcat_dir.mkdir(parents=True, exist_ok=True)
             logcat_file = open(logcat_dir / f"{request.node.name}.log", "wb")
             logcat = subprocess.Popen(
-                [adb, "-s", get_adb_udid(_driver), "logcat", "-T", "1"],
+                [adb, "-s", get_adb_udid(_driver), "logcat", "-v", "threadtime", "-T", "1"],
                 stdout=logcat_file,
                 stderr=subprocess.STDOUT,
             )
@@ -120,6 +118,21 @@ def driver(appium_service, request) -> Generator[appium.webdriver.Remote, None, 
                         logcat.kill()
             if logcat_file is not None:
                 logcat_file.close()
+                # noinspection PyBroadException
+                try:
+                    logcat_dir = Path(Config.LOGCAT_DIR)
+                    app_log = logcat_dir / f"{request.node.name}.app.log"
+                    write_app_filtered_logcat(
+                        logcat_dir / f"{request.node.name}.log",
+                        app_log,
+                        package_name,
+                    )
+                    # Lossy, LLM-sized denoised second pass over the app-scoped log.
+                    (logcat_dir / f"{request.node.name}.app.denoised.log").write_text(
+                        denoise_logcat(app_log.read_text(errors="replace"))
+                    )
+                except Exception:
+                    traceback.print_exc()
 
         _driver.quit()
 
