@@ -7,7 +7,7 @@
     <string name="write_failed">Falha na gravação</string>
     <string name="success_notif_content_text">%1$s gravado com sucesso para %2$s</string>
     <string name="write_finished">Gravação finalizada</string>
-    <string name="cancel">Cancele o processo ou a ação que a pessoa, dispositivo ou coisa está realizando ou irá realizar</string>
+    <string name="cancel">Cancelar</string>
     <string name="unknown_filename">Nome de ficheiro desconhecido</string>
     <string name="light">Claro</string>
     <string name="usb_docks_and_hubs_might_have_power_issues">Docks USB e hubs (podem ter problemas de energia)</string>
