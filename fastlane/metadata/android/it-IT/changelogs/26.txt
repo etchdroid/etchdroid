@@ -1,0 +1,7 @@
+Migliore esperienza d'uso, con correzioni di bug e nuove traduzioni.
+
+• Maggiore affidabilità: risolti diversi crash durante la scrittura su USB
+• I dispositivi USB troppo grandi per essere scritti ora mostrano un messaggio di errore chiaro
+• Risolto un crash all'apertura delle immagini su alcuni dispositivi Android 13
+• La telemetria viene ora disabilitata correttamente sulle ROM basate su microG
+• Aggiunte nuove traduzioni: finlandese, galiziano, birmano, sardo, slovacco e ucraino

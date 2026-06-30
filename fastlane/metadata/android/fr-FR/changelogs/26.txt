@@ -1,0 +1,7 @@
+Mise à jour de confort : corrections de bugs et nouvelles traductions.
+
+• Fiabilité améliorée : correction de plusieurs plantages lors de l'écriture sur USB
+• Message d'erreur clair pour les supports USB trop volumineux pour être écrits
+• Correction d'un plantage à l'ouverture des images sur certains appareils Android 13
+• Télémétrie désormais correctement désactivée sur les ROMs basées sur microG
+• Nouvelles traductions : finnois, galicien, birman, sarde, slovaque et ukrainien

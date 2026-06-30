@@ -1,0 +1,7 @@
+Atualização que melhora a experiência de uso, com correções de bugs e novas traduções.
+
+• Maior confiabilidade: corrigidas várias falhas ao gravar em unidades USB
+• Unidades USB muito grandes que não podem ser gravadas agora exibem uma mensagem de erro clara
+• Corrigida uma falha ao abrir imagens em alguns dispositivos Android 13
+• A telemetria agora é desativada corretamente em ROMs baseadas no microG
+• Adicionadas novas traduções: finlandês, galego, birmanês, sardo, eslovaco e ucraniano

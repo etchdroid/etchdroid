@@ -1,0 +1,7 @@
+Komfort-Update mit Fehlerbehebungen und neuen Übersetzungen.
+
+• Mehr Zuverlässigkeit: mehrere Abstürze beim Schreiben auf USB-Laufwerke behoben
+• Sehr große USB-Laufwerke, die nicht beschrieben werden können, zeigen nun eine klare Fehlermeldung
+• Absturz beim Öffnen von Abbildern auf einigen Android-13-Geräten behoben
+• Telemetrie wird nun auf microG-basierten ROMs korrekt deaktiviert
+• Neue Übersetzungen hinzugefügt: Finnisch, Galicisch, Birmanisch, Sardisch, Slowakisch und Ukrainisch

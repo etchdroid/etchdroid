@@ -1,0 +1,7 @@
+Mejoras de calidad de uso, con correcciones de errores y nuevas traducciones.
+
+• Mayor fiabilidad: corregidos varios fallos al escribir en unidades USB
+• Las unidades USB muy grandes que no se pueden escribir ahora muestran un mensaje de error claro
+• Corregido un fallo al abrir imágenes en algunos dispositivos Android 13
+• La telemetría ahora se desactiva correctamente en ROMs basadas en microG
+• Añadidas nuevas traducciones: finés, gallego, birmano, sardo, eslovaco y ucraniano

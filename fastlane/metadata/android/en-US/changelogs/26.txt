@@ -1,0 +1,7 @@
+Quality-of-life release with bug fixes and new translations.
+
+• Improved reliability: fixed several crashes while writing to USB drives
+• Very large USB drives that can't be written now show a clear error message
+• Fixed a crash when opening images on some Android 13 devices
+• Telemetry is now correctly disabled on microG-based ROMs
+• Added new translations: Finnish, Galician, Burmese, Sardinian, Slovak and Ukrainian
