@@ -11,7 +11,7 @@ env:
   # If changed, also update the variables in appium-tests/scripts/prepare-vm.sh
   BLISSOS_FILE: 'Bliss-v16.9.7-x86_64-OFFICIAL-foss-20241011.iso'
   BLISSOS_URL: 'https://deac-riga.dl.sourceforge.net/project/blissos-x86/Official/BlissOS16/FOSS/Generic/'
-  VM_DIR: ~/.cache/appium-vm
+  VM_DIR: /appium-vm
 
 jobs:
   build:
@@ -181,6 +181,8 @@ jobs:
         run: |
           cd appium-tests
           npm ci
+          sudo mkdir "$VM_DIR"
+          sudo chown "$USER" "$VM_DIR"
 
       - name: Restore BlissOS image from cache
         uses: actions/cache/restore@v4
