@@ -136,6 +136,7 @@ dependencies {
     "gplayImplementation"(libs.gplay.review.ktx)
     "gplayImplementation"(libs.gplay.sentry.android)
     "gplayImplementation"(libs.gplay.sentry.compose)
+    "gplayImplementation"(libs.firebase.crashlytics)
 
     debugImplementation(libs.compose.ui.test.manifest)
     debugImplementation(libs.compose.ui.tooling)
@@ -150,10 +151,6 @@ dependencies {
     testImplementation(libs.mockito.core)
     testImplementation(libs.robolectric)
     testImplementation(libs.test.core)
-
-    if (System.getProperty("etchdroid.isGPlayFlavor") == "true" || System.getenv("ETCHDROID_ENABLE_SENTRY") == "true") {
-        implementation(libs.firebase.crashlytics)
-    }
 }
 
 if (System.getProperty("etchdroid.isGPlayFlavor") == "true" || System.getenv("ETCHDROID_ENABLE_SENTRY") == "true") {
