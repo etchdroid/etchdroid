@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalCoroutinesApi::class)
+@file:Suppress("RunBlockingInSuspendFunction")
 
 package eu.depau.etchdroid
 
@@ -8,10 +9,15 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.debug.DebugProbes
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import me.jahnen.libaums.core.driver.BlockDeviceDriver
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Assertions.fail
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
@@ -22,6 +28,45 @@ import tech.apter.junit.jupiter.robolectric.RobolectricExtension
 import java.io.IOException
 import java.lang.Math.min
 import java.nio.ByteBuffer
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.atomic.AtomicInteger
+import kotlin.time.Duration.Companion.milliseconds
+
+/**
+ * A block device that parks inside its first [read] until [releaseRead] is counted down, signaling
+ * via [readStarted] once it has entered the call. Used to prove that closing a stream waits for an
+ * in-flight native transfer to finish (the libusb concurrency crash, ETCHDROID write->verify).
+ */
+private class ParkingBlockDeviceDriver(
+    sizeBytes: Long,
+    override val blockSize: Int,
+) : BlockDeviceDriver {
+    private val backing = ByteArray(sizeBytes.toInt())
+    override val blocks: Long get() = (backing.size / blockSize).toLong()
+
+    val activeReads = AtomicInteger(0)
+    val readStarted = CountDownLatch(1)
+    val releaseRead = CountDownLatch(1)
+
+    override fun init() {}
+
+    override fun read(deviceOffset: Long, buffer: ByteBuffer) {
+        activeReads.incrementAndGet()
+        try {
+            readStarted.countDown()
+            releaseRead.await()
+            val start = (deviceOffset * blockSize).toInt()
+            buffer.put(backing, start, buffer.remaining())
+        } finally {
+            activeReads.decrementAndGet()
+        }
+    }
+
+    override fun write(deviceOffset: Long, buffer: ByteBuffer) {
+        val start = (deviceOffset * blockSize).toInt()
+        buffer.get(backing, start, buffer.remaining())
+    }
+}
 
 @ExperimentalCoroutinesApi
 @ExtendWith(RobolectricExtension::class)
@@ -52,6 +97,43 @@ class BlockDeviceInputStreamTest {
         }
         val inputStream = BlockDeviceInputStream(testDev, coroutineScope)
         assertDoesNotThrow { runBlocking { inputStream.closeAsync() } }
+    }
+
+    @Test
+    fun closeWaitsForInFlightRead() = runBlocking {
+        // Regression: closeAsync() used to return while the I/O worker was still inside a native
+        // blockDev.read(). At the write->verify handoff that let two coroutines submit transfers on
+        // the same libusb handle concurrently, crashing the app natively in libusb_submit_transfer.
+        val testDev = ParkingBlockDeviceDriver(1L * 1024 * 1024, 512)
+        val inputStream =
+            BlockDeviceInputStream(testDev, coroutineScope, bufferBlocks = 1, prefetchBuffers = 1)
+
+        // Trigger the worker; it enters read() and parks. readAsync won't return until the worker
+        // delivers a block, so run it detached (and swallow the close-induced cancellation).
+        val readJob = coroutineScope.launch {
+            try {
+                inputStream.readAsync(ByteArray(4))
+            } catch (_: Exception) {
+                // Expected: the channel is closed under us by closeAsync().
+            }
+        }
+
+        assertTrue(testDev.readStarted.await(5, java.util.concurrent.TimeUnit.SECONDS)) {
+            "Worker never entered read()"
+        }
+
+        val closeJob = coroutineScope.launch { inputStream.closeAsync() }
+
+        // Give closeAsync ample time to run; it must NOT complete while a read is in flight.
+        delay(500.milliseconds)
+        assertFalse(closeJob.isCompleted) { "closeAsync returned while a read was still in flight" }
+        assertTrue(testDev.activeReads.get() > 0) { "Expected a read to be in flight" }
+
+        // Let the read finish; close must now complete and no transfer may remain in flight.
+        testDev.releaseRead.countDown()
+        closeJob.join()
+        readJob.join()
+        assertEquals(0, testDev.activeReads.get())
     }
 
     @Test

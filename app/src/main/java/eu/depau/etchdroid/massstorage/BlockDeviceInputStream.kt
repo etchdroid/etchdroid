@@ -4,10 +4,12 @@ import android.util.Log
 import eu.depau.etchdroid.utils.AsyncInputStream
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ClosedReceiveChannelException
 import kotlinx.coroutines.channels.ClosedSendChannelException
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
 import me.jahnen.libaums.core.driver.BlockDeviceDriver
 import java.io.IOException
 import java.nio.ByteBuffer
@@ -17,6 +19,14 @@ import java.util.concurrent.atomic.AtomicLong
 private const val TAG = "BlockDeviceInputStream"
 
 private const val TRACE_IO = false
+
+/**
+ * Upper bound on how long [BlockDeviceInputStream.closeAsync] waits for the I/O worker to
+ * terminate. On a healthy device the worker exits in milliseconds once the channel is closed; the
+ * timeout only trips if a native libusb transfer is genuinely stuck, in which case the job is
+ * failing anyway and we must not block close() forever.
+ */
+private const val IO_THREAD_JOIN_TIMEOUT_MS = 10_000L
 
 /**
  * Helper function to trace I/O operations.
@@ -111,6 +121,12 @@ class BlockDeviceInputStream(
     private val mIoThreadRunning: AtomicBoolean = AtomicBoolean(false)
 
     /**
+     * The coroutine running the I/O thread, so [closeAsync] can wait for it to fully terminate
+     * (i.e. no native block-device transfer is still in flight) before returning.
+     */
+    private var mIoThreadJob: Job? = null
+
+    /**
      * Waits until the wanted block is available in the block channel and returns it. Note that the
      * returned data may not necessarily *start* at the wanted block, but it will contain it.
      *
@@ -165,7 +181,7 @@ class BlockDeviceInputStream(
 
         val rendezvous = Channel<Unit>()
 
-        coroutineScope.launch(Dispatchers.IO) {
+        mIoThreadJob = coroutineScope.launch(Dispatchers.IO) {
             Thread.currentThread().name = "BlockDeviceInputStream I/O thread"
 
             try {
@@ -442,6 +458,12 @@ class BlockDeviceInputStream(
         } catch (e: ClosedReceiveChannelException) {
             // Ignore
         }
+
+        // Wait for the I/O worker to fully terminate so no native block-device read is still in
+        // flight when the caller moves on: the underlying libusb handle is not safe against
+        // concurrent transfers and would crash natively.
+        withTimeoutOrNull(IO_THREAD_JOIN_TIMEOUT_MS) { mIoThreadJob?.join() }
+            ?: Log.w(TAG, "I/O worker did not terminate before close")
     }
 
     /**

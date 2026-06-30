@@ -6,12 +6,14 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ClosedReceiveChannelException
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeoutOrNull
 import me.jahnen.libaums.core.driver.BlockDeviceDriver
 import java.io.IOException
 import java.nio.ByteBuffer
@@ -20,6 +22,14 @@ import java.util.concurrent.atomic.AtomicBoolean
 private const val TAG = "BlockDeviceOutputStream"
 
 private const val BARRIER_TAG = -0xBA881E8L
+
+/**
+ * Upper bound on how long [BlockDeviceOutputStream.closeAsync] waits for the I/O worker to
+ * terminate. On a healthy device the worker exits in milliseconds once the channel is closed; the
+ * timeout only trips if a native libusb transfer is genuinely stuck, in which case the job is
+ * failing anyway and we must not block close() forever.
+ */
+private const val IO_THREAD_JOIN_TIMEOUT_MS = 10_000L
 
 private const val TRACE_IO = false
 
@@ -117,6 +127,12 @@ class BlockDeviceOutputStream(
     private val mIoThreadRunning: AtomicBoolean = AtomicBoolean(false)
 
     /**
+     * The coroutine running the I/O thread, so [closeAsync] can wait for it to fully terminate
+     * (i.e. no native block-device transfer is still in flight) before returning.
+     */
+    private var mIoThreadJob: Job? = null
+
+    /**
      * Atomic flag that indicates whether the stream has been closed.
      */
     private val closed = AtomicBoolean(false)
@@ -144,7 +160,7 @@ class BlockDeviceOutputStream(
             }
         }
 
-        coroutineScope.launch(Dispatchers.IO) {
+        mIoThreadJob = coroutineScope.launch(Dispatchers.IO) {
             Thread.currentThread().name = "BlockDeviceOutputStream I/O thread"
 
             if (!mIoThreadRunning.compareAndSet(false, true)) {
@@ -383,5 +399,11 @@ class BlockDeviceOutputStream(
         flushAsync()
         val channel = mChannelMutex.withLock { mBlockChannel }
         channel.close()
+
+        // Wait for the I/O worker to fully terminate so no native block-device transfer is still
+        // in flight when the caller moves on (e.g. the write->verify handoff): the underlying
+        // libusb handle is not safe against concurrent transfers and would crash natively.
+        withTimeoutOrNull(IO_THREAD_JOIN_TIMEOUT_MS) { mIoThreadJob?.join() }
+            ?: Log.w(TAG, "I/O worker did not terminate before close")
     }
 }
