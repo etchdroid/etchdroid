@@ -50,7 +50,6 @@ fun getConfirmOperationActivityIntent(
 ): Intent {
     return mkIntent(packageContext, cls).apply {
         data = sourceUri
-        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         putExtra("sourceUri", sourceUri)
         putExtra("destDevice", destDevice)
     }
@@ -68,7 +67,6 @@ fun getStartJobIntent(
     return mkIntent(packageContext, cls).apply {
         action = Intents.START_JOB
         data = sourceUri
-        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         putExtra("sourceUri", sourceUri)
         putExtra("destDevice", destDevice)
         putExtra("jobId", jobId)
@@ -89,7 +87,6 @@ fun getProgressUpdateIntent(
     cls: Class<*>? = null,
 ) = mkIntent(packageContext, cls).apply {
     action = Intents.JOB_PROGRESS
-    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
     putExtra("sourceUri", sourceUri)
     putExtra(
         "status", JobStatusInfo(
@@ -110,7 +107,6 @@ fun getErrorIntent(
     cls: Class<*>? = null,
 ) = mkIntent(packageContext, cls).apply {
     action = Intents.ERROR
-    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
     putExtra("sourceUri", sourceUri)
     putExtra(
         "status",
@@ -129,7 +125,6 @@ fun getFinishedIntent(
     cls: Class<*>? = null,
 ) = mkIntent(packageContext, cls).apply {
     action = Intents.FINISHED
-    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
     putExtra("sourceUri", sourceUri)
     putExtra("status", JobStatusInfo(sourceUri, destDevice, totalBytes, totalBytes, jobId = -1))
 }
@@ -139,7 +134,6 @@ fun Intent.getProgressActivityPendingIntent(
 ): PendingIntent = PendingIntent.getActivity(context, requestCode, this.apply {
     // Set data uri to propagate the permission
     if (data == null) data = safeParcelableExtra<Uri?>("sourceUri")
-    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 
     addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
     addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
