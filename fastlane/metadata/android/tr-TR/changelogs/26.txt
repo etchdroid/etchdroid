@@ -1,0 +1,7 @@
+Hata düzeltmeleri ve yeni çeviriler içeren, kullanıcı deneyimini iyileştirmeye yönelik sürüm.
+
+• Güvenilirlik iyileştirildi: USB sürücülere yazma sırasında meydana gelen çeşitli çökme sorunları giderildi
+• Yazma işlemi yapılamayan çok büyük USB sürücüler artık net bir hata mesajı gösteriyor
+• Bazı Android 13 aygıtlarda kalıpları açarken meydana gelen çökme sorunu giderildi
+• microG tabanlı ROM’larda telemetri artık doğru şekilde devre dışı bırakılıyor
+• Yeni çeviriler eklendi: Fince, Galiçyaca, Birmanya dili, Sardunya dili, Slovakça ve Ukraynaca
