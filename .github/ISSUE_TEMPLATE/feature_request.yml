@@ -7,12 +7,17 @@ body:
     attributes:
       value: |
         ## Before suggesting a feature...
-        Please note that **EtchDroid is a raw image writer.** To keep the app stable and rootless, some features are explicitly **out of scope** and will not be implemented, ever:
+        Please note that **EtchDroid is a raw image writer.**
+        
+        To keep the app stable and rootless, some features are explicitly **out of scope** and will not be implemented, ever:
         
         * **Windows ISOs (unmodified):** Windows ISOs are not "hybrid" and won't boot if written raw to USB. EtchDroid will not include a Windows ISO converter ([#5](https://github.com/etchdroid/etchdroid/issues/5)).
         * **macOS / DMG Support:** Creating macOS installers or writing DMG files is unsupported and not planned ([#6](https://github.com/etchdroid/etchdroid/issues/6)).
         * **Internal SD Card Slot:** Android prevents writing to the internal SD slot at a block level without root. Any feature that requires root will never be added ([#39](https://github.com/etchdroid/etchdroid/issues/39)).
         * **Multi-boot (Ventoy-style):** EtchDroid writes only one image without modifications. Multi-boot requires modifying the images and is outside the project's scope ([#281](https://github.com/etchdroid/etchdroid/issues/281)).
+
+        > [!CAUTION]
+        > Ignoring the above and opening issues about the features listed above will result in a permanent ban from the organization with no possibility for appeal. We receive a high amount of spam and we have zero tolerance towards users who don't take their time to read what's already been painstakingly explained and reiterated over and over.
 
   - type: checkboxes
     id: scope_check
