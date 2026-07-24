@@ -24,4 +24,9 @@
     <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">Продовжити</string>
     <string name="unknown_device" comment="Device name placeholder">Невідомий пристрій</string>
     <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">Надати доступ</string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme">Тема</string>
+    <string name="device_setting" comment="Style menu option that selects the device default light/dark theme">Системна</string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme">Динамічні кольори</string>
+    <string name="about" comment="Menu option that opens the about page">Про програму</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">Записуємо образ…</string>
 </resources>
