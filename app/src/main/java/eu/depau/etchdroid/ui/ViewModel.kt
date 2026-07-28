@@ -243,6 +243,7 @@ data class ProgressActivityState(
 class ProgressActivityViewModel : ViewModel(), SettingChangeListener, IThemeViewModel<ProgressActivityState> {
     private val _state = MutableStateFlow(ProgressActivityState.Empty)
     override val state: StateFlow<ProgressActivityState> = _state.asStateFlow()
+    private var launchIntentConsumed = false
 
     override fun refreshSettings(settings: AppSettings) {
         _state.update {
@@ -257,7 +258,13 @@ class ProgressActivityViewModel : ViewModel(), SettingChangeListener, IThemeView
         _state.update { state }
     }
 
+    fun initializeFromIntent(intent: Intent) {
+        if (launchIntentConsumed) return
+        updateFromIntent(intent)
+    }
+
     fun updateFromIntent(intent: Intent) {
+        launchIntentConsumed = true
         val sourceUri = intent.safeParcelableExtra<Uri>("sourceUri")!!
         val status = intent.safeParcelableExtra<JobStatusInfo>("status")!!
 

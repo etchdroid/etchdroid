@@ -227,7 +227,7 @@ class ProgressActivity : ActivityBase() {
             mViewModel.refreshSettings(this)
         }
         refreshNotificationsPermission()
-        mViewModel.updateFromIntent(intent)
+        mViewModel.initializeFromIntent(intent)
 
         Telemetry.configureScope {
             val state = mViewModel.state.value
