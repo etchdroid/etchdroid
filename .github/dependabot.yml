@@ -22,6 +22,16 @@ updates:
     schedule:
       interval: "weekly"
 
+  # Python dependencies for Appium e2e tests
+  # appium-python-client follows Appium's release cadence and upgrades can
+  # break e2e tests, so it is ignored for automatic updates.
+  - package-ecosystem: "pip"
+    directory: "/appium-tests"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "appium-python-client"
+
   # npm packages for Appium e2e tests
   # Appium upgrades have historically broken e2e tests and required a full
   # refactor, so automatic updates are disabled for the Appium packages.
