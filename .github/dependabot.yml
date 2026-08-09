@@ -1,0 +1,34 @@
+version: 2
+updates:
+  # Android / Gradle dependencies
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      # Compose BOM and the Kotlin Compose compiler plugin must move together
+      compose:
+        patterns:
+          - "androidx.compose*"
+          - "org.jetbrains.kotlin.plugin.compose"
+      # Kotlin and all kotlin-* plugins share the same version
+      kotlin:
+        patterns:
+          - "org.jetbrains.kotlin*"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # npm packages for Appium e2e tests
+  # Appium upgrades have historically broken e2e tests and required a full
+  # refactor, so automatic updates are disabled for the Appium packages.
+  - package-ecosystem: "npm"
+    directory: "/appium-tests"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "appium"
+      - dependency-name: "appium-uiautomator2-driver"
