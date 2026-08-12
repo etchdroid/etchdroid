@@ -133,4 +133,5 @@
     <string name="any_thunderbolt_only_device" comment="Device type">Yksinomaan Thunderbolt:ia käyttävät laitteet</string>
     <string name="very_large_drives_2tb" comment="Device type">Erittäin suuret asemat (≥ 2 TB)</string>
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos" comment="Image type">Toisten modernien GNU/Linux ja BSD jakeluitten live ISO:t</string>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false"></string>
 </resources>
