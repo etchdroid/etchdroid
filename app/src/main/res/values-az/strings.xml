@@ -13,14 +13,14 @@
     <string name="unknown_filename">Naməlum fayl adı</string>
     <string name="permission_denied_for_usb_device">USB cihazı üçün icazə rədd edildi %1$s</string>
     <string name="write_an_image">İmaj yazın</string>
-    <string name="whats_supported">Nə dəstəklənir\?</string>
+    <string name="whats_supported">Nə dəstəklənir?</string>
     <string name="style">Stil</string>
     <string name="device_setting">Device settings</string>
     <string name="light">İşıqlı</string>
     <string name="dark">Tünd</string>
     <string name="dynamic_colors">Dinamik rənglər</string>
     <string name="about">Haqqında</string>
-    <string name="is_this_a_windows_iso">Bu Windows ISO-dur\?</string>
+    <string name="is_this_a_windows_iso">Bu Windows ISO-dur?</string>
     <string name="continue_anyway">Hər halda davam edin</string>
     <string name="select_a_usb_drive">USB sürücüsünü seçin</string>
     <string name="connect_a_usb_drive">USB sürücüsünü qoşun</string>
@@ -74,7 +74,7 @@
     <string name="error">Xəta</string>
     <string name="start_over">Yenidən başlamaq</string>
     <string name="try_again">Təkrar cəhd</string>
-    <string name="how_did_this_happen">Bu necə oldu\?</string>
+    <string name="how_did_this_happen">Bu necə oldu?</string>
     <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">Bu gözlənilməzdir, yəqin ki, səhvdir. Zəhmət olmasa xəbər verin!</string>
     <string name="to_recover_unplug">Bərpa etmək üçün USB diskinizi ayırın, yenidən qoşun və yenidən daxil olmaq üçün icazə verin.</string>
     <string name="representation_of_the_required_steps">Tələb olunan addımların təsviri: ayırın, yenidən qoşun, icazə verin</string>
@@ -100,11 +100,9 @@
     <string name="supported">Dəstəklənir</string>
     <string name="memory_cards_using_a_usb_adapter">Yaddaş kartları, USB çeviricidən istifadə edərək</string>
     <string name="raspberry_pi_sd_card_images_unzip_first">Raspberry Pi SD kart imajları (əvvəlcə açın!)</string>
-    <string name="developed_by">%1$s və digər %2$s tərəfindən hazırlanmışdır.
-\nMənbə kodu %3$s-də mövcuddur.
-\nGNU GPLv3 lisenziyası ilə lisenziyalaşdırılıb.</string>
+    <string name="developed_by">%1$s və digər %2$s tərəfindən hazırlanmışdır. \nMənbə kodu %3$s-də mövcuddur. \nGNU GPLv3 lisenziyası ilə lisenziyalaşdırılıb.</string>
     <string name="support_for_dmg_images_was_removed">DMG imajları üçün dəstək EtchDroid 2.0-da silindi. Köhnə versiyaları %1$s-dən yükləmək olar.</string>
-    <string name="would_you_like_to_be_notified">Bitirdikdə xəbərdar olmaq istərdinizmi\? Yalnız prosses yeniləmələri, spam və ya reklam yoxdur.</string>
+    <string name="would_you_like_to_be_notified">Bitirdikdə xəbərdar olmaq istərdinizmi? Yalnız prosses yeniləmələri, spam və ya reklam yoxdur.</string>
     <string name="support_the_project">Maddi dəstək</string>
     <string name="verifying">Doğrulanır</string>
     <string name="copying">Kopyalanır</string>
