@@ -131,4 +131,7 @@
     <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Telemetria</string>
     <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">Adatvédelmi irányelvek</string>
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Tudjon meg többet</string>
+    <string name="very_large_drives_2tb" comment="Device type"></string>
+    <string name="the_usb_drive_is_too_large" comment="Error message"></string>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false"></string>
 </resources>
