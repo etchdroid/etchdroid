@@ -13,13 +13,13 @@
     <string name="notification_verify_progress_content">%1$s rispetto a %2$s</string>
     <string name="permission_denied_for_usb_device">Permesso negato per il dispositivo USB %1$s</string>
     <string name="usb_device_was_unplugged">Dispositivo USB disconnesso</string>
-    <string name="whats_supported">Cosa è supportato\?</string>
+    <string name="whats_supported">Cosa è supportato?</string>
     <string name="device_setting">Impostazione globale</string>
     <string name="light">Chiaro</string>
     <string name="dark">Scuro</string>
     <string name="dynamic_colors">Colori dinamici</string>
     <string name="about">Informazioni</string>
-    <string name="is_this_a_windows_iso">È per caso una ISO di Windows\?</string>
+    <string name="is_this_a_windows_iso">È per caso una ISO di Windows?</string>
     <string name="continue_anyway">Continua comunque</string>
     <string name="select_a_usb_drive">Seleziona un dispositivo USB</string>
     <string name="looking_for_usb_drives">Ricerca di dispositivi USB in corso</string>
@@ -55,7 +55,7 @@
     <string name="verifying_image">Verifica immagine</string>
     <string name="writing_image">Scrittura immagine</string>
     <string name="please_avoid_using_your_device">Evita di usare il dispositivo</string>
-    <string name="would_you_like_to_be_notified">Vuoi essere notificatə al termine dell\'operazione\? Solo notifiche sull\'avanzamento, mai spam o pubblicità.</string>
+    <string name="would_you_like_to_be_notified">Vuoi essere notificatə al termine dell\'operazione? Solo notifiche sull\'avanzamento, mai spam o pubblicità.</string>
     <string name="no_thanks">No, grazie</string>
     <string name="sure">Certo</string>
     <string name="verifying">Verifica di</string>
@@ -75,7 +75,7 @@
     <string name="start_over">Inizia daccapo</string>
     <string name="try_again">Prova di nuovo</string>
     <string name="i_did_not_unplug_it">Ma non l\'ho disconnesso!</string>
-    <string name="how_did_this_happen">Come mai è successo\?</string>
+    <string name="how_did_this_happen">Come mai è successo?</string>
     <string name="usb_drives_are_unreliable">I dispositivi USB sono inaffidabili, e Android non fornisce sufficiente accesso per sistemare il problema automaticamente; EtchDroid deve arrangiarsi!</string>
     <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">Questo è inaspettato, è probabilmente un errore di programmazione. Segnalalo, per piacere!</string>
     <string name="to_recover_unplug">Per riprendere, stacca stacca il dispositivo USB, ricollegalo e autorizza nuovamente l\'accesso.</string>
@@ -108,9 +108,7 @@
     <string name="very_large_drives_2tb">Dischi molto grandi (≥ 2 TB)</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Qualsiasi altra immagine che funziona con Balena Etcher o dd</string>
     <string name="support_for_dmg_images_was_removed">Il supporto per le immagini DMG è stato rimosso a partire da EtchDroid 2.0. Si possono scaricare versioni precedenti su %1$s.</string>
-    <string name="developed_by">Sviluppato da %1$s e altrз %2$s.
-\nCodice sorgente disponibile su %3$s.
-\nDistribuito con licenza GNU GPLv3.</string>
+    <string name="developed_by">Sviluppato da %1$s e altrз %2$s. \nCodice sorgente disponibile su %3$s. \nDistribuito con licenza GNU GPLv3.</string>
     <string name="perhaps_your_usb_port_is_dirty">Forse la porta USB è sporca, l\'adattatore è difettoso, o il tuo dispositivo non riesce a fornire abbastanza potenza elettrica. Considera di provare un altro adattatore o dispositivo.</string>
     <string name="usb_device_reconnected_resuming">Dispositivo USB ricollegato, ripresa operazione</string>
     <string name="missing_permission_to_access_the_usb_device">Privilegi assenti per usare il dispositivo USB</string>
