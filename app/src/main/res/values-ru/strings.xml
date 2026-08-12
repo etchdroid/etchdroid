@@ -18,13 +18,13 @@
     <string name="permission_denied_for_usb_device">Отказано в доступе к USB-устройству %1$s</string>
     <string name="usb_device_was_unplugged">USB-устройство было отключено</string>
     <string name="write_an_image">Записать образ</string>
-    <string name="whats_supported">Что поддерживается\?</string>
+    <string name="whats_supported">Что поддерживается?</string>
     <string name="style">Стиль</string>
     <string name="device_setting">Настройки устройства</string>
     <string name="light">Светлая</string>
     <string name="dark">Тёмная</string>
     <string name="dynamic_colors">Динамические цвета</string>
-    <string name="is_this_a_windows_iso">Это ISO-образ Windows\?</string>
+    <string name="is_this_a_windows_iso">Это ISO-образ Windows?</string>
     <string name="a_regular_windows_iso_won_t_work">Обычный ISO-образ Windows не будет работать с EtchDroid, если только он не был специально подготовлен для использования с Etcher, dd или EtchDroid.</string>
     <string name="continue_anyway">Всё равно продолжать</string>
     <string name="select_a_usb_drive">Выберите USB-накопитель</string>
@@ -83,7 +83,7 @@
     <string name="start_over">Перезапустить</string>
     <string name="try_again">Повторить попытку</string>
     <string name="i_did_not_unplug_it">Я его не отключал!</string>
-    <string name="how_did_this_happen">Как это произошло\?</string>
+    <string name="how_did_this_happen">Как это произошло?</string>
     <string name="usb_drives_are_unreliable">USB-накопители ненадёжны, а Android не предоставляет достаточных для автоматического восстановления прав. Мы должны обходиться тем, что есть!</string>
     <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">Это неожиданно, возможно дефект. Пожалуйста, сообщите об этом!</string>
     <string name="plug_in_the_same_usb">Подключите то же самое USB-устройство, которое вы использовали раньше!</string>
@@ -103,7 +103,7 @@
     <string name="older_gnu_linux_distributions_isos_2010">Старые ISO-образы дистрибутивов GNU/Linux (до 2010 года)</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Любой другой образ, который работает с Balena Etcher или dd</string>
     <string name="please_avoid_using_your_device">Пожалуйста, воздержитесь от использования устройства</string>
-    <string name="would_you_like_to_be_notified">Хотите получить уведомление по завершении\? Только прогресс, никакого спама и рекламы.</string>
+    <string name="would_you_like_to_be_notified">Хотите получить уведомление по завершении? Только прогресс, никакого спама и рекламы.</string>
     <string name="it_s_safe_to_ignore">Его можно смело игнорировать! Просто отключите накопитель и используйте его как обычно. %1$s и узнайте, как отформатировать ваш накопитель позже.</string>
     <string name="perhaps_your_usb_port_is_dirty">Возможно, загрязнён USB-порт, неисправен адаптер, или устройство даёт недостаточно электроэнергии. Попробуйте другой адаптер или устройство.</string>
     <string name="to_recover_unplug">Для восстановления отключите USB-накопитель, подключите обратно и снова разрешите к нему доступ.</string>
