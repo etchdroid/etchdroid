@@ -15,12 +15,12 @@
     <string name="notification_write_progress_content">%1$s la %2$s</string>
     <string name="device_setting">Setări dispozitiv</string>
     <string name="light">Luminos</string>
-    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">Se scrie imaginea…</string>
+    <string name="notification_write_progress_title" comment=" Notification title used for long-running job status">Se scrie…</string>
     <string name="notification_verify_progress_title" comment=" Notification title used for long-running job status">Se verifică imaginea…</string>
     <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">Se compară %1$s cu %2$s</string>
     <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">Permisunea pentru dispozitivul USB %1$s a fost refuzată</string>
     <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">Dispozitivul USB a fost deconectat</string>
-    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">Se scrie imaginea</string>
+    <string name="write_an_image" comment="Displayed in the home page main call-to-action button">Scrie o imagine</string>
     <string name="whats_supported" comment="Displayed in the homepage; opens a page that lists all the supported devices and formats">Ce este compatibil?</string>
     <string name="style" comment="Title of the menu that allows selecting the app color scheme">Stilul</string>
     <string name="dark" comment="Style menu option that selects the dark theme">Întunecat</string>
@@ -41,7 +41,7 @@
     <string name="grant_access" comment="Displayed on the button to request the permission to write to the USB drive. Keep it short.">Permite accesul</string>
     <string name="permission_granted">Permisiune aprobată</string>
     <string name="be_careful" comment="Title of the card that alerts the user that, if they continue, all data on the USB drive will be lost">Ai grijă!</string>
-    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">Scriind o imagine va șterge toate datele din dispozitivul USB ales</string>
+    <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost">Scriind o imagine va șterge toate datele din dispozitivul ales</string>
     <string name="write_image" comment="Confirmation button; when pressed, the operation starts">Scrie imaginea</string>
     <string name="lay_your_device_flat_no_accel" comment="Title of the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor">Puneți telefonul/tableta pe o suprafață plată sau pe o masă înainte de a continua.</string>
     <string name="continue_" comment="Button displayed in the dialog that forces the user to lay the device flat on a table before continuing, when the device has no gravity sensor; when pressed the operation starts.">Continuă</string>
@@ -75,7 +75,7 @@
     <string name="website" comment="Displayed in the about page links; keep it very short!">Pagină web</string>
     <string name="support_the_project" comment="Displayed in the about page links; keep it short!">Sprijin financiar</string>
     <string name="verifying_image" comment="Title of the progress page while an image is being verified">Se verifică imaginea</string>
-    <string name="writing_image" comment="Title of the progress page while an image is being written">Se scrie imaginea…</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">Se scrie imaginea</string>
     <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">Evitați folosirea dispozitivului</string>
     <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">Vrei să fi informat când sa terminat? Doar actualizări de progres, fără spam sau reclame.</string>
     <string name="no_thanks" comment="Button to reject receiving notifications">Nu mulțumesc</string>
