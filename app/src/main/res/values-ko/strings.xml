@@ -19,9 +19,7 @@
     <string name="usb_docks_and_hubs_might_have_power_issues">USB 도크 및 허브 (전원 문제가 있을 수 있음)</string>
     <string name="microsoft_windows_isos_any_version">Microsoft Windows ISO (모든 버전)</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Balena Etcher 또는 dd와 사용 가능한 모든 이미지</string>
-    <string name="developed_by">%1$s 및 다른 %2$s이 개발했어요.
-\n%3$s에서 소스 코드를 볼 수 있어요.
-\nGNU GPLv3 라이선스에 따라 라이선스가 부여됩니다.</string>
+    <string name="developed_by">%1$s 및 다른 %2$s이 개발했어요. \n%3$s에서 소스 코드를 볼 수 있어요. \nGNU GPLv3 라이선스에 따라 라이선스가 부여됩니다.</string>
     <string name="contributors">기여자들</string>
     <string name="support_the_project">후원</string>
     <string name="writing_image">이미지 작성 중</string>
