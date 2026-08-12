@@ -131,4 +131,7 @@
     <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid จะส่งข้อมูลระยะไกล</string>
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">เรียนรู้เพิ่มเติม</string>
     <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">ส่งข้อมูลแบบไม่ระบุตัวตน</string>
+    <string name="very_large_drives_2tb" comment="Device type"></string>
+    <string name="the_usb_drive_is_too_large" comment="Error message"></string>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false"></string>
 </resources>
