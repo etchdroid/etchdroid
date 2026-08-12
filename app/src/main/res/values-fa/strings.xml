@@ -123,4 +123,15 @@
     <string name="view_github_issues">دیدن ایرادها در گیت‌هاب</string>
     <string name="please_report_fatal_issue">اگر می توانید، خواهشمندم این ایراد را در گیت‌هاب به همراه مراحل بازآفرینی این نادرستی گزارش دهید.</string>
     <string name="worker_null_device_error">کوششی برای نوشتن آغاز شد ولی شوربختانه برخی از داده‌ها در درازای راه از میان رفتند. خواهشمندم دوباره آزمایش کنید</string>
+    <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language"></string>
+    <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes"></string>
+    <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise."></string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info."></string>
+    <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy"></string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry"></string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)"></string>
+    <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language"></string>
+    <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise."></string>
+    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used."></string>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false"></string>
 </resources>
