@@ -132,4 +132,6 @@
     <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Была начата попытка записи, но, к сожалению, часть информации была утеряна. Пожалуйста, попробуйте еще раз.</string>
     <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Телеметрия</string>
     <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">Политика конфиденциальности</string>
+    <string name="very_large_drives_2tb" comment="Device type"></string>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false"></string>
 </resources>
