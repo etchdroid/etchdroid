@@ -79,9 +79,7 @@
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Cualquier otra imagen que funcione con Balena Etcher o dd</string>
     <string name="older_gnu_linux_distributions_isos_2010">ISO de distribuciones GNU/Linux más antiguas (&lt; 2010)</string>
     <string name="support_for_dmg_images_was_removed">La compatibilidad con imágenes DMG se eliminó en EtchDroid 2.0. Las versiones anteriores se pueden descargar desde %1$s .</string>
-    <string name="developed_by">Desarrollado por %1$s y otros %2$s.
-\nCódigo fuente disponible en %3$s.
-\nBajo la licencia GNU GPLv3.</string>
+    <string name="developed_by">Desarrollado por %1$s y otros %2$s. \nCódigo fuente disponible en %3$s. \nBajo la licencia GNU GPLv3.</string>
     <string name="contributors">Colaboradores</string>
     <string name="website">Página web</string>
     <string name="verifying_image">Verificando la imagen</string>
