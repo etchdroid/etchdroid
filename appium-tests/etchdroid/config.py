@@ -10,7 +10,7 @@ class Config:
     QEMU_MONITOR_PATH = os.environ.get("QEMU_MONITOR_PATH", "/tmp/qemu-monitor.sock")
 
     QEMU_USB_BUS = os.environ.get("QEMU_USB_BUS", "xhci.0")
-    QEMU_USB_SLOW_BUS = os.environ.get("QEMU_USB_BUS", "uhci.0")
+    QEMU_USB_SLOW_BUS = os.environ.get("QEMU_USB_SLOW_BUS", "uhci.0")
     QEMU_USB_DEV_ID = os.environ.get("QEMU_USB_DEV_ID", "usbstick")
 
     DISABLE_SETUP = os.environ.get("DISABLE_SETUP", "0") == "1"
