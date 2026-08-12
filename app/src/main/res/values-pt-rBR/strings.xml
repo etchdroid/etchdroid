@@ -21,12 +21,12 @@
     <string name="permission_denied_for_usb_device">Permissão negada para dispositivo USB %1$s</string>
     <string name="usb_device_was_unplugged">O dispositivo USB foi desconectado</string>
     <string name="write_an_image">Escrever uma imagem</string>
-    <string name="whats_supported">O que é suportado\?</string>
+    <string name="whats_supported">O que é suportado?</string>
     <string name="style">Estilo</string>
     <string name="device_setting">Configuração do dispositivo</string>
     <string name="light">Claro</string>
     <string name="dark">Escuro</string>
-    <string name="is_this_a_windows_iso">Isso é um ISO do Windows\?</string>
+    <string name="is_this_a_windows_iso">Isso é um ISO do Windows?</string>
     <string name="skip">Ignorar</string>
     <string name="supported">Suportado</string>
     <string name="maybe_supported">Talvez suportado</string>
@@ -74,9 +74,7 @@
     <string name="it_s_safe_to_ignore">É seguro ignorar! Desligue sua unidade e use-a normalmente. %1$s e veja como formatar sua unidade mais tarde.</string>
     <string name="arch_linux_ubuntu_debian_fedora_pop_os_linux_mint_freebsd_etc">Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD etc.</string>
     <string name="title_activity_confirm_operation">Confirmar operação</string>
-    <string name="developed_by">Desenvolvido por %1$s e outros %2$s.
-\nCódigo fonte disponível em %3$s.
-\nLicenciado sob a licença GNU GPLv3.</string>
+    <string name="developed_by">Desenvolvido por %1$s e outros %2$s. \nCódigo fonte disponível em %3$s. \nLicenciado sob a licença GNU GPLv3.</string>
     <string name="write_another_image">Escrever outra imagem</string>
     <string name="no_image_uri_provided">Nenhuma URI de imagem foi fornecida</string>
     <string name="confirm_operation">Confirmação da operação</string>
