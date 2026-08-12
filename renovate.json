@@ -1,0 +1,58 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "schedule": ["before 6am on monday"],
+  "prConcurrentLimit": 5,
+  "packageRules": [
+    {
+      "description": "Appium major/minor upgrades have broken the e2e tests and needed a refactor. Patch only. Renovate does not override disabled dependencies for vulnerability alerts, so this also silences CVE-driven major/minor bumps.",
+      "matchPackageNames": [
+        "appium",
+        "appium-uiautomator2-driver",
+        "appium-python-client"
+      ],
+      "matchUpdateTypes": ["major", "minor"],
+      "enabled": false
+    },
+    {
+      "description": "Pinned to a JitPack commit on purpose - see the TODO in gradle/libs.versions.toml",
+      "matchPackageNames": ["com.github.magnusja:libaums"],
+      "enabled": false
+    },
+    {
+      "description": "Compose BOM and the explicitly-versioned material3 artifacts move in lockstep",
+      "matchPackageNames": ["androidx.compose{/,}**"],
+      "groupName": "compose"
+    },
+    {
+      "description": "Kotlin and all Kotlin plugins share one version key",
+      "matchPackageNames": ["org.jetbrains.kotlin{/,}**"],
+      "groupName": "kotlin"
+    },
+    {
+      "matchPackageNames": [
+        "androidx.test{/,}**",
+        "org.junit{/,}**",
+        "org.mockito{/,}**",
+        "org.robolectric{/,}**",
+        "de.mannodermaus{/,}**",
+        "tech.apter{/,}**"
+      ],
+      "groupName": "test dependencies"
+    },
+    {
+      "description": "Play-flavour only, not built for F-Droid",
+      "matchPackageNames": [
+        "io.sentry{/,}**",
+        "com.google.firebase{/,}**",
+        "com.google.gms{/,}**",
+        "com.google.android.play{/,}**"
+      ],
+      "groupName": "gplay flavour"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "github actions"
+    }
+  ]
+}
