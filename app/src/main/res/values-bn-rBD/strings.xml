@@ -17,7 +17,7 @@
     <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s থেকে %2$s</string>
     <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s এর সাথে %2$s যাচাই হচ্ছে</string>
     <string name="unknown_filename" comment="Placeholder file name">অজানা ফাইলের নাম</string>
-    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">"%1$s এর জন্য অনুমতি অস্বীকৃত"</string>
+    <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">%1$s এর জন্য অনুমতি অস্বীকৃত</string>
     <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">ইউএসবি ডিভাইস আনপ্লাগ করা হয়েছে</string>
     <string name="write_an_image" comment="Displayed in the home page main call-to-action button">একটি ইমেজ লিখুন</string>
     <string name="whats_supported" comment="Displayed in the homepage; opens a page that lists all the supported devices and formats">কি সমর্থিত?</string>
@@ -90,7 +90,7 @@
     <string name="image_written_successfully" comment="Title of the success page">ইমেজ সফলভাবে লেখা হয়েছে!</string>
     <string name="write_a_review" comment="Displayed in a button on the success page">একটি পর্যালোচনা লিখুন</string>
     <string name="star_on_github" comment="Displayed in a button on the success page">GitHub এ তারকা দিন</string>
-    <string name="got_an_unsupported_drive_notification" comment="Title of the card that teaches the user about any &quot;Issues with this drive&quot; notifications">একটি "এই ড্রাইভে সমস্যা" নোটিফিকেশন পেয়েছেন?</string>
+    <string name="got_an_unsupported_drive_notification" comment="Title of the card that teaches the user about any &quot;Issues with this drive&quot; notifications">একটি এই ড্রাইভে সমস্যা নোটিফিকেশন পেয়েছেন?</string>
     <string name="it_s_safe_to_ignore" comment="Message of the card that teaches the user about any &quot;Issues with this drive&quot; notifications; the parameter will be replaced with the translation of &quot;Learn what it means&quot;">এটি উপেক্ষা করাই নিরাপদ! শুধু আপনার ড্রাইভ আনপ্লাগ করুন এবং স্বাভাবিকভাবে ব্যবহার করুন। %1$s এবং কিভাবে আপনার ড্রাইভ পরে ফরম্যাট করতে হবে দেখুন।</string>
     <string name="learn_what_it_means" comment="Part of the message of the card that teaches the user about any &quot;Issues with this drive&quot; notifications; the full sentence is &quot;Learn what it means and see how to format your drive later&quot;">এটির অর্থ কি তা শিখুন</string>
     <string name="there_was_an_error" comment="Title of the non-recoverable error page">একটি ত্রুটি ঘটেছে</string>
