@@ -45,10 +45,10 @@
     <string name="style">Styl</string>
     <string name="light">Jasny</string>
     <string name="permission_denied_for_usb_device">Odmowa uprawnień do urządzenia USB %1$s</string>
-    <string name="whats_supported">Co jest obsługiwane\?</string>
+    <string name="whats_supported">Co jest obsługiwane?</string>
     <string name="dynamic_colors">Dynamiczne kolory</string>
     <string name="continue_anyway">Kontynuuj mimo to</string>
-    <string name="is_this_a_windows_iso">Czy to ISO Windowsa\?</string>
+    <string name="is_this_a_windows_iso">Czy to ISO Windowsa?</string>
     <string name="grant_access">Przyznaj dostęp</string>
     <string name="permission_granted">Uprawnienie przyznane</string>
     <string name="writing_the_image_will_erase">Zapisanie obrazu spowoduje usunięcie wszystkich danych z wybranego dysku</string>
@@ -72,9 +72,7 @@
     <string name="raspberry_pi_sd_card_images_unzip_first">Obrazy karty SD Raspberry Pi (najpierw rozpakuj!)</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Każdy inny obraz, który działa z Balena Etcher lub dd</string>
     <string name="older_gnu_linux_distributions_isos_2010">ISO starszych dystrybucji GNU/Linuksa (&lt; 2010)</string>
-    <string name="developed_by">Opracowany przez %1$s i innych %2$s.
-\nKod źródłowy dostępny na %3$s.
-\nLicencjonowany na licencji GNU GPLv3.</string>
+    <string name="developed_by">Opracowany przez %1$s i innych %2$s. \nKod źródłowy dostępny na %3$s. \nLicencjonowany na licencji GNU GPLv3.</string>
     <string name="website">Strona internetowa</string>
     <string name="verifying_image">Weryfikacja obrazu</string>
     <string name="writing_image">Zapisywanie obrazu</string>
@@ -89,7 +87,7 @@
     <string name="there_was_an_error">Wystąpił błąd</string>
     <string name="try_again">Spróbuj ponownie</string>
     <string name="start_over">Rozpocznij ponownie</string>
-    <string name="how_did_this_happen">Jak to się stało\?</string>
+    <string name="how_did_this_happen">Jak to się stało?</string>
     <string name="i_did_not_unplug_it">nie odłączyłem go!</string>
     <string name="the_device_is_not_responding">Urządzenie nie odpowiada</string>
     <string name="missing_permission_to_access_the_usb_device">Brak pozwolenia na dostęp do urządzenia USB</string>
