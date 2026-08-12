@@ -9,11 +9,11 @@
     <string name="notif_channel_job_result_name">ജോലിയുടെ ഫലം</string>
     <string name="notification_verify_progress_content">%2$s എന്നതിനെതിരെ %1$s</string>
     <string name="permission_denied_for_usb_device">%1$s എന്ന യുഎസ്ബി ഉപകരണത്തിന് അനുമതി നിരസിച്ചു</string>
-    <string name="whats_supported">എന്താണ് പിന്തുണയ്ക്കുന്നത്\?</string>
+    <string name="whats_supported">എന്താണ് പിന്തുണയ്ക്കുന്നത്?</string>
     <string name="style">ശൈലി</string>
     <string name="device_setting">ഉപകരണ ക്രമീകരണം</string>
     <string name="light">വെളിച്ചം</string>
-    <string name="is_this_a_windows_iso">ഇതൊരു വിൻഡോസ് ഐഎസ്ഒ ആണോ\?</string>
+    <string name="is_this_a_windows_iso">ഇതൊരു വിൻഡോസ് ഐഎസ്ഒ ആണോ?</string>
     <string name="about">കുറിച്ച്</string>
     <string name="continue_anyway">എന്തായാലും തുടരുക</string>
     <string name="unknown_device">അറിയപ്പെടാത്ത ഉപകരണം</string>
@@ -50,7 +50,7 @@
     <string name="plug_in_the_same_usb">നിങ്ങൾ മുമ്പ് ഉപയോഗിച്ച അതേ യുഎസ്ബി ഉപകരണം പ്ലഗ് ഇൻ ചെയ്യുക!</string>
     <string name="an_unknown_error_occurred">ഒരു അജ്ഞാത പിശക് സംഭവിച്ചു: %1$s</string>
     <string name="the_image_is_is_larger_than_the_device">ചിത്രം (%1$s) ഉപകരണത്തേക്കാൾ വലുതാണ് (%2$s)</string>
-    <string name="how_did_this_happen">ഇത് എങ്ങനെ സംഭവിച്ചു\?</string>
+    <string name="how_did_this_happen">ഇത് എങ്ങനെ സംഭവിച്ചു?</string>
     <string name="learn_what_it_means">അതിന്റെ അർത്ഥമെന്താണെന്ന് അറിയുക</string>
     <string name="image_written_successfully">ചിത്രം വിജയകരമായി എഴുതി!</string>
     <string name="to">ലേക്ക്</string>
