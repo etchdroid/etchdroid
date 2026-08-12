@@ -15,13 +15,13 @@
     <string name="notification_verify_progress_content">%1$s כנגד %2$s</string>
     <string name="permission_denied_for_usb_device">ההרשאה להתקן ה־USB‏ %1$s נכשלה</string>
     <string name="write_an_image">כתיבת דמות</string>
-    <string name="whats_supported">מה נתמך\?</string>
+    <string name="whats_supported">מה נתמך?</string>
     <string name="style">סגנון</string>
     <string name="device_setting">הגדרות התקן</string>
     <string name="light">בהיר</string>
     <string name="dark">כהה</string>
     <string name="dynamic_colors">צבעים דינמיים</string>
-    <string name="is_this_a_windows_iso">האם זה ISO של Windows\?</string>
+    <string name="is_this_a_windows_iso">האם זה ISO של Windows?</string>
     <string name="continue_anyway">להמשיך בכל זאת</string>
     <string name="connect_a_usb_drive">חיבור כונן USB</string>
     <string name="looking_for_usb_drives">מתבצע חיפוש אחר התקני USB</string>
@@ -71,11 +71,11 @@
     <string name="i_did_not_unplug_it">לא ניתקתי!</string>
     <string name="copying">מתבצעת העתקה</string>
     <string name="against">כנגד</string>
-    <string name="how_did_this_happen">איך זה קרה\?</string>
+    <string name="how_did_this_happen">איך זה קרה?</string>
     <string name="please_avoid_using_your_device">נא להימנע משימוש במכשיר שלך</string>
     <string name="sure">כמובן</string>
     <string name="verifying">מתבצע אימות</string>
-    <string name="would_you_like_to_be_notified">להודיע לך כשהתהליך מסתיים\? אלו רק עדכוני התקדמות, בלי זבל או פרסומות.</string>
+    <string name="would_you_like_to_be_notified">להודיע לך כשהתהליך מסתיים? אלו רק עדכוני התקדמות, בלי זבל או פרסומות.</string>
     <string name="to">אל</string>
     <string name="getting_ready">בהכנות…</string>
     <string name="skip_verification">דילוג על אימות</string>
@@ -97,9 +97,7 @@
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">כל דמות אחרת שעובדת עם Balena Etcher או dd</string>
     <string name="older_gnu_linux_distributions_isos_2010">ISO של הפצות גנו/לינוקס ישנות יותר (טרום 2012)</string>
     <string name="support_for_dmg_images_was_removed">התמיכה בדמויות DMG של Apple הוסרה ב־EtchDroid 2.0. אפשר להוריד גרסאות ישנות יותר מ־%1$s.</string>
-    <string name="developed_by">פותח ע״י %1$s ו%2$s נוספים.
-\nקוד המקור זמין ב־%3$s.
-\nבכפוף לרישיון GPLv3 מבית גנו.</string>
+    <string name="developed_by">פותח ע״י %1$s ו%2$s נוספים. \nקוד המקור זמין ב־%3$s. \nבכפוף לרישיון GPLv3 מבית גנו.</string>
     <string name="contributors">מתנדבים</string>
     <string name="website">אתר</string>
     <string name="verifying_image">התמונה מאומתת</string>
