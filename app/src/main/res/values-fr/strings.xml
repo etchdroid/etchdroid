@@ -16,7 +16,7 @@
     <string name="notification_verify_progress_content">%1$s contre %2$s</string>
     <string name="usb_device_was_unplugged">Le périphérique USB a été débranché</string>
     <string name="write_an_image">Écrire une image</string>
-    <string name="whats_supported">Qu\'est-ce qui est supporté ?</string>
+    <string name="whats_supported">Qu\'est-ce qui est supporté ?</string>
     <string name="style">Style</string>
     <string name="device_setting">Réglage de l\'appareil</string>
     <string name="light">Clair</string>
@@ -33,7 +33,7 @@
     <string name="unknown_device">Dispositif inconnu</string>
     <string name="grant_access">Accorder l\'accès</string>
     <string name="permission_granted">Permission accordée</string>
-    <string name="be_careful">Soyez prudent !</string>
+    <string name="be_careful">Soyez prudent !</string>
     <string name="continue_">Continuer</string>
     <string name="supported">Supporté</string>
     <string name="supported_devices_and_images">Appareils et images supporté</string>
@@ -45,7 +45,7 @@
     <string name="any_thunderbolt_only_device">Tout appareil fonctionnant uniquement avec Thunderbolt</string>
     <string name="very_large_drives_2tb">Lecteurs très volumineux (≥ 2 TB)</string>
     <string name="disk_images">Images disque</string>
-    <string name="raspberry_pi_sd_card_images_unzip_first">Images de la carte SD du Raspberry Pi (décompressez d\'abord !)</string>
+    <string name="raspberry_pi_sd_card_images_unzip_first">Images de la carte SD du Raspberry Pi (décompressez d\'abord !)</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Toute autre image qui fonctionne avec Balena Etcher ou dd</string>
     <string name="older_gnu_linux_distributions_isos_2010">Anciennes ISO de distributions GNU/Linux (&lt; 2010)</string>
     <string name="contributors">contributeurs</string>
@@ -58,16 +58,16 @@
     <string name="to">à</string>
     <string name="getting_ready">Préparation…</string>
     <string name="skip_verification">Passer la vérification</string>
-    <string name="image_written_successfully">Image écrite avec succès !</string>
+    <string name="image_written_successfully">Image écrite avec succès !</string>
     <string name="write_a_review">Rédiger un commentaire</string>
     <string name="star_on_github">Star sur GitHub</string>
     <string name="there_was_an_error">Une erreur s\'est produite</string>
     <string name="error">Erreur</string>
     <string name="try_again">Réessayer</string>
     <string name="perhaps_your_usb_port_is_dirty">Le port USB est peut-être sale, l\'adaptateur est défectueux ou l\'appareil ne fournit pas suffisamment d\'énergie électrique. Envisagez d\'essayer un autre adaptateur ou un autre appareil.</string>
-    <string name="usb_drives_are_unreliable">Les clés USB ne sont pas fiables et Android n\'accorde pas suffisamment d\'autorisations pour permettre une récupération automatique. Il faut faire avec ce que l\'on a !</string>
-    <string name="representation_of_the_required_steps">Représentation des étapes nécessaires : débrancher, reconnecter, accorder l\'autorisation</string>
-    <string name="plug_in_the_same_usb">Branchez la même clé USB que précédemment !</string>
+    <string name="usb_drives_are_unreliable">Les clés USB ne sont pas fiables et Android n\'accorde pas suffisamment d\'autorisations pour permettre une récupération automatique. Il faut faire avec ce que l\'on a !</string>
+    <string name="representation_of_the_required_steps">Représentation des étapes nécessaires : débrancher, reconnecter, accorder l\'autorisation</string>
+    <string name="plug_in_the_same_usb">Branchez la même clé USB que précédemment !</string>
     <string name="usb_device_reconnected_resuming">Périphérique USB reconnecté, reprise</string>
     <string name="the_device_is_not_responding">L\'appareil ne répond pas</string>
     <string name="the_image_is_is_larger_than_the_device">L\'image (%1$s) est plus grande que le périphérique (%2$s)</string>
@@ -75,19 +75,19 @@
     <string name="the_usb_drive_was_unplugged">La clé USB a été débranchée</string>
     <string name="support_the_project">Soutenir financièrement</string>
     <string name="write_another_image">Écrire une autre image</string>
-    <string name="got_an_unsupported_drive_notification">Vous avez reçu une notification \"Problèmes avec ce lecteur\" ?</string>
-    <string name="it_s_safe_to_ignore">Vous pouvez l\'ignorer en toute sécurité ! Débranchez simplement votre disque et utilisez-le normalement. %1$s et voyez comment formater votre disque plus tard.</string>
+    <string name="got_an_unsupported_drive_notification">Vous avez reçu une notification \"Problèmes avec ce lecteur\" ?</string>
+    <string name="it_s_safe_to_ignore">Vous pouvez l\'ignorer en toute sécurité ! Débranchez simplement votre disque et utilisez-le normalement. %1$s et voyez comment formater votre disque plus tard.</string>
     <string name="learn_what_it_means">Apprendre ce que cela signifie</string>
     <string name="title_activity_confirm_operation">Confirmer l\'opération</string>
     <string name="no_image_uri_provided">Pas d\'URI d\'image fournie</string>
-    <string name="community_windows_images">Images Windows construites par la communauté, faites pour EtchDroid (à vos risques et périls : elles peuvent contenir des virus !)</string>
+    <string name="community_windows_images">Images Windows construites par la communauté, faites pour EtchDroid (à vos risques et périls : elles peuvent contenir des virus !)</string>
     <string name="writing_the_image_will_erase">L\'écriture de l\'image effacera toutes les données sur le lecteur sélectionné</string>
     <string name="write_image">Écrire l\'image</string>
     <string name="lay_your_device_flat_no_accel">Posez votre appareil à plat sur une table avant de continuer.</string>
     <string name="lay_your_device_flat">Posez votre appareil à plat sur une table et ne le touchez pas</string>
     <string name="notification_write_no_notifications_text">Activer les notifications de progression - Écriture de %1$s à %2$s</string>
     <string name="notification_write_progress_content">%1$s à %2$s</string>
-    <string name="is_this_a_windows_iso">S\'agit-il d\'une ISO Windows ?</string>
+    <string name="is_this_a_windows_iso">S\'agit-il d\'une ISO Windows ?</string>
     <string name="continue_anyway">Continuer de toute façon</string>
     <string name="a_regular_windows_iso_won_t_work">Une ISO Windows ordinaire ne fonctionnera pas avec EtchDroid, à moins qu\'elle n\'ait été spécifiquement préparée pour être utilisée avec EtchDroid, Etcher ou dd.</string>
     <string name="disk_image">Image disque</string>
@@ -108,14 +108,14 @@
     <string name="please_avoid_using_your_device">Evitez d\'utiliser votre appareil</string>
     <string name="against">contre</string>
     <string name="skip">Passer</string>
-    <string name="would_you_like_to_be_notified">Souhaitez-vous être averti lorsque c\'est terminé ? Uniquement des mises à jour sur les progrès réalisés, pas de spam ni de publicité.</string>
+    <string name="would_you_like_to_be_notified">Souhaitez-vous être averti lorsque c\'est terminé ? Uniquement des mises à jour sur les progrès réalisés, pas de spam ni de publicité.</string>
     <string name="start_over">Recommencer</string>
-    <string name="i_did_not_unplug_it">Je ne l\'ai pas débranché !</string>
-    <string name="how_did_this_happen">Comment cela s\'est-il produit ?</string>
-    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">C\'est inattendu, il s\'agit probablement d\'un bogue. Veuillez le signaler !</string>
+    <string name="i_did_not_unplug_it">Je ne l\'ai pas débranché !</string>
+    <string name="how_did_this_happen">Comment cela s\'est-il produit ?</string>
+    <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">C\'est inattendu, il s\'agit probablement d\'un bogue. Veuillez le signaler !</string>
     <string name="to_recover_unplug">Pour récupérer votre clé USB, débranchez-la, rebranchez-la et accordez-lui à nouveau l\'autorisation d\'y accéder.</string>
     <string name="could_not_open_the_source_file">Impossible d\'ouvrir le fichier source</string>
-    <string name="an_unknown_error_occurred">Une erreur inconnue s\'est produite : %1$s</string>
+    <string name="an_unknown_error_occurred">Une erreur inconnue s\'est produite : %1$s</string>
     <string name="missing_permission_to_access_the_usb_device">Absence d\'autorisation d\'accès au périphérique USB</string>
     <string name="the_usb_drive_stopped_responding">La clé USB ne répond plus</string>
     <string name="service_timeout_message">Le processus de rédaction semble s\'être bloqué. Veuillez réessayer.</string>
@@ -126,11 +126,11 @@
     <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">Icône de télémétrie</string>
     <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Envoyer des données anonymes</string>
     <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Voir les problèmes sur GitHub</string>
-    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">Nous avons besoin de votre aide !</string>
+    <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">Nous avons besoin de votre aide !</string>
     <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">Ne pas adhérer</string>
     <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">Maintenir activé</string>
     <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid envoie des informations télémétriques.</string>
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">En savoir plus</string>
     <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Une tentative d\'écriture a été lancée, mais certaines informations se sont malheureusement perdues en cours de route. Veuillez réessayer.</string>
-    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">EtchDroid respecte votre vie privée et n\'utilise qu\'une télémétrie minimale pour étudier les problèmes liés à l\'application.\n\nFaites partie de notre communauté open-source : maintenez la télémétrie activée et contribuez à améliorer EtchDroid pour tout le monde !\n\nBien que nous ne recueillions aucune information d\'identification personnelle, nous croyons en la transparence et souhaitons que vous sachiez que les noms des fichiers d\'image ouverts et les identifiants des périphériques USB sont recueillis de manière anonyme pour aider à diagnostiquer les problèmes liés à un matériel spécifique. À moins que vos noms de fichiers d\'images ou vos identifiants de périphériques ne soient très sensibles, vous pouvez partager ces données en toute sécurité. (%1$s)</string>
+    <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">EtchDroid respecte votre vie privée et n\'utilise qu\'une télémétrie minimale pour étudier les problèmes liés à l\'application.\n\nFaites partie de notre communauté open-source : maintenez la télémétrie activée et contribuez à améliorer EtchDroid pour tout le monde !\n\nBien que nous ne recueillions aucune information d\'identification personnelle, nous croyons en la transparence et souhaitons que vous sachiez que les noms des fichiers d\'image ouverts et les identifiants des périphériques USB sont recueillis de manière anonyme pour aider à diagnostiquer les problèmes liés à un matériel spécifique. À moins que vos noms de fichiers d\'images ou vos identifiants de périphériques ne soient très sensibles, vous pouvez partager ces données en toute sécurité. (%1$s)</string>
 </resources>
