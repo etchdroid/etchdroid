@@ -17,7 +17,7 @@
     <string name="permission_denied_for_usb_device">Izin ditolak untuk perangkat USB %1$s</string>
     <string name="usb_device_was_unplugged">Perangkat USB dicabut</string>
     <string name="write_an_image">Menulis image</string>
-    <string name="whats_supported">Apa saja yang didukung\?</string>
+    <string name="whats_supported">Apa saja yang didukung?</string>
     <string name="style">Gaya</string>
     <string name="device_setting">Pengaturan perangkat</string>
     <string name="light">Terang</string>
@@ -27,7 +27,7 @@
     <string name="action_required">Tindakan diperlukan</string>
     <string name="notification_write_progress_title">Menulis image…</string>
     <string name="continue_">Lanjutkan</string>
-    <string name="is_this_a_windows_iso">Apakah ini Windows ISO\?</string>
+    <string name="is_this_a_windows_iso">Apakah ini Windows ISO?</string>
     <string name="select_a_usb_drive">Pilih drive USB</string>
     <string name="a_regular_windows_iso_won_t_work">ISO Windows biasa tidak akan bekerja dengan EtchDroid, kecuali jika ISO tersebut secara khusus disiapkan untuk digunakan dengan EtchDroid, Etcher, atau dd.</string>
     <string name="disk_image">Disk image</string>
@@ -61,9 +61,7 @@
     <string name="raspberry_pi_sd_card_images_unzip_first">Image kartu SD Raspberry Pi (buka zip terlebih dahulu!)</string>
     <string name="support_for_dmg_images_was_removed">Dukungan untuk Image DMG telah dihapus di EtchDroid 2.0. Versi yang lebih lama dapat diunduh dari %1$s.</string>
     <string name="contributors">kontributor</string>
-    <string name="developed_by">Dikembangkan oleh %1$s dan %2$s lainnya. 
-\nKode sumber tersedia di %3$s. 
-\nDilisensikan di bawah lisensi GNU GPLv3.</string>
+    <string name="developed_by">Dikembangkan oleh %1$s dan %2$s lainnya. \nKode sumber tersedia di %3$s. \nDilisensikan di bawah lisensi GNU GPLv3.</string>
     <string name="floppy_disk_drives">Drive floppy disk</string>
     <string name="any_thunderbolt_only_device">Semua perangkat khusus Thunderbolt</string>
     <string name="disk_images">Image disk</string>
