@@ -133,4 +133,5 @@
     <string name="write_failed" comment="Notification title when a non-recoverable error occurs"></string>
     <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected"></string>
     <string name="older_gnu_linux_distributions_isos_2010" comment="Image type"></string>
+    <string name="cancel" comment="Cancel string, used all over the place"></string>
 </resources>
