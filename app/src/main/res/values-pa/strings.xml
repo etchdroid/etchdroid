@@ -133,4 +133,5 @@
     <string name="notification_write_tap_for_progress_text" comment=" Notification content for long-running job status, used when the user has granted the notification permission but no progress info is available. The first parameter will be replaced with the source file name, the second one with the USB stick name"></string>
     <string name="writing_the_image_will_erase" comment="Message displayed on the card that alerts the user that, if they continue, all data on the USB drive will be lost"></string>
     <string name="connect_a_usb_drive" comment="Title of the dialog listing the available USB drives, when no USB drive is connected"></string>
+    <string name="older_gnu_linux_distributions_isos_2010" comment="Image type"></string>
 </resources>
