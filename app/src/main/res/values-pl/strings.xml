@@ -131,4 +131,7 @@
     <string name="no_destination_device_selected" comment="Error message (shown in a toast) when the operation confirmation screen is opened without a destination device; the app redirects back to the home page">Nie wybrano urządzenia docelowego</string>
     <string name="community_windows_images" comment="&quot;You're on your own&quot; can be translated with something similar to &quot;unsupported&quot; or &quot;be careful!&quot; if it makes more sense in the target language">Obrazy systemu Windows stworzone przez społeczność, przeznaczone dla programu EtchDroid (radzisz sobie sam, bo mogą zawierać wirusy!)</string>
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Dowiedz się więcej</string>
+    <string name="very_large_drives_2tb" comment="Device type"></string>
+    <string name="the_usb_drive_is_too_large" comment="Error message"></string>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false"></string>
 </resources>
