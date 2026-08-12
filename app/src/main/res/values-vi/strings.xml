@@ -131,4 +131,7 @@
     <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">Biểu tượng dữ liệu đo từ xa</string>
     <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">Từ chối</string>
     <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Dữ liệu đo từ xa</string>
+    <string name="very_large_drives_2tb" comment="Device type"></string>
+    <string name="the_usb_drive_is_too_large" comment="Error message"></string>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false"></string>
 </resources>
