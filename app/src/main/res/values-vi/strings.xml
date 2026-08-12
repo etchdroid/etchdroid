@@ -87,9 +87,7 @@
     <string name="raspberry_pi_sd_card_images_unzip_first">File ảnh thẻ SD cho Raspberry Pi (yêu cầu giải nén trước!)</string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Bất kỳ file ảnh nào dùng cho Balena Etcher hoặc dd</string>
     <string name="older_gnu_linux_distributions_isos_2010">File ISO của bản phân phối GNU/Linux cũ (&lt;2010)</string>
-    <string name="developed_by">Phát triển bới %1$s và %2$s.
-\nMã nguồn tại %3$s.
-\nPhân phối dưới bản quyền GNU GPLv3.</string>
+    <string name="developed_by">Phát triển bới %1$s và %2$s. \nMã nguồn tại %3$s. \nPhân phối dưới bản quyền GNU GPLv3.</string>
     <string name="contributors">những người đóng góp khác</string>
     <string name="website">Trang web</string>
     <string name="verifying_image">Đang xác minh file ảnh</string>
