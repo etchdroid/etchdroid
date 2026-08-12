@@ -133,4 +133,5 @@
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">深入瞭解</string>
     <string name="telemetry_rationale" comment="Displayed in builds with telemetry enabled (Google Play) when the user tries to opt-out of telemetry to try to convince them not to. '%1$s' is replaced with a link to the privacy policy; the `privacy_policy` string is used.">《EtchDroid》十分看重你的隱私權利：不只讓遙測範圍最大程度受限，測得的資料也僅會用在追蹤應用程式問題上。\n\n誠摯歡迎你成為開放原始碼社群的一份子──繼續加入遙測計畫，協助開發人員為所有人打造愈發強大的《EtchDroid》！\n\n請知悉：為協助開發人員判別特定硬體上出現的問題，遙測資料僅會涵蓋已開啟鏡像檔的名稱以及 USB 裝置代號，且全程以匿名形式送交，不含任何具識別性的個人資料。只要鏡像檔的名稱或裝置代號不涉及機密內容，分享這類資料安全無虞。（請參閱%1$s）</string>
     <string name="supported_devices_and_images" comment="Title of the page that lists all the supported devices and images">已受支援的裝置與鏡像檔組合</string>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false"></string>
 </resources>
