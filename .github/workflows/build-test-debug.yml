@@ -8,9 +8,8 @@ on:
   workflow_dispatch:
 
 env:
-  # If changed, also update the variables in appium-tests/scripts/prepare-vm.sh
-  BLISSOS_FILE: 'Bliss-v16.9.7-x86_64-OFFICIAL-foss-20241011.iso'
-  BLISSOS_URL: 'https://deac-riga.dl.sourceforge.net/project/blissos-x86/Official/BlissOS16/FOSS/Generic/'
+  # BLISSOS_FILE, BLISSOS_URL, VM_CMDLINE and the QEMU flags all come from
+  # appium-tests/scripts/vm-config.sh, loaded by the "Load VM config" step below.
   VM_DIR: /appium-vm
 
 jobs:
@@ -154,6 +153,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
+      - name: Load VM config
+        run: |
+          source appium-tests/scripts/vm-config.sh
+          {
+            echo "BLISSOS_FILE=$BLISSOS_FILE"
+            echo "BLISSOS_URL=$BLISSOS_URL"
+            echo "VM_KERNEL=$VM_KERNEL"
+            echo "VM_INITRD=$VM_INITRD"
+            echo "VM_CMDLINE=$VM_CMDLINE"
+            echo "VM_DISPLAY_GL=$VM_DISPLAY_GL"
+            echo 'VM_QEMU_FLAGS<<VM_QEMU_FLAGS_EOF'
+            printf '%s\n' "${VM_QEMU_FLAGS[@]}"
+            echo 'VM_QEMU_FLAGS_EOF'
+          } >> "$GITHUB_ENV"
+          echo "Host GL available: $VM_GL"
+
       - name: Download APK
         uses: actions/download-artifact@v5
         with:
@@ -213,40 +228,18 @@ jobs:
         uses: etchdroid/qemu-kvm-action@v1
         with:
           video-record: true
-          kernel: ${{ env.VM_DIR }}/kernel
-          initrd: ${{ env.VM_DIR }}/initrd.img
-          cmdline: 'root=/dev/ram0 androidboot.selinux=permissive console=ttyS0 FFMPEG_CODEC=1 FFMPEG_PREFER_C2=1'
+          kernel: ${{ env.VM_KERNEL }}
+          initrd: ${{ env.VM_INITRD }}
+          cmdline: ${{ env.VM_CMDLINE }}
           video-output: vm-outputs/recording.mkv
           flags: |
             -chardev
             stdio,id=char0,logfile=vm-outputs/serial.log,signal=off
             -serial
             chardev:char0
-            -netdev
-            user,id=network,hostfwd=tcp::5556-:5555
-            -device
-            virtio-net-pci,netdev=network
-            -device
-            virtio-vga-gl
             -display
-            sdl,gl=on
-            -drive
-            index=0,if=virtio,id=system,file=${{ env.VM_DIR }}/system.efs,format=raw,readonly=on
-            -usb
-            -device
-            usb-tablet,bus=usb-bus.0
-            -device
-            nec-usb-xhci,id=xhci
-            -device
-            ich9-usb-uhci1,id=uhci
-            -drive
-            if=none,id=usbstick,file=${{ env.VM_DIR }}/usb-storage.qcow2,format=qcow2
-            -device
-            usb-storage,id=usbstick,bus=xhci.0,drive=usbstick,removable=on
-            -qmp
-            unix:/tmp/qmp.sock,server=on,wait=off
-            -monitor
-            unix:/tmp/qemu-monitor.sock,server=on,wait=off
+            sdl${{ env.VM_DISPLAY_GL }}
+            ${{ env.VM_QEMU_FLAGS }}
 
           run: |
             cd appium-tests
