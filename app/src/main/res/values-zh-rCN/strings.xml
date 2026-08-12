@@ -98,9 +98,7 @@
     <string name="usb_hard_drives_ssds_some_might_work">USB硬盘/固态硬盘（部分适用）</string>
     <string name="floppy_disk_drives">软盘驱动器</string>
     <string name="disk_images">磁盘镜像</string>
-    <string name="developed_by">由 %1$s 和其他 %2$s 开发。
-\n源代码可在 %3$s 上获取。
-\n采用 GNU GPLv3 许可证授权。</string>
+    <string name="developed_by">由 %1$s 和其他 %2$s 开发。 \n源代码可在 %3$s 上获取。 \n采用 GNU GPLv3 许可证授权。</string>
     <string name="contributors">贡献者</string>
     <string name="writing_image">写入镜像</string>
     <string name="please_avoid_using_your_device">请避免使用使用你的设备</string>
