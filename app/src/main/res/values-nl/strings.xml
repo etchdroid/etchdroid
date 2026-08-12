@@ -21,7 +21,7 @@
     <string name="style">Thema</string>
     <string name="device_setting">Systeemthema</string>
     <string name="dark">Donker thema</string>
-    <string name="is_this_a_windows_iso">Is dit een Windows-isobestand\?</string>
+    <string name="is_this_a_windows_iso">Is dit een Windows-isobestand?</string>
     <string name="a_regular_windows_iso_won_t_work">Normaliter werkt een Windows-isobestand niet in EtchDroid - alleen vooraf voor Etcher, dd of EtchDroid aangepaste werken.</string>
     <string name="continue_anyway">Tóch doorgaan</string>
     <string name="select_a_usb_drive">Kies een usb-schijf</string>
@@ -59,7 +59,7 @@
     <string name="older_gnu_linux_distributions_isos_2010">Oudere GNU/Linuxdistributies (&lt; 2010)</string>
     <string name="contributors">bijdragers</string>
     <string name="please_avoid_using_your_device">Gebruik je apparaat in de tussentijd niet</string>
-    <string name="would_you_like_to_be_notified">Wil je een melding ontvangen als alles is afgerond\? Deze functie wordt niet gebruikt voor spam of reclame.</string>
+    <string name="would_you_like_to_be_notified">Wil je een melding ontvangen als alles is afgerond? Deze functie wordt niet gebruikt voor spam of reclame.</string>
     <string name="no_thanks">Nee, bedankt</string>
     <string name="sure">Ja, graag</string>
     <string name="copying">Bezig met kopiëren van</string>
@@ -75,7 +75,7 @@
     <string name="error">Foutmelding</string>
     <string name="start_over">Opnieuw beginnen</string>
     <string name="try_again">Opnieuw proberen</string>
-    <string name="how_did_this_happen">Hoe kon dit gebeuren\?</string>
+    <string name="how_did_this_happen">Hoe kon dit gebeuren?</string>
     <string name="perhaps_your_usb_port_is_dirty">Mogelijk is je usb-poort vuil, je adapter beschadigd of biedt je apparaat onvoldoende elektriciteit. Probeer een andere adapter of apparaat.</string>
     <string name="usb_drives_are_unreliable">Usb-schijven zijn onbetrouwbaar en Android verleent onvoldoende rechten om automatisch te herstellen. We moeten roeien met de riemen die we hebben!</string>
     <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">Dit is onverwachts en waarschijnlijk een bug. Meld dit voorval!</string>
@@ -85,7 +85,7 @@
     <string name="destination_usb_device">Bestemmingsapparaat</string>
     <string name="notification_write_tap_for_progress_text">Druk om de voortgang te bekijken • Bezig met wegschrijven van %1$s naar %2$s</string>
     <string name="write_an_image">Schijfkopie wegschrijven</string>
-    <string name="whats_supported">Wat wordt er ondersteund\?</string>
+    <string name="whats_supported">Wat wordt er ondersteund?</string>
     <string name="dynamic_colors">Dynamische kleuren</string>
     <string name="write_image">Schijfkopie wegschrijven</string>
     <string name="looking_for_usb_drives">zoeken naar usb-schijven</string>
@@ -93,9 +93,7 @@
     <string name="continue_">Doorgaan</string>
     <string name="supported_devices_and_images">Ondersteunde apparaten en schijfkopiëen</string>
     <string name="support_for_dmg_images_was_removed">Ondersteuning voor dmg-schijfkopiëen is ingetrokken sinds versie 2.03 Oudere versies zijn verkrijgbaar op %1$s.</string>
-    <string name="developed_by">Ontwikkeld door %1$s en andere %2$s.
-\nDe broncode is beschikbaar op %3$s.
-\nUitgebracht onder de GNU GPLv3-licentie.</string>
+    <string name="developed_by">Ontwikkeld door %1$s en andere %2$s. \nDe broncode is beschikbaar op %3$s. \nUitgebracht onder de GNU GPLv3-licentie.</string>
     <string name="website">Website</string>
     <string name="verifying_image">Bezig met het verifiëren van de schijfkopie...</string>
     <string name="writing_image">Schijfkopie aan het maken...</string>
