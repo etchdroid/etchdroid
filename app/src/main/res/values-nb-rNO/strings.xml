@@ -133,4 +133,5 @@
     <string name="the_usb_drive_stopped_responding" comment="Error message"></string>
     <string name="no_thanks" comment="Button to reject receiving notifications"></string>
     <string name="any_other_image_that_works_with_balena_etcher_or_dd" comment="Image type"></string>
+    <string name="older_gnu_linux_distributions_isos_2010" comment="Image type"></string>
 </resources>
