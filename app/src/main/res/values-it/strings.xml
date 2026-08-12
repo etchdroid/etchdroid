@@ -125,7 +125,7 @@
     <string name="view_github_issues">Problemi su GitHub</string>
     <string name="telemetry">Telemetria</string>
     <string name="privacy_policy">Informativa sulla privacy</string>
-    <string name="telemetry_rationale">EtchDroid rispetta la tua privacy e invia poche informazioni che falicitano l\'investigazione dei problemi.\n\nFai parte della nostra comunità open-source: mantieni la telemetria attiva e aiuta a migliorare EtchDroid per tutti!\n\nAnche se non raccogliamo informazioni personalmente identificabili, crediamo nella trasparenza e vogliamo che tu sappia che i nomi dei file immagine aperti e gli ID dei dispositivi USB vengono raccolti in modo anonimo per aiutare a diagnosticare problemi con hardware specifico. A meno che i nomi dei tuoi file o gli identificativi dei tuoi dispositivi USB non siano sensibili, è sicuro condividere questi dati.  (%1$s)</string>
+    <string name="telemetry_rationale">EtchDroid rispetta la tua privacy e invia poche informazioni che falicitano l\'investigazione dei problemi.\n\nFai parte della nostra comunità open-source: mantieni la telemetria attiva e aiuta a migliorare EtchDroid per tutti!\n\nAnche se non raccogliamo informazioni personalmente identificabili, crediamo nella trasparenza e vogliamo che tu sappia che i nomi dei file immagine aperti e gli ID dei dispositivi USB vengono raccolti in modo anonimo per aiutare a diagnosticare problemi con hardware specifico. A meno che i nomi dei tuoi file o gli identificativi dei tuoi dispositivi USB non siano sensibili, è sicuro condividere questi dati. (%1$s)</string>
     <string name="we_need_your_help">Abbiamo bisogno del tuo aiuto!</string>
     <string name="telemetry_icon">Icona per la telemetria</string>
     <string name="telemetry_opt_out">Disattiva telemetria</string>
@@ -133,4 +133,5 @@
     <string name="etchdroid_uses_telemetry">EtchDroid invia della telemetria.</string>
     <string name="learn_more">Maggiori info</string>
     <string name="send_anonymous_data">Invia dati anonimi</string>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false"></string>
 </resources>
