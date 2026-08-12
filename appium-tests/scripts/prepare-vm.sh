@@ -2,11 +2,8 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
-
-BLISSOS_FILE="${BLISSOS_FILE:-Bliss-v16.9.7-x86_64-OFFICIAL-foss-20241011.iso}"
-BLISSOS_URL="${BLISSOS_URL:-https://deac-riga.dl.sourceforge.net/project/blissos-x86/Official/BlissOS16/FOSS/Generic/}"
-VM_DIR="${VM_DIR:-$PROJECT_ROOT/.appium-vm}"
+# shellcheck source=appium-tests/scripts/vm-config.sh
+source "$SCRIPT_DIR/vm-config.sh"
 
 # Check for required tools
 EXIT=0
@@ -20,7 +17,7 @@ done
 
 mkdir -p "$VM_DIR"
 
-if [[ -f "$VM_DIR/kernel" && -f "$VM_DIR/initrd.img" && -f "$VM_DIR/system.efs" ]]; then
+if [[ -f "$VM_KERNEL" && -f "$VM_INITRD" && -f "$VM_SYSTEM_EFS" ]]; then
     echo "Kernel, initrd, and system.efs already extracted to '$VM_DIR'. Skipping download and extraction."
     exit 0
 fi
@@ -48,10 +45,9 @@ echo "Extracting files from ISO..."
 7z e -y -o"$VM_DIR" "$ISO_PATH" kernel initrd.img system.efs
 
 # Create virtual USB drive image
-USB_IMAGE="$VM_DIR/usb-storage.qcow2"
-if [[ ! -f "$USB_IMAGE" ]]; then
+if [[ ! -f "$VM_USB_IMAGE" ]]; then
     echo "Creating virtual USB drive image..."
-    qemu-img create -f qcow2 "$USB_IMAGE" 2G
+    qemu-img create -f qcow2 "$VM_USB_IMAGE" 2G
 else
     echo "Virtual USB drive image already exists."
 fi
