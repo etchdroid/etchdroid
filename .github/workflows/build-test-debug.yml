@@ -176,7 +176,7 @@ jobs:
           path: apk
 
       - name: Install QEMU
-        uses: etchdroid/qemu-kvm-action/setup@v1
+        uses: etchdroid/qemu-kvm-action/setup@v2
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
@@ -225,7 +225,7 @@ jobs:
 
       - name: Run QEMU
         id: run-qemu
-        uses: etchdroid/qemu-kvm-action@v1
+        uses: etchdroid/qemu-kvm-action@v2
         with:
           video-record: true
           kernel: ${{ env.VM_KERNEL }}
