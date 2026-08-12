@@ -1,13 +1,13 @@
-# Throwaway diagnostic: answers the open questions about the arm64 macOS runner before we
+# Throwaway diagnostic: answers the open questions about the arm64 macOS runners before we
 # commit to a macOS CI leg. Delete once it has told us what we need.
 #
 #   1. Is HVF usable, or is the runner itself a VM without nested virt?
-#   2. Does the virgl QEMU install from a bottle (fast) or build from source (30-60 min)?
-#   3. Does `-display cocoa,gl=es` work, i.e. is there a usable window server session?
-#   4. Can we record the screen at all, or does TCC block it?
+#   2. Does UTM install and actually run? It is a GUI .app, and it is the only route to a
+#      GL-capable QEMU that developers can realistically install (the virgl brew tap is a
+#      30-60 min source build on macOS 26, so it is out).
+#   3. Can we record the screen at all, or does TCC block it?
 #
-# macos-15 is arm64 AND matches the tap's only bottle tag (arm64_sequoia).
-# macos-26/macos-latest is also arm64 but has no bottle, so it would build from source.
+# Every step is continue-on-error so that one failure still leaves the rest of the diagnosis.
 name: Probe macOS runner
 
 on:
@@ -17,39 +17,34 @@ jobs:
   probe:
     name: Probe ${{ matrix.runner }}
     runs-on: ${{ matrix.runner }}
-    continue-on-error: true
     strategy:
       fail-fast: false
       matrix:
-        runner: [macos-15]
+        # macos-15 = macOS 15 arm64, macos-26 = macOS 26 arm64 (also macos-latest, and what
+        # the dev machine runs). Both are Apple Silicon.
+        runner: [macos-15, macos-26]
 
     steps:
       - name: Runner facts
+        continue-on-error: true
         run: |
-          echo "arch:        $(uname -m)"
+          echo "arch:         $(uname -m)"
           sw_vers
-          echo "hv_support:  $(sysctl -n kern.hv_support 2>&1)"
-          echo "GUI session: $(launchctl managername 2>&1)"
-          echo "console user:"; stat -f%Su /dev/console 2>&1
+          echo "hv_support:   $(sysctl -n kern.hv_support 2>&1)"
+          echo "session type: $(launchctl managername 2>&1)"
+          echo "console user: $(stat -f%Su /dev/console 2>&1)"
+          echo "displays:"; system_profiler SPDisplaysDataType 2>&1 | head -15
 
-      - name: Install virgl QEMU
-        id: install
+      - name: Install stock QEMU (bottle, for the HVF check only)
+        continue-on-error: true
         run: |
           start=$(date +%s)
-          brew tap startergo/qemu-virgl-kosmickrisp
-          # Fails loudly if it decides to build from source; we want to know.
-          brew install startergo/qemu-virgl-kosmickrisp/qemu
-          echo "elapsed=$(( $(date +%s) - start ))s"
-
-      - name: QEMU capabilities
-        run: |
+          brew install qemu
+          echo "elapsed: $(( $(date +%s) - start ))s"
           qemu-system-aarch64 --version | head -1
-          echo "--- display backends:"
-          qemu-system-aarch64 -display help
-          echo "--- virtio-gpu devices:"
-          qemu-system-aarch64 -device help 2>&1 | grep -i virtio-gpu || echo "(none)"
 
       - name: Is HVF usable?
+        continue-on-error: true
         run: |
           set +e
           out=$(timeout 10 qemu-system-aarch64 -machine virt -accel hvf -cpu host \
@@ -61,47 +56,39 @@ jobs:
             *) echo "RESULT: HVF unavailable (rc=$rc) -- an arm64 guest would fall back to TCG" ;;
           esac
 
-      - name: Does cocoa + GL work?
+      - name: Does UTM install?
+        id: utm-install
+        continue-on-error: true
         run: |
-          set +e
-          out=$(timeout 10 qemu-system-aarch64 -machine virt -accel hvf -cpu host -m 256 \
-                  -device virtio-gpu-gl-pci -display cocoa,gl=es -S 2>&1); rc=$?
-          echo "$out"
-          case $rc in
-            124 | 143) echo "RESULT: cocoa+gl=es works" ;;
-            *) echo "RESULT: cocoa+gl=es failed (rc=$rc)" ;;
-          esac
-
-      # UTM is the alternative to the virgl tap: it bundles a GL-capable QEMU, needs no source
-      # build and no third-party tap trust, and exposes QEMU flags via
-      # QEMU.AdditionalArguments plus a utmctl CLI. Its one unknown is whether a GUI .app can
-      # run on a runner at all -- which is exactly what this step answers.
-      - name: Does UTM run here?
-        run: |
-          set +e
           start=$(date +%s)
           brew install --cask utm 2>&1 | tail -5
-          echo "cask install: $(( $(date +%s) - start ))s"
+          echo "elapsed: $(( $(date +%s) - start ))s"
+          ls -ld /Applications/UTM.app
+          /Applications/UTM.app/Contents/MacOS/utmctl --help 2>&1 | head -5
 
+      - name: Does UTM actually run?
+        continue-on-error: true
+        run: |
+          set +e
           utmctl=/Applications/UTM.app/Contents/MacOS/utmctl
-          test -x "$utmctl" || { echo "RESULT: UTM did not install"; exit 0; }
+          test -x "$utmctl" || { echo "RESULT: UTM not installed, skipping"; exit 0; }
 
           open -a UTM
-          sleep 20
-          pgrep -fl UTM.app | head -3
+          sleep 25
+          echo "--- processes:"; pgrep -fl 'UTM' | head -5
 
           echo "--- utmctl list:"
-          "$utmctl" list 2>&1 | head -10
-          rc=$?
+          "$utmctl" list 2>&1 | head -10; rc=$?
           if [ $rc -eq 0 ]; then
-            echo "RESULT: UTM runs and utmctl responds"
+            echo "RESULT: UTM runs and utmctl responds -- the macOS leg can use UTM"
           else
-            echo "RESULT: UTM installed but utmctl failed (rc=$rc) -- likely no window server"
+            echo "RESULT: utmctl failed (rc=$rc) -- UTM likely cannot run headless here"
           fi
 
       - name: Can we record the screen?
+        continue-on-error: true
         run: |
-          brew install ffmpeg
+          brew install ffmpeg 2>&1 | tail -2
           set +e
 
           echo "=== screencapture ==="
@@ -124,6 +111,7 @@ jobs:
 
       - name: Upload whatever was captured
         if: always()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: macos-probe-${{ matrix.runner }}
