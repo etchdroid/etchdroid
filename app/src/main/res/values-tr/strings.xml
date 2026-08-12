@@ -26,7 +26,7 @@
     <string name="action_required">Eylem gerekli</string>
     <string name="usb_device_was_unplugged">USB aygıtı çıkarıldı</string>
     <string name="write_an_image">Kalıp yaz</string>
-    <string name="whats_supported">Neler desteklenir\?</string>
+    <string name="whats_supported">Neler desteklenir?</string>
     <string name="device_setting">Aygıt ayarları</string>
     <string name="light">Açık</string>
     <string name="notification_write_no_notifications_text">İlerleme için bildirimleri etkinleştirin - %1$s, %2$s aygıtına yazılıyor</string>
@@ -34,7 +34,7 @@
     <string name="notification_write_progress_content">%1$s - %2$s</string>
     <string name="notification_verify_progress_content">%1$s - %2$s</string>
     <string name="style">Görünüm</string>
-    <string name="is_this_a_windows_iso">Bu bir Windows ISO dosyası mı\?</string>
+    <string name="is_this_a_windows_iso">Bu bir Windows ISO dosyası mı?</string>
     <string name="continue_anyway">Yine de devam et</string>
     <string name="select_a_usb_drive">Bir USB bellek seçin</string>
     <string name="connect_a_usb_drive">Bir USB bellek bağlayın</string>
@@ -72,15 +72,13 @@
     <string name="any_other_image_that_works_with_balena_etcher_or_dd">Balena Etcher veya dd ile çalışan diğer tüm kalıplar</string>
     <string name="older_gnu_linux_distributions_isos_2010">Daha eski GNU/Linux dağıtımlarının ISO dosyaları (2010 öncesi)</string>
     <string name="support_for_dmg_images_was_removed">EtchDroid 2.0 sürümünde DMG kalıpları için destek kaldırıldı. Daha eski sürümler %1$s üzerinden indirilebilir.</string>
-    <string name="developed_by">%1$s ve diğer %2$s tarafından geliştirildi.
-\nKaynak kodu %3$s adresinde bulunabilir.
-\nGNU GPLv3 lisansı altında lisanslandı.</string>
+    <string name="developed_by">%1$s ve diğer %2$s tarafından geliştirildi. \nKaynak kodu %3$s adresinde bulunabilir. \nGNU GPLv3 lisansı altında lisanslandı.</string>
     <string name="contributors">katkıda bulunanlar</string>
     <string name="website">Web sitesi</string>
     <string name="verifying_image">Kalıp doğrulanıyor</string>
     <string name="writing_image">Kalıp yazılıyor</string>
     <string name="please_avoid_using_your_device">Lütfen aygıtınızı kullanmaktan kaçının</string>
-    <string name="would_you_like_to_be_notified">Bittiğinde bilgilendirilmek ister misiniz\? Yalnızca ilerleme güncellemeleri olacak, spam veya reklam yok.</string>
+    <string name="would_you_like_to_be_notified">Bittiğinde bilgilendirilmek ister misiniz? Yalnızca ilerleme güncellemeleri olacak, spam veya reklam yok.</string>
     <string name="no_thanks">Hayır, teşekkürler</string>
     <string name="sure">Elbette</string>
     <string name="verifying">Doğrulanıyor</string>
@@ -100,7 +98,7 @@
     <string name="start_over">Baştan başla</string>
     <string name="try_again">Tekrar dene</string>
     <string name="i_did_not_unplug_it">Çıkarmadım!</string>
-    <string name="how_did_this_happen">Bu nasıl oldu\?</string>
+    <string name="how_did_this_happen">Bu nasıl oldu?</string>
     <string name="perhaps_your_usb_port_is_dirty">Belki de USB bağlantı noktanız kirlidir, dönüştürücünüz arızalıdır veya aygıtınız yeterli elektrik gücünü sağlayamıyordur. Farklı bir dönüştürücü veya aygıt denemeyi düşünün.</string>
     <string name="usb_drives_are_unreliable">USB bellekler güvenilir değildir ve Android otomatik olarak kurtarmak için yeterli izni vermez. Elimizdekilerle idare etmek zorundayız!</string>
     <string name="this_is_unexpected_it_s_probably_a_bug_please_report_it">Bu beklenmedik bir durum, muhtemelen bir hata. Lütfen bildirin!</string>
