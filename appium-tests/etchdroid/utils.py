@@ -5,6 +5,7 @@ import tempfile
 from appium.webdriver.common.appiumby import AppiumBy
 from collections import namedtuple
 from contextlib import contextmanager
+from etchdroid.config import Config
 from pathlib import Path
 from selenium.common import ElementNotVisibleException, NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
@@ -39,6 +40,9 @@ def wait_for_element(
     xpath: str,
     timeout: float = 3,
 ) -> appium.webdriver.WebElement:
+    # Capped so that scaling up doesn't turn a genuine failure in one of the 120s waits into a
+    # ten-minute stall.
+    timeout = min(timeout * Config.WAIT_TIMEOUT_SCALE, 120)
     wait = get_wait(driver, timeout)
     return wait.until(
         lambda x: x.find_element(
