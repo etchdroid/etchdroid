@@ -15,6 +15,11 @@
       "enabled": false
     },
     {
+      "description": "appium-tests/.python-version is pinned to the interpreter the e2e tests are known to work on. Moving it is a decision, not maintenance.",
+      "matchManagers": ["pyenv"],
+      "enabled": false
+    },
+    {
       "description": "Pinned to a JitPack commit on purpose - see the TODO in gradle/libs.versions.toml",
       "matchPackageNames": ["com.github.magnusja:libaums"],
       "enabled": false
