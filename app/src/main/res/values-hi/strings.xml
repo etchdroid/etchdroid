@@ -128,4 +128,10 @@
     <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid टेलीमेट्री जानकारी भेजता है।</string>
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">ज़्यादा जानें</string>
     <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">गुमनाम डेटा भेजें</string>
+    <string name="light" comment="Style menu option that selects the light theme"></string>
+    <string name="to" comment="As part of the sentence: &quot;Copying FileName.iso to DeviceName&quot;; keep the same word order as English. Open an issue if it's not possible in your language."></string>
+    <string name="style" comment="Title of the menu that allows selecting the app color scheme"></string>
+    <string name="dynamic_colors" comment="Style menu option that selects the Material You dynamic color scheme"></string>
+    <string name="against" comment="As part of the sentence: &quot;Verifying DeviceName against FileName.iso&quot;; keep the same word order as English. Open an issue if it's not possible in your language."></string>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false"></string>
 </resources>
