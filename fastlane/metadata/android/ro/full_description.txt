@@ -1,0 +1,25 @@
+EtchDroid este o aplicație open-source care te ajută cu scrierea unei imagini pe un USB drive
+Foloseștel să creezi o unitate USB portabilă atunci când laptopul tău e mort.
+
+⭐Dispozitive Suportate ⭐️
+
+✅ Flash drive USB
+✅ Adaptor USB SD card
+❌ SSD/HDD prin USB
+❌ Dock sau hub USB
+❌ SD card intern
+❌ Driveuri optice sau Floppy
+❌ Dispozitive Thunderbolt-only
+
+
+⭐️ Imagini disc suportate ⭐️
+
+✅ Imagini GNU/Linux moderne Arch Linux, Ubuntu, Debian, Fedora, pop!_OS, Linux Mint, FreeBSD, BlissOS și multe altele
+✅ Imagini Raspberry PI SD card (dezarhivează-le mai întâi) 
+❌ ISO-uri Microsoft oficiale
+⚠️ Imagini Windows de comunitate pentru EtchDroid (ATENȚIE: acestea pot conține viruși) 
+❌ Imagini Apple DMG
+❌ Imagini vechi GNU/Linux OS < 2010 ca șiDamn Small Linux
+
+
+Codul sursă este valabul pe GitHub: https://github.com/EtchDroid/EtchDroid

@@ -1,0 +1,6 @@
+Resciere majoră pentru EtchDroid!
+
+• UI bazat pe Material You, mai intuitiv și ușor de folosit!
+• Acum EtchDroid va recupera din multe eșecuri de scriere și va instructa utilizatorul să reconecteze dispozitivul USB
+• După scrierea imagini, aceasta va fi verificată pentru a se asigura că nu a fost coruptă
+• Funcționalitatea DMG a fost desfințată; folosește o versiune mai veche dacă incă mai ai nevoie

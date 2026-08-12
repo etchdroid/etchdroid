@@ -1,0 +1,7 @@
+Lansare Quality-of-life cu fixuri și traduceri noi.
+
+• Fiabilitate îmbunătățită: au fost remediate mai multe blocări în timpul scrieri către un drive USB
+• Dispozitive USB foarte mari acum arată o eroare clară
+• Remediată o problemă când se deschide imagini pe dispozitive Android 13
+• Telemetria este acum corect dezactivată în ROM-uri bazate pe microG
+• Traduceri noi: Finlandeză, Galicană, Birmaneză, Sardă, Slovacă și Ucraineană

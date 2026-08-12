@@ -1,0 +1,3 @@
+• Traducere în Limba Turcă
+• LibreSSL actualizată la cea mai recentă versiune
+• Remediată o problemă ce cauza ieșiri la apăsarea oricărui buton pe Android 6.0.

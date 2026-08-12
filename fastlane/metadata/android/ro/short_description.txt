@@ -1,0 +1,1 @@
+Scrie imagini ISO în dispozitice USB, nu este nevoie de root

@@ -1,0 +1,3 @@
+­• Modul Întunecat
+• Acum poți deschide imagini din aplicații externe
+• Fixuri minore.

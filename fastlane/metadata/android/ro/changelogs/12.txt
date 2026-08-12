@@ -1,0 +1,2 @@
+• Actualizări și bug fix-uri pentru libaums vor aduce fiabilitate unor driveuri USB "pretențioase" și dispozitive Android
+• Traduceri actualizate.

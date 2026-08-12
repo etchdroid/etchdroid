@@ -1,0 +1,2 @@
+• EtchDroid acum folosește libusb. Ar trebui să crească stabilitatea
+• Comutatorul modului nocturn dezactivat pe Pie sau mai nou pentru cauzarea mai multor probleme pentru mulți dintre utilizatori.
