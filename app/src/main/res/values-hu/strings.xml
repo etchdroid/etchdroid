@@ -49,9 +49,7 @@
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos">Egyéb modern GNU/Linux és BSD disztribúciók live ISOi</string>
     <string name="raspberry_pi_sd_card_images_unzip_first">Raspberry Pi SD kártya lemezképek (először ki kell csomagolni!)</string>
     <string name="older_gnu_linux_distributions_isos_2010">Régebbi GNU/Linux disztribúciók ISOi (&lt;2010)</string>
-    <string name="developed_by">Fejlesztve %1$s és %2$s által.
-\nA forráskód elérhető itt %3$s.
-\nA GNU GPLv3 alatt licencelve.</string>
+    <string name="developed_by">Fejlesztve %1$s és %2$s által. \nA forráskód elérhető itt %3$s. \nA GNU GPLv3 alatt licencelve.</string>
     <string name="confirm_operation">Megerősítés</string>
     <string name="lay_your_device_flat">Helyezze az eszközt lapos felületre és ne nyúljon hozzá</string>
     <string name="apple_dmg_disk_images">Apple DMG lemezképek</string>
