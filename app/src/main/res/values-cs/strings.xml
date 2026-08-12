@@ -133,4 +133,5 @@
     <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">Ponechat povolení</string>
     <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid odesílá telemetrické informace.</string>
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Dozvědět se více</string>
+    <string name="app_name" comment=" App name, please do not translate " translatable="false"></string>
 </resources>
