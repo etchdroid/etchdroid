@@ -1,0 +1,190 @@
+# Throwaway diagnostic. Delete once it has answered these:
+#
+#   1. Does hardware acceleration work on each runner? This decides which CI legs can exist
+#      at all -- a guest falling back to TCG is too slow to be useful.
+#   2. Does QMP screendump work in CI? That is the recording mechanism currently implemented.
+#   3. On macOS, is host screen capture possible, and is GStreamer's VNC source available?
+#      Those are the alternatives if screendump proves too costly.
+#
+# Lessons from the previous attempt, which reported false negatives:
+#   - macOS has no `timeout` (that is GNU coreutils' gtimeout), so nothing here uses it.
+#   - ffmpeg's avfoundation screen is device index 0, not 1.
+#   - continue-on-error belongs on every step, not just the job, or one failure hides the rest.
+#   - Prove things by running them; never infer a capability from a sysctl or a package list.
+name: Probe runners
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: linux-x86_64
+            runner: ubuntu-latest
+            qemu: qemu-system-x86_64
+            machine: q35
+            accel: kvm
+            fallback_cpu: qemu64
+          - name: linux-arm64
+            runner: ubuntu-24.04-arm
+            qemu: qemu-system-aarch64
+            machine: virt
+            accel: kvm
+            fallback_cpu: cortex-a57
+          - name: macos-15-arm64
+            runner: macos-15
+            qemu: qemu-system-aarch64
+            machine: virt
+            accel: hvf
+            fallback_cpu: cortex-a57
+          - name: macos-26-arm64
+            runner: macos-26
+            qemu: qemu-system-aarch64
+            machine: virt
+            accel: hvf
+            fallback_cpu: cortex-a57
+
+    steps:
+      - name: Runner facts
+        continue-on-error: true
+        run: |
+          echo "RESULT: runner=${{ matrix.runner }} arch=$(uname -m) kernel=$(uname -s)"
+          if [ "$(uname -s)" = Darwin ]; then
+            echo "RESULT: macos=$(sw_vers -productVersion)"
+            echo "RESULT: session=$(launchctl managername 2>&1) console_user=$(stat -f%Su /dev/console 2>&1)"
+          else
+            . /etc/os-release 2>/dev/null && echo "RESULT: distro=$PRETTY_NAME"
+            if [ -e /dev/kvm ]; then
+              echo "RESULT: dev_kvm=present perms=$(stat -c '%A %U:%G' /dev/kvm)"
+              echo "RESULT: kvm_readable=$([ -r /dev/kvm ] && [ -w /dev/kvm ] && echo yes || echo no)"
+            else
+              echo "RESULT: dev_kvm=absent"
+            fi
+          fi
+
+      - name: Install QEMU
+        continue-on-error: true
+        run: |
+          start=$(date +%s)
+          if [ "$(uname -s)" = Darwin ]; then
+            brew install qemu
+          else
+            sudo apt-get update -qq
+            # qemu-system-arm provides qemu-system-aarch64; qemu-system-x86 the x86_64 one.
+            sudo apt-get install -y --no-install-recommends \
+              "$([ '${{ matrix.qemu }}' = qemu-system-aarch64 ] && echo qemu-system-arm || echo qemu-system-x86)" \
+              qemu-utils
+          fi
+          echo "RESULT: qemu_install_seconds=$(( $(date +%s) - start ))"
+          echo "RESULT: qemu_version=$(${{ matrix.qemu }} --version | head -1)"
+
+      # Backgrounds QEMU and checks it is still alive, rather than relying on a timeout exit
+      # code that macOS cannot produce.
+      - name: Acceleration
+        id: accel
+        continue-on-error: true
+        run: |
+          probe() {   # $1 = accel, $2 = cpu
+            local log="/tmp/qemu-$1.log"
+            ${{ matrix.qemu }} -machine ${{ matrix.machine }} -accel "$1" -cpu "$2" \
+              -m 256 -display none -S > "$log" 2>&1 &
+            local pid=$!
+            sleep 6
+            if kill -0 "$pid" 2>/dev/null; then
+              kill "$pid" 2>/dev/null; wait "$pid" 2>/dev/null || true
+              return 0
+            fi
+            wait "$pid" 2>/dev/null
+            echo "  QEMU said: $(head -3 "$log" | tr '\n' ' ')"
+            return 1
+          }
+
+          if probe '${{ matrix.accel }}' host; then
+            echo "RESULT: accel_${{ matrix.accel }}=WORKS"
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "RESULT: accel_${{ matrix.accel }}=UNAVAILABLE"
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            if probe tcg '${{ matrix.fallback_cpu }}'; then
+              echo "RESULT: accel_tcg=WORKS (usable but far too slow for this suite)"
+            else
+              echo "RESULT: accel_tcg=BROKEN (QEMU itself is not working here)"
+            fi
+          fi
+
+      # The recording mechanism currently implemented. Boots nothing: with no disk the guest
+      # sits in UEFI, which is still a rendered display and enough to prove the path works.
+      - name: QMP screendump
+        continue-on-error: true
+        run: |
+          accel='${{ matrix.accel }}'
+          [ '${{ steps.accel.outputs.ok }}' = 'true' ] || accel=tcg
+          cpu=host
+          [ "$accel" = tcg ] && cpu='${{ matrix.fallback_cpu }}'
+
+          # A display DEVICE is required for screendump, and machine `virt` has no default one
+          # (q35 does). Without this the probe would fail for want of a GPU, not a mechanism.
+          ${{ matrix.qemu }} -machine ${{ matrix.machine }} -accel "$accel" -cpu "$cpu" \
+            -m 512 -vga none -device virtio-gpu-pci \
+            -display none -qmp unix:/tmp/probe-qmp.sock,server=on,wait=off \
+            > /tmp/qemu-dump.log 2>&1 &
+          pid=$!
+          for _ in $(seq 40); do [ -S /tmp/probe-qmp.sock ] && break; sleep 0.25; done
+          sleep 5
+
+          python3 - <<'PY'
+          import json, socket, time, os
+          try:
+              s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM); s.settimeout(10)
+              s.connect('/tmp/probe-qmp.sock'); s.recv(65536)
+              s.sendall(b'{"execute":"qmp_capabilities"}\n'); time.sleep(0.4); s.recv(65536)
+              t0 = time.time(); n = 0
+              for i in range(20):
+                  s.sendall(json.dumps({"execute":"screendump",
+                      "arguments":{"filename":f"/tmp/f{i}.png","format":"png"}}).encode() + b'\n')
+                  s.recv(65536); n += 1
+              rate = n / (time.time() - t0)
+              size = os.path.getsize('/tmp/f0.png') if os.path.exists('/tmp/f0.png') else 0
+              print(f'RESULT: screendump=WORKS rate={rate:.1f}fps first_frame_bytes={size}')
+          except Exception as e:
+              print(f'RESULT: screendump=FAILED {type(e).__name__}: {e}')
+          PY
+
+          kill $pid 2>/dev/null || true
+          head -3 /tmp/qemu-dump.log
+
+      - name: macOS host screen capture
+        continue-on-error: true
+        if: runner.os == 'macOS'
+        run: |
+          brew install ffmpeg > /dev/null 2>&1
+          echo "--- avfoundation devices:"
+          ffmpeg -hide_banner -f avfoundation -list_devices true -i "" 2>&1 | head -12
+
+          # Both self-limit, so no `timeout` is needed. Screen is video device 0.
+          screencapture -v -V 5 /tmp/sc.mov > /tmp/sc.log 2>&1
+          echo "RESULT: screencapture=$([ -s /tmp/sc.mov ] && echo "WORKS $(stat -f%z /tmp/sc.mov)b" || echo "BLOCKED $(head -2 /tmp/sc.log | tr '\n' ' ')")"
+
+          ffmpeg -hide_banner -y -f avfoundation -framerate 10 -i "0:none" -t 5 \
+            /tmp/ff.mov > /tmp/ff.log 2>&1
+          echo "RESULT: ffmpeg_avfoundation=$([ -s /tmp/ff.mov ] && echo "WORKS $(stat -f%z /tmp/ff.mov)b" || echo "BLOCKED $(tail -3 /tmp/ff.log | tr '\n' ' ')")"
+
+      - name: Is a VNC recorder available?
+        continue-on-error: true
+        run: |
+          if [ "$(uname -s)" = Darwin ]; then
+            brew install gstreamer > /dev/null 2>&1
+          else
+            sudo apt-get install -y --no-install-recommends \
+              gstreamer1.0-tools gstreamer1.0-plugins-bad > /dev/null 2>&1
+          fi
+          if command -v gst-inspect-1.0 > /dev/null; then
+            echo "RESULT: rfbsrc=$(gst-inspect-1.0 rfbsrc > /dev/null 2>&1 && echo AVAILABLE || echo MISSING)"
+          else
+            echo "RESULT: rfbsrc=NO_GSTREAMER"
+          fi
