@@ -57,7 +57,17 @@ jobs:
           if [ "$(uname -s)" = Darwin ]; then
             echo "RESULT: macos=$(sw_vers -productVersion)"
             echo "RESULT: session=$(launchctl managername 2>&1) console_user=$(stat -f%Su /dev/console 2>&1)"
+            # Is this bare metal or a VM? kern.hv_vmm_present is macOS telling us directly, and
+            # the model identifier is the corroborating evidence: Apple VMs report VirtualMac*,
+            # real hardware reports Macmini*/MacBook*/Mac* etc. This decides whether HVF being
+            # unsupported is a nested-virtualisation limit or something we could fix.
+            echo "RESULT: hv_vmm_present=$(sysctl -n kern.hv_vmm_present 2>&1)"
+            echo "RESULT: model=$(sysctl -n hw.model 2>&1)"
+            echo "RESULT: hw_model_id=$(system_profiler SPHardwareDataType 2>/dev/null | awk -F': *' '/Model Identifier/ {print $2}')"
+            echo "RESULT: chip=$(system_profiler SPHardwareDataType 2>/dev/null | awk -F': *' '/Chip|Processor Name/ {print $2}' | head -1)"
+            echo "RESULT: cores=$(sysctl -n hw.ncpu 2>&1) mem=$(( $(sysctl -n hw.memsize 2>/dev/null || echo 0) / 1073741824 ))GiB"
           else
+            echo "RESULT: virt=$(systemd-detect-virt 2>&1 || echo unknown)"
             . /etc/os-release 2>/dev/null && echo "RESULT: distro=$PRETTY_NAME"
             if [ -e /dev/kvm ]; then
               echo "RESULT: dev_kvm=present perms=$(stat -c '%A %U:%G' /dev/kvm)"
@@ -76,9 +86,11 @@ jobs:
           else
             sudo apt-get update -qq
             # qemu-system-arm provides qemu-system-aarch64; qemu-system-x86 the x86_64 one.
+            # qemu-system-data carries the romfiles (efi-virtio.rom and friends); without it
+            # QEMU refuses to start, which the previous run mistook for TCG being broken.
             sudo apt-get install -y --no-install-recommends \
               "$([ '${{ matrix.qemu }}' = qemu-system-aarch64 ] && echo qemu-system-arm || echo qemu-system-x86)" \
-              qemu-utils
+              qemu-system-data qemu-utils
           fi
           echo "RESULT: qemu_install_seconds=$(( $(date +%s) - start ))"
           echo "RESULT: qemu_version=$(${{ matrix.qemu }} --version | head -1)"
@@ -89,6 +101,14 @@ jobs:
         id: accel
         continue-on-error: true
         run: |
+          # /dev/kvm is root:kvm and the runner is not in that group, so KVM needs this first.
+          # The action itself does the same chown; the previous run omitted it and reported a
+          # permission error as "KVM unavailable".
+          if [ -e /dev/kvm ]; then
+            sudo chown "$(id -u)" /dev/kvm || sudo chmod 666 /dev/kvm || true
+            echo "RESULT: kvm_after_chown=$([ -r /dev/kvm ] && [ -w /dev/kvm ] && echo accessible || echo still_denied)"
+          fi
+
           probe() {   # $1 = accel, $2 = cpu
             local log="/tmp/qemu-$1.log"
             ${{ matrix.qemu }} -machine ${{ matrix.machine }} -accel "$1" -cpu "$2" \
