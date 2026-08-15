@@ -152,21 +152,27 @@ if [[ -z "${VM_GL:-}" ]]; then
     fi
 fi
 
+if [[ "$VM_GL" == 1 ]]; then
+    VM_GL_SUFFIX='-gl'
+    VM_DISPLAY_GL=',gl=on'
+else
+    VM_GL_SUFFIX=''
+    VM_DISPLAY_GL=''
+fi
+
 # virtio-vga is virtio-gpu plus VGA compatibility, and only exists on x86: arm's `virt` machine
 # has no VGA at all, so it must use the plain PCI device. The distinction matters -- with
 # virtio-gpu-pci on x86 the display stops updating the moment the kernel takes over from UEFI
 # and switches scanout, which leaves the CI recording frozen on the GRUB handoff even though the
 # guest boots fine. The pre-LineageOS setup used virtio-vga for exactly this reason.
+#
+# The suffix is a plain variable rather than an inline `$([[ ... ]] && echo -gl)`: under `set -e`
+# an assignment takes the exit status of its command substitution, so the false branch would
+# abort the sourcing script with no output at all.
 if [[ "$VM_GUEST_ARCH" == x86_64 ]]; then
-    VM_VGA_DEVICE="virtio-vga$([[ "$VM_GL" == 1 ]] && echo -gl)"
+    VM_VGA_DEVICE="virtio-vga$VM_GL_SUFFIX"
 else
-    VM_VGA_DEVICE="virtio-gpu$([[ "$VM_GL" == 1 ]] && echo -gl)-pci"
-fi
-
-if [[ "$VM_GL" == 1 ]]; then
-    VM_DISPLAY_GL=',gl=on'
-else
-    VM_DISPLAY_GL=''
+    VM_VGA_DEVICE="virtio-gpu$VM_GL_SUFFIX-pci"
 fi
 
 # QEMU flags, split into two arrays because CI and local invoke QEMU differently.
