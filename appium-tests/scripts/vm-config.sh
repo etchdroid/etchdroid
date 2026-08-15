@@ -152,11 +152,20 @@ if [[ -z "${VM_GL:-}" ]]; then
     fi
 fi
 
+# virtio-vga is virtio-gpu plus VGA compatibility, and only exists on x86: arm's `virt` machine
+# has no VGA at all, so it must use the plain PCI device. The distinction matters -- with
+# virtio-gpu-pci on x86 the display stops updating the moment the kernel takes over from UEFI
+# and switches scanout, which leaves the CI recording frozen on the GRUB handoff even though the
+# guest boots fine. The pre-LineageOS setup used virtio-vga for exactly this reason.
+if [[ "$VM_GUEST_ARCH" == x86_64 ]]; then
+    VM_VGA_DEVICE="virtio-vga$([[ "$VM_GL" == 1 ]] && echo -gl)"
+else
+    VM_VGA_DEVICE="virtio-gpu$([[ "$VM_GL" == 1 ]] && echo -gl)-pci"
+fi
+
 if [[ "$VM_GL" == 1 ]]; then
-    VM_VGA_DEVICE='virtio-gpu-gl-pci'
     VM_DISPLAY_GL=',gl=on'
 else
-    VM_VGA_DEVICE='virtio-gpu-pci'
     VM_DISPLAY_GL=''
 fi
 
