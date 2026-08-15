@@ -718,6 +718,16 @@ fun LayFlatOnTableBottomSheet(
     val sensor = remember(sensorManager) { sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY) }
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
 
+    // The gravity sensor animation and the skip button can both complete; make sure only one
+    // of them fires onReady, or two write jobs will be started that fight over the USB device.
+    var readyFired by remember { mutableStateOf(false) }
+    val fireOnReady: () -> Unit = {
+        if (!readyFired) {
+            readyFired = true
+            onReady()
+        }
+    }
+
     ModalBottomSheet(onDismissRequest = onDismissRequest, sheetState = sheetState) {
         if (sensor == null || !useGravitySensor) {
             Text(
@@ -737,7 +747,7 @@ fun LayFlatOnTableBottomSheet(
                 LaunchedEffect(hideSheet) {
                     if (hideSheet) {
                         sheetState.hide()
-                        onReady()
+                        fireOnReady()
                     }
                 }
                 Button(onClick = { hideSheet = true }) {
@@ -831,7 +841,7 @@ fun LayFlatOnTableBottomSheet(
                     LaunchedEffect(progress) {
                         if (progress == 1f) {
                             sheetState.hide()
-                            onReady()
+                            fireOnReady()
                         }
                     }
                 }
@@ -847,7 +857,7 @@ fun LayFlatOnTableBottomSheet(
                 LaunchedEffect(hideSheet) {
                     if (hideSheet) {
                         sheetState.hide()
-                        onReady()
+                        fireOnReady()
                     }
                 }
                 OutlinedButton(onClick = { hideSheet = true }) {
