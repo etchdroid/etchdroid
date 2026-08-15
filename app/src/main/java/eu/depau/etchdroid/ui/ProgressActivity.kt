@@ -148,6 +148,10 @@ import me.jahnen.libaums.libusbcommunication.LibusbException
 private const val TAG = "ProgressActivity"
 private const val LAST_NOTIFICATION_TIMEOUT = 11 * 1000L
 
+// Matches the empirical settle time the e2e suite uses before touching a freshly
+// re-attached QEMU drive (it reports Unit Attention if poked too early).
+private const val RESTART_SETTLE_DELAY_MS = 3 * 1000L
+
 class ProgressActivity : ActivityBase() {
     private lateinit var mSettings: AppSettings
     private val mViewModel: ProgressActivityViewModel by viewModels()
@@ -1255,12 +1259,20 @@ fun AutoJobRestarter(
                 broadcastReceiver,
                 IntentFilter(UsbManager.ACTION_USB_DEVICE_ATTACHED)
             )
-            for (usbDevice in usbManager.deviceList.values) onUsbAttached(usbDevice)
         }
         onDispose {
             Log.d(TAG, "Unregistering broadcast receiver")
             activity.unregisterReceiver(broadcastReceiver)
         }
+    }
+
+    // A drive that hiccups without disconnecting never emits ATTACHED, so probe the device
+    // list too — but only after a settle delay: restarting the instant the error arrives
+    // hammers a drive that is still choking, and since a failed restart re-enters this
+    // composable, the delay also paces the retry loop.
+    LaunchedEffect(Unit) {
+        delay(RESTART_SETTLE_DELAY_MS)
+        for (usbDevice in usbManager.deviceList.values) onUsbAttached(usbDevice)
     }
 }
 
