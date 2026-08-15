@@ -238,11 +238,30 @@ jobs:
           run: |
             cd appium-tests
             export LOGCAT_DIR="$PWD/../vm-outputs/logcat/"
+            export VM_MARKERS_FILE="$PWD/../vm-outputs/markers.tsv"
             mkdir -p "$LOGCAT_DIR"
             ./scripts/wait-vm-startup.sh
             adb install -r ../apk/*.apk
             adb logcat -d > "$LOGCAT_DIR/0_before.log" 2>&1
             uv run pytest -sv --tb=native --junit-xml=../junit.xml
+
+      # Turns the full-length recording (early boot included) into something scrubbable: one
+      # chapter per test titled with its outcome, plus a subtitle track of the moments worth
+      # jumping to. Purely additive and never worth failing the job over -- a broken annotation
+      # still leaves the raw recording to upload.
+      #
+      # The start epoch comes from the file qemu-kvm-action writes beside its PID files rather
+      # than from its `ffmpeg-start` output, because the case that matters most is the one where
+      # pytest failed, and a composite action's outputs are not dependable once one of its steps
+      # has failed. There is exactly one such directory per job.
+      - name: Annotate the recording
+        if: always()
+        continue-on-error: true
+        run: |
+          ./appium-tests/scripts/annotate-recording.py \
+            vm-outputs/recording.mkv \
+            vm-outputs/markers.tsv \
+            "$(cat /tmp/qemu-action-*/ffmpeg.start)"
 
       - name: Publish test report
         uses: mikepenz/action-junit-report@v5
