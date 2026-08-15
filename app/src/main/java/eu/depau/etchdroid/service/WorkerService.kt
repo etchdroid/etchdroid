@@ -64,6 +64,7 @@ import me.jahnen.libaums.core.driver.BlockDeviceDriver
 import java.io.BufferedInputStream
 import java.io.InputStream
 import java.util.Random
+import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.math.max
 import kotlin.time.Duration.Companion.milliseconds
 
@@ -85,6 +86,7 @@ class WorkerService : LifecycleService() {
     private lateinit var mSourceUri: Uri
     private lateinit var mDestDevice: UsbMassStorageDeviceDescriptor
     private var mJobId by lateInit<Int>(mutable = true)
+    private val mJobActive = AtomicBoolean(false)
     private var mWakelockAcquireTime = -1L
     private var mWakeLock: PowerManager.WakeLock? = null
     private var mVerificationCancelled = false
@@ -291,6 +293,14 @@ class WorkerService : LifecycleService() {
                 return START_NOT_STICKY
             }
 
+            // Never run two jobs at once: they would open two USB connections and steal the
+            // interface claim from each other, killing each other's in-flight transfers.
+            // Also guards mJobId/mSourceUri/mDestDevice from being overwritten mid-job.
+            if (!mJobActive.compareAndSet(false, true)) {
+                Telemetry.captureMessage("Ignoring START_JOB: a job is already running")
+                return START_NOT_STICKY
+            }
+
             mSourceUri = intent.data!!
             mDestDevice = intent.safeParcelableExtra<UsbMassStorageDeviceDescriptor>("destDevice")
                 ?: throw MissingDeviceException()
@@ -341,6 +351,7 @@ class WorkerService : LifecycleService() {
                     mSourceUri, mDestDevice, mJobId, 0, 0, exception = downstreamException
                 ).broadcastLocallySync(this@WorkerService)
             }
+            mJobActive.set(false)
             stopSelf()
             return START_NOT_STICKY
         }
@@ -359,15 +370,17 @@ class WorkerService : LifecycleService() {
             var rawSourceStream: InputStream? = null
             var currentOffset = offset
             var imageSize = 0L
+            var jobException: EtchDroidException? = null
 
             val coroScope = CoroutineScope(Dispatchers.IO)
 
             try {
                 try {
                     Telemetry.debug("Building USB mass storage device", "worker")
-                    massStorageDev = mDestDevice.buildDevice(this@WorkerService).apply {
-                        init()
-                    }
+                    // Assign before init() so the finally block closes the device (and
+                    // releases the USB interface claim) even when initialization fails.
+                    massStorageDev = mDestDevice.buildDevice(this@WorkerService)
+                    massStorageDev.init()
                     blockDev = massStorageDev.blockDevices[0]!!
                 } catch (e: Exception) {
                     // Breadcrumb only: the wrapped exception below is captured (and
@@ -482,14 +495,7 @@ class WorkerService : LifecycleService() {
                     else -> UnknownException(exception)
                 }
                 Telemetry.captureException(downstreamException)
-                getErrorIntent(
-                    mSourceUri,
-                    mDestDevice,
-                    mJobId,
-                    currentOffset,
-                    imageSize,
-                    exception = downstreamException
-                ).broadcastLocallySync(this@WorkerService)
+                jobException = downstreamException
             } finally {
                 finish()
                 releaseWakelock()
@@ -514,6 +520,21 @@ class WorkerService : LifecycleService() {
                         Telemetry.captureException("Failed to close USB drive", e)
                     }
                 } ?: Telemetry.captureMessage("Timed out closing USB drive (device may be stuck in native transfer)")
+
+                // Announce failures only after the device is fully released: the UI restarts
+                // the job as soon as it receives the error, and a job started before teardown
+                // would steal the interface claim from this one and corrupt both.
+                mJobActive.set(false)
+                jobException?.let {
+                    getErrorIntent(
+                        mSourceUri,
+                        mDestDevice,
+                        mJobId,
+                        currentOffset,
+                        imageSize,
+                        exception = it
+                    ).broadcastLocallySync(this@WorkerService)
+                }
                 stopSelf()
             }
         }

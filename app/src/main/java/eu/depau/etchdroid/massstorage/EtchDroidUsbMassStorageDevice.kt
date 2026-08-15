@@ -231,7 +231,15 @@ internal constructor(
     }
 
     fun close() {
-        usbCommunication.close()
+        // Tolerate partially-initialized devices (init() failed before or during setupDevice)
+        // and double closes; leaking the connection would keep the USB interface claimed.
+        if (::usbCommunication.isInitialized) {
+            try {
+                usbCommunication.close()
+            } catch (e: Exception) {
+                Log.w(TAG, "Failed to close USB communication", e)
+            }
+        }
         inited = false
     }
 
