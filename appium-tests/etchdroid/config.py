@@ -23,3 +23,8 @@ class Config:
     DISABLE_SHUTDOWN = os.environ.get("DISABLE_SHUTDOWN", "0") == "1"
 
     LOGCAT_DIR = os.environ.get("LOGCAT_DIR", None)
+
+    # Where utils.mark() records timestamped test events, for turning the CI screen recording
+    # into something navigable afterwards (see appium-tests/scripts/annotate-recording.py).
+    # Unset outside CI, which makes marking a no-op.
+    MARKERS_FILE = os.environ.get("VM_MARKERS_FILE", None)

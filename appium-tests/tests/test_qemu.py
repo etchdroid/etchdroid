@@ -15,6 +15,7 @@ from etchdroid.qemu import QEMUController
 from etchdroid.utils import (
     used,
     device_temp_sparse_file,
+    mark,
     wait_for_element,
     execute_script,
     run_adb_command,
@@ -30,16 +31,16 @@ def unplug_and_reconnect_usb(
     device_id: str = Config.QEMU_USB_DEV_ID,
     bus: str = Config.QEMU_USB_BUS,
 ):
-    print("Unplugging USB device...")
+    mark("Unplugging USB device...")
     device = qemu.get_block_device(device_id)
     qemu.device_del(device_id)
 
-    print("Waiting for reconnect dialog...")
+    mark("Waiting for reconnect dialog...")
     wait_for_element(driver, '//android.widget.TextView[@resource-id="reconnect_usb_drive_title"]', 15)
 
     sleep(0.5)
 
-    print("Plugging USB device back in...")
+    mark("Plugging USB device back in...")
     qemu.add_usb_drive(
         device_id,
         bus=bus,
@@ -51,7 +52,7 @@ def unplug_and_reconnect_usb(
     # A patch should be submitted to libaums to handle this.
     sleep(3)
 
-    print("Accepting permission...")
+    mark("Accepting permission...")
     app.accept_usb_permission(driver)
 
 
@@ -134,7 +135,7 @@ def test_unplug_xhci(driver: appium.webdriver.Remote, qemu: QEMUController):
     with device_temp_sparse_file(driver, "etchdroid_test_unplug_xhci_", ".iso", "1000M") as image:
         app.basic_flow(driver, image.filename)
 
-        print("Waiting for write progress...")
+        mark("Waiting for write progress...")
         app.wait_for_write_progress(driver)
 
         unplug_and_reconnect_usb(driver, qemu)
@@ -172,7 +173,7 @@ def test_unplug_with_random_data_uhci(
 
     app.basic_flow(driver, remote_fname)
 
-    print("Waiting for write progress...")
+    mark("Waiting for write progress...")
     app.wait_for_write_progress(driver)
 
     unplug_and_reconnect_usb(driver, qemu, raw_device_id, Config.QEMU_USB_SLOW_BUS)

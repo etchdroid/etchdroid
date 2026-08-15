@@ -3,6 +3,7 @@ import traceback as _tb
 from pathlib import Path
 
 from etchdroid.config import Config
+from etchdroid.utils import mark
 
 # A failing e2e test is almost never a Python bug in the harness — it's the app not
 # reaching the expected state. So for every test failure we drop the firehose
@@ -50,6 +51,18 @@ def _denoised_logcat(name: str) -> str:
         # the raw, un-denoised log.
         return f"(denoised logcat unavailable: {e})"
     return text or "(denoised logcat is empty)"
+
+
+# Test boundaries and outcomes, for annotating the CI screen recording afterwards. Both are
+# no-ops unless VM_MARKERS_FILE is set; see utils.mark and scripts/annotate-recording.py.
+def pytest_runtest_logstart(nodeid, location):
+    mark(nodeid.split("::")[-1], kind="test")
+
+
+def pytest_runtest_logreport(report):
+    # Only the call phase: setup/teardown outcomes would double up on every test.
+    if report.when == "call":
+        mark(f"{report.outcome.upper()} {report.nodeid.split('::')[-1]}")
 
 
 @pytest.hookimpl(wrapper=True)

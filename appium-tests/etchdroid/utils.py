@@ -2,6 +2,7 @@ import appium.webdriver
 import etchdroid
 import re
 import tempfile
+import time
 from appium.webdriver.common.appiumby import AppiumBy
 from collections import namedtuple
 from contextlib import contextmanager
@@ -17,6 +18,26 @@ def used(*a, **k):
     Used to mark a function as used, so that it is not removed by the linter.
     """
     pass
+
+
+def mark(label: str, kind: str = "event") -> None:
+    r"""Announce a moment worth looking at, and timestamp it for the CI recording.
+
+    Prints like the plain `print` it replaces, so it costs nothing locally, and appends
+    `<epoch>\t<kind>\t<label>` to Config.MARKERS_FILE when CI has set one.
+    `kind="test"` marks a test boundary, which becomes a chapter; everything else becomes a
+    subtitle cue. See appium-tests/scripts/annotate-recording.py.
+    """
+    print(label, flush=True)
+    if not Config.MARKERS_FILE:
+        return
+    # Never let bookkeeping fail a test: an unwritable path is a broken recording, not a
+    # broken app.
+    try:
+        with open(Config.MARKERS_FILE, "a") as f:
+            f.write(f"{time.time()}\t{kind}\t{label}\n")
+    except OSError as e:
+        print(f"(could not write marker: {e})", flush=True)
 
 
 def execute_script(driver: appium.webdriver.Remote, script: str, *args: Any) -> Any:
