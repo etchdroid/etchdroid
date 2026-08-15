@@ -35,7 +35,7 @@ echo "Connected to ADB on $ADB_HOST"
 # discarded on every start, so there is no next boot for this disk state.)
 if ! "${adb[@]}" shell true 2> /dev/null; then
     echo "No adb shell -- assuming trade-in mode, bypassing setup"
-    "${adb[@]}" shell tradeinmode evaluate || true
+    "${adb[@]}" shell tradeinmode wait-until-ready evaluate || true
 
     for _ in {1..40}; do
         "${adb[@]}" shell true 2> /dev/null && break
