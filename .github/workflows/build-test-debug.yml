@@ -153,6 +153,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
+      - name: Download APK
+        uses: actions/download-artifact@v5
+        with:
+          name: app-${{ matrix.variant }}-optimized
+          path: apk
+
+      - name: Install QEMU
+        uses: etchdroid/qemu-kvm-action/setup@v2
+
       - name: Load VM config
         run: |
           source appium-tests/scripts/vm-config.sh
@@ -172,15 +181,6 @@ jobs:
             echo 'VM_QEMU_FLAGS_EOF'
           } >> "$GITHUB_ENV"
           echo "Guest: LineageOS $LINEAGE_RELEASE ($VM_GUEST_ARCH), accel $VM_ACCEL, GL $VM_GL"
-
-      - name: Download APK
-        uses: actions/download-artifact@v5
-        with:
-          name: app-${{ matrix.variant }}-optimized
-          path: apk
-
-      - name: Install QEMU
-        uses: etchdroid/qemu-kvm-action/setup@v2
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
@@ -203,26 +203,17 @@ jobs:
           sudo mkdir "$VM_DIR"
           sudo chown "$USER" "$VM_DIR"
 
-      - name: Restore guest image from cache
-        uses: actions/cache/restore@v4
-        with:
-          key: lineage-${{ env.LINEAGE_RELEASE }}-${{ env.VM_GUEST_ARCH }}
-          restore-keys: lineage-${{ env.LINEAGE_RELEASE }}-${{ env.VM_GUEST_ARCH }}
-          path: ${{ env.VM_DIR }}
-
       - name: Prepare VM
-        id: prepare-vm
         run: ./appium-tests/scripts/prepare-vm.sh
 
-      - name: Store guest image to cache
-        uses: actions/cache/save@v4
-        if: steps.prepare-vm.outputs.cached == 0
-        with:
-          key: lineage-${{ env.LINEAGE_RELEASE }}-${{ env.VM_GUEST_ARCH }}
-          path: ${{ env.VM_DIR }}
-
-      - name: Create virtual USB drive image
-        run: mkdir -p vm-outputs
+      # Branches fresh overlays off the images prepare-vm.sh just fetched, so every run starts
+      # from identical guest state. Nothing here may be cached or reused between runs.
+      - name: Reset the ephemeral VM disks
+        run: |
+          mkdir -p vm-outputs
+          source appium-tests/scripts/vm-config.sh
+          vm_reset_disks
+          ls -l "$VM_RUN_DIR"
 
       - name: Run QEMU
         id: run-qemu

@@ -93,6 +93,27 @@ VM_USB_SIZE="${VM_USB_SIZE:-2G}"
 # virtual size is exactly the 64 MiB the pflash unit expects. Attaching it as raw fails.
 VM_IMAGE_FORMAT='qcow2'
 
+# Throw away last run's overlays and branch fresh ones off the pristine bases, so guest state
+# never persists between runs and no test can leak into the next one.
+#
+# This lives here rather than in run-vm.sh because both entry points need it: locally run-vm.sh
+# starts QEMU, but in CI qemu-kvm-action does, and it would otherwise be handed disk paths that
+# nothing had created.
+#
+# Must run *after* any cache save of VM_DIR: these overlays are throwaway, and caching them
+# would restore stale guest state on the next run, quietly defeating the whole point.
+vm_reset_disks() {
+    local pair
+    rm -rf "$VM_RUN_DIR"
+    mkdir -p "$VM_RUN_DIR"
+    for pair in "$VM_BASE_VDA:$VM_VDA" "$VM_BASE_VDB:$VM_VDB" "$VM_BASE_EFI_VARS:$VM_EFI_VARS"; do
+        qemu-img create -q -f "$VM_IMAGE_FORMAT" \
+            -b "${pair%%:*}" -F "$VM_IMAGE_FORMAT" "${pair##*:}"
+    done
+    # The virtual USB drive is scratch space the tests write to, so it needs no backing file.
+    qemu-img create -q -f qcow2 "$VM_USB_IMAGE" "$VM_USB_SIZE"
+}
+
 vm_find_uefi_code() {
     local dirs=() dir name
     if [[ -n "${VM_UEFI_CODE:-}" ]]; then

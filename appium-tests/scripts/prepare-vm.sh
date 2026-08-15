@@ -71,7 +71,7 @@ else:
     # These are overlay backing files from here on: never boot them directly, never write them.
     chmod a-w "$VM_BASE_VDA" "$VM_BASE_VDB" "$VM_BASE_EFI_VARS"
 
-    echo "Removing the archive to save cache space..."
+    echo "Removing the archive; only the extracted images are needed..."
     rm -f "$ZIP_PATH"
 fi
 

@@ -17,17 +17,9 @@ if ! command -v "$VM_QEMU_BIN" &> /dev/null; then
     exit 1
 fi
 
-# The VM is ephemeral by design: throw away last run's overlays and branch fresh ones off the
-# pristine bases. Guest state never persists, so every run re-does the trade-in-mode bypass and
-# no test can leak into the next one.
-rm -rf "$VM_RUN_DIR"
-mkdir -p "$VM_RUN_DIR"
-for pair in "$VM_BASE_VDA:$VM_VDA" "$VM_BASE_VDB:$VM_VDB" "$VM_BASE_EFI_VARS:$VM_EFI_VARS"; do
-    qemu-img create -q -f "$VM_IMAGE_FORMAT" \
-        -b "${pair%%:*}" -F "$VM_IMAGE_FORMAT" "${pair##*:}"
-done
-# The virtual USB drive is scratch space the tests write to, so it needs no backing file.
-qemu-img create -q -f qcow2 "$VM_USB_IMAGE" "$VM_USB_SIZE"
+# The VM is ephemeral by design; see vm_reset_disks in vm-config.sh. CI calls the same function
+# from its own step, because there qemu-kvm-action starts QEMU rather than this script.
+vm_reset_disks
 
 # VM_DISPLAY=sdl | vnc | none | ...
 #
