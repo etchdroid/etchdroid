@@ -1,5 +1,6 @@
 from appium.webdriver import Remote
 from selenium.common import (
+    StaleElementReferenceException,
     TimeoutException,
 )
 
@@ -63,10 +64,12 @@ def confirm_write_image(driver: Remote):
 
 
 def skip_lay_flat_sheet(driver: Remote):
+    # The sheet auto-proceeds once the (emulated) gravity sensor reads flat, so the button
+    # can disappear before or during the click; in both cases the flow has already moved on.
     try:
         lay_flat_skip_btn = wait_for_element(driver, '//android.widget.TextView[@resource-id="layFlatSkipButton"]')
         lay_flat_skip_btn.click()
-    except TimeoutException:
+    except (TimeoutException, StaleElementReferenceException):
         pass
 
 
