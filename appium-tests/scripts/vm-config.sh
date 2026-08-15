@@ -115,14 +115,25 @@ vm_find_uefi_code() {
     return 1
 }
 
-# GPU passthrough (virgl) needs both a GL-capable QEMU and a display backend that can hand it
-# an EGL context -- in practice a visible window. Headless runs and CI are software-rendered
-# regardless, so this defaults off and exists only to make a local macOS session responsive.
-# Set VM_GL=1 with a virgl-enabled QEMU (VM_QEMU_BIN) to turn it on.
-VM_GL="${VM_GL:-0}"
+# GPU passthrough (virgl) needs both a GL-capable QEMU and a display backend that can hand it an
+# EGL context -- in practice a visible window. That means local Linux only:
+#
+#   - Linux has the `sdl` backend and Mesa, so a local session gets an accelerated window.
+#   - CI renders offscreen under Xvfb with no GPU, so GL buys nothing there.
+#   - macOS QEMU from Homebrew has no OpenGL at all (and no sdl/gtk backend), so it uses VNC.
+#
+# Override with VM_GL=1/0 if the guess is wrong for your setup.
+if [[ -z "${VM_GL:-}" ]]; then
+    if [[ "$(uname -s)" == Linux && -z "${CI:-}" ]]; then
+        VM_GL=1
+    else
+        VM_GL=0
+    fi
+fi
+
 if [[ "$VM_GL" == 1 ]]; then
     VM_VGA_DEVICE='virtio-gpu-gl-pci'
-    VM_DISPLAY_GL=',gl=es'
+    VM_DISPLAY_GL=',gl=on'
 else
     VM_VGA_DEVICE='virtio-gpu-pci'
     VM_DISPLAY_GL=''

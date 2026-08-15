@@ -29,13 +29,25 @@ done
 # The virtual USB drive is scratch space the tests write to, so it needs no backing file.
 qemu-img create -q -f qcow2 "$VM_USB_IMAGE" "$VM_USB_SIZE"
 
-# VM_DISPLAY=none (default) | vnc | cocoa
+# VM_DISPLAY=sdl | vnc | none | ...
 #
-# Not cocoa on macOS unless VM_QEMU_BIN is a GL-capable build: this image's gralloc is
-# minigbm_upstream, and without OpenGL SurfaceFlinger SIGABRTs in a loop and nothing ever draws.
-# Homebrew's QEMU has no OpenGL at all. none and vnc are 2D-scanout only and always work.
-DISPLAY_BACKEND="${VM_DISPLAY:-none}"
+# Defaults per platform, because the options genuinely differ:
+#
+#   - Linux has `sdl`, which opens its own window and takes gl=on (see VM_GL in vm-config.sh).
+#   - macOS QEMU from Homebrew has neither sdl nor gtk, and `cocoa` needs OpenGL this build
+#     lacks -- under it SurfaceFlinger SIGABRTs in a loop and nothing ever draws. So: vnc,
+#     which is 2D-scanout only and always works, with a viewer opened automatically below.
+#
+# `none` stays available for headless runs.
+if [[ -z "${VM_DISPLAY:-}" ]]; then
+    case "$(uname -s)" in
+        Darwin) VM_DISPLAY=vnc ;;
+        *) VM_DISPLAY=sdl ;;
+    esac
+fi
+DISPLAY_BACKEND="$VM_DISPLAY"
 VNC_DISPLAY="${VNC_DISPLAY:-:1}"
+VNC_PORT=$((5900 + ${VNC_DISPLAY#:}))
 
 case "$DISPLAY_BACKEND" in
     none)
@@ -55,6 +67,43 @@ case "$DISPLAY_BACKEND" in
         ;;
 esac
 
+# On macOS the VNC display is only useful with something to view it in, and Screen Sharing is
+# built in. The password is embedded in the URL so it does not prompt. VM_VIEWER=0 opts out.
+#
+# The viewer is a convenience: never let it fail the run.
+VIEWER_STARTED_BY_US=0
+
+start_viewer() {
+    [[ "$(uname -s)" == Darwin && "$DISPLAY_BACKEND" == vnc ]] || return 0
+    [[ -z "${CI:-}" && "${VM_VIEWER:-1}" == 1 ]] || return 0
+
+    # Only tidy up afterwards if this run is what launched it; see stop_viewer.
+    pgrep -qf 'Screen Sharing.app' || VIEWER_STARTED_BY_US=1
+
+    for _ in $(seq 60); do
+        kill -0 "$QEMU_PID" 2> /dev/null || return 0
+        nc -z localhost "$VNC_PORT" 2> /dev/null && break
+        sleep 0.5
+    done
+
+    if open "vnc://:$VNC_PASSWORD@localhost:$VNC_PORT" 2> /dev/null; then
+        echo "Opened Screen Sharing on localhost:$VNC_PORT"
+    else
+        echo "Note: could not open a VNC viewer; connect manually to localhost:$VNC_PORT"
+    fi
+}
+
+# Screen Sharing is one shared app for every session, and it exposes no scriptable window list
+# (`get every window` fails with -1728; only System Events can see it, and that needs
+# Accessibility permission we should not demand). So the rule is ownership rather than window
+# matching: quit it only if it was not already running when we started, otherwise leave the
+# user's own sessions alone.
+stop_viewer() {
+    [[ "$VIEWER_STARTED_BY_US" == 1 ]] || return 0
+    osascript -e 'quit app "Screen Sharing"' > /dev/null 2>&1 \
+        || echo "Note: could not close Screen Sharing automatically"
+}
+
 vm_qemu_flags
 
 SERIAL_LOG="$VM_RUN_DIR/serial.log"
@@ -73,7 +122,17 @@ echo
 echo "Run appium-tests/scripts/wait-vm-startup.sh once it boots."
 echo
 
-exec "$VM_QEMU_BIN" \
+# Deliberately not `exec`: that would replace this shell with QEMU, so nothing could tear the
+# viewer down afterwards. Running QEMU as a child and waiting on it means the EXIT trap fires on
+# a normal exit and on Ctrl-C alike, while still propagating QEMU's exit status.
+trap stop_viewer EXIT
+
+"$VM_QEMU_BIN" \
     "${VM_QEMU_FLAGS[@]}" \
     "${DISPLAY_ARGS[@]}" \
-    -serial "file:$SERIAL_LOG"
+    -serial "file:$SERIAL_LOG" &
+QEMU_PID=$!
+
+start_viewer
+
+wait "$QEMU_PID"
