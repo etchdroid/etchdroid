@@ -128,6 +128,7 @@ echo
 trap stop_viewer EXIT
 
 "$VM_QEMU_BIN" \
+    "${VM_ACCEL_FLAGS[@]}" \
     "${VM_QEMU_FLAGS[@]}" \
     "${DISPLAY_ARGS[@]}" \
     -serial "file:$SERIAL_LOG" &

@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  # BLISSOS_FILE, BLISSOS_URL, VM_CMDLINE and the QEMU flags all come from
+  # The guest image coordinates and QEMU flags all come from
   # appium-tests/scripts/vm-config.sh, loaded by the "Load VM config" step below.
   VM_DIR: /appium-vm
 
@@ -156,18 +156,22 @@ jobs:
       - name: Load VM config
         run: |
           source appium-tests/scripts/vm-config.sh
+          vm_qemu_flags
           {
-            echo "BLISSOS_FILE=$BLISSOS_FILE"
-            echo "BLISSOS_URL=$BLISSOS_URL"
-            echo "VM_KERNEL=$VM_KERNEL"
-            echo "VM_INITRD=$VM_INITRD"
-            echo "VM_CMDLINE=$VM_CMDLINE"
+            echo "LINEAGE_RELEASE=$LINEAGE_RELEASE"
+            echo "VM_GUEST_ARCH=$VM_GUEST_ARCH"
+            echo "VM_CPU=$VM_CPU"
+            echo "VM_SMP=$VM_SMP"
+            echo "VM_MEMORY=$VM_MEMORY"
+            echo "VM_ENABLE_KVM=$([ "$VM_ACCEL" = kvm ] && echo true || echo false)"
             echo "VM_DISPLAY_GL=$VM_DISPLAY_GL"
+            # Only the device flags: -cpu/-smp/-m/-accel are passed as action inputs instead,
+            # since qemu-kvm-action builds those itself and duplicating them is ambiguous.
             echo 'VM_QEMU_FLAGS<<VM_QEMU_FLAGS_EOF'
             printf '%s\n' "${VM_QEMU_FLAGS[@]}"
             echo 'VM_QEMU_FLAGS_EOF'
           } >> "$GITHUB_ENV"
-          echo "Host GL available: $VM_GL"
+          echo "Guest: LineageOS $LINEAGE_RELEASE ($VM_GUEST_ARCH), accel $VM_ACCEL, GL $VM_GL"
 
       - name: Download APK
         uses: actions/download-artifact@v5
@@ -199,25 +203,22 @@ jobs:
           sudo mkdir "$VM_DIR"
           sudo chown "$USER" "$VM_DIR"
 
-      - name: Restore BlissOS image from cache
+      - name: Restore guest image from cache
         uses: actions/cache/restore@v4
         with:
-          key: ${{ env.BLISSOS_FILE }}
-          restore-keys: ${{ env.BLISSOS_FILE }}
+          key: lineage-${{ env.LINEAGE_RELEASE }}-${{ env.VM_GUEST_ARCH }}
+          restore-keys: lineage-${{ env.LINEAGE_RELEASE }}-${{ env.VM_GUEST_ARCH }}
           path: ${{ env.VM_DIR }}
 
-      - name: Prepare BlissOS VM
+      - name: Prepare VM
         id: prepare-vm
-        run: |
-          ./appium-tests/scripts/prepare-vm.sh
-          # Save cache space by removing the ISO, we only need the extracted contents for QEMU
-          rm -f "${{ env.VM_DIR }}/${{ env.BLISSOS_FILE }}"
+        run: ./appium-tests/scripts/prepare-vm.sh
 
-      - name: Store BlissOS to cache
+      - name: Store guest image to cache
         uses: actions/cache/save@v4
         if: steps.prepare-vm.outputs.cached == 0
         with:
-          key: ${{ env.BLISSOS_FILE }}
+          key: lineage-${{ env.LINEAGE_RELEASE }}-${{ env.VM_GUEST_ARCH }}
           path: ${{ env.VM_DIR }}
 
       - name: Create virtual USB drive image
@@ -228,10 +229,12 @@ jobs:
         uses: etchdroid/qemu-kvm-action@v2
         with:
           video-record: true
-          kernel: ${{ env.VM_KERNEL }}
-          initrd: ${{ env.VM_INITRD }}
-          cmdline: ${{ env.VM_CMDLINE }}
           video-output: vm-outputs/recording.mkv
+          # The guest boots from disk over UEFI, so there is no kernel/initrd/cmdline.
+          cpu: ${{ env.VM_CPU }}
+          smp: ${{ env.VM_SMP }}
+          memory: ${{ env.VM_MEMORY }}
+          enable-kvm: ${{ env.VM_ENABLE_KVM }}
           flags: |
             -chardev
             stdio,id=char0,logfile=vm-outputs/serial.log,signal=off

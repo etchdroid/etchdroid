@@ -139,21 +139,30 @@ else
     VM_DISPLAY_GL=''
 fi
 
-# QEMU flags shared by the local and CI invocations, one argument per array element.
-# Deliberately excluded because the two differ on purpose: the display backend (see
-# VM_DISPLAY_GL above) and the serial routing.
+# QEMU flags, split into two arrays because CI and local invoke QEMU differently.
+#
+# VM_ACCEL_FLAGS holds exactly what qemu-kvm-action already builds from its own inputs
+# (`-cpu`, `-m`, `-smp`, plus `-enable-kvm`), so CI must NOT pass these again -- it supplies
+# them as action inputs instead, and duplicating them just makes the final command line
+# ambiguous. run-vm.sh passes both arrays.
+#
+# Everything else is shared. Deliberately excluded from both because they genuinely differ:
+# the display backend (see VM_DISPLAY_GL above) and the serial routing.
 #
 # Both USB controllers are intentional: xhci is USB 3 (fast path), uhci is USB 1.1 (slow path).
 # The tests pick between them via QEMU_USB_BUS / QEMU_USB_SLOW_BUS, see
 # appium-tests/etchdroid/config.py. Input devices share the xhci bus because machine `virt` has
 # no default USB controller.
 vm_qemu_flags() {
-    VM_QEMU_FLAGS=(
-        -machine "$VM_MACHINE"
+    VM_ACCEL_FLAGS=(
         -accel "$VM_ACCEL"
         -cpu "$VM_CPU"
         -smp "$VM_SMP"
         -m "$VM_MEMORY"
+    )
+
+    VM_QEMU_FLAGS=(
+        -machine "$VM_MACHINE"
         -drive "if=pflash,unit=0,format=raw,readonly=on,file=$(vm_find_uefi_code)"
         -drive "if=pflash,unit=1,format=$VM_IMAGE_FORMAT,file=$VM_EFI_VARS"
         -drive "file=$VM_VDA,if=none,id=vda,format=$VM_IMAGE_FORMAT,discard=unmap,detect-zeroes=unmap"
