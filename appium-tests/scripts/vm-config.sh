@@ -87,7 +87,10 @@ VM_VDA="$VM_RUN_DIR/vda.qcow2"
 VM_VDB="$VM_RUN_DIR/vdb.qcow2"
 VM_EFI_VARS="$VM_RUN_DIR/efi_vars.fd"
 VM_USB_IMAGE="$VM_RUN_DIR/usb-storage.qcow2"
-VM_USB_SIZE="${VM_USB_SIZE:-2G}"
+# Big enough that speed-scaled test images (see usb_write_speed_mbps in
+# appium-tests/etchdroid/fixtures.py) don't hit the stick's capacity on fast hosts.
+# The qcow2 is sparse and recreated on every VM start, so the size costs nothing up front.
+VM_USB_SIZE="${VM_USB_SIZE:-8G}"
 
 # All three shipped images are qcow2 -- including efi_vars.fd, which is a *sparse* qcow2 whose
 # virtual size is exactly the 64 MiB the pflash unit expects. Attaching it as raw fails.
@@ -214,7 +217,10 @@ vm_qemu_flags() {
         -device usb-ehci,id=ehci
         -device usb-kbd,bus=xhci.0
         -device usb-tablet,bus=xhci.0
-        -drive "if=none,id=usbstick,file=$VM_USB_IMAGE,format=qcow2"
+        # discard/detect-zeroes keep the qcow2 from ballooning: most test images are
+        # sparse zeros, and the speed-scaled sizes (multiple GB) would otherwise fill
+        # the host disk after a few tests.
+        -drive "if=none,id=usbstick,file=$VM_USB_IMAGE,format=qcow2,discard=unmap,detect-zeroes=unmap"
         # The stick lives on ehci: moderate emulated throughput keeps UI interaction
         # windows wide, and it exercises a second controller besides the input devices' xhci.
         -device usb-storage,id=usbstick,bus=ehci.0,drive=usbstick,removable=on
