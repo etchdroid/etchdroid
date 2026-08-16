@@ -177,20 +177,18 @@ class ProgressActivity : ActivityBase() {
 
     override fun onResume() {
         super.onResume()
-        LocalBroadcastManager.getInstance(this)
-            .registerReceiver(mBroadcastReceiver, IntentFilter().apply {
-                addAction(Intents.JOB_PROGRESS)
-                addAction(Intents.ERROR)
-                addAction(Intents.FINISHED)
-            })
         refreshNotificationsPermission()
         mViewModel.setForeground(true)
     }
 
     override fun onPause() {
         super.onPause()
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(mBroadcastReceiver)
         mViewModel.setForeground(false)
+    }
+
+    override fun onDestroy() {
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mBroadcastReceiver)
+        super.onDestroy()
     }
 
     private fun refreshNotificationsPermission() {
@@ -224,6 +222,17 @@ class ProgressActivity : ActivityBase() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Registered for the whole life of the activity, not just while resumed: job
+        // updates are not replayed, so a screen that stops listening while the user is in
+        // a dialog or another app misses them for good -- including FINISHED, which left
+        // the progress screen claiming the write was still running once it was over.
+        LocalBroadcastManager.getInstance(this)
+            .registerReceiver(mBroadcastReceiver, IntentFilter().apply {
+                addAction(Intents.JOB_PROGRESS)
+                addAction(Intents.ERROR)
+                addAction(Intents.FINISHED)
+            })
 
         println(
             "ProgressActivity running in thread ${Thread.currentThread().name} (${Thread.currentThread().id})"
