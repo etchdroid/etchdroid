@@ -41,12 +41,10 @@ def test_accept_notifications(driver: appium.webdriver.Remote, usb_write_speed_m
             timeout=5,
         )
         sure_btn.click()
-        allow_btn = wait_for_element(
+        app.click_dialog_button(
             driver,
             '//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]',
-            timeout=5,
         )
-        allow_btn.click()
 
         app.wait_for_success(driver)
 
@@ -62,12 +60,10 @@ def test_accept_then_deny_notifications(driver: appium.webdriver.Remote, usb_wri
             timeout=5,
         )
         sure_btn.click()
-        deny_btn = wait_for_element(
+        app.click_dialog_button(
             driver,
             '//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_deny_button"]',
-            timeout=5,
         )
-        deny_btn.click()
         sleep(0.5)
         # Re-find rather than reusing sure_btn: returning from the permission dialog
         # recomposes the banner, which makes the old reference stale.

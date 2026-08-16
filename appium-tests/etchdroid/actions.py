@@ -1,3 +1,5 @@
+from time import sleep
+
 from appium.webdriver import Remote
 from selenium.common import (
     StaleElementReferenceException,
@@ -65,6 +67,28 @@ def grant_usb_permission(driver: Remote):
             return
         except (TimeoutException, StaleElementReferenceException):
             continue
+
+
+def click_dialog_button(driver: Remote, xpath: str, timeout: float = 5, attempts: int = 3):
+    """
+    Click a system dialog button and make sure it actually took effect.
+
+    A tap that lands while the dialog is still animating in is dropped, and the click call
+    itself succeeds either way, so the only way to tell is to check whether the dialog is
+    still there. A dialog left up covers the app and hides it from the accessibility tree,
+    which then looks like the app never reached the expected screen.
+    """
+    for _ in range(attempts):
+        try:
+            btn = wait_for_element(driver, xpath, timeout=timeout)
+        except TimeoutException:
+            return  # gone: the click landed (or the dialog never appeared)
+        try:
+            btn.click()
+        except StaleElementReferenceException:
+            pass
+        sleep(1)
+    raise TimeoutException(f"Dialog did not go away after clicking: {xpath}")
 
 
 def accept_usb_permission(driver: Remote, timeout: float = 1):
