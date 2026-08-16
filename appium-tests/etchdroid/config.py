@@ -9,8 +9,10 @@ class Config:
     QEMU_QMP_PATH = os.environ.get("QEMU_QMP_PATH", "/tmp/qmp.sock")
     QEMU_MONITOR_PATH = os.environ.get("QEMU_MONITOR_PATH", "/tmp/qemu-monitor.sock")
 
-    QEMU_USB_BUS = os.environ.get("QEMU_USB_BUS", "xhci.0")
-    QEMU_USB_SLOW_BUS = os.environ.get("QEMU_USB_SLOW_BUS", "uhci.0")
+    # Must match the bus the default stick is attached to in scripts/vm-config.sh, or
+    # replug tests re-add the device on a different controller than they removed it from.
+    QEMU_USB_BUS = os.environ.get("QEMU_USB_BUS", "ehci.0")
+    QEMU_USB_SLOW_BUS = os.environ.get("QEMU_USB_SLOW_BUS", "ehci.0")
     QEMU_USB_DEV_ID = os.environ.get("QEMU_USB_DEV_ID", "usbstick")
 
     # Every Appium element wait is multiplied by this. CI has no host GPU, so the guest

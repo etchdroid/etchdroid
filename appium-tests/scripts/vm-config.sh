@@ -185,10 +185,11 @@ fi
 # Everything else is shared. Deliberately excluded from both because they genuinely differ:
 # the display backend (see VM_DISPLAY_GL above) and the serial routing.
 #
-# Both USB controllers are intentional: xhci is USB 3 (fast path), uhci is USB 1.1 (slow path).
-# The tests pick between them via QEMU_USB_BUS / QEMU_USB_SLOW_BUS, see
-# appium-tests/etchdroid/config.py. Input devices share the xhci bus because machine `virt` has
-# no default USB controller.
+# Both USB controllers are intentional: xhci is USB 3 (fast path), ehci is USB 2.0 (slow path).
+# It used to be uhci (USB 1.1), but the LineageOS guest kernels ship no uhci_hcd (on x86_64 nor
+# arm64), so uhci-attached devices never enumerate. The tests pick between them via
+# QEMU_USB_BUS / QEMU_USB_SLOW_BUS, see appium-tests/etchdroid/config.py. Input devices share
+# the xhci bus because machine `virt` has no default USB controller.
 vm_qemu_flags() {
     VM_ACCEL_FLAGS=(
         -accel "$VM_ACCEL"
@@ -210,11 +211,13 @@ vm_qemu_flags() {
         -device "$VM_VGA_DEVICE"
         -device virtio-rng-pci
         -device nec-usb-xhci,id=xhci
-        -device ich9-usb-uhci1,id=uhci
+        -device usb-ehci,id=ehci
         -device usb-kbd,bus=xhci.0
         -device usb-tablet,bus=xhci.0
         -drive "if=none,id=usbstick,file=$VM_USB_IMAGE,format=qcow2"
-        -device usb-storage,id=usbstick,bus=xhci.0,drive=usbstick,removable=on
+        # The stick lives on ehci: moderate emulated throughput keeps UI interaction
+        # windows wide, and it exercises a second controller besides the input devices' xhci.
+        -device usb-storage,id=usbstick,bus=ehci.0,drive=usbstick,removable=on
         -qmp unix:/tmp/qmp.sock,server=on,wait=off
         -monitor unix:/tmp/qemu-monitor.sock,server=on,wait=off
     )
