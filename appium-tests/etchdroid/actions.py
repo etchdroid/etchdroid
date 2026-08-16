@@ -10,6 +10,12 @@ from etchdroid.utils import wait_for_element, run_adb_command
 
 def basic_flow(driver: Remote, image_filename: str):
     tap_write_image(driver)
+    # The tap is occasionally swallowed when the device list recomposes under it (e.g.
+    # right after a test hot-plugged a USB device); if the picker didn't open, tap again.
+    try:
+        wait_for_element(driver, '//*[@content-desc="Search"]', timeout=5)
+    except TimeoutException:
+        tap_write_image(driver)
     find_and_open_file(driver, image_filename)
     select_first_usb_device_if_multiple(driver)
     grant_usb_permission(driver)
