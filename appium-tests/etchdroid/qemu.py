@@ -137,6 +137,8 @@ class QEMUController:
         cache: bool | None = None,
         readonly: bool | None = None,
         copy_on_read: bool | None = None,
+        discard: str | None = None,
+        detect_zeroes: str | None = None,
     ):
         args = {
             k: _check_spaces(str(v))
@@ -153,6 +155,8 @@ class QEMUController:
                 "cache": _qemu_bool(cache),
                 "readonly": _qemu_bool(readonly),
                 "copy_on_read": _qemu_bool(copy_on_read),
+                "discard": discard,
+                "detect-zeroes": detect_zeroes,
             }.items()
             if v is not None
         }
@@ -221,11 +225,15 @@ class QEMUController:
         bus: str,
         format: str = "raw",
     ):
+        # unmap flags mirror the boot-time attach in scripts/vm-config.sh: without them,
+        # every re-plugged drive allocates its zero writes for real and the qcow2 balloons.
         self.drive_add(
             id=id,
             iface="none",
             file=file,
             format=format,
+            discard="unmap",
+            detect_zeroes="unmap",
         )
         self._sleep(0.5)
         self.device_add(
