@@ -96,9 +96,14 @@ def skip_lay_flat_sheet(driver: Remote):
     # the flow has already moved on. A stale click, however, must be retried: it just
     # means the sheet moved under the tap while animating in, and if the sensor never
     # reads flat (CI), nobody else will ever fire the sheet's onReady.
+    # Short wait on purpose: confirm_write_image already established that the sheet is
+    # up, so the button is there now or it auto-proceeded and the job is already running.
+    # Waiting the full timeout here eats the write phase the caller is about to look for.
     for _ in range(3):
         try:
-            lay_flat_skip_btn = wait_for_element(driver, '//android.widget.TextView[@resource-id="layFlatSkipButton"]')
+            lay_flat_skip_btn = wait_for_element(
+                driver, '//android.widget.TextView[@resource-id="layFlatSkipButton"]', timeout=1
+            )
             lay_flat_skip_btn.click()
             return
         except TimeoutException:
