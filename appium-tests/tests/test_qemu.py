@@ -10,7 +10,7 @@ from selenium.common import TimeoutException
 
 from etchdroid import actions as app
 from etchdroid.config import Config
-from etchdroid.fixtures import appium_service, driver, qemu, usb_write_speed_mbps
+from etchdroid.fixtures import appium_service, driver, qemu
 from etchdroid.qemu import QEMUController
 from etchdroid.utils import (
     used,
@@ -22,7 +22,7 @@ from etchdroid.utils import (
     grant_permissions,
 )
 
-used(appium_service, usb_write_speed_mbps)
+used(appium_service)
 
 
 def unplug_and_reconnect_usb(

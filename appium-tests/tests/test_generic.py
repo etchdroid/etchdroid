@@ -4,10 +4,10 @@ import appium.webdriver
 
 from etchdroid import actions as app
 from etchdroid.config import Config
-from etchdroid.fixtures import appium_service, driver, usb_write_speed_mbps
+from etchdroid.fixtures import appium_service, driver
 from etchdroid.utils import device_temp_sparse_file, scaled_image_mb, used, wait_for_element
 
-used(appium_service, usb_write_speed_mbps)
+used(appium_service)
 
 
 def test_regular_flow(driver: appium.webdriver.Remote, usb_write_speed_mbps: float):

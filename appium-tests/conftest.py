@@ -86,3 +86,9 @@ def pytest_runtest_makereport(item, call):
             )
 
     return report
+
+
+# Re-exported here so the session-scoped speed measurement really runs once per session:
+# a fixture imported into two test modules becomes two definitions with separate caches,
+# which made the calibration write run once per module.
+from etchdroid.fixtures import usb_write_speed_mbps  # noqa: E402,F401
