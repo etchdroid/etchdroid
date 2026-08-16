@@ -50,13 +50,21 @@ def select_first_usb_device_if_multiple(driver: Remote, timeout: int = 1):
 
 
 def grant_usb_permission(driver: Remote):
-    grant_btn = wait_for_element(driver, '//*[@resource-id="grantUsbPermissionButton"]')
-    grant_btn.click()
-
-    try:
-        accept_usb_permission(driver)
-    except TimeoutException:
-        pass
+    # The tap is swallowed if it lands while the confirmation activity is still settling,
+    # and then nothing requests permission at all: retry until the system dialog shows or
+    # the grant button is gone (permission already granted, so no dialog is coming).
+    for _ in range(3):
+        try:
+            grant_btn = wait_for_element(driver, '//*[@resource-id="grantUsbPermissionButton"]')
+        except TimeoutException:
+            return
+        try:
+            grant_btn.click()
+            # The system dialog can take several seconds to render on a cold guest.
+            accept_usb_permission(driver, timeout=10)
+            return
+        except (TimeoutException, StaleElementReferenceException):
+            continue
 
 
 def accept_usb_permission(driver: Remote, timeout: float = 1):
@@ -70,13 +78,19 @@ def confirm_write_image(driver: Remote):
 
 
 def skip_lay_flat_sheet(driver: Remote):
-    # The sheet auto-proceeds once the (emulated) gravity sensor reads flat, so the button
-    # can disappear before or during the click; in both cases the flow has already moved on.
-    try:
-        lay_flat_skip_btn = wait_for_element(driver, '//android.widget.TextView[@resource-id="layFlatSkipButton"]')
-        lay_flat_skip_btn.click()
-    except (TimeoutException, StaleElementReferenceException):
-        pass
+    # A missing button means the sheet auto-proceeded (the gravity sensor read flat) and
+    # the flow has already moved on. A stale click, however, must be retried: it just
+    # means the sheet moved under the tap while animating in, and if the sensor never
+    # reads flat (CI), nobody else will ever fire the sheet's onReady.
+    for _ in range(3):
+        try:
+            lay_flat_skip_btn = wait_for_element(driver, '//android.widget.TextView[@resource-id="layFlatSkipButton"]')
+            lay_flat_skip_btn.click()
+            return
+        except TimeoutException:
+            return
+        except StaleElementReferenceException:
+            continue
 
 
 def wait_for_success(driver: Remote, timeout: int = 120):
