@@ -3,14 +3,22 @@ import os
 import pytest
 import signal
 import subprocess
+import time
 import traceback
+from selenium.common import WebDriverException
 from appium.options.android import UiAutomator2Options
 from appium.webdriver.appium_service import AppiumService
 from appium.webdriver.client_config import AppiumClientConfig
 from etchdroid import package_name
 from etchdroid.config import Config
 from etchdroid.qemu import QEMUController
-from etchdroid.utils import denoise_logcat, execute_script, get_adb_udid, write_app_filtered_logcat
+from etchdroid.utils import (
+    denoise_logcat,
+    device_temp_sparse_file,
+    execute_script,
+    get_adb_udid,
+    write_app_filtered_logcat,
+)
 from pathlib import Path
 from typing import Generator
 
@@ -135,6 +143,103 @@ def driver(appium_service, request) -> Generator[appium.webdriver.Remote, None, 
                     traceback.print_exc()
 
         _driver.quit()
+
+
+CALIBRATION_IMAGE_MB = 256
+
+
+def _job_duration_from_logcat(driver) -> float | None:
+    """
+    Duration of the last completed write+verify job, from the app's own logcat
+    timestamps. Unlike wall-clock timing around UI waits, this can't be skewed by how
+    long the harness took to notice the job started or finished.
+    """
+    from datetime import datetime
+
+    from etchdroid.utils import run_adb_command
+
+    # noinspection PyBroadException
+    try:
+        out = run_adb_command(driver, "logcat", "-d", "-v", "threadtime", "-t", "3000", timeout=30)["stdout"]
+    except Exception:
+        traceback.print_exc()
+        return None
+
+    def ts(line: str) -> datetime:
+        return datetime.strptime(line[:18], "%m-%d %H:%M:%S.%f")
+
+    start = duration = None
+    for line in out.splitlines():
+        try:
+            if "Writing image to USB drive" in line:
+                start = ts(line)
+            elif "broadcast.FINISHED" in line and start is not None:
+                duration = (ts(line) - start).total_seconds()
+                start = None
+        except ValueError:
+            continue
+    return duration
+
+
+@pytest.fixture(scope="session")
+def usb_write_speed_mbps(appium_service) -> float:
+    """
+    Measure the emulated drive's write throughput once per session with a small
+    app-driven "speedtest" write. Tests size their images from this via
+    utils.scaled_image_mb() so the write phase lasts long enough to interact with,
+    no matter how fast the host emulates USB.
+    """
+    # Imported here: actions is a consumer of driver sessions, keep fixtures importable
+    # without it at collection time.
+    from etchdroid import actions as app
+
+    options = UiAutomator2Options()
+    options.app_package = package_name
+    options.app_activity = ".ui.MainActivity"
+    client_config = AppiumClientConfig(remote_server_addr=f"http://{Config.APPIUM_HOST}:{Config.APPIUM_PORT}")
+    print("\n[speedtest] Measuring USB write speed...")
+    _driver = appium.webdriver.Remote(options=options, client_config=client_config)
+    try:
+        # The very first flow after a VM boot occasionally flakes in the file picker;
+        # since this fixture always runs first, absorb that here instead of erroring
+        # every test that needs a speed measurement.
+        for attempt in range(2):
+            # noinspection PyBroadException
+            try:
+                execute_script(_driver, "mobile: clearApp", {"appId": package_name})
+            except Exception:
+                traceback.print_exc()
+            execute_script(_driver, "mobile: startActivity", {"component": f"{package_name}/.ui.MainActivity"})
+
+            try:
+                with device_temp_sparse_file(
+                    _driver, "etchdroid_speedtest_", ".iso", f"{CALIBRATION_IMAGE_MB}M"
+                ) as image:
+                    start = time.monotonic()
+                    app.basic_flow(_driver, image.filename)
+                    app.wait_for_success(_driver, timeout=600)
+                    # Wall-clock (includes UI latency) is only the fallback.
+                    elapsed = _job_duration_from_logcat(_driver) or max(time.monotonic() - start, 0.001)
+                break
+            except WebDriverException:
+                if attempt == 1:
+                    raise
+                print("[speedtest] Flow flaked, retrying once...")
+
+        # noinspection PyBroadException
+        try:
+            _driver.terminate_app(package_name)
+        except Exception:
+            pass
+    finally:
+        _driver.quit()
+
+    # The job writes the image and then verifies it, so it moves ~2x the data. The UI
+    # latency baked into `elapsed` underestimates the speed a little, which errs toward
+    # larger images -- the safe direction.
+    speed = 2 * CALIBRATION_IMAGE_MB / elapsed
+    print(f"[speedtest] {CALIBRATION_IMAGE_MB} MB write+verify took {elapsed:.1f}s -> {speed:.1f} MB/s")
+    return speed
 
 
 @pytest.fixture(scope="session")

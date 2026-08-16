@@ -3,20 +3,23 @@ from time import sleep
 import appium.webdriver
 
 from etchdroid import actions as app
-from etchdroid.fixtures import appium_service, driver
-from etchdroid.utils import device_temp_sparse_file, used, wait_for_element
+from etchdroid.config import Config
+from etchdroid.fixtures import appium_service, driver, usb_write_speed_mbps
+from etchdroid.utils import device_temp_sparse_file, scaled_image_mb, used, wait_for_element
 
-used(appium_service)
+used(appium_service, usb_write_speed_mbps)
 
 
-def test_regular_flow(driver: appium.webdriver.Remote):
-    with device_temp_sparse_file(driver, "etchdroid_test_regular_flow_", ".iso", "1000M") as image:
+def test_regular_flow(driver: appium.webdriver.Remote, usb_write_speed_mbps: float):
+    size = f"{scaled_image_mb(usb_write_speed_mbps)}M"
+    with device_temp_sparse_file(driver, "etchdroid_test_regular_flow_", ".iso", size) as image:
         app.basic_flow(driver, image.filename)
         app.wait_for_success(driver)
 
 
-def test_skip_verification(driver: appium.webdriver.Remote):
-    with device_temp_sparse_file(driver, "etchdroid_test_skip_verification_", ".iso", "1000M") as image:
+def test_skip_verification(driver: appium.webdriver.Remote, usb_write_speed_mbps: float):
+    size = f"{scaled_image_mb(usb_write_speed_mbps)}M"
+    with device_temp_sparse_file(driver, "etchdroid_test_skip_verification_", ".iso", size) as image:
         app.basic_flow(driver, image.filename)
         app.skip_lay_flat_sheet(driver)
 
@@ -26,8 +29,9 @@ def test_skip_verification(driver: appium.webdriver.Remote):
         app.wait_for_success(driver)
 
 
-def test_accept_notifications(driver: appium.webdriver.Remote):
-    with device_temp_sparse_file(driver, "etchdroid_test_accept_notifications_", ".iso", "1000M") as image:
+def test_accept_notifications(driver: appium.webdriver.Remote, usb_write_speed_mbps: float):
+    size = f"{scaled_image_mb(usb_write_speed_mbps)}M"
+    with device_temp_sparse_file(driver, "etchdroid_test_accept_notifications_", ".iso", size) as image:
         app.basic_flow(driver, image.filename)
         sure_btn = wait_for_element(
             driver,
@@ -48,8 +52,10 @@ def test_accept_notifications(driver: appium.webdriver.Remote):
         app.wait_for_success(driver)
 
 
-def test_accept_then_deny_notifications(driver: appium.webdriver.Remote):
-    with device_temp_sparse_file(driver, "etchdroid_test_accept_then_deny_notifications_", ".iso", "1800M") as image:
+def test_accept_then_deny_notifications(driver: appium.webdriver.Remote, usb_write_speed_mbps: float):
+    # Double the usual window: this flow takes a detour through the notification settings.
+    size = f"{scaled_image_mb(usb_write_speed_mbps, seconds=2 * Config.TARGET_WRITE_SECONDS)}M"
+    with device_temp_sparse_file(driver, "etchdroid_test_accept_then_deny_notifications_", ".iso", size) as image:
         app.basic_flow(driver, image.filename)
         sure_btn = wait_for_element(
             driver,

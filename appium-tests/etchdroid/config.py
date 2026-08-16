@@ -14,6 +14,11 @@ class Config:
     QEMU_USB_BUS = os.environ.get("QEMU_USB_BUS", "ehci.0")
     QEMU_USB_SLOW_BUS = os.environ.get("QEMU_USB_SLOW_BUS", "ehci.0")
     QEMU_USB_DEV_ID = os.environ.get("QEMU_USB_DEV_ID", "usbstick")
+    # How long a test image's write phase should last, so there is time to interact with
+    # the UI (skip button, mid-write unplug) regardless of how fast the host emulates USB.
+    # Image sizes are derived from this and the measured drive speed, see
+    # usb_write_speed_mbps in fixtures.py.
+    TARGET_WRITE_SECONDS = float(os.environ.get("TARGET_WRITE_SECONDS", "15"))
 
     # Every Appium element wait is multiplied by this. CI has no host GPU, so the guest
     # software-renders (see appium-tests/scripts/vm-config.sh) and first-frame latency

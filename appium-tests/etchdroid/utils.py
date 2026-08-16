@@ -127,6 +127,21 @@ def grant_permissions(driver: appium.webdriver.Remote, permissions: list[str]) -
     )
 
 
+def scaled_image_mb(
+    speed_mbps: float,
+    seconds: float | None = None,
+    min_mb: int = 128,
+    max_mb: int = 6000,
+) -> int:
+    """
+    Size (in MB) of a test image whose write phase lasts ~`seconds` at the measured
+    drive speed (see the usb_write_speed_mbps fixture). Clamped to stay well under the
+    emulated stick's capacity (VM_USB_SIZE in scripts/vm-config.sh).
+    """
+    seconds = Config.TARGET_WRITE_SECONDS if seconds is None else seconds
+    return max(min_mb, min(max_mb, int(speed_mbps * seconds)))
+
+
 PathFilenamePair = namedtuple("PathFilenamePair", ["path", "filename"])
 
 
