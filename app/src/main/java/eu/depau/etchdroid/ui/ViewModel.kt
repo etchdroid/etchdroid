@@ -233,6 +233,8 @@ data class ProgressActivityState(
     val notificationsPermission: Boolean = false,
     val showNotificationsBanner: Boolean = true,
     val lastNotificationTime: Long = System.currentTimeMillis(),
+    /** Whether the progress screen is currently receiving job updates. */
+    val isForeground: Boolean = true,
 ) : IThemeState {
     companion object {
         val Empty: ProgressActivityState
@@ -344,6 +346,23 @@ class ProgressActivityViewModel : ViewModel(), SettingChangeListener, IThemeView
             it.copy(
                 jobState = JobState.FATAL_ERROR,
                 exception = ServiceTimeoutException(),
+            )
+        }
+    }
+
+    /**
+     * The activity only receives job updates while resumed, so the silence watchdog must
+     * not count time spent in the background (a system dialog, the settings screen, or
+     * the user simply leaving during a long write) as the service having died.
+     */
+    fun setForeground(foreground: Boolean) {
+        _state.update {
+            it.copy(
+                isForeground = foreground,
+                // Restart the countdown on the way back in: the next update is only due
+                // once the receiver is registered again.
+                lastNotificationTime = if (foreground) System.currentTimeMillis()
+                else it.lastNotificationTime,
             )
         }
     }

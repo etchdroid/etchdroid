@@ -184,11 +184,13 @@ class ProgressActivity : ActivityBase() {
                 addAction(Intents.FINISHED)
             })
         refreshNotificationsPermission()
+        mViewModel.setForeground(true)
     }
 
     override fun onPause() {
         super.onPause()
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mBroadcastReceiver)
+        mViewModel.setForeground(false)
     }
 
     private fun refreshNotificationsPermission() {
@@ -245,7 +247,7 @@ class ProgressActivity : ActivityBase() {
             MainView(mViewModel) {
                 val appState by mViewModel.state.collectAsState()
 
-                if (appState.jobState == JobState.IN_PROGRESS) {
+                if (appState.jobState == JobState.IN_PROGRESS && appState.isForeground) {
                     LaunchedEffect(key1 = appState.lastNotificationTime) {
                         delay(LAST_NOTIFICATION_TIMEOUT)
                         if (System.currentTimeMillis() - appState.lastNotificationTime >= LAST_NOTIFICATION_TIMEOUT) {
