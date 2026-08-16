@@ -1,11 +1,12 @@
 import hashlib
 import tempfile
 from pathlib import Path
-from time import sleep
+from time import sleep, time
 from typing import Generator
 
 import appium.webdriver
 import pytest
+from selenium.common import TimeoutException
 
 from etchdroid import actions as app
 from etchdroid.config import Config
@@ -35,7 +36,17 @@ def unplug_and_reconnect_usb(
     qemu.device_del(device_id)
 
     mark("Waiting for reconnect dialog...")
-    wait_for_element(driver, '//android.widget.TextView[@resource-id="reconnect_usb_drive_title"]', 15)
+    try:
+        wait_for_element(driver, '//android.widget.TextView[@resource-id="reconnect_usb_drive_title"]', 15)
+    except TimeoutException:
+        # Put the device back before failing, or every later test finds no drive at all.
+        qemu.add_usb_drive(
+            device_id,
+            bus=bus,
+            file=device["inserted"]["image"]["filename"],
+            format=device["inserted"]["image"]["format"],
+        )
+        raise
 
     sleep(0.5)
 
@@ -96,22 +107,58 @@ def raw_disk_image(qemu: QEMUController, usb_write_speed_mbps: float, request):
         filename.unlink(missing_ok=True)
 
 
+def wait_for_usb_enumeration(driver: appium.webdriver.Remote, timeout: float = 30):
+    """
+    Wait until the Android USB service reports the QEMU drive. A fixed sleep is not
+    enough on slow CI hosts: if the flow starts while the framework has processed the
+    detach but not yet the attach, the app closes the confirmation screen.
+    """
+    deadline = time() + timeout
+    while time() < deadline:
+        # dumpsys reflects the framework's view, which is what the app will see.
+        out = run_adb_command(driver, "dumpsys", "usb", timeout=15)
+        if "QEMU USB HARDDRIVE" in str(out):
+            return
+        sleep(1)
+    raise TimeoutError("Guest did not enumerate the USB drive in time")
+
+
 @pytest.fixture(scope="function")
-def raw_usb_drive(qemu: QEMUController, raw_disk_image: Path) -> Generator[tuple[str, Path], None, None]:
+def raw_usb_drive(
+    driver: appium.webdriver.Remote, qemu: QEMUController, raw_disk_image: Path
+) -> Generator[tuple[str, Path], None, None]:
     # Disconnect existing USB device first
     device = qemu.get_block_device(Config.QEMU_USB_DEV_ID)
     qemu.device_del(Config.QEMU_USB_DEV_ID)
     sleep(0.5)
 
     raw_dev_id = f"{Config.QEMU_USB_DEV_ID}-raw"
-    qemu.add_usb_drive(
-        raw_dev_id,
-        bus=Config.QEMU_USB_SLOW_BUS,
-        file=raw_disk_image,
-        format="raw",
-    )
+    try:
+        qemu.add_usb_drive(
+            raw_dev_id,
+            bus=Config.QEMU_USB_SLOW_BUS,
+            file=raw_disk_image,
+            format="raw",
+        )
 
-    sleep(2)
+        wait_for_usb_enumeration(driver)
+        # Give Android a moment to broadcast the attach to the app on top of enumeration.
+        sleep(2)
+    except Exception:
+        # A fixture that fails during setup never runs its teardown; put the original
+        # stick back or every later test finds no USB drive at all.
+        # noinspection PyBroadException
+        try:
+            qemu.device_del(raw_dev_id)
+        except Exception:
+            pass
+        qemu.add_usb_drive(
+            Config.QEMU_USB_DEV_ID,
+            bus=Config.QEMU_USB_BUS,
+            file=device["inserted"]["image"]["filename"],
+            format=device["inserted"]["image"]["format"],
+        )
+        raise
 
     yield raw_dev_id, raw_disk_image
 
@@ -141,6 +188,9 @@ def verify_written_image(sha256: str, size_bytes: int, raw_blockdev: Path):
 
 @pytest.mark.qemu
 def test_unplug_xhci(driver: appium.webdriver.Remote, qemu: QEMUController, usb_write_speed_mbps: float):
+    # One window is enough for both unplugs: the first happens during the write, the
+    # second during verification. A bigger image only pushes the job past the 120s cap
+    # on wait_for_success, since each resume replays work.
     size = f"{scaled_image_mb(usb_write_speed_mbps)}M"
     with device_temp_sparse_file(driver, "etchdroid_test_unplug_xhci_", ".iso", size) as image:
         app.basic_flow(driver, image.filename)
