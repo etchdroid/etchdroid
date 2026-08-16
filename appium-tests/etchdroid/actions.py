@@ -53,8 +53,8 @@ def grant_usb_permission(driver: Remote):
         pass
 
 
-def accept_usb_permission(driver: Remote):
-    ok_btn = wait_for_element(driver, '//*[@text="OK"]', timeout=1)
+def accept_usb_permission(driver: Remote, timeout: float = 1):
+    ok_btn = wait_for_element(driver, '//*[@text="OK"]', timeout=timeout)
     ok_btn.click()
 
 

@@ -52,7 +52,9 @@ def unplug_and_reconnect_usb(
     sleep(3)
 
     mark("Accepting permission...")
-    app.accept_usb_permission(driver)
+    # Generous timeout: re-enumeration and the permission dialog can lag several seconds
+    # while the guest is under heavy write I/O.
+    app.accept_usb_permission(driver, timeout=15)
 
 
 @pytest.fixture(scope="function")
@@ -240,7 +242,7 @@ def test_unplug_resume_from_notification(
         # A patch should be submitted to libaums to handle this.
         sleep(3)
 
-        app.accept_usb_permission(driver)
+        app.accept_usb_permission(driver, timeout=15)
 
         skip_btn = app.get_skip_verify_button(driver)
         skip_btn.click()
