@@ -30,7 +30,9 @@ def test_skip_verification(driver: appium.webdriver.Remote, usb_write_speed_mbps
 
 
 def test_accept_notifications(driver: appium.webdriver.Remote, usb_write_speed_mbps: float):
-    size = f"{scaled_image_mb(usb_write_speed_mbps)}M"
+    # The banner only exists while the job runs, and the system permission dialog is slow,
+    # so give the job room to outlast the detour.
+    size = f"{scaled_image_mb(usb_write_speed_mbps, seconds=2 * Config.TARGET_WRITE_SECONDS)}M"
     with device_temp_sparse_file(driver, "etchdroid_test_accept_notifications_", ".iso", size) as image:
         app.basic_flow(driver, image.filename)
         sure_btn = wait_for_element(
@@ -46,15 +48,12 @@ def test_accept_notifications(driver: appium.webdriver.Remote, usb_write_speed_m
         )
         allow_btn.click()
 
-        skip_btn = app.get_skip_verify_button(driver)
-        skip_btn.click()
-
         app.wait_for_success(driver)
 
 
 def test_accept_then_deny_notifications(driver: appium.webdriver.Remote, usb_write_speed_mbps: float):
-    # Double the usual window: this flow takes a detour through the notification settings.
-    size = f"{scaled_image_mb(usb_write_speed_mbps, seconds=2 * Config.TARGET_WRITE_SECONDS)}M"
+    # Longer still: this flow detours through the system notification settings.
+    size = f"{scaled_image_mb(usb_write_speed_mbps, seconds=3 * Config.TARGET_WRITE_SECONDS)}M"
     with device_temp_sparse_file(driver, "etchdroid_test_accept_then_deny_notifications_", ".iso", size) as image:
         app.basic_flow(driver, image.filename)
         sure_btn = wait_for_element(
@@ -85,9 +84,6 @@ def test_accept_then_deny_notifications(driver: appium.webdriver.Remote, usb_wri
         )
         enable_switch.click()
         driver.back()
-
-        skip_btn = app.get_skip_verify_button(driver)
-        skip_btn.click()
 
         app.wait_for_success(driver)
 

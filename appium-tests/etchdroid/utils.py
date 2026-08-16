@@ -131,7 +131,9 @@ def scaled_image_mb(
     speed_mbps: float,
     seconds: float | None = None,
     min_mb: int = 128,
-    max_mb: int = 6000,
+    # Bounds the I/O on fast hosts, where seconds of write time translate into gigabytes.
+    # CI is slow enough (tens of MB/s) that its images stay far below this.
+    max_mb: int = 3000,
 ) -> int:
     """
     Size (in MB) of a test image whose write phase lasts ~`seconds` at the measured
