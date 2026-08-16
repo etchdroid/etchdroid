@@ -70,7 +70,13 @@ def test_accept_then_deny_notifications(driver: appium.webdriver.Remote, usb_wri
         )
         deny_btn.click()
         sleep(0.5)
-        sure_btn.click()
+        # Re-find rather than reusing sure_btn: returning from the permission dialog
+        # recomposes the banner, which makes the old reference stale.
+        wait_for_element(
+            driver,
+            '//*[@resource-id="notifications_enable_button"]',
+            timeout=5,
+        ).click()
 
         enable_switch = wait_for_element(
             driver,
