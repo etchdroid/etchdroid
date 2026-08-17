@@ -75,7 +75,7 @@
     <string name="website" comment="Displayed in the about page links; keep it very short!">Pagină web</string>
     <string name="support_the_project" comment="Displayed in the about page links; keep it short!">Sprijin financiar</string>
     <string name="verifying_image" comment="Title of the progress page while an image is being verified">Se verifică imaginea</string>
-    <string name="writing_image" comment="Title of the progress page while an image is being written">Se scrie imaginea…</string>
+    <string name="writing_image" comment="Title of the progress page while an image is being written">Se scrie imaginea</string>
     <string name="please_avoid_using_your_device" comment="Subtitle of the progress page while an image is being written">Evitați folosirea dispozitivului</string>
     <string name="would_you_like_to_be_notified" comment="Displayed in a card in the progress page; keep it concise, there's not much space">Vrei să fi informat când sa terminat? Doar actualizări de progres, fără spam sau reclame.</string>
     <string name="no_thanks" comment="Button to reject receiving notifications">Nu mulțumesc</string>
