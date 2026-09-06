@@ -29,7 +29,7 @@ else
     AUTH_ARGS=()
     [[ -n "${GITHUB_TOKEN:-}" ]] && AUTH_ARGS=(-H "Authorization: Bearer $GITHUB_TOKEN")
     ASSET_URL="$(
-        curl -fsSL "${AUTH_ARGS[@]}" \
+        curl -fsSL --retry 3 --retry-all-errors --retry-delay 2 "${AUTH_ARGS[@]}" \
             "https://api.github.com/repos/$LINEAGE_REPO/releases/tags/$LINEAGE_RELEASE" \
             | python3 -c "
 import json, re, sys
