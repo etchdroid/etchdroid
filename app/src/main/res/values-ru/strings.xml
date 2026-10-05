@@ -116,7 +116,7 @@
     <string name="write_another_image">Записать другой образ</string>
     <string name="community_windows_images">Созданные сообществом образы Windows для EtchDroid (вам решать: они могут содержать вирусы!)</string>
     <string name="service_timeout_message">Кажется, процесс записи застопорился. Пожалуйста, попробуйте еще раз.</string>
-    <string name="title_activity_confirm_operation">Подтвердить операцию</string>
+    <string name="title_activity_confirm_operation">Подтвердите операцию</string>
     <string name="no_image_uri_provided">Образ не выбран</string>
     <string name="no_destination_device_selected">Целевое устройство не выбрано</string>
     <string name="please_report_fatal_issue" comment="Displayed in the fatal error screen, prompting the users to report the issue on GitHub along with the steps to reproduce it">Если вы можете, сообщите об этой проблеме на GitHub вместе с шагами, которые привели к этой ошибке.</string>
@@ -124,13 +124,13 @@
     <string name="we_need_your_help" comment="Title of the dialog that asks the user to enable telemetry">Нам нужна ваша помощь!</string>
     <string name="telemetry_icon" comment="Description of the telemetry icon for accessibility purposes">Значок телеметрии</string>
     <string name="telemetry_opt_out" comment="Button to opt-out of telemetry; it can be translated as &quot;Disable telemetry&quot; if it fits better in the target language">Отключить сбор данных</string>
-    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">Просмотр проблем на GitHub</string>
+    <string name="view_github_issues" comment="Displayed in the fatal error screen, in a small button. When pressed, the app opens the GitHub issues page. Since the button is small, please keep this short. You can replace it with &quot;GitHub issues&quot; if &quot;View GitHub issues&quot; is too long in your language.">GitHub issues</string>
     <string name="telemetry_keep_enabled" comment="Button to opt-in to telemetry; it can be translated as &quot;Enable telemetry&quot; if it fits better in the target language">Сохраняйте включенной</string>
     <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroid отправляет телеметрическую информацию.</string>
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">Узнать больше</string>
-    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Отправка анонимных данных</string>
+    <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">Отправить анонимные данные</string>
     <string name="worker_null_device_error" comment="Error message displayed when users get a mysterious NullPointerException while starting a new write. The original translation tries to give the user a general idea of the issue without being too technical.">Была начата попытка записи, но, к сожалению, часть информации была утеряна. Пожалуйста, попробуйте еще раз.</string>
-    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Телеметрия</string>
+    <string name="telemetry" comment="Displayed in the menu if the current app build may send telemetry (Google Play builds)">Сбор данных</string>
     <string name="privacy_policy" comment="Displayed in the app menu, as well as in other links to the privacy policy">Политика конфиденциальности</string>
     <string name="very_large_drives_2tb" comment="Device type">Очень объёмные накопители (≥ 2 ТБ)</string>
 </resources>
