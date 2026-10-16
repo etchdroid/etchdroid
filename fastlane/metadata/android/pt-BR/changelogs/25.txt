@@ -1,0 +1,6 @@
+Reescrita completa do EtchDroid!
+
+• Nova interface Material You, muito mais intuitiva e fácil de usar!
+• O EtchDroid agora se recupera da maior parte das falhas de escrita e pede para você desconectar e reconectar o pendrive.
+• Após gravar a imagem, ela também é verificada para garantir que não foi corrompida
+• O suporte a DMG foi removido; use uma versão anterior se ainda precisar.

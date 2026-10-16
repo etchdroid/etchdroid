@@ -75,4 +75,5 @@
     <string name="supported_devices_and_images">പിന്തുണയ്ക്കുന്ന ഉപകരണങ്ങളും ചിത്രങ്ങളും</string>
     <string name="usb_device_reconnected_resuming">യുഎസ്ബി ഉപകരണം വീണ്ടും ബന്ധിപ്പിച്ചു, പുനരാരംഭിക്കുന്നു</string>
     <string name="the_usb_device_content_does_not_match_the_image">യുഎസ്ബി ഉപകരണത്തിന്റെ ഉള്ളടക്കം ചിത്രവുമായി പൊരുത്തപ്പെടുന്നില്ല</string>
+    <string name="floppy_disk_drives" comment="Device type">ഫ്ലോപ്പി ഡിസ്ക് ഡ്രൈവ്</string>
 </resources>
