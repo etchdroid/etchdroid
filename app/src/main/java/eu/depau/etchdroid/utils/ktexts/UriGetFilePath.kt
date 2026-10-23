@@ -11,7 +11,7 @@ import androidx.core.net.toUri
 import eu.depau.etchdroid.plugins.telemetry.Telemetry
 
 /**
- * Get a file path from a Uri. This will get the the path for Storage Access
+ * Get a file path from a Uri. This will get the path for Storage Access
  * Framework Documents, as well as the _data field for the MediaStore and
  * other file-based ContentProviders.
  *
