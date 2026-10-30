@@ -334,9 +334,6 @@ class ProgressActivityViewModel : ViewModel(), SettingChangeListener, IThemeView
                         lastNotificationTime = System.currentTimeMillis(),
                     )
                 }
-                if (status.exception != null) {
-                    Telemetry.captureException(status.exception)
-                }
             }
         }
     }
