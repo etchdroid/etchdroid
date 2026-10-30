@@ -19,6 +19,7 @@
     <string name="unknown_filename" comment="Placeholder file name">Unknown file name</string>
     <string name="no_file_picker" comment="Toast shown when the device has no app to pick a file">No file picker app found on this device. Install a file manager and try again.</string>
     <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">"Permission denied for USB device %1$s"</string>
+    <string name="usb_permission_request_failed" comment="Displayed in a toast when Android refuses to show the USB permission prompt">Android refused to ask for USB access. If EtchDroid is running in a work profile, second space or as a dual app, try running it from the main profile.</string>
     <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">USB device was unplugged</string>
     <string name="write_an_image" comment="Displayed in the home page main call-to-action button">Write an image</string>
     <string name="whats_supported" comment="Displayed in the homepage; opens a page that lists all the supported devices and formats">What\'s supported?</string>

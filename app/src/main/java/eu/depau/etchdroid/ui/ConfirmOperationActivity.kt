@@ -103,6 +103,7 @@ import eu.depau.etchdroid.utils.ktexts.formatID
 import eu.depau.etchdroid.utils.ktexts.getFileName
 import eu.depau.etchdroid.utils.ktexts.getFileSize
 import eu.depau.etchdroid.utils.ktexts.registerExportedReceiver
+import eu.depau.etchdroid.utils.ktexts.requestUsbPermission
 import eu.depau.etchdroid.utils.ktexts.safeParcelableExtra
 import eu.depau.etchdroid.utils.ktexts.startForegroundServiceCompat
 import eu.depau.etchdroid.utils.ktexts.toHRSize
@@ -304,7 +305,6 @@ class ConfirmOperationActivity : ActivityBase() {
                 }, onCancel = {
                     finish()
                 }, askUsbPermission = {
-                    val usbManager = getSystemService(USB_SERVICE) as UsbManager
 //                    Monitoring.addBreadcrumb("Requesting USB permission", "usb")
                     Telemetry.addBreadcrumb {
                         category = "usb"
@@ -312,9 +312,7 @@ class ConfirmOperationActivity : ActivityBase() {
                         data["usb.name"] = uiState.selectedDevice?.name ?: "unknown"
                         data["usb.vidpid"] = uiState.selectedDevice?.vidpid ?: "unknown"
                     }
-                    usbManager.requestPermission(
-                        uiState.selectedDevice!!.usbDevice, mUsbPermissionIntent
-                    )
+                    requestUsbPermission(uiState.selectedDevice!!.usbDevice, mUsbPermissionIntent)
                 })
 
                 LaunchedEffect(uiState.hasUsbPermission, showLayFlatDialog) {

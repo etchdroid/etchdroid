@@ -67,6 +67,7 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -96,6 +97,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.core.net.toUri
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.withStarted
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.airbnb.lottie.LottieProperty
 import com.airbnb.lottie.compose.LottieAnimation
@@ -138,12 +141,14 @@ import eu.depau.etchdroid.utils.ktexts.activity
 import eu.depau.etchdroid.utils.ktexts.broadcastLocally
 import eu.depau.etchdroid.utils.ktexts.getDisplayName
 import eu.depau.etchdroid.utils.ktexts.registerExportedReceiver
+import eu.depau.etchdroid.utils.ktexts.requestUsbPermission
 import eu.depau.etchdroid.utils.ktexts.startForegroundServiceCompat
 import eu.depau.etchdroid.utils.ktexts.toHRSize
 import eu.depau.etchdroid.utils.ktexts.toast
 import eu.depau.etchdroid.utils.ktexts.usbDevice
 import eu.depau.etchdroid.websiteUrl
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import me.jahnen.libaums.libusbcommunication.LibusbError
 import me.jahnen.libaums.libusbcommunication.LibusbException
 
@@ -1209,16 +1214,21 @@ fun AutoJobRestarter(
         )
     }
 
+    // The receiver stays registered while the screen is backgrounded, but a foreground service
+    // can't be started from the background (Android 12+): hold the restart until visible.
+    val scope = rememberCoroutineScope()
+    val lifecycle = (activity as LifecycleOwner).lifecycle
+
     fun onUsbAttached(usbDevice: UsbDevice) {
         expectedDevice.findMatchingForNew(usbDevice) ?: return
-        usbManager.requestPermission(usbDevice, pendingIntent)
+        activity.requestUsbPermission(usbDevice, pendingIntent)
     }
 
     val broadcastReceiver = remember {
         broadcastReceiver { intent ->
             when (intent.action) {
                 UsbManager.ACTION_USB_DEVICE_ATTACHED -> {
-                    val usbDevice = intent.usbDevice!!
+                    val usbDevice = intent.usbDevice ?: return@broadcastReceiver
                     if (!usbDevice.isMassStorageDevice) return@broadcastReceiver
                     if (usbDevice doesNotMatch expectedDevice.usbDevice) {
                         activity.toast(
@@ -1230,7 +1240,8 @@ fun AutoJobRestarter(
                 }
 
                 Intents.USB_PERMISSION -> {
-                    val usbDevice = intent.usbDevice!!
+                    // Other screens' requests share this action with no device extra; ignore them
+                    val usbDevice = intent.usbDevice ?: return@broadcastReceiver
                     if (!usbDevice.isMassStorageDevice) return@broadcastReceiver
                     val msd = expectedDevice.findMatchingForNew(usbDevice)
                     if (msd == null) {
@@ -1259,7 +1270,11 @@ fun AutoJobRestarter(
                             WorkerService::class.java
                         )
                         Log.d(TAG, "Starting service with intent: $serviceIntent")
-                        activity.startForegroundServiceCompat(serviceIntent)
+                        scope.launch {
+                            lifecycle.withStarted {
+                                activity.startForegroundServiceCompat(serviceIntent)
+                            }
+                        }
                     }
                 }
             }

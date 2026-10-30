@@ -2,11 +2,16 @@ package eu.depau.etchdroid.utils.ktexts
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.PendingIntent
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
+import android.hardware.usb.UsbDevice
+import android.hardware.usb.UsbManager
 import android.os.Build
 import android.widget.Toast
+import eu.depau.etchdroid.R
+import eu.depau.etchdroid.plugins.telemetry.Telemetry
 
 val Context.activity: Activity?
     get() {
@@ -27,6 +32,19 @@ fun Context.startForegroundServiceCompat(intent: Intent) {
         startForegroundService(intent)
     } else {
         startService(intent)
+    }
+}
+
+// The system can refuse the request with "package not found" (e.g. when the app runs in a
+// secondary user/profile); report it to the user instead of crashing.
+fun Context.requestUsbPermission(usbDevice: UsbDevice, pendingIntent: PendingIntent) {
+    try {
+        (getSystemService(Context.USB_SERVICE) as UsbManager).requestPermission(
+            usbDevice, pendingIntent
+        )
+    } catch (e: IllegalArgumentException) {
+        Telemetry.captureException("UsbManager.requestPermission failed", e)
+        toast(getString(R.string.usb_permission_request_failed), Toast.LENGTH_LONG)
     }
 }
 
