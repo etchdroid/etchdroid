@@ -12,14 +12,22 @@ val RecoverableException.isUnplugged: Boolean
 
 /**
  * A known non-app-fault: a recoverable EtchDroid error or a libusb hardware error
- * anywhere in the cause chain. Used to de-prioritize such failures in telemetry.
+ * anywhere in the cause chain, unless the chain also contains a programming error
+ * (NPE, IllegalArgument/IllegalState incl. coroutine cancellation, IndexOutOfBounds,
+ * ClassCast), which the worker may have wrapped. Used to de-prioritize such failures
+ * in telemetry.
  */
 fun Throwable?.isEnvironmentalFault(): Boolean {
     var t = this
+    var environmental = false
     val seen = HashSet<Throwable>()
     while (t != null && seen.add(t)) {
-        if (t is RecoverableException || t is LibusbException) return true
+        when (t) {
+            is NullPointerException, is IllegalArgumentException, is IllegalStateException,
+            is IndexOutOfBoundsException, is ClassCastException -> return false
+            is RecoverableException, is LibusbException -> environmental = true
+        }
         t = t.cause
     }
-    return false
+    return environmental
 }
