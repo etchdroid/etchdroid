@@ -26,7 +26,7 @@ test-core = "1.7.0"
 test-runner = "1.7.0"
 
 # Note for F-Droid developers: Sentry and Firebase are not enabled for F-Droid builds
-sentry-lib = "8.46.0"
+sentry-lib = "8.47.0"
 sentry-plugin = "6.13.0"
 firebase-crashlytics = "20.0.6"
 google-gms-google-services = "4.5.0"
