@@ -19,7 +19,8 @@ fun Uri.getDisplayName(context: Context): String? {
                     result = it.getString(colIndex)
                 }
             }
-        } catch (e: SecurityException) {
+        } catch (e: Exception) {
+            // Remote providers may throw anything (SecurityException, IllegalArgumentException...)
             Telemetry.captureException("getDisplayName: Failed to query content resolver", e)
         }
     }

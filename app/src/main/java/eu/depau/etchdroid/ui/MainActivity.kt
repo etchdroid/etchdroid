@@ -1,5 +1,6 @@
 package eu.depau.etchdroid.ui
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.IntentFilter
 import android.hardware.usb.UsbManager
@@ -7,8 +8,8 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.compose.setContent
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.animation.ExperimentalAnimationApi
@@ -114,6 +115,7 @@ import eu.depau.etchdroid.ui.theme.supportedGreen
 import eu.depau.etchdroid.utils.broadcastReceiver
 import eu.depau.etchdroid.utils.ktexts.getFileName
 import eu.depau.etchdroid.utils.ktexts.registerExportedReceiver
+import eu.depau.etchdroid.utils.ktexts.toast
 import eu.depau.etchdroid.utils.ktexts.usbDevice
 
 private const val TAG = "MainActivity"
@@ -123,18 +125,34 @@ class MainActivity : ActivityBase() {
     private val mViewModel: MainActivityViewModel by viewModels()
     private lateinit var mSettings: AppSettings
 
-    private val mFilePickerActivity: ActivityResultLauncher<Array<String>> =
-        registerForActivityResult(ActivityResultContracts.OpenDocument()) { result ->
-            Telemetry.addBreadcrumb {
-                message = "User selected file: $result"
-                level = TelemetryLevel.DEBUG
-                category = "flow"
-                data["image.filename"] = result?.getFileName(this@MainActivity) ?: "null"
-            }
-            openUri(result ?: return@registerForActivityResult)
+    private fun onFilePicked(result: Uri?) {
+        Telemetry.addBreadcrumb {
+            message = "User selected file: $result"
+            level = TelemetryLevel.DEBUG
+            category = "flow"
+            data["image.filename"] = result?.getFileName(this@MainActivity) ?: "null"
         }
+        openUri(result ?: return)
+    }
 
-    private fun ActivityResultLauncher<Array<String>>.launch() = launch(arrayOf("*/*"))
+    private val mFilePickerActivity =
+        registerForActivityResult(ActivityResultContracts.OpenDocument(), ::onFilePicked)
+
+    // Fallback for devices without DocumentsUI (some TV boxes/OEM ROMs)
+    private val mGetContentActivity =
+        registerForActivityResult(ActivityResultContracts.GetContent(), ::onFilePicked)
+
+    private fun launchFilePicker() {
+        try {
+            mFilePickerActivity.launch(arrayOf("*/*"))
+        } catch (e: ActivityNotFoundException) {
+            try {
+                mGetContentActivity.launch("*/*")
+            } catch (e: ActivityNotFoundException) {
+                toast(getString(R.string.no_file_picker), Toast.LENGTH_LONG)
+            }
+        }
+    }
 
     private val mUsbDevicesReceiver = broadcastReceiver { intent ->
 
@@ -278,7 +296,7 @@ class MainActivity : ActivityBase() {
                             category = "flow"
                             level = TelemetryLevel.DEBUG
                         }
-                        mFilePickerActivity.launch()
+                        launchFilePicker()
                     },
                     openAboutView = {
                         startActivity(Intent(this, AboutActivity::class.java))

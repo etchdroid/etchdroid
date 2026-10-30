@@ -17,6 +17,7 @@
     <string name="notification_write_progress_content" comment=" Notification content: &quot;{file name} to {device name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Writing image…&quot; and this string will show up right below it.">%1$s to %2$s</string>
     <string name="notification_verify_progress_content" comment=" Notification content: &quot;{device name} against {file name}&quot;, used when the user has granted the notification permission; The notification title will be: &quot;Verifying image…&quot; and this string will show up right below it.">%1$s against %2$s</string>
     <string name="unknown_filename" comment="Placeholder file name">Unknown file name</string>
+    <string name="no_file_picker" comment="Toast shown when the device has no app to pick a file">No file picker app found on this device. Install a file manager and try again.</string>
     <string name="permission_denied_for_usb_device" comment="Displayed in a toast when the usb permission is denied">"Permission denied for USB device %1$s"</string>
     <string name="usb_device_was_unplugged" comment="Displayed in a toast when the USB device is unplugged">USB device was unplugged</string>
     <string name="write_an_image" comment="Displayed in the home page main call-to-action button">Write an image</string>
