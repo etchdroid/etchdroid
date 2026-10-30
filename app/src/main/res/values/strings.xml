@@ -111,6 +111,7 @@
     <string name="the_device_is_not_responding" comment="Error message">The device is not responding</string>
     <string name="missing_permission_to_access_the_usb_device" comment="Error message">Missing permission to access the USB device</string>
     <string name="the_usb_drive_is_too_large" comment="Error message">The USB drive is too large and EtchDroid does not support it.</string>
+    <string name="no_medium_in_usb_drive" comment="Error message">No storage medium found in the USB drive. If it\'s a card reader, make sure a memory card is inserted.</string>
     <string name="the_image_is_is_larger_than_the_device" comment="Error message; parameters are the image file size and the device size">The image (%1$s) is larger than the device (%2$s)</string>
     <string name="could_not_open_the_source_file" comment="Error message">Could not open the source file</string>
     <string name="an_unknown_error_occurred" comment="Error message; parameter is the underlying error message">An unknown error occurred: %1$s</string>

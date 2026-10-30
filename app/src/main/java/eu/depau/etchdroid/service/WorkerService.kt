@@ -34,6 +34,7 @@ import eu.depau.etchdroid.utils.TimeoutExpiredException
 import eu.depau.etchdroid.utils.broadcastReceiver
 import eu.depau.etchdroid.utils.exception.InitException
 import eu.depau.etchdroid.utils.exception.MissingDeviceException
+import eu.depau.etchdroid.utils.exception.NoMediumException
 import eu.depau.etchdroid.utils.exception.NotEnoughSpaceException
 import eu.depau.etchdroid.utils.exception.OpenFileException
 import eu.depau.etchdroid.utils.exception.UnknownException
@@ -387,7 +388,9 @@ class WorkerService : LifecycleService() {
                     // releases the USB interface claim) even when initialization fails.
                     massStorageDev = mDestDevice.buildDevice(this@WorkerService)
                     massStorageDev.init()
-                    blockDev = massStorageDev.blockDevices[0]!!
+                    // A card reader with no card (or a dead drive) has no medium in LUN 0;
+                    // init() skips such LUNs instead of failing.
+                    blockDev = massStorageDev.blockDevices[0] ?: throw NoMediumException()
                 } catch (e: Exception) {
                     // Breadcrumb only: the wrapped exception below is captured (and
                     // classified/downgraded) at the outer handler — avoid duplicate events.
