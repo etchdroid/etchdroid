@@ -57,10 +57,16 @@ import eu.depau.etchdroid.utils.timeoutWatchdog
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
 import me.jahnen.libaums.core.driver.BlockDeviceDriver
+import me.jahnen.libaums.core.driver.scsi.commands.sense.SenseException
+import me.jahnen.libaums.core.usb.PipeException
+import me.jahnen.libaums.libusbcommunication.ErrNoIOException
 import java.io.BufferedInputStream
 import java.io.InputStream
 import java.util.Random
@@ -489,11 +495,10 @@ class WorkerService : LifecycleService() {
                 )
 
             } catch (exception: Exception) {
-                val downstreamException = when (exception) {
-                    is EtchDroidException -> exception
-                    is TimeoutExpiredException -> UsbCommunicationTimeoutException(exception)
-                    else -> UnknownException(exception)
-                }
+                // A cancelled job (service destroyed) is not a failure: rethrow instead of
+                // reporting it or broadcasting an error.
+                ensureActive()
+                val downstreamException = WorkerServiceFlowImpl.toJobException(exception)
                 Telemetry.captureException(downstreamException)
                 jobException = downstreamException
             } finally {
@@ -512,12 +517,15 @@ class WorkerService : LifecycleService() {
                 // libusb transfer (e.g. after a Huawei/Samsung OTG reset mid-write).
                 // close() calls into native code and cannot be interrupted by coroutine
                 // cancellation, so without this timeout the service hangs indefinitely.
-                withTimeoutOrNull(3000L.milliseconds) {
-                    try {
-                        if (massStorageDevDelegate.isInitialized)
-                            massStorageDev.close()
-                    } catch (e: Exception) {
-                        Telemetry.captureException("Failed to close USB drive", e)
+                // NonCancellable: the device must be released even if the job was cancelled.
+                withContext(NonCancellable) {
+                    withTimeoutOrNull(3000L.milliseconds) {
+                        try {
+                            if (massStorageDevDelegate.isInitialized)
+                                massStorageDev.close()
+                        } catch (e: Exception) {
+                            Telemetry.captureException("Failed to close USB drive", e)
+                        }
                     }
                 } ?: Telemetry.captureMessage("Timed out closing USB drive (device may be stuck in native transfer)")
 
@@ -632,6 +640,18 @@ class WorkerService : LifecycleService() {
 }
 
 object WorkerServiceFlowImpl {
+    /** Maps a job failure to the error reported to the user and telemetry. */
+    fun toJobException(exception: Exception): EtchDroidException = when {
+        exception is EtchDroidException -> exception
+        exception is TimeoutExpiredException -> UsbCommunicationTimeoutException(exception)
+        // libaums/libusb transfer failures, possibly wrapped (e.g. MAX_RECOVERY_ATTEMPTS)
+        generateSequence<Throwable>(exception) { it.cause }.any {
+            it is PipeException || it is ErrNoIOException || it is SenseException
+        } -> UsbCommunicationException(exception)
+
+        else -> UnknownException(exception)
+    }
+
     suspend fun writeImage(
         rawSourceStream: InputStream,
         blockDev: BlockDeviceDriver,
@@ -765,7 +785,6 @@ object WorkerServiceFlowImpl {
                         !fileBuffer.copyOf(read).contentEquals(deviceBuffer.copyOf(read))
                     }
                     if (mismatch) {
-                        Telemetry.captureMessage("Verification failed")
                         if (Build.VERSION.SDK_INT > 999999) {
                             // Prevent the compiler from optimizing out the buffers, for debugging
                             // purposes
@@ -784,6 +803,8 @@ object WorkerServiceFlowImpl {
             src.close()
             try {
                 dst.closeAsync()
+            } catch (e: CancellationException) {
+                throw e
             } catch (e: Exception) {
                 Telemetry.warning("Failed to read from USB drive: ${e.message}")
                 throw UsbCommunicationException(e)

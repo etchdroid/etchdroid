@@ -2,6 +2,7 @@ package eu.depau.etchdroid
 
 import eu.depau.etchdroid.service.BUFFER_BLOCKS
 import eu.depau.etchdroid.service.WorkerServiceFlowImpl
+import eu.depau.etchdroid.utils.exception.UnknownException
 import eu.depau.etchdroid.utils.exception.UsbCommunicationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -9,6 +10,9 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.debug.DebugProbes
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
+import me.jahnen.libaums.core.usb.PipeException
+import me.jahnen.libaums.libusbcommunication.LibusbError
+import me.jahnen.libaums.libusbcommunication.LibusbException
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
@@ -76,6 +80,15 @@ class WorkerServiceFlowTest {
 
     @Test
     fun testBasicWriteVerifyFlow733() = testBasicWriteVerifyFlow(1024 * 512 * 733, 733)
+
+    @Test
+    fun testLibaumsTransferFailuresMapToUsbCommunication() {
+        for (cause in listOf(PipeException(), LibusbException("x", LibusbError.NO_DEVICE))) {
+            val e = IOException("MAX_RECOVERY_ATTEMPTS Exceeded", cause)
+            assert(WorkerServiceFlowImpl.toJobException(e) is UsbCommunicationException)
+        }
+        assert(WorkerServiceFlowImpl.toJobException(IOException("x")) is UnknownException)
+    }
 
     @Test
     fun testNoSpaceLeftOnDevice() = runBlocking {
