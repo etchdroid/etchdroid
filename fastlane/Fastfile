@@ -1,0 +1,51 @@
+# Release lanes, run on the machine holding the release key:
+#
+#   bundle install
+#   bundle exec fastlane play     # Play Store bundle, added to production pending changes
+#   bundle exec fastlane github   # GitHub release APK, attached to a draft release for the pushed vX.Y tag
+#
+# Env: ETCHDROID_KEYSTORE, ETCHDROID_KEYSTORE_PASSWORD, ETCHDROID_KEY_ALIAS, ETCHDROID_KEY_PASSWORD,
+# SUPPLY_JSON_KEY (Play service account JSON, play lane only).
+# Both lanes need the real app/google-services.json.
+
+skip_docs
+default_platform(:android)
+
+platform :android do
+  def build(task, properties = {})
+    gradle(
+      task: task,
+      flavor: "Gplay",
+      build_type: "Release",
+      properties: {
+        "android.injected.signing.store.file" => ENV.fetch("ETCHDROID_KEYSTORE"),
+        "android.injected.signing.store.password" => ENV.fetch("ETCHDROID_KEYSTORE_PASSWORD"),
+        "android.injected.signing.key.alias" => ENV.fetch("ETCHDROID_KEY_ALIAS"),
+        "android.injected.signing.key.password" => ENV.fetch("ETCHDROID_KEY_PASSWORD"),
+      }.merge(properties),
+      print_command: false # would print the passwords
+    )
+  end
+
+  desc "Upload a signed bundle to Google Play, leaving it in pending changes to send for review manually"
+  lane :play do |options|
+    build("bundle")
+    upload_to_play_store(
+      package_name: "eu.depau.etchdroid",
+      track: options[:track] || "production",
+      aab: lane_context[SharedValues::GRADLE_AAB_OUTPUT_PATH],
+      changes_not_sent_for_review: true,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
+  end
+
+  desc "Build the signed GitHub release APK (donation links kept) and attach it to a draft release"
+  lane :github do
+    version = File.read("../app/build.gradle.kts")[/versionName = "(.+)"/, 1]
+    build("assemble", "etchdroid.githubRelease" => true)
+    sh("gh", "release", "create", "v#{version}", lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH],
+       "--draft", "--verify-tag", "--title", "v#{version}", "--generate-notes")
+  end
+end
