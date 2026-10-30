@@ -5,6 +5,7 @@
 #   bundle exec fastlane github   # GitHub release APK, attached to a draft release for the pushed vX.Y tag
 #
 # Env: ETCHDROID_KEYSTORE, ETCHDROID_KEYSTORE_PASSWORD, ETCHDROID_KEY_ALIAS, ETCHDROID_KEY_PASSWORD,
+# SENTRY_AUTH_TOKEN (uploads the R8 mapping so Sentry stack traces are readable),
 # SUPPLY_JSON_KEY (Play service account JSON, play lane only).
 # Both lanes need the real app/google-services.json.
 
@@ -13,6 +14,7 @@ default_platform(:android)
 
 platform :android do
   def build(task, properties = {})
+    ENV.fetch("SENTRY_AUTH_TOKEN") # fail fast: a release without its mapping has unreadable Sentry traces
     gradle(
       task: task,
       flavor: "Gplay",

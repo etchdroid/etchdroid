@@ -13,6 +13,7 @@ plugins {
     if (System.getProperty("etchdroid.isGPlayFlavor") == "true" || System.getenv("ETCHDROID_ENABLE_SENTRY") == "true") {
         println("EtchDroid: Sentry and Crashlytics enabled")
         alias(libs.plugins.gplay.sentry.kotlin)
+        alias(libs.plugins.gplay.sentry.android.gradle)
         alias(libs.plugins.google.gms.google.services)
         alias(libs.plugins.google.firebase.crashlytics)
     } else {
@@ -159,6 +160,24 @@ dependencies {
 
 if (System.getProperty("etchdroid.isGPlayFlavor") == "true" || System.getenv("ETCHDROID_ENABLE_SENTRY") == "true") {
     tasks.matching {
-        it.name.startsWith("uploadCrashlyticsMappingFile") && it.name.contains("Optimized")
+        (it.name.startsWith("uploadCrashlyticsMappingFile") || it.name.startsWith("uploadSentryProguardMappings")) &&
+                it.name.contains("Optimized")
     }.configureEach { enabled = false }
+
+    // R8 merges classes and rewrites line numbers even with -dontobfuscate: without the mapping,
+    // Sentry shows wrong class names (e.g. IntentKt merged into coil.size.Dimension) and lines.
+    // The mapping UUID is always embedded; the upload needs SENTRY_AUTH_TOKEN (release lanes).
+    @Suppress("UNCHECKED_CAST")
+    extensions.getByName("sentry").withGroovyBuilder {
+        fun <T> GroovyBuilderScope.prop(name: String) = getProperty(name) as Property<T>
+        prop<String>("org").set("etchdroid")
+        prop<String>("projectName").set("etchdroid")
+        prop<Boolean>("autoUploadProguardMapping")
+            .set(providers.environmentVariable("SENTRY_AUTH_TOKEN").isPresent)
+        prop<Boolean>("telemetry").set(false)
+        // Only the mapping upload is wanted: no bytecode instrumentation (it would swap the
+        // image I/O streams for Sentry's) and no extra dependencies.
+        getProperty("tracingInstrumentation")!!.withGroovyBuilder { prop<Boolean>("enabled").set(false) }
+        getProperty("autoInstallation")!!.withGroovyBuilder { prop<Boolean>("enabled").set(false) }
+    }
 }

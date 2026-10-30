@@ -40,6 +40,7 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 google-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "google-firebase-crashlytics" }
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "google-gms-google-services" }
 gplay-sentry-kotlin = { id = "io.sentry.kotlin.compiler.gradle", version.ref = "sentry-plugin" }
+gplay-sentry-android-gradle = { id = "io.sentry.android.gradle", version.ref = "sentry-plugin" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 robolectric-junit5 = { id = "tech.apter.junit5.jupiter.robolectric-extension-gradle-plugin", version.ref = "robolectric-junit5" }
 
