@@ -66,9 +66,13 @@ android {
         create("foss") {
             isDefault = true
             dimension = "store"
+            buildConfigField("boolean", "PLAY_STORE", "false")
         }
         create("gplay") {
             dimension = "store"
+            // Google Play forbids linking to donations; GitHub release builds opt out with -Petchdroid.githubRelease
+            val playStore = !providers.gradleProperty("etchdroid.githubRelease").isPresent
+            buildConfigField("boolean", "PLAY_STORE", playStore.toString())
         }
     }
     packaging {

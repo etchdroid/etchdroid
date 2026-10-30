@@ -55,6 +55,7 @@ import eu.depau.etchdroid.ui.composables.MainView
 import eu.depau.etchdroid.ui.composables.ScreenSizeLayoutSelector
 import eu.depau.etchdroid.ui.composables.coloredShadow
 import eu.depau.etchdroid.utils.ktexts.activity
+import eu.depau.etchdroid.websiteUrl
 
 class AboutActivity : ActivityBase() {
     private val mViewModel: ThemeViewModel by viewModels()
@@ -245,8 +246,9 @@ fun AboutView(viewModel: ThemeViewModel) {
                 val githubEnd = githubStart + github.length
                 append(str)
 
-                for ((start, end) in listOf(
-                    nameStart to nameEnd,
+                for ((start, end) in listOfNotNull(
+                    // depau.eu links to donations, which Google Play forbids
+                    (nameStart to nameEnd).takeUnless { BuildConfig.PLAY_STORE },
                     contributorsStart to contributorsEnd,
                     githubStart to githubEnd
                 )) {
@@ -259,11 +261,13 @@ fun AboutView(viewModel: ThemeViewModel) {
                         end = end
                     )
                 }
-                addLink(
-                    LinkAnnotation.Url("https://depau.eu"),
-                    nameStart,
-                    nameEnd
-                )
+                if (!BuildConfig.PLAY_STORE) {
+                    addLink(
+                        LinkAnnotation.Url("https://depau.eu"),
+                        nameStart,
+                        nameEnd
+                    )
+                }
                 addLink(
                     LinkAnnotation.Url("https://github.com/EtchDroid/EtchDroid/graphs/contributors"),
                     contributorsStart,
@@ -314,24 +318,26 @@ fun AboutView(viewModel: ThemeViewModel) {
                     activity?.startActivity(
                         Intent(
                             Intent.ACTION_VIEW,
-                            "https://etchdroid.app".toUri()
+                            websiteUrl("/").toUri()
                         )
                     )
                 }
             ) {
                 Text(stringResource(R.string.website))
             }
-            OutlinedButton(
-                onClick = {
-                    activity?.startActivity(
-                        Intent(
-                            Intent.ACTION_VIEW,
-                            "https://etchdroid.app/donate".toUri()
+            if (!BuildConfig.PLAY_STORE) {
+                OutlinedButton(
+                    onClick = {
+                        activity?.startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                "https://etchdroid.app/donate".toUri()
+                            )
                         )
-                    )
+                    }
+                ) {
+                    Text(stringResource(R.string.support_the_project))
                 }
-            ) {
-                Text(stringResource(R.string.support_the_project))
             }
             val reviewHelper = remember { activity?.let { WriteReviewHelper(it) } }
             if (reviewHelper != null) {

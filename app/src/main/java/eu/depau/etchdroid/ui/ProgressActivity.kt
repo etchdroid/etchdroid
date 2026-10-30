@@ -105,6 +105,7 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import com.airbnb.lottie.compose.rememberLottieDynamicProperties
 import com.airbnb.lottie.compose.rememberLottieDynamicProperty
 import eu.depau.etchdroid.AppSettings
+import eu.depau.etchdroid.BuildConfig
 import eu.depau.etchdroid.Intents
 import eu.depau.etchdroid.R
 import eu.depau.etchdroid.getStartJobIntent
@@ -141,6 +142,7 @@ import eu.depau.etchdroid.utils.ktexts.startForegroundServiceCompat
 import eu.depau.etchdroid.utils.ktexts.toHRSize
 import eu.depau.etchdroid.utils.ktexts.toast
 import eu.depau.etchdroid.utils.ktexts.usbDevice
+import eu.depau.etchdroid.websiteUrl
 import kotlinx.coroutines.delay
 import me.jahnen.libaums.libusbcommunication.LibusbError
 import me.jahnen.libaums.libusbcommunication.LibusbException
@@ -930,15 +932,17 @@ fun SuccessView() {
                     )
                 }
             }
-            OutlinedButton(onClick = {
-                activity?.startActivity(
-                    Intent(
-                        Intent.ACTION_VIEW,
-                        "https://etchdroid.app/donate/".toUri()
+            if (!BuildConfig.PLAY_STORE) {
+                OutlinedButton(onClick = {
+                    activity?.startActivity(
+                        Intent(
+                            Intent.ACTION_VIEW,
+                            "https://etchdroid.app/donate/".toUri()
+                        )
                     )
-                )
-            }) {
-                Text(stringResource(R.string.support_the_project))
+                }) {
+                    Text(stringResource(R.string.support_the_project))
+                }
             }
             val context = LocalContext.current
             OutlinedButton(onClick = {
@@ -980,7 +984,7 @@ fun SuccessView() {
                             ), start = startIndex, end = endIndex
                         )
                         addLink(
-                            LinkAnnotation.Url("https://etchdroid.app/broken_usb/"),
+                            LinkAnnotation.Url(websiteUrl("/broken_usb/")),
                             startIndex,
                             endIndex
                         )
