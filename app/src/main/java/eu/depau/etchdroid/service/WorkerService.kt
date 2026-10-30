@@ -389,8 +389,11 @@ class WorkerService : LifecycleService() {
                     massStorageDev = mDestDevice.buildDevice(this@WorkerService)
                     massStorageDev.init()
                     // A card reader with no card (or a dead drive) has no medium in LUN 0;
-                    // init() skips such LUNs instead of failing.
-                    blockDev = massStorageDev.blockDevices[0] ?: throw NoMediumException()
+                    // init() skips such LUNs instead of failing. With exactly one medium (e.g.
+                    // a card in a dual reader's second slot) there's no ambiguity: use it.
+                    blockDev = massStorageDev.blockDevices[0]
+                        ?: massStorageDev.blockDevices.values.singleOrNull()
+                        ?: throw NoMediumException()
                 } catch (e: Exception) {
                     // Breadcrumb only: the wrapped exception below is captured (and
                     // classified/downgraded) at the outer handler — avoid duplicate events.
