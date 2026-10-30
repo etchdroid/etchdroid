@@ -685,6 +685,10 @@ fun JobInProgressView(
                 modifier = Modifier.padding(horizontal = 32.dp)
             ) {
                 val context = LocalContext.current
+                // Queried once per URI: recomposing on every progress update would spam the provider
+                val sourceName = remember(uiState.sourceUri) {
+                    uiState.sourceUri?.getDisplayName(context)
+                }
                 Row(
                     modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center
                 ) {
@@ -695,7 +699,7 @@ fun JobInProgressView(
                     )
                     Text(
                         text = " " + if (uiState.isVerifying) uiState.destDevice?.name
-                        else uiState.sourceUri?.getDisplayName(context),
+                        else sourceName,
                         fontWeight = FontWeight.Bold,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
@@ -710,9 +714,7 @@ fun JobInProgressView(
                         ) else stringResource(R.string.to)
                     )
                     Text(
-                        text = " " + if (uiState.isVerifying) uiState.sourceUri?.getDisplayName(
-                            context
-                        )
+                        text = " " + if (uiState.isVerifying) sourceName
                         else uiState.destDevice?.name,
                         fontWeight = FontWeight.Bold,
                         maxLines = 1,

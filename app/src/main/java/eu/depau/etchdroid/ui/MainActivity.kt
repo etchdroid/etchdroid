@@ -114,6 +114,7 @@ import eu.depau.etchdroid.ui.theme.partiallySupportedYellow
 import eu.depau.etchdroid.ui.theme.supportedGreen
 import eu.depau.etchdroid.utils.broadcastReceiver
 import eu.depau.etchdroid.utils.ktexts.getFileName
+import eu.depau.etchdroid.utils.ktexts.isAccessible
 import eu.depau.etchdroid.utils.ktexts.registerExportedReceiver
 import eu.depau.etchdroid.utils.ktexts.toast
 import eu.depau.etchdroid.utils.ktexts.usbDevice
@@ -211,6 +212,19 @@ class MainActivity : ActivityBase() {
     }
 
     private fun openUri(uri: Uri, userSaysYolo: Boolean = false) {
+        // Keep read access after this activity is gone (e.g. job reopened from the notification).
+        // Only OPEN_DOCUMENT results are persistable; ACTION_VIEW grants throw, that's fine.
+        // ponytail: never released, the system evicts the oldest persisted grants past its cap;
+        // release on job completion if that ever matters.
+        try {
+            contentResolver.takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        } catch (_: Exception) {
+        }
+        if (!uri.isAccessible(this)) {
+            toast(getString(R.string.could_not_open_the_source_file))
+            return
+        }
+
         val filename = uri.getFileName(this)
         Telemetry.addBreadcrumb {
             message = "Opening image: $filename"

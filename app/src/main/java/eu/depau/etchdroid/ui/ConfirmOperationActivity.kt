@@ -102,6 +102,7 @@ import eu.depau.etchdroid.utils.broadcastReceiver
 import eu.depau.etchdroid.utils.ktexts.formatID
 import eu.depau.etchdroid.utils.ktexts.getFileName
 import eu.depau.etchdroid.utils.ktexts.getFileSize
+import eu.depau.etchdroid.utils.ktexts.isAccessible
 import eu.depau.etchdroid.utils.ktexts.registerExportedReceiver
 import eu.depau.etchdroid.utils.ktexts.requestUsbPermission
 import eu.depau.etchdroid.utils.ktexts.safeParcelableExtra
@@ -236,6 +237,12 @@ class ConfirmOperationActivity : ActivityBase() {
         val openedImage = intent.safeParcelableExtra<Uri>("sourceUri") ?: run {
             Log.e(TAG, "No source image URI provided")
             toast(getString(R.string.no_image_uri_provided))
+            finish()
+            return
+        }
+        if (!openedImage.isAccessible(this)) {
+            Log.e(TAG, "Source image is no longer accessible: $openedImage")
+            toast(getString(R.string.could_not_open_the_source_file))
             finish()
             return
         }

@@ -1,5 +1,6 @@
 package eu.depau.etchdroid.utils.ktexts
 
+import android.content.ContentResolver
 import android.content.Context
 import android.net.Uri
 import android.provider.OpenableColumns
@@ -20,8 +21,9 @@ fun Uri.getDisplayName(context: Context): String? {
                 }
             }
         } catch (e: Exception) {
-            // Remote providers may throw anything (SecurityException, IllegalArgumentException...)
-            Telemetry.captureException("getDisplayName: Failed to query content resolver", e)
+            // Remote providers may throw anything (lost grant, removed volume, provider bugs):
+            // fall back to the URI path
+            Telemetry.warning("getDisplayName: Failed to query content resolver: $e")
         }
     }
     if (result == null) {
@@ -33,4 +35,19 @@ fun Uri.getDisplayName(context: Context): String? {
     }
 
     return result
+}
+
+/**
+ * Whether the provider still lets us query this URI. False when the read grant is gone or the
+ * volume holding the file was removed, in which case the file can't be read either.
+ */
+fun Uri.isAccessible(context: Context): Boolean {
+    if (scheme != ContentResolver.SCHEME_CONTENT) return true
+    return try {
+        context.contentResolver.query(this, null, null, null, null)?.close()
+        true
+    } catch (e: Exception) {
+        Telemetry.warning("Source URI is not accessible: $e")
+        false
+    }
 }
