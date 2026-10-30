@@ -3,6 +3,7 @@ package eu.depau.etchdroid
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Parcelable
 import eu.depau.etchdroid.massstorage.UsbMassStorageDeviceDescriptor
@@ -67,6 +68,13 @@ fun getStartJobIntent(
     return mkIntent(packageContext, cls).apply {
         action = Intents.START_JOB
         data = sourceUri
+        // Hand our read access to the service so it outlives the activity that received the URI
+        // (ACTION_VIEW grants aren't persistable). Only when we hold it: granting a permission we
+        // lost throws SecurityException.
+        if (packageContext?.checkCallingOrSelfUriPermission(
+                sourceUri, Intent.FLAG_GRANT_READ_URI_PERMISSION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         putExtra("sourceUri", sourceUri)
         putExtra("destDevice", destDevice)
         putExtra("jobId", jobId)
