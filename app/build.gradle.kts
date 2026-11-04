@@ -1,8 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-val isGPlayFlavor = gradle.startParameter.taskNames.any { it.lowercase().contains("gplay") }
-System.setProperty("etchdroid.isGPlayFlavor", isGPlayFlavor.toString())
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.parcelize)
