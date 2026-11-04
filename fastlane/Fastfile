@@ -29,13 +29,20 @@ platform :android do
     )
   end
 
+  # fastlane's GRADLE_*_OUTPUT_PATH is just the newest file under build/outputs, which can be a
+  # stale debug build, so pick the gplayRelease output by its path.
+  def output(key, suffix)
+    lane_context[key].find { |path| path.end_with?(suffix) } or UI.user_error!("No #{suffix} built")
+  end
+
   desc "Upload a signed bundle to Google Play, leaving it in pending changes to send for review manually"
   lane :play do |options|
     build("bundle")
     upload_to_play_store(
       package_name: "eu.depau.etchdroid",
       track: options[:track] || "production",
-      aab: lane_context[SharedValues::GRADLE_AAB_OUTPUT_PATH],
+      aab: output(SharedValues::GRADLE_ALL_AAB_OUTPUT_PATHS, "/gplayRelease/app-gplay-release.aab"),
+      skip_upload_apk: true, # would otherwise default to every APK under build/outputs
       changes_not_sent_for_review: true,
       skip_upload_metadata: true,
       skip_upload_images: true,
@@ -47,7 +54,8 @@ platform :android do
   lane :github do
     version = File.read("../app/build.gradle.kts")[/versionName = "(.+)"/, 1]
     build("assemble", "etchdroid.githubRelease" => true)
-    sh("gh", "release", "create", "v#{version}", lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH],
+    apk = output(SharedValues::GRADLE_ALL_APK_OUTPUT_PATHS, "/gplay/release/app-gplay-release.apk")
+    sh("gh", "release", "create", "v#{version}", apk,
        "--draft", "--verify-tag", "--title", "v#{version}", "--generate-notes")
   end
 end
