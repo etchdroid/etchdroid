@@ -131,3 +131,7 @@ fastlane/Appfile
 /dmg2img/.cxx/
 
 node_modules/
+
+vendor/
+.bundle/
+.env
