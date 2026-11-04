@@ -1,0 +1,9 @@
+Zuverlässigkeits-Update mit vielen Fehlerbehebungen.
+
+• Abstürze bei Abbildauswahl, USB-Zugriff und Schreiben behoben
+• Schreiben schlägt im Hintergrund nicht mehr fehl
+• Schreibfehler auf einigen USB-Laufwerken behoben
+• Mehrfach-Kartenleser nutzen den Steckplatz mit Karte
+• Klare Fehlermeldung, wenn keine Karte im Kartenleser steckt
+• Klare Meldung, wenn Android USB im Arbeitsprofil oder in Dual-Apps blockiert
+• Rumänische Übersetzung vervollständigt

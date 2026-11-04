@@ -32,8 +32,8 @@ android {
         applicationId = "eu.depau.etchdroid"
         minSdk = sdkMin
         targetSdk = sdkTarget
-        versionCode = 26
-        versionName = "2.1"
+        versionCode = 27
+        versionName = "2.2"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true

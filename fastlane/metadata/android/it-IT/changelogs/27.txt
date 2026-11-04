@@ -1,0 +1,9 @@
+Versione di affidabilità con molte correzioni.
+
+• Risolti diversi crash nella scelta dell'immagine, nell'accesso USB e in scrittura
+• La scrittura non fallisce più in background
+• Risolti errori di scrittura su alcuni dispositivi USB
+• I lettori multi-slot usano lo slot con la scheda inserita
+• Errore chiaro se nel lettore non c'è una scheda
+• Messaggio chiaro se Android blocca l'USB in un profilo di lavoro o app doppia
+• Traduzione in rumeno completata

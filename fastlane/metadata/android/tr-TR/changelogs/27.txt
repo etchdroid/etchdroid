@@ -1,0 +1,9 @@
+Birçok hata düzeltmesi içeren kararlılık güncellemesi.
+
+• Kalıp seçme, USB erişimi ve yazma sırasındaki çökmeler düzeltildi
+• Yazma artık arka planda başarısız olmuyor
+• Bazı USB sürücülerdeki yazma hataları düzeltildi
+• Çok yuvalı kart okuyucular kartlı yuvayı kullanıyor
+• Okuyucuda kart yoksa anlaşılır bir hata gösteriliyor
+• Android iş profilinde veya ikili uygulamada USB'yi engellerse anlaşılır mesaj
+• Romence çeviri tamamlandı

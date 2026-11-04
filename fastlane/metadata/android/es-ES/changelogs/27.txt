@@ -1,0 +1,9 @@
+Versión de fiabilidad con muchas correcciones.
+
+• Corregidos varios fallos al elegir una imagen, pedir acceso USB o escribir
+• La escritura ya no falla en segundo plano
+• Corregidos errores de escritura en algunas unidades USB
+• Los lectores multirranura usan la ranura con tarjeta
+• Error claro cuando el lector no tiene tarjeta
+• Mensaje claro si Android bloquea el USB en un perfil de trabajo o app dual
+• Traducción al rumano completada

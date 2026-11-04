@@ -1,0 +1,9 @@
+Reliability release with many bug fixes.
+
+• Fixed several crashes when choosing an image, requesting USB access or writing
+• Writing no longer fails in the background
+• Fixed write errors on some USB drives
+• Multi-slot card readers now use the slot with a card in it
+• Clear error when a card reader has no card inserted
+• Clear message when Android blocks USB access in a work profile or dual app
+• Romanian translation completed

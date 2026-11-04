@@ -1,0 +1,9 @@
+Version de fiabilité avec de nombreux correctifs.
+
+• Correction de plantages au choix de l'image, à l'accès USB et à l'écriture
+• L'écriture n'échoue plus en arrière-plan
+• Correction d'erreurs d'écriture sur certains supports USB
+• Les lecteurs multi-cartes utilisent l'emplacement occupé
+• Erreur claire si aucune carte n'est insérée
+• Message clair si Android bloque l'USB dans un profil pro ou une app clonée
+• Traduction roumaine complétée

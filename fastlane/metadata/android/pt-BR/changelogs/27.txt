@@ -1,0 +1,9 @@
+Versão de confiabilidade com muitas correções.
+
+• Corrigidas várias falhas ao escolher uma imagem, pedir acesso USB ou gravar
+• A gravação não falha mais em segundo plano
+• Corrigidos erros de gravação em algumas unidades USB
+• Leitores com vários slots usam o slot com cartão
+• Erro claro quando o leitor está sem cartão
+• Mensagem clara se o Android bloquear o USB em perfil de trabalho ou app duplicado
+• Tradução para romeno concluída
