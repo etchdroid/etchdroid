@@ -47,13 +47,13 @@
     <string name="destination_usb_device">Dispositivo USB de destino</string>
     <string name="unknown_device">Dispositivo desconhecido</string>
     <string name="grant_access">Garantir acesso</string>
-    <string name="permission_granted">Permissão Garantida</string>
+    <string name="permission_granted">Permissão concedida</string>
     <string name="be_careful">Cuidado!</string>
-    <string name="writing_the_image_will_erase">Escrever a imagem apagará todos os dados na unidade selecionada</string>
+    <string name="writing_the_image_will_erase">Gravar a imagem apagará todos os dados na unidade selecionada</string>
     <string name="write_image">Escrever imagem</string>
-    <string name="lay_your_device_flat_no_accel">Coloque o dispositivo numa mesa antes de continuar.</string>
+    <string name="lay_your_device_flat_no_accel">Deite seu dispositivo sobre uma mesa antes de continuar.</string>
     <string name="continue_">Continuar</string>
-    <string name="lay_your_device_flat">Coloque o dispositivo numa mesa e não toque nele</string>
+    <string name="lay_your_device_flat">Deite seu dispositivo sobre uma mesa e não toque nele</string>
     <string name="skip">Ignorar</string>
     <string name="supported">Suportado</string>
     <string name="maybe_supported">Talvez suportado</string>
