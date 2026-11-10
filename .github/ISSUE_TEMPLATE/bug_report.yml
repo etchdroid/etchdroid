@@ -7,15 +7,18 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report! 
-        Please ensure you have checked the [Open Issues](https://github.com/EtchDroid/EtchDroid/issues) first.
+        Please ensure you have checked the [existing issues](https://github.com/EtchDroid/EtchDroid/issues) first.
         Note that most issues are temporary and go away after a phone reboot or flipping the USB drive. Only submit an issue after having made a few attempts.
+        **Ignoring the form will result in a ban.**
 
   - type: checkboxes
     id: checks
     attributes:
       label: Preliminary Checks
       options:
-        - label: I have searched the existing issues and didn't find my problem.
+        - label: "I have searched the existing issues and didn't find my problem. I'm aware I will be banned for a month from the GitHub organization if it's obvious I haven't even tried."
+          required: true
+        - label: "I'm aware I will be **permanently banned** from the GitHub organization if the information requested in this form is not provided."
           required: true
 
   - type: input
