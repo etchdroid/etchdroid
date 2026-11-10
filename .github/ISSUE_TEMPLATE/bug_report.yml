@@ -6,10 +6,19 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report! 
+        Thanks for taking the time to fill out this bug report!
+        
+        > [!IMPORTANT]
+        > Most issues are temporary and go away after a phone reboot or flipping the USB drive. **Only submit an issue after having made a few attempts.**
+        >
+        > Crashes and hangs are automatically reported (unless you run an F-Droid build or you disabled telemetry). Automated crash reports are anonymized, I really don't care about your data.
+
         Please ensure you have checked the [existing issues](https://github.com/EtchDroid/EtchDroid/issues) first.
-        Note that most issues are temporary and go away after a phone reboot or flipping the USB drive. Only submit an issue after having made a few attempts.
-        **Ignoring the form will result in a ban.**
+        
+        > [!CAUTION]
+        > Due to constant spam, blank or otherwise low quality issues **will result in bans**.
+        > 
+        > I appreciate people who donate a bit of their time improving this project for everyone. I don't appreciate people who waste my limited free time.
 
   - type: checkboxes
     id: checks
