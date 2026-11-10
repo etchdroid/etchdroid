@@ -11,7 +11,7 @@ body:
         > [!IMPORTANT]
         > Most issues are temporary and go away after a phone reboot or flipping the USB drive. **Only submit an issue after having made a few attempts.**
         >
-        > Crashes and hangs are automatically reported (unless you run an F-Droid build or you disabled telemetry). Automated crash reports are anonymized, I really don't care about your data.
+        > Anonymized crash reports are sent automatically: you don't need to report crashes or hangs (unless you installed the app via F-Droid).
 
         Please ensure you have checked the [existing issues](https://github.com/EtchDroid/EtchDroid/issues) first.
         
