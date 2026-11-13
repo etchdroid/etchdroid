@@ -1,0 +1,9 @@
+Luotettavuuspäivitys monella bugikorjauksella.
+
+• Korjattu muutama kaatuminen levykuvaa valittaessa, USB-käyttöoikeutta pyytäessä tai kirjoittaessa
+• Kirjoittaminen ei enää epäonnistu taustalla
+• Korjattu kirjoitusvirheet joillain USB-asemilla
+• Monipaikkaiset kortinlukijat käyttävät nyt sitä paikkaa, jossa on kortti
+• Selkeä virheilmoitus, kun kortinlukijassa ei ole korttia
+• Selkeä viesti, kun Android estää USB-käyttöoikeuden työprofiilissa tai kaksoissovelluksessa
+• Romaniankielinen käännös valmistunut
