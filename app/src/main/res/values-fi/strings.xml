@@ -133,4 +133,7 @@
     <string name="any_thunderbolt_only_device" comment="Device type">Yksinomaan Thunderbolt:ia käyttävät laitteet</string>
     <string name="very_large_drives_2tb" comment="Device type">Erittäin suuret asemat (≥ 2 TB)</string>
     <string name="other_modern_gnu_linux_and_bsd_distributions_live_isos" comment="Image type">Toisten modernien GNU/Linux ja BSD jakeluitten live ISO:t</string>
+    <string name="no_file_picker" comment="Toast shown when the device has no app to pick a file">Tiedostonvalintasovellusta ei löydetty tältä laitteelta. Asenna tiedostonhallintasovellus ja yritä uudelleen.</string>
+    <string name="usb_permission_request_failed" comment="Displayed in a toast when Android refuses to show the USB permission prompt">Android kieltäytyi kysymästä USB-käyttöoikeutta. Jos EtchDroid on käynnissä työprofiilissa, toisessa tilassa tai kaksoissovelluksena, yritä käynnistää se pääprofiilista.</string>
+    <string name="no_medium_in_usb_drive" comment="Error message">Ei tallennustilavälinettä löydetty USB-asemasta. Jos se on kortinlukija, tarkista, että muistikortti on syötetty.</string>
 </resources>
