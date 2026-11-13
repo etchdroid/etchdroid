@@ -1,0 +1,7 @@
+Käytettävyyttä parantava päivitys, joka sisältää virheenkorjauksia ja uusia käännöksiä.
+
+• Parannettu luotettavuutta: korjattu useita kaatumisia USB-asemille kirjoitettaessa
+• Erittäin suuret USB-asemat, joille ei voida kirjoittaa, näyttävät nyt selkeän virheilmoituksen
+• Korjattu kaatuminen, joka tapahtui kuvia avattaessa joillakin Android 13 -laitteilla
+• Telemetria poistetaan nyt oikein käytöstä microG-pohjaisilla ROM-levyillä
+• Lisätty uusia käännöksiä: suomi, galego, burma, sardinia, slovakki ja ukraina

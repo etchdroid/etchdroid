@@ -1,1 +1,1 @@
-Kirjoita käyttöjärjestelmä ISO kuvia USB-asemille; juurihakemistoa ei tarvita
+Kirjoita käyttöjärjestelmän ISO-kuvia USB-asemille, juurihakemistoa ei tarvita

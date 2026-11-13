@@ -37,7 +37,7 @@
     <string name="is_this_a_windows_iso">Bu bir Windows ISO dosyası mı\?</string>
     <string name="continue_anyway">Yine de devam et</string>
     <string name="select_a_usb_drive">Bir USB bellek seçin</string>
-    <string name="connect_a_usb_drive">Bir USB bellek bağlayın</string>
+    <string name="connect_a_usb_drive">Connect a USB drive</string>
     <string name="looking_for_usb_drives">USB bellekler aranıyor</string>
     <string name="confirm_operation">İşlemi onaylayın</string>
     <string name="disk_image">Disk kalıbı</string>

@@ -135,4 +135,7 @@
     <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">يرسل EtchDroid معلومات القياس عن بُعد.</string>
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">احصل على المزيد من المعلومات</string>
     <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">أرسل بيانات مجهولة</string>
+    <string name="no_file_picker" comment="Toast shown when the device has no app to pick a file">لم يُعثر على أي تطبيق لاختيار الملفات على هذا الجهاز. ثبِّت تطبيق لإدارة الملفات وحاول مرة أخرى.</string>
+    <string name="usb_permission_request_failed" comment="Displayed in a toast when Android refuses to show the USB permission prompt">رفض نظام أندرويد طلب الوصول عبر USB. إذا كان تطبيق EtchDroid قيد التشغيل في ملف تعريف العمل، أو في مساحة ثانية، أو كتطبيق مزدوج، فحاول تشغيله من ملف التعريف الرئيسي.</string>
+    <string name="no_medium_in_usb_drive" comment="Error message">لم يُعثر على أي وسيط تخزين في محرك USB. إذا كان الجهاز عبارة عن قارئ بطاقات، فتأكد من إدخال بطاقة ذاكرة.</string>
 </resources>

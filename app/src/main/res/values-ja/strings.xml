@@ -133,4 +133,7 @@
     <string name="learn_more" comment="Displayed in the main app screen on first launch as a snackbar action button. It should be short and concise.">詳細を確認</string>
     <string name="send_anonymous_data" comment="Displayed in the main app menu; controls whether the app sends anonymous telemetry info.">匿名データを送信</string>
     <string name="etchdroid_uses_telemetry" comment="Displayed in the main app screen on first launch in a toast/snackbar. It should be short and concise.">EtchDroidは分析用の情報を収集します。</string>
+    <string name="no_file_picker" comment="Toast shown when the device has no app to pick a file">ファイル選択アプリがこのデバイスでは見つかりません。選択アプリをインストールしてから再度お試し下さい。</string>
+    <string name="usb_permission_request_failed" comment="Displayed in a toast when Android refuses to show the USB permission prompt">USBアクセスをAndroidが要求しませんでした。EtchDroidが仕事用プロファイル、セカンドスペースやデュアルアプリとして実行されている場合には、メインのプロファイルから実行してみてください。</string>
+    <string name="no_medium_in_usb_drive" comment="Error message">メディアがUSBドライブ内に見当たりません。カードリーダーの場合、メモリーカードが挿入されているのを確認してください。</string>
 </resources>
